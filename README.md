@@ -1,6 +1,1 @@
-<<<<<<< HEAD
-# LP2-PROJETO-FINAL
-=======
 # LP2-PROJETO_FINAL
-
->>>>>>> 01c71ce544f4125c32825b7af286cdc07b52804d
