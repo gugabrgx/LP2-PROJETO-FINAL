@@ -6,6 +6,6 @@ package entidades;
  * @author Gustavo Santos - 117210400
  * 
  */
-public class ItemHigiene extends Item {
+public class ItemPorQuantidadeFixa extends Item {
 
 }
