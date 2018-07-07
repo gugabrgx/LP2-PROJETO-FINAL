@@ -9,8 +9,8 @@ import easyaccept.EasyAccept;
  * 
  * (colocar nomes em ordem alfabeticas)
  * @author Eduardo Henrique Pontes Silva - 117210360 
+ * @author Gustavo Santos - 117210400
  */
-
 public class Facade {
 
 	/**
@@ -38,7 +38,6 @@ public class Facade {
 
 	public String exibeItem(int id) {
 		return this.controller.exibeItem(id);
-
 	}
 
 	public void atualizaItem(int id, String atributo, String novoValor) {
@@ -51,7 +50,6 @@ public class Facade {
 
 	public void deletaItem(int id) {
 		this.controller.deletaItem(id);
-
 	}
 
 }

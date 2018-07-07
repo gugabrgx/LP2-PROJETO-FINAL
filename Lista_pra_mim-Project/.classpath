@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="/Users/eduardohps/git/LP2-PROJETO-FINAL/Lista_pra_mim-Project/easyAcceptJar/easyaccept.jar"/>
+	<classpathentry kind="lib" path="easyAcceptJar/easyaccept.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

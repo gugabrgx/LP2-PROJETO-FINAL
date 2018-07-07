@@ -6,15 +6,14 @@ package Controllers;
  * 
  * 
  * @author Eduardo Henrique Pontes Silva - 117210360
+ * @author Gustavo Santos - 117210400
  */
-
 public class Controller {
 
 	// precisamos ver a questão do armazenamento, como não pode ter itens repitidos
 	// fica um pouco complicado ja que devemos localizar por identificador unico.
 
-	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
-			double preco) {
+	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra, double preco) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
