@@ -13,7 +13,7 @@ public class Controller {
 	// precisamos ver a questão do armazenamento, como não pode ter itens repitidos
 	// fica um pouco complicado ja que devemos localizar por identificador unico.
 
-	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedid, String localDeCompra,
+	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
 			double preco) {
 		// TODO Auto-generated method stub
 		return 0;

@@ -23,9 +23,9 @@ public class Facade {
 		EasyAccept.main(args);
 	}
 
-	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedid, String localDeCompra,
+	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
 			double preco) {
-		return this.controller.adicionaItemPorQtd(nome, categoria, qnt, unidadeDeMedid, localDeCompra, preco);
+		return this.controller.adicionaItemPorQtd(nome, categoria, qnt, unidadeDeMedida, localDeCompra, preco);
 	}
 
 	public int adicionaItemPorQuilo(String nome, String categoria, double kg, String localDeCompra, double preco) {
