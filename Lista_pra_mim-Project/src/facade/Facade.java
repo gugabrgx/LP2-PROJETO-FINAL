@@ -13,9 +13,7 @@ import easyaccept.EasyAccept;
  */
 public class Facade {
 
-	/**
-	 * Controlador do Sistema.
-	 */
+	// Instanciacao de um Objeto Controller.
 	private Controller controller;
 
 	public static void main(String[] args) {
@@ -23,8 +21,7 @@ public class Facade {
 		EasyAccept.main(args);
 	}
 
-	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
-			double preco) {
+	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra, double preco) {
 		return this.controller.adicionaItemPorQtd(nome, categoria, qnt, unidadeDeMedida, localDeCompra, preco);
 	}
 
