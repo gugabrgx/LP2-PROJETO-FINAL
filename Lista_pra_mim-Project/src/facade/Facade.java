@@ -8,22 +8,27 @@ import easyaccept.EasyAccept;
  * 
  * 
  * (colocar nomes em ordem alfabeticas)
- * @author Eduardo Henrique Pontes Silva - 117210360 
+ * 
+ * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
  */
 public class Facade {
 
-	// Instanciacao de um Objeto Controller.
-
-	private Controller controller = new Controller();
+	private Controller controller;
 
 	public static void main(String[] args) {
-		args = new String[] { "facade.Facade", "acceptance_tests/use_case1.txt",  "acceptance_tests/use_case1_exception.txt"};
+		args = new String[] { "facade.Facade", "acceptance_tests/use_case1.txt",
+				"acceptance_tests/use_case1_exception.txt" };
 
 		EasyAccept.main(args);
 	}
 
-	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra, double preco) {
+	public Facade() {
+		this.controller = new Controller();
+	}
+
+	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
+			double preco) {
 		return this.controller.adicionaItemPorQtd(nome, categoria, qnt, unidadeDeMedida, localDeCompra, preco);
 	}
 
@@ -49,6 +54,22 @@ public class Facade {
 
 	public void deletaItem(int id) {
 		this.controller.deletaItem(id);
+	}
+
+	public String getItem(int posicao) {
+		return this.controller.getItem(posicao);
+	}
+
+	public String getItemPorCategoria(String categoria, int posicao) {
+		return this.controller.getItemPorCategoria(categoria, posicao);
+	}
+
+	public String getItemPorMenorPreco(int posicao) {
+		return this.controller.getItemPorMenorPreco(posicao);
+	}
+
+	public String getItemPorPesquisa(String strPesquisada, int posicao) {
+		return this.controller.getItemPorPesquisa(strPesquisada, posicao);
 	}
 
 }
