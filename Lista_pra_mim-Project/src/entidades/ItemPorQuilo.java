@@ -1,5 +1,6 @@
 package entidades;
 
+
 import java.util.HashMap;
 
 /**
@@ -77,4 +78,5 @@ public class ItemPorQuilo extends Item {
     public String toString() {
         return String.format("%s Preco por quilo: %s", super.toString(), super.getListaPrecos());
     }
+
 }

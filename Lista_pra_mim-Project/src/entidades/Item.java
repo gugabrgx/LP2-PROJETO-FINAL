@@ -4,16 +4,16 @@ import java.util.Map;
 
 /**
  * Laboratório de Programação 2 - Lista pra mim© Project
+*Classe abstrata que representa um Item. Cada item base tem um nome, uma categoria
+ * e precos. Nesta classe e possivel adicionar um preco a um item, pegar o nome do item,
+ * pegar a categoria de um item, etc.
  *
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
  * @author João Pedro de Barros - 117210327
- * <p>
- * Classe abstrata que representa um Item. Cada item base tem um nome, uma categoria
- * e precos. Nesta classe e possivel adicionar um preco a um item, pegar o nome do item,
- * pegar a categoria de um item, etc.
  */
 public abstract class Item {
+
 
     // Uma String que representa o nome de um item.
     protected String nome;

@@ -10,13 +10,13 @@ import entidades.ItemPorUnidade;
 
 /**
  * Laboratório de Programação 2 - Lista pra mim© Project
+*
+ *Classe que representa o Controller. Nesta classe e possivel realizar operacoes como:
+ * adicionar itens, exibir itens, atualizar itens, etc.
  *
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
  * @author João Pedro de Barros - 117210327
- * 
- * Classe que representa o Controller. Nesta classe e possivel realizar operacoes como:
- * adicionar itens, exibir itens, atualizar itens, etc.
  */
 public class Controller {
 
@@ -155,4 +155,5 @@ public class Controller {
         if (!itens.containsKey(id)) throw new IllegalArgumentException("Erro na remocao de item: item ja removido.");
         itens.remove(id);
     }
+
 }
