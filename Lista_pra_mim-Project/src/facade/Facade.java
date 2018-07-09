@@ -14,10 +14,12 @@ import easyaccept.EasyAccept;
 public class Facade {
 
 	// Instanciacao de um Objeto Controller.
-	private Controller controller;
+
+	private Controller controller = new Controller();
 
 	public static void main(String[] args) {
-		args = new String[] { "facade.Facade", "acceptance_tests/use_case1.txt", };
+		args = new String[] { "facade.Facade", "acceptance_tests/use_case1.txt",  "acceptance_tests/use_case1_exception.txt"};
+
 		EasyAccept.main(args);
 	}
 
