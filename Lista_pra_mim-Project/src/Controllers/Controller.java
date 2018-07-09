@@ -156,4 +156,24 @@ public class Controller {
         itens.remove(id);
     }
 
+	public String getItem(int posicao) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getItemPorCategoria(String categoria, int posicao) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getItemPorMenorPreco(int posicao) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getItemPorPesquisa(String strPesquisada, int posicao) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
