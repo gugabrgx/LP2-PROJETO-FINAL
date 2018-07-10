@@ -30,6 +30,7 @@ public class Controller {
 	private int id;
 	// Um Mapa que mapeia um Objeto Item para um inteiro.
 	private Map<Integer, Item> itens;
+
 	private Comparator<Item> comparador;
 
 	/**
@@ -68,6 +69,8 @@ public class Controller {
 	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
 			double preco) {
 		Item item = new ItemPorQuantidadeFixa(nome, categoria, qnt, unidadeDeMedida, localDeCompra, preco, this.id);
+		if (this.itens.containsValue(item))
+			throw new IllegalArgumentException("Erro no cadastro de item: item ja cadastrado.");
 		itens.put(this.id, item);
 		return this.id++;
 	}
@@ -90,6 +93,8 @@ public class Controller {
 	 */
 	public int adicionaItemPorQuilo(String nome, String categoria, double kg, String localDeCompra, double preco) {
 		Item item = new ItemPorQuilo(nome, categoria, kg, localDeCompra, preco, this.id);
+		if (this.itens.containsValue(item))
+			throw new IllegalArgumentException("Erro no cadastro de item: item ja cadastrado.");
 		itens.put(this.id, item);
 		return this.id++;
 	}
@@ -113,6 +118,8 @@ public class Controller {
 	 */
 	public int adicionaItemPorUnidade(String nome, String categoria, int qnt, String localDeCompra, double preco) {
 		Item item = new ItemPorUnidade(nome, categoria, qnt, localDeCompra, preco, this.id);
+		if (this.itens.containsValue(item))
+			throw new IllegalArgumentException("Erro no cadastro de item: item ja cadastrado.");
 		itens.put(this.id, item);
 		return this.id++;
 	}

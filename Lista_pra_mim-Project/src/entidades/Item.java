@@ -162,10 +162,6 @@ public abstract class Item {
 		return this.categoria;
 	}
 
-	public double getMenorPreco() {
-		return this.menorPreco;
-	}
-
 	/**
 	 * Metodo que retorna uma string contendo nome e categoria de um item.
 	 * <p>
@@ -224,8 +220,15 @@ public abstract class Item {
 			return false;
 		return true;
 	}
+	
 
 	public int getId() {
 		return this.id;
 	}
+	
+
+	public double getMenorPreco() {
+		return this.menorPreco;
+	}
+
 }
