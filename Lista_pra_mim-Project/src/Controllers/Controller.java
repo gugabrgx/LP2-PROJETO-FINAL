@@ -9,6 +9,7 @@ import entidades.ItemPorQuilo;
 import entidades.ItemPorUnidade;
 
 /**
+
  * Laboratório de Programação 2 - Lista pra mim© Project
 *
  *Classe que representa o Controller. Nesta classe e possivel realizar operacoes como:
@@ -16,7 +17,8 @@ import entidades.ItemPorUnidade;
  *
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
- * @author João Pedro de Barros - 117210327
+ * @author Joao Pedro de Barros - 117210327
+ * @author Rafael Azevedo - 117210382
  */
 public class Controller {
 
@@ -159,6 +161,7 @@ public class Controller {
 	public String getItem(int posicao) {
 		// TODO Auto-generated method stub
 		return null;
+
 	}
 
 	public String getItemPorCategoria(String categoria, int posicao) {

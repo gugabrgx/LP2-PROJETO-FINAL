@@ -4,10 +4,11 @@ package entidades;
 import java.util.HashMap;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  *
  * @author Gustavo Santos - 117210400
- * @author João Pedro de Barros - 117210327
+ * @author Joao Pedro de Barros - 117210327
+ * @author Rafael Azevedo - 117210382
  *
  * Classe que representa um Item comercializado por unidade. Este tipo de item base possui nome, categoria,
  * quantidade e precos. Nesta classe e possivel crir um item, adicionar um preco a um item,

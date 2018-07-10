@@ -10,7 +10,8 @@ import java.util.Map;
  *
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
- * @author João Pedro de Barros - 117210327
+ * @author Joao Pedro de Barros - 117210327
+ * @author Rafael Azevedo - 117210382
  */
 public abstract class Item {
 
@@ -21,6 +22,8 @@ public abstract class Item {
     protected String categoria;
     // Um Mapa que mapeia um valor em ponto flutuante a uma String.
     protected Map<String, Double> precos;
+    private double menorPreco;
+
 
     /**
      * Testa os valors comuns entre os tipos de itens repassados pelo usuario e as atribui a suas devidas variaveis.
@@ -57,6 +60,9 @@ public abstract class Item {
         this.nome = nome;
         this.categoria = categoria;
         this.precos.put(localDeCompra, preco);
+
+        this.menorPreco = preco;
+
     }
 
     /**
@@ -98,6 +104,10 @@ public abstract class Item {
             throw new IllegalArgumentException("Erro no cadastro de preco: local de compra nao pode ser vazio ou nulo.");
         if (preco <= 0) throw new IllegalArgumentException("Erro no cadastro de preco: preco de item invalido.");
         precos.put(localDeCompra, preco);
+        if (preco < menorPreco) this.menorPreco = preco;
+        	
+
+
     }
 
     /**
@@ -135,6 +145,10 @@ public abstract class Item {
      */
     public String getCategoria() {
         return this.categoria;
+    }
+
+    public double getMenorPreco() {
+        return this.menorPreco;
     }
 
     /**
