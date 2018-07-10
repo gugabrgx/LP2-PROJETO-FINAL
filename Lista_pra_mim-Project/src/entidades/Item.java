@@ -23,7 +23,9 @@ public abstract class Item {
 	private String categoria;
 	// Um Mapa que mapeia um valor em ponto flutuante a uma String.
 	private Map<String, Double> precos;
+	// Um double que representa o menor preco de um item.
 	private double menorPreco;
+	// Um inteiro que representa o id do item.
 	private int id;
 
 	/**
@@ -161,7 +163,14 @@ public abstract class Item {
 	public String getCategoria() {
 		return this.categoria;
 	}
-
+	
+	/**
+	 * Metodo que retorna o menor preco do item.
+	 * <p>
+	 * Este metodo nao utiliza parametros.
+	 *
+	 * @return Um double que representa o menor preco do item.
+	 */
 	public double getMenorPreco() {
 		return this.menorPreco;
 	}
@@ -224,7 +233,14 @@ public abstract class Item {
 			return false;
 		return true;
 	}
-
+	
+	/**
+	 * Metodo que retorna o id do item.
+	 * <p>
+	 * Este metodo nao utiliza parametros.
+	 *
+	 * @return Um inteiro que representa o id do item.
+	 */
 	public int getId() {
 		return this.id;
 	}

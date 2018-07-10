@@ -65,8 +65,7 @@ public class Controller {
 	 *            Um double que representa o valor do produto.
 	 * @return Um inteiro que representa o identificador do produto.
 	 */
-	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
-			double preco) {
+	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,double preco) {
 		Item item = new ItemPorQuantidadeFixa(nome, categoria, qnt, unidadeDeMedida, localDeCompra, preco, this.id);
 		itens.put(this.id, item);
 		return this.id++;
@@ -202,9 +201,14 @@ public class Controller {
 			throw new IllegalArgumentException("Erro na remocao de item: item ja removido.");
 		itens.remove(id);
 	}
-
-	// falta documentar daqui para baixo
-
+	
+	/**
+	 * Metodo que ordena os itens por ordem alfabetica..
+	 * 
+	 * @param posicao
+	 * 				A posicao em que o item esta posicionado ordenadamente.
+	 * @return Uma String que contem a exibicao de um item.
+	 */
 	public String getItem(int posicao) {
 		if (posicao < 0)
 			throw new ArrayIndexOutOfBoundsException("Erro no cadastro de preco: id de item invalido.");
@@ -219,7 +223,14 @@ public class Controller {
 		}
 		return itensOrdenados.get(posicao).toString();
 	}
-
+	
+	/**
+	 * Metodo que ordena os itens por categoria.
+	 * 
+	 * @param posicao
+	 * 				A posicao em que o item esta posicionado ordenadamente.
+	 * @return Uma String que contem a exibicao de um item.
+	 */
 	public String getItemPorCategoria(String categoria, int posicao) {
 		if (posicao < 0)
 			throw new ArrayIndexOutOfBoundsException("Erro no cadastro de preco: id de item invalido.");
@@ -241,7 +252,15 @@ public class Controller {
 		}
 		return itensOrdenados.get(posicao).toString();
 	}
-
+	
+	/**
+	 * Metodo que ordena os itens por preco.
+	 * e retorna um item na posicao em que foi ordenado.
+	 * 
+	 * @param posicao
+	 * 				A posicao em que o item esta posicionado ordenadamente.
+	 * @return Uma String que contem a exibicao de um item.
+	 */
 	public String getItemPorMenorPreco(int posicao) {
 		if (posicao < 0)
 			throw new ArrayIndexOutOfBoundsException("Erro na listagem de item: id de item invalido.");
@@ -256,7 +275,17 @@ public class Controller {
 		}
 		return itensOrdenados.get(posicao).toString();
 	}
-
+	
+	/**
+	 * Metodo que ordena os itens relacionados a uma dada string de pesquisa
+	 * e a  listagem deve ocorrer em ordem alfabética considerando,
+	 * a representação em string do item.
+	 * e retorna um item na posicao em que foi ordenado.
+	 * 
+	 * @param posicao
+	 * 				A posicao em que o item esta posicionado ordenadamente.
+	 * @return Uma String que contem a exibicao de um item.
+	 */
 	public String getItemPorPesquisa(String strPesquisada, int posicao) {
 		if (posicao < 0)
 			throw new ArrayIndexOutOfBoundsException("Erro no cadastro de preco: id de item invalido.");
