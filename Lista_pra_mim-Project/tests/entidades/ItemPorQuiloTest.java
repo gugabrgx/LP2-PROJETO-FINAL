@@ -86,4 +86,25 @@ public class ItemPorQuiloTest {
     public void atualizaItemAtributoInvalido() {
         this.item.atualizaItem("unidades", "10");
     }
+
+    @Test
+    public void adicionaPrecoCorreto() {
+        this.item.adicionaPrecoItem("Supermercado Concha", 5.89);
+        assertEquals("1. Feijao Hulk, alimento industrializado, Preco por quilo: <Supermercado Concha, R$ 5,89;Mercadinho#, R$ 8,99;>", this.item.toString());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void adicionaPrecoMercadoVazio() {
+        this.item.adicionaPrecoItem("", 8.99);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void adicionaPrecoMercadoNulo() {
+        this.item.adicionaPrecoItem(null, 8.99);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void adicionaPrecoInvalido() {
+        this.item.adicionaPrecoItem("Supermercado Bonus", -1.99);
+    }
 }

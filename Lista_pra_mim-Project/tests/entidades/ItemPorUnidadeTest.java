@@ -87,4 +87,25 @@ public class ItemPorUnidadeTest {
         this.item.atualizaItem("kg", "10");
     }
 
+    @Test
+    public void adicionaPrecoCorreto() {
+        this.item.adicionaPrecoItem("Supermercado Concha", 5.89);
+        assertEquals("1. Batata Roffles, alimento industrializado, Preco: <Supermercado Concha, R$ 5,89;Mercadinho, R$ 4,99;>", this.item.toString());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void adicionaPrecoMercadoVazio() {
+        this.item.adicionaPrecoItem("", 8.99);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void adicionaPrecoMercadoNulo() {
+        this.item.adicionaPrecoItem(null, 8.99);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void adicionaPrecoInvalido() {
+        this.item.adicionaPrecoItem("Supermercado Bonus", -1.99);
+    }
+
 }
