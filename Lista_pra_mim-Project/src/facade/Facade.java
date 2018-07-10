@@ -17,7 +17,7 @@ public class Facade {
 	 * Este atributo representa o objeto Controller.
 	 */
 	private Controller controller;
-	
+
 	public static void main(String[] args) {
 		args = new String[] { "facade.Facade", "acceptance_tests/use_case1.txt",
 				"acceptance_tests/use_case1_exception.txt", "acceptance_tests/use_case2.txt",
@@ -25,14 +25,14 @@ public class Facade {
 
 		EasyAccept.main(args);
 	}
-	
+
 	/**
 	 * Constroi o objeto Facade, e inicializa o objeto Controller.
 	 */
 	public Facade() {
 		this.controller = new Controller();
 	}
-	
+
 	/**
 	 * Metodo que cria e adiciona um novo ItemPorQuantidade a uma lista que contem
 	 * todos os itens.
@@ -53,10 +53,11 @@ public class Facade {
 	 *            Um double que representa o valor do produto.
 	 * @return Um inteiro que representa o identificador do produto.
 	 */
-	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,double preco) {
+	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
+			double preco) {
 		return this.controller.adicionaItemPorQtd(nome, categoria, qnt, unidadeDeMedida, localDeCompra, preco);
 	}
-	
+
 	/**
 	 * Metodo que cria e adiciona um novo ItemPorQuilo a uma lista que contem todos
 	 * os itens.
@@ -76,7 +77,7 @@ public class Facade {
 	public int adicionaItemPorQuilo(String nome, String categoria, double kg, String localDeCompra, double preco) {
 		return this.controller.adicionaItemPorQuilo(nome, categoria, kg, localDeCompra, preco);
 	}
-	
+
 	/**
 	 * Metodo que cria e adiciona um novo ItemPorUnidade a uma lista que contem
 	 * todos os itens.
@@ -97,7 +98,7 @@ public class Facade {
 	public int adicionaItemPorUnidade(String nome, String categoria, int qnt, String localDeCompra, double preco) {
 		return this.controller.adicionaItemPorUnidade(nome, categoria, qnt, localDeCompra, preco);
 	}
-	
+
 	/**
 	 * Metodo que retorna uma String contendo a exibicao de um item.
 	 *
@@ -108,7 +109,7 @@ public class Facade {
 	public String exibeItem(int id) {
 		return this.controller.exibeItem(id);
 	}
-	
+
 	/**
 	 * Metodo que atualiza o atributo de um item passando um novo valor para o
 	 * atributo.
@@ -125,7 +126,7 @@ public class Facade {
 	public void atualizaItem(int id, String atributo, String novoValor) {
 		this.controller.atualizaItem(id, atributo, novoValor);
 	}
-	
+
 	/**
 	 * Metodo que adiciona um preco a um item.
 	 *
@@ -141,7 +142,7 @@ public class Facade {
 	public void adicionaPrecoItem(int id, String localDeCompra, double preco) {
 		this.controller.adicionaPrecoItem(id, localDeCompra, preco);
 	}
-	
+
 	/**
 	 * Metodo que remove um item a partir de seu id.
 	 *
@@ -153,47 +154,47 @@ public class Facade {
 	public void deletaItem(int id) {
 		this.controller.deletaItem(id);
 	}
-	
+
 	/**
 	 * Metodo que ordena os itens por ordem alfabetica..
 	 * 
 	 * @param posicao
-	 * 				A posicao em que o item esta posicionado ordenadamente.
+	 *            A posicao em que o item esta posicionado ordenadamente.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItem(int posicao) {
 		return this.controller.getItem(posicao);
 	}
-	
+
 	/**
 	 * Metodo que ordena os itens por categoria.
 	 * 
 	 * @param posicao
-	 * 				A posicao em que o item esta posicionado ordenadamente.
+	 *            A posicao em que o item esta posicionado ordenadamente.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItemPorCategoria(String categoria, int posicao) {
 		return this.controller.getItemPorCategoria(categoria, posicao);
 	}
-	
+
 	/**
 	 * Metodo que ordena os itens por preco.
 	 * 
 	 * @param posicao
-	 * 				A posicao em que o item esta posicionado ordenadamente.
+	 *            A posicao em que o item esta posicionado ordenadamente.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItemPorMenorPreco(int posicao) {
 		return this.controller.getItemPorMenorPreco(posicao);
 	}
-	
+
 	/**
-	 * Metodo que ordena os itens relacionados a uma dada string de pesquisa
-	 * e a listagem deve ocorrer em ordem alfabética considerando a 
-	 * representação em string do item.
+	 * Metodo que ordena os itens relacionados a uma dada string de pesquisa e a
+	 * listagem deve ocorrer em ordem alfabética considerando a representação em
+	 * string do item.
 	 * 
 	 * @param posicao
-	 * 				A posicao em que o item esta posicionado ordenadamente.
+	 *            A posicao em que o item esta posicionado ordenadamente.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItemPorPesquisa(String strPesquisada, int posicao) {

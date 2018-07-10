@@ -110,7 +110,7 @@ public abstract class Item {
 	 *            Uma String que representa o local de compra do produto.
 	 * @param preco
 	 *            Um double que representa o valor de compra do produto.
-	 *            <p>
+	 * 
 	 *            Este metodo nao retorna nenhum valor.
 	 */
 	public void adicionaPrecoItem(String localDeCompra, double preco) {
@@ -129,7 +129,6 @@ public abstract class Item {
 
 	/**
 	 * Metodo que gera uma String contendo todos os precos de um determinado item.
-	 * <p>
 	 * Este metodo nao utiliza parametros.
 	 *
 	 * @return Uma String contendo todos os precos de um item.
@@ -144,7 +143,7 @@ public abstract class Item {
 
 	/**
 	 * Metodo que retorna o nome do item.
-	 * <p>
+	 * 
 	 * Este metodo nao utiliza parametros.
 	 *
 	 * @return Uma String que representa o nome do item.
@@ -155,7 +154,7 @@ public abstract class Item {
 
 	/**
 	 * Metodo que retorna a categoria do item.
-	 * <p>
+	 * 
 	 * Este metodo nao utiliza parametros.
 	 *
 	 * @return Uma String que representa a categoria do item.
@@ -163,10 +162,10 @@ public abstract class Item {
 	public String getCategoria() {
 		return this.categoria;
 	}
-	
+
 	/**
 	 * Metodo que retorna o menor preco do item.
-	 * <p>
+	 * 
 	 * Este metodo nao utiliza parametros.
 	 *
 	 * @return Um double que representa o menor preco do item.
@@ -177,7 +176,7 @@ public abstract class Item {
 
 	/**
 	 * Metodo que retorna uma string contendo nome e categoria de um item.
-	 * <p>
+	 * 
 	 * Este metodo nao utiliza parametros.
 	 *
 	 * @return Uma String contendo nome e categoria de um item.
@@ -190,7 +189,7 @@ public abstract class Item {
 	/**
 	 * Metodo hashCode que gera um inteiro que representa o hashcode de um Item a
 	 * partir de sua categoria e nome.
-	 * <p>
+	 * 
 	 * Este metodo nao utiliza parametros.
 	 *
 	 * @return Um inteiro que representa o hashcode de um Item.
@@ -233,10 +232,10 @@ public abstract class Item {
 			return false;
 		return true;
 	}
-	
+
 	/**
 	 * Metodo que retorna o id do item.
-	 * <p>
+	 * 
 	 * Este metodo nao utiliza parametros.
 	 *
 	 * @return Um inteiro que representa o id do item.
