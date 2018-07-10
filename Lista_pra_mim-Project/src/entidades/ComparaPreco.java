@@ -10,7 +10,7 @@ public class ComparaPreco implements Comparator<Item> {
 	*/
 	@Override
 	public int compare(Item i1, Item i2) {
-		return (int) Math.ceil(i1.getMenorPreco() - i1.getMenorPreco());
+		return (int) Math.ceil(i1.getMenorPreco() - i2.getMenorPreco());
 	}
 
 }

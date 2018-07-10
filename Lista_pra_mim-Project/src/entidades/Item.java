@@ -101,8 +101,8 @@ public abstract class Item {
             throw new IllegalArgumentException("Erro no cadastro de preco: local de compra nao pode ser vazio ou nulo.");
         if (preco <= 0) throw new IllegalArgumentException("Erro no cadastro de preco: preco de item invalido.");
         precos.put(localDeCompra, preco);
-        if (preco < menorPreco) 
-        	this.menorPreco = preco;
+        if (preco < menorPreco) this.menorPreco = preco;
+        	
     }
 
     /**
