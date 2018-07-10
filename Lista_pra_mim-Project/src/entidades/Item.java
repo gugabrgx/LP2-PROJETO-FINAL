@@ -69,9 +69,7 @@ public abstract class Item {
 		this.categoria = categoria;
 		this.precos = new HashMap<>();
 		this.precos.put(localDeCompra, preco);
-		if (this.menorPreco > preco || this.menorPreco == 0) {
-			this.menorPreco = preco;
-		}
+		this.menorPreco = preco;
 		this.id = id;
 
 	}
