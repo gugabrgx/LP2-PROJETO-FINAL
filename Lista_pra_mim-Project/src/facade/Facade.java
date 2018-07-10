@@ -7,8 +7,6 @@ import easyaccept.EasyAccept;
  * Laboratório de Programação 2 - Lista pra mim© Project
  * 
  * 
- * (colocar nomes em ordem alfabeticas)
- * 
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
  * @author Joao Pedro de Barros - 117210327
@@ -20,7 +18,8 @@ public class Facade {
 
 	public static void main(String[] args) {
 		args = new String[] { "facade.Facade", "acceptance_tests/use_case1.txt",
-				"acceptance_tests/use_case1_exception.txt" };
+				"acceptance_tests/use_case1_exception.txt", "acceptance_tests/use_case2.txt",
+				"acceptance_tests/use_case2_exception.txt" };
 
 		EasyAccept.main(args);
 	}
