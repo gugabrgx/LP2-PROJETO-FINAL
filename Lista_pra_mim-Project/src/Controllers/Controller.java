@@ -129,7 +129,7 @@ public class Controller {
 			throw new ArrayIndexOutOfBoundsException("Erro na listagem de item: id invalido.");
 		if (!itens.containsKey(id))
 			throw new NullPointerException("Erro na listagem de item: item nao existe.");
-		return String.format("%d%s", id, itens.get(id).toString());
+		return itens.get(id).toString();
 	}
 
 	/**
@@ -217,7 +217,7 @@ public class Controller {
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		return (itensOrdenados.get(posicao).getId()) + itensOrdenados.get(posicao).toString();
+		return itensOrdenados.get(posicao).toString();
 	}
 
 	public String getItemPorCategoria(String categoria, int posicao) {
@@ -239,7 +239,7 @@ public class Controller {
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		return (itensOrdenados.get(posicao).getId()) + itensOrdenados.get(posicao).toString();
+		return itensOrdenados.get(posicao).toString();
 	}
 
 	public String getItemPorMenorPreco(int posicao) {
@@ -254,7 +254,7 @@ public class Controller {
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		return (itensOrdenados.get(posicao).getId()) + itensOrdenados.get(posicao).toString();
+		return itensOrdenados.get(posicao).toString();
 	}
 
 	public String getItemPorPesquisa(String strPesquisada, int posicao) {
@@ -274,7 +274,7 @@ public class Controller {
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		return (itensOrdenados.get(posicao).getId()) + itensOrdenados.get(posicao).toString();
+		return itensOrdenados.get(posicao).toString();
 	}
 
 }
