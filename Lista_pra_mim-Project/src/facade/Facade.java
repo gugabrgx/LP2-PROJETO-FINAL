@@ -4,7 +4,7 @@ import Controllers.Controller;
 import easyaccept.EasyAccept;
 
 /**
- * Laboratorio de Programacao 2 - Lista pra mim© Project
+ * Laboratório de Programação 2 - Lista pra mim© Project
  * 
  * 
  * (colocar nomes em ordem alfabeticas)

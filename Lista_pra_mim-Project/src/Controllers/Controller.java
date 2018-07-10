@@ -9,8 +9,9 @@ import entidades.ItemPorQuilo;
 import entidades.ItemPorUnidade;
 
 /**
- * Laboratorio de Programacao 2 - Lista pra mim© Project
- *
+
+ * Laboratório de Programação 2 - Lista pra mim© Project
+*
  *Classe que representa o Controller. Nesta classe e possivel realizar operacoes como:
  * adicionar itens, exibir itens, atualizar itens, etc.
  *

@@ -3,7 +3,7 @@ package entidades;
 import java.util.Map;
 
 /**
- * Laboratorio de Programacao 2 - Lista pra mim© Project
+ * Laboratório de Programação 2 - Lista pra mim© Project
 *Classe abstrata que representa um Item. Cada item base tem um nome, uma categoria
  * e precos. Nesta classe e possivel adicionar um preco a um item, pegar o nome do item,
  * pegar a categoria de um item, etc.
@@ -23,6 +23,7 @@ public abstract class Item {
     // Um Mapa que mapeia um valor em ponto flutuante a uma String.
     protected Map<String, Double> precos;
     private double menorPreco;
+
 
     /**
      * Testa os valors comuns entre os tipos de itens repassados pelo usuario e as atribui a suas devidas variaveis.
@@ -59,7 +60,9 @@ public abstract class Item {
         this.nome = nome;
         this.categoria = categoria;
         this.precos.put(localDeCompra, preco);
+
         this.menorPreco = preco;
+
     }
 
     /**
@@ -103,6 +106,7 @@ public abstract class Item {
         precos.put(localDeCompra, preco);
         if (preco < menorPreco) 
         	this.menorPreco = preco;
+
     }
 
     /**
@@ -141,6 +145,7 @@ public abstract class Item {
     public String getCategoria() {
         return this.categoria;
     }
+
     public double getMenorPreco() {
         return this.menorPreco;
     }
