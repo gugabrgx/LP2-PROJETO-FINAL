@@ -215,15 +215,12 @@ public class Controller {
 	public String getItem(int posicao) {
 		if (posicao < 0)
 			throw new ArrayIndexOutOfBoundsException("Erro no cadastro de preco: id de item invalido.");
-		ArrayList<Item> itensOrdenados = new ArrayList<>();
-		for (Item item : this.itens.values()) {
-			itensOrdenados.add(item);
-		}
+		ArrayList<Item> itensOrdenados = new ArrayList<>(itens.values());
 
-		Collections.sort(itensOrdenados, this.comparador);
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
+		Collections.sort(itensOrdenados, this.comparador);
 		return itensOrdenados.get(posicao).toString();
 	}
 
