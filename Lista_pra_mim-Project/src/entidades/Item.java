@@ -232,6 +232,7 @@ public abstract class Item {
 			return false;
 		return true;
 	}
+	
 
 	/**
 	 * Metodo que retorna o id do item.
@@ -243,4 +244,10 @@ public abstract class Item {
 	public int getId() {
 		return this.id;
 	}
+	
+
+	public double getMenorPreco() {
+		return this.menorPreco;
+	}
+
 }
