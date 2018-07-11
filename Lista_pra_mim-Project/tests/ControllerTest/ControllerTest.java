@@ -6,9 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Controllers.Controller;
-import entidades.Item;
-import entidades.ItemPorQuantidadeFixa;
-import entidades.ItemPorQuilo;
+
 
 /**
  * 
@@ -26,7 +24,7 @@ public class ControllerTest {
 	// Instanciacao de objetos do tipo Controller.
 	private Controller controller, outroController;
 	// Instanciacao de um objeto Item
-	private Item item;
+
 	
 	/**
 	 * Metodo que inicializa o Controller.
