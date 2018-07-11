@@ -129,7 +129,7 @@ public class Controller {
 			throw new ArrayIndexOutOfBoundsException("Erro na listagem de item: id invalido.");
 		if (!itens.containsKey(id))
 			throw new NullPointerException("Erro na listagem de item: item nao existe.");
-		return itens.get(id).toString();
+		return id + ". " + itens.get(id).toString();
 	}
 
 	/**
@@ -222,7 +222,7 @@ public class Controller {
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		return itensOrdenados.get(posicao).toString();
+		return itensOrdenados.get(posicao).getId() + ". " + itensOrdenados.get(posicao).toString();
 	}
 
 	/**
@@ -251,7 +251,7 @@ public class Controller {
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		return itensOrdenados.get(posicao).toString();
+		return itensOrdenados.get(posicao).getId() + ". " + itensOrdenados.get(posicao).toString();
 	}
 
 	/**
@@ -274,7 +274,7 @@ public class Controller {
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		return itensOrdenados.get(posicao).toString();
+		return itensOrdenados.get(posicao).getId() + ". " + itensOrdenados.get(posicao).toString();
 	}
 
 	/**
@@ -303,7 +303,7 @@ public class Controller {
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		return itensOrdenados.get(posicao).toString();
+		return itensOrdenados.get(posicao).getId() + ". " + itensOrdenados.get(posicao).toString();
 	}
 
 }
