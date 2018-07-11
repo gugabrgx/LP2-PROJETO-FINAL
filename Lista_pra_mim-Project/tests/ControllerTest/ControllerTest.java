@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import Controllers.Controller;
 import entidades.Item;
+
 import entidades.ItemPorQuantidadeFixa;
 import entidades.ItemPorQuilo;
 
@@ -80,6 +81,7 @@ public class ControllerTest {
 	@Test
 	public void testAdicionaItemPorQuiloValido() {
 		this.controller.adicionaItemPorQuilo("Peito de peru Saara", "alimento industrializado", 1.0, "Mercadinho Bem Barato", 34.49);
+
 	}
 
 	/**
@@ -164,6 +166,18 @@ public class ControllerTest {
 		assertEquals("1. Agua Sanitaria Drogon, limpeza, 1 l, Preco: <Supermercado Excepcional, R$ 2,19;>", controller.exibeItem(1));
 		controller.atualizaItem(1, "nome", "Agua Sanitaria Viserion");
 		assertEquals("1. Agua Sanitaria Viserion, limpeza, 1 l, Preco: <Supermercado Excepcional, R$ 2,19;>", controller.exibeItem(1));
+
+	}
+
+	/**
+	 * Metodo que testa o metodo atualizaItem.
+	 *
+	 * Esperado IllegalArgumentException
+	 */
+	@Test (expected = IllegalArgumentException.class)
+	public void testAtualizaItemInvalido1() {
+		controller.atualizaItem(1, "", "Agua Sanitaria Viserion");
+
 	}
 
 	/**

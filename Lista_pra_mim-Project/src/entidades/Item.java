@@ -245,7 +245,6 @@ public abstract class Item {
 		return this.id;
 	}
 	
-
 	public double getMenorPreco() {
 		return this.menorPreco;
 	}

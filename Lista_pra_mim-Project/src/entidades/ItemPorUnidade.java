@@ -62,13 +62,12 @@ public class ItemPorUnidade extends Item {
 		case "categoria":
 			break;
 
-		case "quantidade":
-		case "unidades":
+		case "unidade":
 			int qnt = Integer.parseInt(novoValor);
 
 			if (qnt < 0)
 				throw new IllegalArgumentException(
-						"Erro na atualizacao de item: valor de quantidade nao pode ser menor que zero.");
+						"Erro na atualizacao de item: valor de unidade nao pode ser menor que zero.");
 			this.qnt = qnt;
 			break;
 
