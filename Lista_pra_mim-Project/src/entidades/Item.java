@@ -183,7 +183,7 @@ public abstract class Item {
 	 */
 	@Override
 	public String toString() {
-		return String.format("%d. %s, %s,", this.id, this.nome, this.categoria);
+		return String.format("%s, %s,", this.nome, this.categoria);
 	}
 
 	/**
