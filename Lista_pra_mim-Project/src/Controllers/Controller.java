@@ -290,7 +290,7 @@ public class Controller {
 		if (posicao < 0)
 			throw new ArrayIndexOutOfBoundsException("Erro no cadastro de preco: id de item invalido.");
 		this.comparador = new ComparaPreco();
-		ArrayList<Item> itensOrdenados = new ArrayList<>(this.itens.values());
+		ArrayList<Item> itensOrdenados = new ArrayList<>();
 		for (Item item : this.itens.values()) {
 			for (String s : item.getNome().split(" ")) {
 				if (s.toLowerCase().equals(strPesquisada.toLowerCase())) {
