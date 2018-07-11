@@ -19,7 +19,7 @@ public class ComparaNome implements Comparator<Item> {
 
 	/**
 	 * Comparara dois objetos do tipo Item, tomando como base a ordem lexicográfica
-	 * do sua representacao em string.
+	 * de suaa representacoes em String.
 	 * 
 	 * @param i1
 	 *            o primeiro item.
