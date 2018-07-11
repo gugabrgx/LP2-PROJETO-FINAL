@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import Controllers.Controller;
 
-
 /**
  * 
  * Laboratório de Programação 2 - Lista pra mim© Project
@@ -23,7 +22,6 @@ public class ControllerTest {
 
 	// Instanciacao de objetos do tipo Controller.
 	private Controller controller, outroController;
-	// Instanciacao de um objeto Item
 
 	
 	/**
@@ -78,6 +76,7 @@ public class ControllerTest {
 	@Test
 	public void testAdicionaItemPorQuiloValido() {
 		this.controller.adicionaItemPorQuilo("Peito de peru Saara", "alimento industrializado", 1.0, "Mercadinho Bem Barato", 34.49);
+
 	}
 
 	/**
@@ -162,6 +161,7 @@ public class ControllerTest {
 		assertEquals("1. Agua Sanitaria Drogon, limpeza, 1 l, Preco: <Supermercado Excepcional, R$ 2,19;>", controller.exibeItem(1));
 		controller.atualizaItem(1, "nome", "Agua Sanitaria Viserion");
 		assertEquals("1. Agua Sanitaria Viserion, limpeza, 1 l, Preco: <Supermercado Excepcional, R$ 2,19;>", controller.exibeItem(1));
+
 	}
 
 	/**

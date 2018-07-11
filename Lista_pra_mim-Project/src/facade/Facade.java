@@ -11,7 +11,7 @@ import easyaccept.EasyAccept;
  * @author Joao Pedro de Barros - 117210327
  * @author Rafael Azevedo - 117210382
  */
-public class Facade {
+	public class Facade {
 	/**
 	 * Este atributo representa o objeto Controller.
 	 */
