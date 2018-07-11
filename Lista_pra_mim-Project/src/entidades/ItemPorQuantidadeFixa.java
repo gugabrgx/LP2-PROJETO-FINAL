@@ -7,7 +7,7 @@ package entidades;
  * de item base possui nome, categoria, unidade de medida, quantidade e precos.
  * Nesta classe e possivel crir um item, adicionar um preco a um item, recuperar
  * o nome do item, recuperar a categoria de um item, etc.
- *
+ * 
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
  * @author Joao Pedro de Barros - 117210327

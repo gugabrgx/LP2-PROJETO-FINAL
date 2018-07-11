@@ -5,9 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by joaopbb on 10/07/18.
- */
+
 public class ItemPorQuantidadeFixaTest {
 
     private Item item;
@@ -75,16 +73,16 @@ public class ItemPorQuantidadeFixaTest {
     @Test
     public void atualizaNomeQuantidadeCategoria() {
         this.item.atualizaItem("quantidade", "20");
-        assertEquals("1. Capsula Dois Coracoes, alimento industrializado, 20 capsulas, Preco: <Mercadinho++, R$ 2,99;>",
+        assertEquals("Capsula Dois Coracoes, alimento industrializado, 20 capsulas, Preco: <Mercadinho++, R$ 2,99;>",
                 this.item.toString());
 
         this.item.atualizaItem("categoria", "alimento nao industrializado");
-        assertEquals("1. Capsula Dois Coracoes, alimento nao industrializado, 20 capsulas, Preco: <Mercadinho++, R$ 2,99;>",
+        assertEquals("Capsula Dois Coracoes, alimento nao industrializado, 20 capsulas, Preco: <Mercadinho++, R$ 2,99;>",
                 this.item.toString());
 
         this.item.atualizaItem("nome", "Capsula Dois Pulmoes");
 
-        assertEquals("1. Capsula Dois Pulmoes, alimento nao industrializado, 20 capsulas, Preco: <Mercadinho++, R$ 2,99;>",
+        assertEquals("Capsula Dois Pulmoes, alimento nao industrializado, 20 capsulas, Preco: <Mercadinho++, R$ 2,99;>",
                 this.item.toString());
     }
 
@@ -106,7 +104,7 @@ public class ItemPorQuantidadeFixaTest {
     @Test
     public void atualizaItemUnidadeDeMedida() {
         this.item.atualizaItem("unidade de medida", "kg");
-        assertEquals("1. Capsula Dois Coracoes, alimento industrializado, 3 kg, Preco: <Mercadinho++, R$ 2,99;>", this.item.toString());
+        assertEquals("Capsula Dois Coracoes, alimento industrializado, 3 kg, Preco: <Mercadinho++, R$ 2,99;>", this.item.toString());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -122,7 +120,7 @@ public class ItemPorQuantidadeFixaTest {
     @Test
     public void adicionaPrecoCorreto() {
         this.item.adicionaPrecoItem("Supermercado Concha", 5.89);
-        assertEquals("1. Capsula Dois Coracoes, alimento industrializado, 3 capsulas, Preco: <Supermercado Concha, R$ 5,89;Mercadinho++, R$ 2,99;>", this.item.toString());
+        assertEquals("Capsula Dois Coracoes, alimento industrializado, 3 capsulas, Preco: <Supermercado Concha, R$ 5,89;Mercadinho++, R$ 2,99;>", this.item.toString());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -138,5 +136,30 @@ public class ItemPorQuantidadeFixaTest {
     @Test(expected = IllegalArgumentException.class)
     public void adicionaPrecoInvalido() {
         this.item.adicionaPrecoItem("Supermercado Bonus", -1.99);
+    }
+
+    @Test
+    public void testeToString() {
+        assertEquals("Capsula Dois Coracoes, alimento industrializado, 3 capsulas, Preco: <Mercadinho++, R$ 2,99;>", this.item.toString());
+    }
+
+    @Test
+    public void testGetCategoria() {
+        assertEquals("alimento industrializado", this.item.getCategoria());
+    }
+
+    @Test
+    public void testGetId() {
+        assertEquals(1, this.item.getId());
+    }
+
+    @Test
+    public void testGetListaPrecos() {
+        assertEquals("<Mercadinho++, R$ 2,99;>", this.item.getListaPrecos());
+    }
+
+    @Test
+    public void testGetNome() {
+        assertEquals("Capsula Dois Coracoes", this.item.getNome());
     }
 }

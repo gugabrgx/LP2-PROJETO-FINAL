@@ -30,6 +30,7 @@ public class Controller {
 	private int id;
 	// Um Mapa que mapeia um Objeto Item para um inteiro.
 	private Map<Integer, Item> itens;
+
 	private Comparator<Item> comparador;
 
 	/**
@@ -68,6 +69,8 @@ public class Controller {
 	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
 			double preco) {
 		Item item = new ItemPorQuantidadeFixa(nome, categoria, qnt, unidadeDeMedida, localDeCompra, preco, this.id);
+		if (this.itens.containsValue(item))
+			throw new IllegalArgumentException("Erro no cadastro de item: item ja cadastrado.");
 		itens.put(this.id, item);
 		return this.id++;
 	}
@@ -90,6 +93,8 @@ public class Controller {
 	 */
 	public int adicionaItemPorQuilo(String nome, String categoria, double kg, String localDeCompra, double preco) {
 		Item item = new ItemPorQuilo(nome, categoria, kg, localDeCompra, preco, this.id);
+		if (this.itens.containsValue(item))
+			throw new IllegalArgumentException("Erro no cadastro de item: item ja cadastrado.");
 		itens.put(this.id, item);
 		return this.id++;
 	}
@@ -113,6 +118,8 @@ public class Controller {
 	 */
 	public int adicionaItemPorUnidade(String nome, String categoria, int qnt, String localDeCompra, double preco) {
 		Item item = new ItemPorUnidade(nome, categoria, qnt, localDeCompra, preco, this.id);
+		if (this.itens.containsValue(item))
+			throw new IllegalArgumentException("Erro no cadastro de item: item ja cadastrado.");
 		itens.put(this.id, item);
 		return this.id++;
 	}
@@ -129,7 +136,7 @@ public class Controller {
 			throw new ArrayIndexOutOfBoundsException("Erro na listagem de item: id invalido.");
 		if (!itens.containsKey(id))
 			throw new NullPointerException("Erro na listagem de item: item nao existe.");
-		return itens.get(id).toString();
+		return String.format("%d. %s", id, itens.get(id).toString());
 	}
 
 	/**
@@ -213,16 +220,14 @@ public class Controller {
 	public String getItem(int posicao) {
 		if (posicao < 0)
 			throw new ArrayIndexOutOfBoundsException("Erro no cadastro de preco: id de item invalido.");
-		ArrayList<Item> itensOrdenados = new ArrayList<>();
-		for (Item item : this.itens.values()) {
-			itensOrdenados.add(item);
-		}
+		ArrayList<Item> itensOrdenados = new ArrayList<>(itens.values());
 
-		Collections.sort(itensOrdenados, this.comparador);
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		return itensOrdenados.get(posicao).toString();
+
+		Collections.sort(itensOrdenados, this.comparador);
+		return String.format("%d. %s",itensOrdenados.get(posicao).getId(),itensOrdenados.get(posicao).toString());
 	}
 
 	/**
@@ -251,7 +256,7 @@ public class Controller {
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		return itensOrdenados.get(posicao).toString();
+		return String.format("%d. %s",itensOrdenados.get(posicao).getId(),itensOrdenados.get(posicao).toString());
 	}
 
 	/**
@@ -274,7 +279,7 @@ public class Controller {
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		return itensOrdenados.get(posicao).toString();
+		return String.format("%d. %s",itensOrdenados.get(posicao).getId(),itensOrdenados.get(posicao).toString());
 	}
 
 	/**
@@ -303,7 +308,7 @@ public class Controller {
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		return itensOrdenados.get(posicao).toString();
+		return String.format("%d. %s",itensOrdenados.get(posicao).getId(),itensOrdenados.get(posicao).toString());
 	}
 
 }

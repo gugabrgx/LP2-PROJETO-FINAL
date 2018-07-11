@@ -1,13 +1,10 @@
 package entidades;
 
+import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-/**
- * Created by joaopbb on 10/07/18.
- */
 public class ItemPorUnidadeTest {
 
     private Item item;
@@ -60,11 +57,11 @@ public class ItemPorUnidadeTest {
     @Test
     public void atualizaNomeECategoria() {
         this.item.atualizaItem("categoria", "alimento nao industrializado");
-        assertEquals("1. Batata Roffles, alimento nao industrializado, Preco: <Mercadinho, R$ 4,99;>", this.item.toString());
+        assertEquals("Batata Roffles, alimento nao industrializado, Preco: <Mercadinho, R$ 4,99;>", this.item.toString());
 
         this.item.atualizaItem("nome", "Carne de elefante");
 
-        assertEquals("1. Carne de elefante, alimento nao industrializado, Preco: <Mercadinho, R$ 4,99;>", this.item.toString());
+        assertEquals("Carne de elefante, alimento nao industrializado, Preco: <Mercadinho, R$ 4,99;>", this.item.toString());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -90,7 +87,7 @@ public class ItemPorUnidadeTest {
     @Test
     public void adicionaPrecoCorreto() {
         this.item.adicionaPrecoItem("Supermercado Concha", 5.89);
-        assertEquals("1. Batata Roffles, alimento industrializado, Preco: <Supermercado Concha, R$ 5,89;Mercadinho, R$ 4,99;>", this.item.toString());
+        assertEquals("Batata Roffles, alimento industrializado, Preco: <Supermercado Concha, R$ 5,89;Mercadinho, R$ 4,99;>", this.item.toString());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -108,4 +105,28 @@ public class ItemPorUnidadeTest {
         this.item.adicionaPrecoItem("Supermercado Bonus", -1.99);
     }
 
+    @Test
+    public void testeToString() {
+        assertEquals("Batata Roffles, alimento industrializado, Preco: <Mercadinho, R$ 4,99;>", this.item.toString());
+    }
+
+    @Test
+    public void testGetCategoria() {
+        assertEquals("alimento industrializado", this.item.getCategoria());
+    }
+
+    @Test
+    public void testGetId() {
+        assertEquals(1, this.item.getId());
+    }
+
+    @Test
+    public void testGetListaPrecos() {
+        assertEquals("<Mercadinho, R$ 4,99;>", this.item.getListaPrecos());
+    }
+
+    @Test
+    public void testGetNome() {
+        assertEquals("Batata Roffles", this.item.getNome());
+    }
 }

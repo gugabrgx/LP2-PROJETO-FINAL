@@ -19,7 +19,7 @@ public class ComparaNome implements Comparator<Item> {
 
 	/**
 	 * Comparara dois objetos do tipo Item, tomando como base a ordem lexicográfica
-	 * de sua descrição.
+	 * de suaa representacoes em String.
 	 * 
 	 * @param i1
 	 *            o primeiro item.
@@ -29,7 +29,7 @@ public class ComparaNome implements Comparator<Item> {
 	 */
 	@Override
 	public int compare(Item i1, Item i2) {
-		return i1.getNome().compareTo(i2.getNome());
+		return i1.toString().compareTo(i2.toString());
 	}
 
 }
