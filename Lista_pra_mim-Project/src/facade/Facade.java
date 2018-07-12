@@ -6,12 +6,14 @@ import easyaccept.EasyAccept;
 /**
  * Laboratório de Programação 2 - Lista pra mim© Project
  * 
+ * Representação de uma Facade. A facade delega os métodos de um Sistema.
+ * 
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
  * @author Joao Pedro de Barros - 117210327
  * @author Rafael Azevedo - 117210382
  */
-	public class Facade {
+public class Facade {
 	/**
 	 * Este atributo representa o objeto Controller.
 	 */
@@ -166,10 +168,12 @@ import easyaccept.EasyAccept;
 	}
 
 	/**
-	 * Metodo que ordena os itens por categoria.
+	 * Metodo que lista em ordem alfabetica os itens de uma dada categoria.
 	 * 
 	 * @param posicao
 	 *            A posicao em que o item esta posicionado ordenadamente.
+	 * @param categoria
+	 *            catergoria que sera realizada a pesquisa.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItemPorCategoria(String categoria, int posicao) {
@@ -194,6 +198,8 @@ import easyaccept.EasyAccept;
 	 * 
 	 * @param posicao
 	 *            A posicao em que o item esta posicionado ordenadamente.
+	 * @param strPesquisada
+	 *            parametro de pesquisa.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItemPorPesquisa(String strPesquisada, int posicao) {

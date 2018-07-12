@@ -31,7 +31,7 @@ public class Controller {
 	private int id;
 	// Um Mapa que mapeia um Objeto Item para um inteiro.
 	private Map<Integer, Item> itens;
-
+	// Comprardor de itens.
 	private Comparator<Item> comparador;
 
 	/**
@@ -228,7 +228,7 @@ public class Controller {
 		}
 
 		Collections.sort(itensOrdenados, this.comparador);
-		return String.format("%d. %s",itensOrdenados.get(posicao).getId(),itensOrdenados.get(posicao).toString());
+		return String.format("%d. %s", itensOrdenados.get(posicao).getId(), itensOrdenados.get(posicao).toString());
 	}
 
 	/**
@@ -236,6 +236,8 @@ public class Controller {
 	 * 
 	 * @param posicao
 	 *            A posicao em que o item esta posicionado ordenadamente.
+	 * @param categoria
+	 *            catergoria que sera realizada a pesquisa.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItemPorCategoria(String categoria, int posicao) {
@@ -257,7 +259,7 @@ public class Controller {
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		return String.format("%d. %s",itensOrdenados.get(posicao).getId(),itensOrdenados.get(posicao).toString());
+		return String.format("%d. %s", itensOrdenados.get(posicao).getId(), itensOrdenados.get(posicao).toString());
 	}
 
 	/**
@@ -266,21 +268,21 @@ public class Controller {
 	 * 
 	 * @param posicao
 	 *            A posicao em que o item esta posicionado ordenadamente.
+	 *
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItemPorMenorPreco(int posicao) {
 		if (posicao < 0)
 			throw new ArrayIndexOutOfBoundsException("Erro na listagem de item: id de item invalido.");
 		this.comparador = new ComparaPreco();
-		ArrayList<Item> itensOrdenados = new ArrayList<>();
-		for (Item item : this.itens.values()) {
-			itensOrdenados.add(item);
-		}
-		Collections.sort(itensOrdenados, this.comparador);
+		ArrayList<Item> itensOrdenados = new ArrayList<>(itens.values());
+
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		return String.format("%d. %s",itensOrdenados.get(posicao).getId(),itensOrdenados.get(posicao).toString());
+
+		Collections.sort(itensOrdenados, this.comparador);
+		return String.format("%d. %s", itensOrdenados.get(posicao).getId(), itensOrdenados.get(posicao).toString());
 	}
 
 	/**
@@ -290,6 +292,8 @@ public class Controller {
 	 * 
 	 * @param posicao
 	 *            A posicao em que o item esta posicionado ordenadamente.
+	 * @param strPesquisada
+	 *            parametro de pesquisa.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItemPorPesquisa(String strPesquisada, int posicao) {
@@ -309,7 +313,7 @@ public class Controller {
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		return String.format("%d. %s",itensOrdenados.get(posicao).getId(),itensOrdenados.get(posicao).toString());
+		return String.format("%d. %s", itensOrdenados.get(posicao).getId(), itensOrdenados.get(posicao).toString());
 	}
 
 }

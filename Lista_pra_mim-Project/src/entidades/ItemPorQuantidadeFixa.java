@@ -41,6 +41,7 @@ public class ItemPorQuantidadeFixa extends Item {
 	 * @param preco
 	 *            Double que representa o valor de compra do produto.
 	 * @param id
+	 *            Identtficacao unica do item.
 	 */
 	public ItemPorQuantidadeFixa(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
 			double preco, int id) {

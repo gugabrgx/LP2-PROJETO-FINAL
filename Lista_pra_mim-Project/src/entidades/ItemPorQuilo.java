@@ -35,6 +35,8 @@ public class ItemPorQuilo extends Item {
 	 *            String que representa o local de compra do produto;
 	 * @param preco
 	 *            Double que representa o valor de compra do produto.
+	 * @param id
+	 *            Identtficacao unica do item.
 	 */
 	public ItemPorQuilo(String nome, String categoria, double kg, String localDeCompra, double preco, int id) {
 		super(nome, categoria, localDeCompra, preco, id);
