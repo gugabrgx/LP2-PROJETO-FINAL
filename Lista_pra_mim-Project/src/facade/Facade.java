@@ -4,18 +4,21 @@ import Controllers.Controller;
 import easyaccept.EasyAccept;
 
 /**
- * Laboratorio de Programacao 2 - Lista pra mim© Project
- *
+ * Laboratório de Programação 2 - Lista pra mim© Project
+ * 
+ * Representação de uma Facade. A facade delega os métodos de um Sistema.
+ * 
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
  * @author Joao Pedro de Barros - 117210327
  * @author Rafael Azevedo - 117210382
  */
 public class Facade {
-    /**
-     * Este atributo representa o objeto Controller.
-     */
-    private Controller controller;
+
+	/**
+	 * Este atributo representa o objeto Controller.
+	 */
+	private Controller controller;
 
     public static void main(String[] args) {
         args = new String[]{"facade.Facade", "acceptance_tests/use_case1.txt",
@@ -140,15 +143,18 @@ public class Facade {
         return this.controller.getItem(posicao);
     }
 
-    /**
-     * Metodo que ordena os itens por categoria.
-     *
-     * @param posicao A posicao em que o item esta posicionado ordenadamente.
-     * @return Uma String que contem a exibicao de um item.
-     */
-    public String getItemPorCategoria(String categoria, int posicao) {
-        return this.controller.getItemPorCategoria(categoria, posicao);
-    }
+	/**
+	 * Metodo que lista em ordem alfabetica os itens de uma dada categoria.
+	 * 
+	 * @param posicao
+	 *            A posicao em que o item esta posicionado ordenadamente.
+	 * @param categoria
+	 *            catergoria que sera realizada a pesquisa.
+	 * @return Uma String que contem a exibicao de um item.
+	 */
+	public String getItemPorCategoria(String categoria, int posicao) {
+		return this.controller.getItemPorCategoria(categoria, posicao);
+	}
 
     /**
      * Metodo que ordena os itens por preco.
@@ -160,16 +166,20 @@ public class Facade {
         return this.controller.getItemPorMenorPreco(posicao);
     }
 
-    /**
-     * Metodo que ordena os itens relacionados a uma dada string de pesquisa e a
-     * listagem deve ocorrer em ordem alfabética considerando a representação em
-     * string do item.
-     *
-     * @param posicao A posicao em que o item esta posicionado ordenadamente.
-     * @return Uma String que contem a exibicao de um item.
-     */
-    public String getItemPorPesquisa(String strPesquisada, int posicao) {
-        return this.controller.getItemPorPesquisa(strPesquisada, posicao);
-    }
+	/**
+	 * Metodo que ordena os itens relacionados a uma dada string de pesquisa e a
+	 * listagem deve ocorrer em ordem alfabética considerando a representação em
+	 * string do item.
+	 * 
+	 * @param posicao
+	 *            A posicao em que o item esta posicionado ordenadamente.
+	 * @param strPesquisada
+	 *            parametro de pesquisa.
+	 * @return Uma String que contem a exibicao de um item.
+	 */
+	public String getItemPorPesquisa(String strPesquisada, int posicao) {
+		return this.controller.getItemPorPesquisa(strPesquisada, posicao);
+	}
+
 
 }

@@ -20,17 +20,24 @@ public class ItemPorUnidade extends Item {
      */
     private int qnt;
 
-    /**
-     * Método que cria um item comercializado por quilo.
-     *
-     * @param nome          String que representa o nome do item;
-     * @param categoria     String que representa a categoria do item;
-     * @param qnt           Inteiro que representa a quantidade de itens por compra;
-     * @param localDeCompra String que representa o local de compra do produto;
-     * @param preco         Double que representa o valor de compra do produto.
-     */
-    public ItemPorUnidade(String nome, String categoria, int qnt, String localDeCompra, double preco, int id) {
-        super(nome, categoria, localDeCompra, preco, id);
+	/**
+	 * Método que cria um item comercializado por quilo.
+	 *
+	 * @param nome
+	 *            String que representa o nome do item;
+	 * @param categoria
+	 *            String que representa a categoria do item;
+	 * @param qnt
+	 *            Inteiro que representa a quantidade de itens por compra;
+	 * @param localDeCompra
+	 *            String que representa o local de compra do produto;
+	 * @param preco
+	 *            Double que representa o valor de compra do produto.
+	 * @param id
+	 *            Identtficacao unica do item.
+	 */
+	public ItemPorUnidade(String nome, String categoria, int qnt, String localDeCompra, double preco, int id) {
+		super(nome, categoria, localDeCompra, preco, id);
 
         if (qnt < 0)
             throw new IllegalArgumentException(

@@ -25,20 +25,27 @@ public class ItemPorQuantidadeFixa extends Item {
      */
     private int qnt;
 
-    /**
-     * Método que cria um item que tem quantidade fixa.
-     *
-     * @param nome            String que representa o nome do item;
-     * @param categoria       String que representa a categoria do item;
-     * @param qnt             Inteiro que representa a quantidade fixa do item;
-     * @param unidadeDeMedida String que representa a unidade de medida utilizada pelo item;
-     * @param localDeCompra   String que representa o local de compra do produto;
-     * @param preco           Double que representa o valor de compra do produto.
-     * @param id              Um inteiro que representa o id de um Item.
-     */
-    public ItemPorQuantidadeFixa(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
-                                 double preco, int id) {
-        super(nome, categoria, localDeCompra, preco, id);
+	/**
+	 * Método que cria um item que tem quantidade fixa.
+	 *
+	 * @param nome
+	 *            String que representa o nome do item;
+	 * @param categoria
+	 *            String que representa a categoria do item;
+	 * @param qnt
+	 *            Inteiro que representa a quantidade fixa do item;
+	 * @param unidadeDeMedida
+	 *            String que representa a unidade de medida utilizada pelo item;
+	 * @param localDeCompra
+	 *            String que representa o local de compra do produto;
+	 * @param preco
+	 *            Double que representa o valor de compra do produto.
+	 * @param id
+	 *            Identtficacao unica do item.
+	 */
+	public ItemPorQuantidadeFixa(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
+			double preco, int id) {
+		super(nome, categoria, localDeCompra, preco, id);
 
         if (unidadeDeMedida == null)
             throw new NullPointerException("Erro no cadastro de item: unidade de medida nao pode ser vazia ou nula.");

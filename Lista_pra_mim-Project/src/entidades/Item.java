@@ -41,6 +41,8 @@ public abstract class Item {
 	 * @param preco
 	 *            Double que representa o preco do item no local de compra acima
 	 *            deifinido.
+	 * @param id
+	 *            Identtficacao unica do item.
 	 */
 	public Item(String nome, String categoria, String localDeCompra, double preco, int id) {
 		if (nome == null)
@@ -232,7 +234,6 @@ public abstract class Item {
 			return false;
 		return true;
 	}
-	
 
 	/**
 	 * Metodo que retorna o id do item.

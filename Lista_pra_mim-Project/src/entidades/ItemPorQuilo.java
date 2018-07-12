@@ -21,18 +21,24 @@ public class ItemPorQuilo extends Item {
      */
     private double kg;
 
-    /**
-     * Método que cria um item comercializado por quilo.
-     *
-     * @param nome          String que representa o nome do item;
-     * @param categoria     String que representa a categoria do item;
-     * @param kg            Double que representa o peso do item;
-     * @param localDeCompra String que representa o local de compra do produto;
-     * @param preco         Double que representa o valor de compra do produto.
-     */
-    public ItemPorQuilo(String nome, String categoria, double kg, String localDeCompra, double preco, int id) {
-        super(nome, categoria, localDeCompra, preco, id);
-
+	/**
+	 * Método que cria um item comercializado por quilo.
+	 *
+	 * @param nome
+	 *            String que representa o nome do item;
+	 * @param categoria
+	 *            String que representa a categoria do item;
+	 * @param kg
+	 *            Double que representa o peso do item;
+	 * @param localDeCompra
+	 *            String que representa o local de compra do produto;
+	 * @param preco
+	 *            Double que representa o valor de compra do produto.
+	 * @param id
+	 *            Identtficacao unica do item.
+	 */
+	public ItemPorQuilo(String nome, String categoria, double kg, String localDeCompra, double preco, int id) {
+		super(nome, categoria, localDeCompra, preco, id);
         if (kg < 0)
             throw new IllegalArgumentException(
                     "Erro no cadastro de item: valor de quilos nao pode ser menor que zero.");
