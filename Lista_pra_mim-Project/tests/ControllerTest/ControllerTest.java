@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import Controllers.Controller;
+import Controllers.ControllerItem;
 
 /**
  * 
@@ -21,7 +21,7 @@ import Controllers.Controller;
 public class ControllerTest {
 
 	// Instanciacao de objetos do tipo Controller.
-	private Controller controller, outroController;
+	private ControllerItem controller, outroController;
 
 	/**
 	 * Metodo que inicializa o Controller.
@@ -30,7 +30,7 @@ public class ControllerTest {
 	 */
 	@Before
 	public void inicializa() {
-		this.controller = new Controller();
+		this.controller = new ControllerItem();
 		this.controller.adicionaItemPorQtd("Agua Sanitaria Drogon", "limpeza", 1, "l", "Supermercado Excepcional",
 				2.19);
 	}
@@ -43,7 +43,7 @@ public class ControllerTest {
 	@Test
 	public void testController() {
 		assertTrue(outroController == null);
-		outroController = new Controller();
+		outroController = new ControllerItem();
 		assertTrue(outroController != null);
 	}
 

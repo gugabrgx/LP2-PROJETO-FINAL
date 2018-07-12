@@ -25,7 +25,7 @@ import entidades.ItemPorUnidade;
  * @author Rafael Azevedo - 117210382
  *
  */
-public class Controller {
+public class ControllerItem {
 
 	// Um inteiro que representa o id de um Item.
 	private int id;
@@ -41,7 +41,7 @@ public class Controller {
 	 *
 	 * Este metodo nao retorna nenhum valor.
 	 */
-	public Controller() {
+	public ControllerItem() {
 		this.id = 1;
 		this.itens = new HashMap<>();
 		this.comparador = new ComparaNome();
@@ -256,10 +256,10 @@ public class Controller {
 				itensOrdenados.add(item);
 			}
 		}
-		Collections.sort(itensOrdenados, this.comparador);
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
+		Collections.sort(itensOrdenados, this.comparador);
 		return String.format("%d. %s", itensOrdenados.get(posicao).getId(), itensOrdenados.get(posicao).toString());
 	}
 
@@ -310,10 +310,10 @@ public class Controller {
 				}
 			}
 		}
-		Collections.sort(itensOrdenados, this.comparador);
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
+		Collections.sort(itensOrdenados, this.comparador);
 		return String.format("%d. %s", itensOrdenados.get(posicao).getId(), itensOrdenados.get(posicao).toString());
 	}
 
