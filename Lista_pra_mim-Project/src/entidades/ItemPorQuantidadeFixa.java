@@ -7,7 +7,7 @@ package entidades;
  * de item base possui nome, categoria, unidade de medida, quantidade e precos.
  * Nesta classe e possivel crir um item, adicionar um preco a um item, recuperar
  * o nome do item, recuperar a categoria de um item, etc.
- * 
+ *
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
  * @author Joao Pedro de Barros - 117210327
@@ -15,15 +15,15 @@ package entidades;
  */
 public class ItemPorQuantidadeFixa extends Item {
 
-	/**
-	 * Unidade de medida do item.
-	 */
-	private String unidadeDeMedida;
+    /**
+     * Unidade de medida do item.
+     */
+    private String unidadeDeMedida;
 
-	/**
-	 * Quantidade fixa do item.
-	 */
-	private int qnt;
+    /**
+     * Quantidade fixa do item.
+     */
+    private int qnt;
 
 	/**
 	 * Método que cria um item que tem quantidade fixa.
@@ -47,69 +47,67 @@ public class ItemPorQuantidadeFixa extends Item {
 			double preco, int id) {
 		super(nome, categoria, localDeCompra, preco, id);
 
-		if (unidadeDeMedida == null)
-			throw new NullPointerException("Erro no cadastro de item: unidade de medida nao pode ser vazia ou nula.");
-		if (unidadeDeMedida.trim().equals(""))
-			throw new IllegalArgumentException(
-					"Erro no cadastro de item: unidade de medida nao pode ser vazia ou nula.");
+        if (unidadeDeMedida == null)
+            throw new NullPointerException("Erro no cadastro de item: unidade de medida nao pode ser vazia ou nula.");
+        if (unidadeDeMedida.trim().equals(""))
+            throw new IllegalArgumentException(
+                    "Erro no cadastro de item: unidade de medida nao pode ser vazia ou nula.");
 
-		if (qnt < 0)
-			throw new IllegalArgumentException(
-					"Erro no cadastro de item: valor de quantidade nao pode ser menor que zero.");
+        if (qnt < 0)
+            throw new IllegalArgumentException(
+                    "Erro no cadastro de item: valor de quantidade nao pode ser menor que zero.");
 
-		this.qnt = qnt;
-		this.unidadeDeMedida = unidadeDeMedida;
-	}
+        this.qnt = qnt;
+        this.unidadeDeMedida = unidadeDeMedida;
+    }
 
-	/**
-	 * Metodo que atualiza os dados de um item de acordo com o solicitado pelo
-	 * usuario.
-	 *
-	 * @param atributo
-	 *            Uma String que representa o atributo que sera atualizado.
-	 * @param novoValor
-	 *            Uma String que representa o novo valor para o atributo.
-	 */
-	@Override
-	public void atualizaItem(String atributo, String novoValor) {
-		super.atualizaItem(atributo, novoValor);
+    /**
+     * Metodo que atualiza os dados de um item de acordo com o solicitado pelo
+     * usuario.
+     *
+     * @param atributo  Uma String que representa o atributo que sera atualizado.
+     * @param novoValor Uma String que representa o novo valor para o atributo.
+     */
+    @Override
+    public void atualizaItem(String atributo, String novoValor) {
+        super.atualizaItem(atributo, novoValor);
 
-		switch (atributo.trim().toLowerCase()) {
-		case "nome":
-		case "categoria":
-			break;
+        switch (atributo.trim().toLowerCase()) {
+            case "nome":
+            case "categoria":
+                break;
 
-		case "quantidade":
-			int qnt = Integer.parseInt(novoValor);
+            case "quantidade":
+                int qnt = Integer.parseInt(novoValor);
 
-			if (qnt < 0)
-				throw new IllegalArgumentException(
-						"Erro na atualizacao de item: valor de quantidade nao pode ser menor que zero.");
-			this.qnt = qnt;
-			break;
+                if (qnt < 0)
+                    throw new IllegalArgumentException(
+                            "Erro na atualizacao de item: valor de quantidade nao pode ser menor que zero.");
+                this.qnt = qnt;
+                break;
 
-		case "unidade de medida":
-			if (novoValor == null)
-				throw new NullPointerException(
-						"Erro na atualizacao de item: unidade de medida nao pode ser vazia ou nula.");
-			if (novoValor.trim().length() == 0)
-				throw new IllegalArgumentException(
-						"Erro na atualizacao de item: unidade de medida nao pode ser vazia ou nula.");
-			this.unidadeDeMedida = novoValor;
-			break;
+            case "unidade de medida":
+                if (novoValor == null)
+                    throw new NullPointerException(
+                            "Erro na atualizacao de item: unidade de medida nao pode ser vazia ou nula.");
+                if (novoValor.trim().length() == 0)
+                    throw new IllegalArgumentException(
+                            "Erro na atualizacao de item: unidade de medida nao pode ser vazia ou nula.");
+                this.unidadeDeMedida = novoValor;
+                break;
 
-		default:
-			throw new IllegalArgumentException("Erro na atualizacao de item: atributo nao existe.");
-		}
-	}
+            default:
+                throw new IllegalArgumentException("Erro na atualizacao de item: atributo nao existe.");
+        }
+    }
 
-	/**
-	 * Metodo que retorna uma string contendo nome e categoria de um item.
-	 *
-	 * @return Uma String contendo nome e categoria de um item.
-	 */
-	public String toString() {
-		return String.format("%s %d %s, Preco: %s", super.toString(), this.qnt, this.unidadeDeMedida,
-				super.getListaPrecos());
-	}
+    /**
+     * Metodo que retorna uma string contendo nome e categoria de um item.
+     *
+     * @return Uma String contendo nome e categoria de um item.
+     */
+    public String toString() {
+        return String.format("%s %d %s, Preco: %s", super.toString(), this.qnt, this.unidadeDeMedida,
+                super.getListaPrecos());
+    }
 }

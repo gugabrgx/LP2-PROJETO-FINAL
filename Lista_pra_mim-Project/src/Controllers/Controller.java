@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+
 import Comparators.ComparaNome;
 import Comparators.ComparaPreco;
 import entidades.Item;
@@ -13,8 +14,7 @@ import entidades.ItemPorQuilo;
 import entidades.ItemPorUnidade;
 
 /**
- * 
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  *
  * Classe que representa o Controller. Nesta classe e possivel realizar
  * operacoes como: adicionar itens, exibir itens, atualizar itens, etc.
@@ -36,9 +36,9 @@ public class Controller {
 
 	/**
 	 * Metodo que inicializa um Controller.
-	 * 
+	 *
 	 * Este metodo nao utiliza parametros.
-	 * 
+	 *
 	 * Este metodo nao retorna nenhum valor.
 	 */
 	public Controller() {
@@ -150,7 +150,7 @@ public class Controller {
 	 *            Uma String que representa o atributo a ser modificado.
 	 * @param novoValor
 	 *            Uma String que representa o novo valor para o item.
-	 * 
+	 *
 	 *            Este metodo nao retorna nenhum valor.
 	 */
 	public void atualizaItem(int id, String atributo, String novoValor) {
@@ -184,7 +184,7 @@ public class Controller {
 	 *            Uma String que representa o local de compra do item.
 	 * @param preco
 	 *            Um double que representa o valor do preco que será adicionado.
-	 * 
+	 *
 	 *            Este método não retorna nenhum valor.
 	 */
 	public void adicionaPrecoItem(int id, String localDeCompra, double preco) {
@@ -200,7 +200,7 @@ public class Controller {
 	 *
 	 * @param id
 	 *            Um inteiro que representa o identificador de um item.
-	 * 
+	 *
 	 *            Este metodo nao retorna nenhum valor.
 	 */
 	public void deletaItem(int id) {
@@ -212,8 +212,9 @@ public class Controller {
 	}
 
 	/**
-	 * Metodo que ordena os itens por ordem alfabetica..
-	 * 
+	 * Metodo que ordena os itens por ordem alfabetica, e retorna um item na posicao
+	 * em que foi ordenado.
+	 *
 	 * @param posicao
 	 *            A posicao em que o item esta posicionado ordenadamente.
 	 * @return Uma String que contem a exibicao de um item.

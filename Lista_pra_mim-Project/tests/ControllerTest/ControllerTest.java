@@ -198,7 +198,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo atualizaItem.
-	 * 
+	 *
 	 * Esperado IllegalArgumentException
 	 */
 	@Test(expected = IllegalArgumentException.class)
@@ -208,7 +208,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo atualizaItem.
-	 * 
+	 *
 	 * Esperado NullPointerException
 	 */
 	@Test(expected = NullPointerException.class)
@@ -218,7 +218,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo atualizaItem.
-	 * 
+	 *
 	 * Esperado ArrayIndexOutOfBoundsException
 	 */
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
@@ -228,7 +228,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo atualizaItem.
-	 * 
+	 *
 	 * Esperado ArrayIndexOutOfBoundsException
 	 */
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
@@ -238,7 +238,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo atualizaItem.
-	 * 
+	 *
 	 * Esperado NullPointerException
 	 */
 	@Test(expected = NullPointerException.class)
@@ -248,7 +248,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo adicionaPrecoItem.
-	 * 
+	 *
 	 * Nenhum erro esperado.
 	 */
 	@Test
@@ -263,7 +263,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo adicionaPrecoItem.
-	 * 
+	 *
 	 * Esperado ArrayIndexOutOfBoundsException
 	 */
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
@@ -273,7 +273,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo adicionaPrecoItem.
-	 * 
+	 *
 	 * Esperado ArrayIndexOutOfBoundsException
 	 */
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
@@ -283,7 +283,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo adicionaPrecoItem.
-	 * 
+	 *
 	 * Esperado NullPointerException
 	 */
 	@Test(expected = NullPointerException.class)
@@ -293,7 +293,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo deletaItem.
-	 * 
+	 *
 	 * Esperado NullPointerException
 	 */
 	@Test(expected = NullPointerException.class)
@@ -306,7 +306,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo deletaItem.
-	 * 
+	 *
 	 * Esperado ArrayIndexOutOfBoundsException
 	 */
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
@@ -318,7 +318,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo deletaItem.
-	 * 
+	 *
 	 * Esperado ArrayIndexOutOfBoundsException
 	 */
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
@@ -330,7 +330,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo deletaItem.
-	 * 
+	 *
 	 * Esperado IllegalArgumentException
 	 */
 	@Test(expected = IllegalArgumentException.class)
@@ -361,7 +361,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo getItem.
-	 * 
+	 *
 	 * Nenhum erro esperado.
 	 */
 	@Test
@@ -407,7 +407,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo getItemPorCategoria.
-	 * 
+	 *
 	 * Nenhum erro esperado.
 	 */
 	@Test
@@ -454,7 +454,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo getItemPorCategoria.
-	 * 
+	 *
 	 * Esperado IllegalArgumentException
 	 */
 	@Test(expected = IllegalArgumentException.class)
@@ -465,7 +465,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo getItemPorMenorPreco.
-	 * 
+	 *
 	 * Nenhum erro esperado.
 	 */
 	@Test
@@ -511,7 +511,7 @@ public class ControllerTest {
 
 	/**
 	 * Metodo que testa o metodo getItemPorPesquisa.
-	 * 
+	 *
 	 * Nenhum erro esperado.
 	 */
 	@Test

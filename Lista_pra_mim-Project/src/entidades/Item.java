@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  * 
  * Classe abstrata que representa um Item. Cada item base tem um nome, uma
  * categoria e precos. Nesta classe e possivel adicionar um preco a um item,
@@ -21,7 +21,7 @@ public abstract class Item {
 	private String nome;
 	// Uma String que representa a categoria de um item.
 	private String categoria;
-	// Um Mapa que mapeia um valor em ponto flutuante a uma String.
+	// Um Mapa que mapeia o valor do produto em ponto flutuante a um local de venda, uma String.
 	private Map<String, Double> precos;
 	// Um double que representa o menor preco de um item.
 	private double menorPreco;
