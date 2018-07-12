@@ -54,7 +54,7 @@ expect "4. Creme Dental Oral-D, higiene pessoal, Preco: <Mercadinho Bem Barato, 
 
 ###############################
 
-#  Adicionando novos preï¿½os  #
+#  Adicionando novos precos  #
 
 ###############################
 
