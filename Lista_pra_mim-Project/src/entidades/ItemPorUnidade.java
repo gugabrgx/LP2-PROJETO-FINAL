@@ -55,11 +55,11 @@ public class ItemPorUnidade extends Item {
      */
     @Override
     public void atualizaItem(String atributo, String novoValor) {
-        super.atualizaItem(atributo, novoValor);
 
         switch (atributo.trim().toLowerCase()) {
             case "nome":
             case "categoria":
+            	super.atualizaItem(atributo, novoValor);
                 break;
 
             case "unidade":

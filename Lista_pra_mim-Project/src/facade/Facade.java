@@ -1,6 +1,6 @@
 package facade;
 
-import Controllers.Controller;
+import Controllers.ControllerItem;
 import easyaccept.EasyAccept;
 
 /**
@@ -18,7 +18,7 @@ public class Facade {
 	/**
 	 * Este atributo representa o objeto Controller.
 	 */
-	private Controller controller;
+	private ControllerItem controller;
 
     public static void main(String[] args) {
         args = new String[]{"facade.Facade", "acceptance_tests/use_case1.txt",
@@ -32,7 +32,7 @@ public class Facade {
      * Constroi o objeto Facade, e inicializa o objeto Controller.
      */
     public Facade() {
-        this.controller = new Controller();
+        this.controller = new ControllerItem();
     }
 
     /**
