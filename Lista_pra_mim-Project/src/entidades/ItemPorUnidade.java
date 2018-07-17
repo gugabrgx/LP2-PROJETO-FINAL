@@ -15,10 +15,10 @@ package entidades;
  */
 public class ItemPorUnidade extends Item {
 
-    /**
-     * Quantidade de itens por compra.
-     */
-    private int qnt;
+	/**
+	 * Quantidade de itens por compra.
+	 */
+	private int qnt;
 
 	/**
 	 * Método que cria um item comercializado por quilo.
@@ -39,49 +39,63 @@ public class ItemPorUnidade extends Item {
 	public ItemPorUnidade(String nome, String categoria, int qnt, String localDeCompra, double preco, int id) {
 		super(nome, categoria, localDeCompra, preco, id);
 
-        if (qnt < 0)
-            throw new IllegalArgumentException(
-                    "Erro no cadastro de item: valor de unidade nao pode ser menor que zero.");
+		if (qnt < 0)
+			throw new IllegalArgumentException(
+					"Erro no cadastro de item: valor de unidade nao pode ser menor que zero.");
 
-        this.qnt = qnt;
-    }
+		this.qnt = qnt;
+	}
 
-    /**
-     * Metodo que atualiza os dados de um item de acordo com o solicitado pelo
-     * usuario.
-     *
-     * @param atributo  Uma String que representa o atributo que sera atualizado.
-     * @param novoValor Uma String que representa o novo valor para o atributo.
-     */
-    @Override
-    public void atualizaItem(String atributo, String novoValor) {
+	/**
+	 * Metodo que atualiza os dados de um item de acordo com o solicitado pelo
+	 * usuario.
+	 *
+	 * @param atributo
+	 *            Uma String que representa o atributo que sera atualizado.
+	 * @param novoValor
+	 *            Uma String que representa o novo valor para o atributo.
+	 */
+	@Override
+	public void atualizaItem(String atributo, String novoValor) {
 
-        switch (atributo.trim().toLowerCase()) {
-            case "nome":
-            case "categoria":
-            	super.atualizaItem(atributo, novoValor);
-                break;
+		switch (atributo.trim().toLowerCase()) {
+		case "nome":
+		case "categoria":
+			super.atualizaItem(atributo, novoValor);
+			break;
 
-            case "unidade":
-                int qnt = Integer.parseInt(novoValor);
+		case "unidade":
+			int qnt = Integer.parseInt(novoValor);
 
-                if (qnt < 0)
-                    throw new IllegalArgumentException(
-                            "Erro na atualizacao de item: valor de unidade nao pode ser menor que zero.");
-                this.qnt = qnt;
-                break;
+			if (qnt < 0)
+				throw new IllegalArgumentException(
+						"Erro na atualizacao de item: valor de unidade nao pode ser menor que zero.");
+			this.qnt = qnt;
+			break;
 
-            default:
-                throw new IllegalArgumentException("Erro na atualizacao de item: atributo nao existe.");
-        }
-    }
+		default:
+			throw new IllegalArgumentException("Erro na atualizacao de item: atributo nao existe.");
+		}
+	}
 
-    /**
-     * Metodo que retorna uma string contendo nome e categoria de um item.
-     *
-     * @return Uma String contendo nome e categoria de um item.
-     */
-    public String toString() {
-        return String.format("%s Preco: %s", super.toString(), super.getListaPrecos());
-    }
+	/**
+	 * Metodo que retorna uma string contendo nome e categoria de um item.
+	 *
+	 * @return Uma String contendo nome e categoria de um item.
+	 */
+	public String toString() {
+		return String.format("%s, Preco: %s", super.toString(), super.getListaPrecos());
+	}
+
+	/**
+	 * Metodo que retorna uma String contendo a descricao de um item.
+	 * 
+	 * Este metodo nao utiliza parametros.
+	 * 
+	 * @return Uma String contendo a descricao de um item.
+	 */
+	@Override
+	public String getDescricao() {
+		return String.format(" %s", super.toString());
+	}
 }

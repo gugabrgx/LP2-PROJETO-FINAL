@@ -16,10 +16,10 @@ package entidades;
 
 public class ItemPorQuilo extends Item {
 
-    /**
-     * Double que representa o peso do item;
-     */
-    private double kg;
+	/**
+	 * Double que representa o peso do item;
+	 */
+	private double kg;
 
 	/**
 	 * Método que cria um item comercializado por quilo.
@@ -39,50 +39,64 @@ public class ItemPorQuilo extends Item {
 	 */
 	public ItemPorQuilo(String nome, String categoria, double kg, String localDeCompra, double preco, int id) {
 		super(nome, categoria, localDeCompra, preco, id);
-        if (kg < 0)
-            throw new IllegalArgumentException(
-                    "Erro no cadastro de item: valor de quilos nao pode ser menor que zero.");
+		if (kg < 0)
+			throw new IllegalArgumentException(
+					"Erro no cadastro de item: valor de quilos nao pode ser menor que zero.");
 
-        this.kg = kg;
-    }
+		this.kg = kg;
+	}
 
-    /**
-     * Metodo que atualiza os dados de um item de acordo com o solicitado pelo
-     * usuario.
-     *
-     * @param atributo  Uma String que representa o atributo que sera atualizado.
-     * @param novoValor Uma String que representa o novo valor para o atributo.
-     */
-    @Override
-    public void atualizaItem(String atributo, String novoValor) {
+	/**
+	 * Metodo que atualiza os dados de um item de acordo com o solicitado pelo
+	 * usuario.
+	 *
+	 * @param atributo
+	 *            Uma String que representa o atributo que sera atualizado.
+	 * @param novoValor
+	 *            Uma String que representa o novo valor para o atributo.
+	 */
+	@Override
+	public void atualizaItem(String atributo, String novoValor) {
 
-        switch (atributo.trim().toLowerCase()) {
-            case "nome":
-            case "categoria":
-            	super.atualizaItem(atributo, novoValor);
-                break;
+		switch (atributo.trim().toLowerCase()) {
+		case "nome":
+		case "categoria":
+			super.atualizaItem(atributo, novoValor);
+			break;
 
-            case "kg":
-                double kg = Double.parseDouble(novoValor);
+		case "kg":
+			double kg = Double.parseDouble(novoValor);
 
-                if (kg < 0)
-                    throw new IllegalArgumentException(
-                            "Erro na atualizacao de item: valor de quilos nao pode ser menor que zero.");
-                this.kg = kg;
-                break;
+			if (kg < 0)
+				throw new IllegalArgumentException(
+						"Erro na atualizacao de item: valor de quilos nao pode ser menor que zero.");
+			this.kg = kg;
+			break;
 
-            default:
-                throw new IllegalArgumentException("Erro na atualizacao de item: atributo nao existe.");
-        }
-    }
+		default:
+			throw new IllegalArgumentException("Erro na atualizacao de item: atributo nao existe.");
+		}
+	}
 
-    /**
-     * Metodo que retorna uma string contendo nome e categoria de um item.
-     *
-     * @return Uma String contendo nome e categoria de um item.
-     */
-    public String toString() {
-        return String.format("%s Preco por quilo: %s", super.toString(), super.getListaPrecos());
-    }
+	/**
+	 * Metodo que retorna uma string contendo nome e categoria de um item.
+	 *
+	 * @return Uma String contendo nome e categoria de um item.
+	 */
+	public String toString() {
+		return String.format("%s, Preco por quilo: %s", super.toString(), super.getListaPrecos());
+	}
+
+	/**
+	 * Metodo que retorna uma String contendo a descricao de um item.
+	 * 
+	 * Este metodo nao utiliza parametros.
+	 * 
+	 * @return Uma String contendo a descricao de um item e sua unidade de medida.
+	 */
+	@Override
+	public String getDescricao() {
+		return String.format(" kg %s", super.toString());
+	}
 
 }
