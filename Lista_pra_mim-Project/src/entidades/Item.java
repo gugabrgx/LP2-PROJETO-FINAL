@@ -21,7 +21,8 @@ public abstract class Item {
 	private String nome;
 	// Uma String que representa a categoria de um item.
 	private String categoria;
-	// Um Mapa que mapeia o valor do produto em ponto flutuante a um local de venda, uma String.
+	// Um Mapa que mapeia o valor do produto em ponto flutuante a um local de venda,
+	// uma String.
 	private Map<String, Double> precos;
 	// Um double que representa o menor preco de um item.
 	private double menorPreco;
@@ -185,7 +186,7 @@ public abstract class Item {
 	 */
 	@Override
 	public String toString() {
-		return String.format("%s, %s,", this.nome, this.categoria);
+		return String.format("%s, %s", this.nome, this.categoria);
 	}
 
 	/**
@@ -245,5 +246,14 @@ public abstract class Item {
 	public int getId() {
 		return this.id;
 	}
+
+	/**
+	 * Metodo que retorna a descricao de um Item.
+	 * 
+	 * Este metodo nao utiliza parametros.
+	 * 
+	 * @return Uma String contendo nome e categoria do Item.
+	 */
+	public abstract String getDescricao();
 
 }
