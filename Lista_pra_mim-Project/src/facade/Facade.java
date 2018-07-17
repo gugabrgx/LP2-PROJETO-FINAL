@@ -21,11 +21,11 @@ public class Facade {
 	private ControllerMaster controller;
 
 	public static void main(String[] args) {
-		args = new String[] { "facade.Facade", "acceptance_tests/use_case1.txt",
-				"acceptance_tests/use_case1_exception.txt", "acceptance_tests/use_case2.txt",
-				"acceptance_tests/use_case2_exception.txt", "acceptance_tests/use_case3.txt",
-				"acceptance_tests/use_case3_exception.txt", "acceptance_tests/use_case4.txt",
-				"acceptance_tests/use_case4_exception.txt" };
+		args = new String[] { "facade.Facade", 
+				"acceptance_tests/use_case1.txt", "acceptance_tests/use_case1_exception.txt",
+				"acceptance_tests/use_case2.txt", "acceptance_tests/use_case2_exception.txt",
+				"acceptance_tests/use_case3.txt", "acceptance_tests/use_case3_exception.txt"
+,				"acceptance_tests/use_case4.txt", "acceptance_tests/use_case4_exception.txt" };
 
 		EasyAccept.main(args);
 	}
@@ -210,12 +210,15 @@ public class Facade {
 	}
 
 	// Caso 3
+	public String adicionaListaDeCompras(String descritorLista) {
+		return this.controller.adicionaListaDeCompras(descritorLista);
+	}
 
 	public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {
 		this.controller.adicionaCompraALista(descritorLista, quantidade, itemId);
 	}
 
-	public void finalizarListaDeCompras(String descritorLista, String localDaCompra, double valorFinalDaCompra) {
+	public void finalizarListaDeCompras(String descritorLista, String localDaCompra, int valorFinalDaCompra) {
 		this.controller.finalizarListaDeCompras(descritorLista, localDaCompra, valorFinalDaCompra);
 	}
 

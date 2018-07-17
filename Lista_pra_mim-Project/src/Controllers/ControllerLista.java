@@ -1,22 +1,35 @@
 package Controllers;
 
+import java.util.HashMap;
+
+import entidades.Item;
+import entidades.ListaDeCompras;
 
 /**
-* Laboratório de Programação 2 - Lab 1
-*
-* @author Eduardo Henrique Pontes Silva - 117210360
-*/
-
+ * Laboratório de Programação 2 - Lab 1
+ *
+ * @author Eduardo Henrique Pontes Silva - 117210360
+ * @author Gustavo Luiz Bispo dos Santos - 117210400
+ */
 public class ControllerLista {
-	
 
-	public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {			
-		
+	private HashMap<String, ListaDeCompras> listasDeCompras;
+
+	public ControllerLista() {
+		this.listasDeCompras = new HashMap<>();
+	}
+	
+	public String adicionaListaDeCompras(String descritorLista) {
+		listasDeCompras.put(descritorLista, new ListaDeCompras(descritorLista));
+		return descritorLista;
 	}
 
-	public void finalizarListaDeCompras(String descritorLista, String localDaCompra, double valorFinalDaCompra) {
-		// TODO Auto-generated method stub
-		
+	public void adicionaCompraALista(String descritorLista, int quantidade, Item item) {
+		listasDeCompras.get(descritorLista).adicionaCompraALista(quantidade, item);
+	}
+
+	public void finalizarListaDeCompras(String descritorLista, String localDaCompra, int valorFinalDaCompra) {
+		listasDeCompras.get(descritorLista).finalizarListaDeCompras(localDaCompra, valorFinalDaCompra);
 	}
 
 	public String pesquisaCompraEmLista(String descritorLista, int itemId) {
@@ -26,7 +39,7 @@ public class ControllerLista {
 
 	public void atualizaCompraDeLista(String descritorLista, int itemId, int quantidade) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public String getItemLista(String descritorLista, int posicaoItem) {
@@ -36,7 +49,7 @@ public class ControllerLista {
 
 	public void deletaCompraDeLista(String descritorLista, int itemId) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public String getItemListaPorData(String data, int posicaoLista) {

@@ -1,5 +1,7 @@
 package Controllers;
 
+import entidades.Item;
+
 /**
  * Laboratório de Programação 2 - Lab 1
  *
@@ -192,12 +194,15 @@ public class ControllerMaster {
 	}
 
 	// Caso 3
-
-	public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {
-		this.controllerLista.adicionaCompraALista(descritorLista, quantidade, itemId);
+	public String adicionaListaDeCompras(String descritorLista) {
+		return this.controllerLista.adicionaListaDeCompras(descritorLista);
 	}
 
-	public void finalizarListaDeCompras(String descritorLista, String localDaCompra, double valorFinalDaCompra) {
+	public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {
+		this.controllerLista.adicionaCompraALista(descritorLista, quantidade, this.pegaItem(itemId));
+	}
+
+	public void finalizarListaDeCompras(String descritorLista, String localDaCompra, int valorFinalDaCompra) {
 		this.controllerLista.finalizarListaDeCompras(descritorLista, localDaCompra, valorFinalDaCompra);
 	}
 
@@ -216,7 +221,7 @@ public class ControllerMaster {
 	public void deletaCompraDeLista(String descritorLista, int itemId) {
 		this.controllerLista.deletaCompraDeLista(descritorLista, itemId);
 	}
-	
+
 	// Caso 4
 
 	public String getItemListaPorData(String data, int posicaoLista) {
@@ -227,4 +232,42 @@ public class ControllerMaster {
 		return this.controllerLista.getItemListaPorItem(id, posicaoLista);
 	}
 
+	// Metodo Extra
+	public Item pegaItem(int id) {
+		return this.controllerItem.pegaItem(id);
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

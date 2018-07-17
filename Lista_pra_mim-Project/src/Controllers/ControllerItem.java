@@ -316,5 +316,15 @@ public class ControllerItem {
 		Collections.sort(itensOrdenados, this.comparador);
 		return String.format("%d. %s", itensOrdenados.get(posicao).getId(), itensOrdenados.get(posicao).toString());
 	}
+	
+	
+	
+	// Método Extra
+	
+	public Item pegaItem(int id) {
+		if (id < 0) throw new ArrayIndexOutOfBoundsException("Erro na pesquisa de item: id de item invalido.");
+		if (!itens.containsKey(id)) throw new IllegalArgumentException("Erro na pesquisa de item: item nao cadastrado.");
+		return this.itens.get(id);
+	}
 
 }
