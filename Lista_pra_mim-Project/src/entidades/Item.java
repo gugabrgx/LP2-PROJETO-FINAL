@@ -3,6 +3,8 @@ package entidades;
 import java.util.HashMap;
 import java.util.Map;
 
+import Enum.Categoria;
+
 /**
  * Laboratorio de Programacao 2 - Lista pra mim© Project
  * 
@@ -20,7 +22,7 @@ public abstract class Item {
 	// Uma String que representa o nome de um item.
 	private String nome;
 	// Uma String que representa a categoria de um item.
-	private String categoria;
+	private Categoria categoria;
 	// Um Mapa que mapeia o valor do produto em ponto flutuante a um local de venda,
 	// uma String.
 	private Map<String, Double> precos;
@@ -33,17 +35,12 @@ public abstract class Item {
 	 * Testa os valors comuns entre os tipos de itens repassados pelo usuario e as
 	 * atribui a suas devidas variaveis.
 	 *
-	 * @param nome
-	 *            String que representa o nome do item;
-	 * @param categoria
-	 *            String que representa a categoria do item;
-	 * @param localDeCompra
-	 *            String que representa o local de compra do item;
-	 * @param preco
-	 *            Double que representa o preco do item no local de compra acima
-	 *            deifinido.
-	 * @param id
-	 *            Identtficacao unica do item.
+	 * @param nome          String que representa o nome do item;
+	 * @param categoria     String que representa a categoria do item;
+	 * @param localDeCompra String que representa o local de compra do item;
+	 * @param preco         Double que representa o preco do item no local de compra
+	 *                      acima deifinido.
+	 * @param id            Identtficacao unica do item.
 	 */
 	public Item(String nome, String categoria, String localDeCompra, double preco, int id) {
 		if (nome == null)
@@ -61,7 +58,6 @@ public abstract class Item {
 				|| categoria.trim().toLowerCase().equals("limpeza"))) {
 			throw new IllegalArgumentException("Erro no cadastro de item: categoria nao existe.");
 		}
-
 		if (localDeCompra == null)
 			throw new NullPointerException("Erro no cadastro de item: local de compra nao pode ser vazio ou nulo.");
 		if (localDeCompra.trim().length() == 0)
@@ -71,7 +67,12 @@ public abstract class Item {
 			throw new IllegalArgumentException("Erro no cadastro de item: preco de item invalido.");
 
 		this.nome = nome;
-		this.categoria = categoria;
+		for (Categoria c : Categoria.values()) {
+			if (c.getDescricao().equals(categoria)) {
+				this.categoria = c;
+				break;
+			}
+		}
 		this.precos = new HashMap<>();
 		this.precos.put(localDeCompra, preco);
 		this.menorPreco = preco;
@@ -83,12 +84,10 @@ public abstract class Item {
 	 * Metodo que atualiza os dados de um item de acordo com o solicitado pelo
 	 * usuario.
 	 *
-	 * @param atributo
-	 *            Uma String que representa o atributo que sera atualizado.
-	 * @param novoValor
-	 *            Uma String que representa o novo valor para o atributo.
+	 * @param atributo  Uma String que representa o atributo que sera atualizado.
+	 * @param novoValor Uma String que representa o novo valor para o atributo.
 	 *
-	 *            Este metodo nao retorna nenhum valor.
+	 *                  Este metodo nao retorna nenhum valor.
 	 */
 	public void atualizaItem(String atributo, String novoValor) {
 		if (atributo.trim().toLowerCase().equals("nome")) {
@@ -102,19 +101,23 @@ public abstract class Item {
 					|| novoValor.trim().toLowerCase().equals("limpeza"))) {
 				throw new IllegalArgumentException("Erro na atualizacao de item: categoria nao existe.");
 			}
-			this.categoria = novoValor;
+			for (Categoria c : Categoria.values()) {
+				if (c.getDescricao().equals(novoValor)) {
+					this.categoria = c;
+					break;
+				}
+			}
+
 		}
 	}
 
 	/**
 	 * Metodo que adiciona um preco ao Mapa de precos.
 	 *
-	 * @param localDeCompra
-	 *            Uma String que representa o local de compra do produto.
-	 * @param preco
-	 *            Um double que representa o valor de compra do produto.
+	 * @param localDeCompra Uma String que representa o local de compra do produto.
+	 * @param preco         Um double que representa o valor de compra do produto.
 	 * 
-	 *            Este metodo nao retorna nenhum valor.
+	 *                      Este metodo nao retorna nenhum valor.
 	 */
 	public void adicionaPrecoItem(String localDeCompra, double preco) {
 		if (localDeCompra == null)
@@ -162,7 +165,7 @@ public abstract class Item {
 	 *
 	 * @return Uma String que representa a categoria do item.
 	 */
-	public String getCategoria() {
+	public Categoria getCategoria() {
 		return this.categoria;
 	}
 
@@ -186,7 +189,7 @@ public abstract class Item {
 	 */
 	@Override
 	public String toString() {
-		return String.format("%s, %s", this.nome, this.categoria);
+		return String.format("%s, %s", this.nome, this.categoria.getDescricao());
 	}
 
 	/**
@@ -210,8 +213,7 @@ public abstract class Item {
 	 * Metodo equals que compara o objeto com outro a partir de sua categoria e
 	 * nome.
 	 *
-	 * @param obj
-	 *            Um objeto a ser comparado.
+	 * @param obj Um objeto a ser comparado.
 	 * @return Um valor booleano que indica se os objetos sao iguais ou nao.
 	 */
 	@Override

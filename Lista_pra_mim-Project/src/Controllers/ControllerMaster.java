@@ -1,5 +1,7 @@
 package Controllers;
 
+import entidades.Item;
+
 /**
  * Laboratório de Programação 2 - Lab 1
  *
@@ -23,20 +25,14 @@ public class ControllerMaster {
 	 * Metodo que cria e adiciona um novo ItemPorQuantidade a uma lista que contem
 	 * todos os itens.
 	 *
-	 * @param nome
-	 *            Uma String que representa o nome do produto.
-	 * @param categoria
-	 *            Uma String que representa a categoria do item.
-	 * @param qnt
-	 *            Um inteiro que representa a quantidade de produtos que se
-	 *            encontram na embalagem do item.
-	 * @param unidadeDeMedida
-	 *            Uma String que representa a unidade de medida do produto (gramas,
-	 *            litros, etc.).
-	 * @param localDeCompra
-	 *            Uma String que representa onde o item foi comprado.
-	 * @param preco
-	 *            Um double que representa o valor do produto.
+	 * @param nome            Uma String que representa o nome do produto.
+	 * @param categoria       Uma String que representa a categoria do item.
+	 * @param qnt             Um inteiro que representa a quantidade de produtos que
+	 *                        se encontram na embalagem do item.
+	 * @param unidadeDeMedida Uma String que representa a unidade de medida do
+	 *                        produto (gramas, litros, etc.).
+	 * @param localDeCompra   Uma String que representa onde o item foi comprado.
+	 * @param preco           Um double que representa o valor do produto.
 	 * @return Um inteiro que representa o identificador do produto.
 	 */
 	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
@@ -48,16 +44,11 @@ public class ControllerMaster {
 	 * Metodo que cria e adiciona um novo ItemPorQuilo a uma lista que contem todos
 	 * os itens.
 	 *
-	 * @param nome
-	 *            Uma String que representa o nome do produto.
-	 * @param categoria
-	 *            Uma String que representa a categoria do item.
-	 * @param kg
-	 *            Um double que representa o peso do item.
-	 * @param localDeCompra
-	 *            Uma String que representa onde o item foi comprado.
-	 * @param preco
-	 *            Um double que representa o valor do produto.
+	 * @param nome          Uma String que representa o nome do produto.
+	 * @param categoria     Uma String que representa a categoria do item.
+	 * @param kg            Um double que representa o peso do item.
+	 * @param localDeCompra Uma String que representa onde o item foi comprado.
+	 * @param preco         Um double que representa o valor do produto.
 	 * @return Um inteiro que representa o identificador do produto.
 	 */
 	public int adicionaItemPorQuilo(String nome, String categoria, double kg, String localDeCompra, double preco) {
@@ -68,17 +59,12 @@ public class ControllerMaster {
 	 * Metodo que cria e adiciona um novo ItemPorUnidade a uma lista que contem
 	 * todos os itens.
 	 *
-	 * @param nome
-	 *            Uma String que representa o nome do produto.
-	 * @param categoria
-	 *            Uma String que representa a categoria do item.
-	 * @param qnt
-	 *            Um inteiro que representa a quantidade de produtos que se
-	 *            encontram na embalagem do item.
-	 * @param localDeCompra
-	 *            Uma String que representa onde o item foi comprado.
-	 * @param preco
-	 *            Um double que representa o valor do produto.
+	 * @param nome          Uma String que representa o nome do produto.
+	 * @param categoria     Uma String que representa a categoria do item.
+	 * @param qnt           Um inteiro que representa a quantidade de produtos que
+	 *                      se encontram na embalagem do item.
+	 * @param localDeCompra Uma String que representa onde o item foi comprado.
+	 * @param preco         Um double que representa o valor do produto.
 	 * @return Um inteiro que representa o identificador do produto.
 	 */
 	public int adicionaItemPorUnidade(String nome, String categoria, int qnt, String localDeCompra, double preco) {
@@ -88,8 +74,7 @@ public class ControllerMaster {
 	/**
 	 * Metodo que retorna uma String contendo a exibicao de um item.
 	 *
-	 * @param id
-	 *            Um inteiro que representa o identificador de um item.
+	 * @param id Um inteiro que representa o identificador de um item.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String exibeItem(int id) {
@@ -100,14 +85,11 @@ public class ControllerMaster {
 	 * Metodo que atualiza o atributo de um item passando um novo valor para o
 	 * atributo.
 	 *
-	 * @param id
-	 *            Um inteiro que representa o identificador unico de um item.
-	 * @param atributo
-	 *            Uma String que representa o atributo a ser modificado.
-	 * @param novoValor
-	 *            Uma String que representa o novo valor para o item.
+	 * @param id        Um inteiro que representa o identificador unico de um item.
+	 * @param atributo  Uma String que representa o atributo a ser modificado.
+	 * @param novoValor Uma String que representa o novo valor para o item.
 	 *
-	 *            Este metodo nao retorna nenhum valor.
+	 *                  Este metodo nao retorna nenhum valor.
 	 */
 	public void atualizaItem(int id, String atributo, String novoValor) {
 		this.controllerItem.atualizaItem(id, atributo, novoValor);
@@ -116,14 +98,12 @@ public class ControllerMaster {
 	/**
 	 * Metodo que adiciona um preco a um item.
 	 *
-	 * @param id
-	 *            Um inteiro que representa o identificador de um item.
-	 * @param localDeCompra
-	 *            Uma String que representa o local de compra do item.
-	 * @param preco
-	 *            Um double que representa o valor do preco que será adicionado.
+	 * @param id            Um inteiro que representa o identificador de um item.
+	 * @param localDeCompra Uma String que representa o local de compra do item.
+	 * @param preco         Um double que representa o valor do preco que será
+	 *                      adicionado.
 	 *
-	 *            Este método não retorna nenhum valor.
+	 *                      Este método não retorna nenhum valor.
 	 */
 	public void adicionaPrecoItem(int id, String localDeCompra, double preco) {
 		this.controllerItem.adicionaPrecoItem(id, localDeCompra, preco);
@@ -132,10 +112,9 @@ public class ControllerMaster {
 	/**
 	 * Metodo que remove um item a partir de seu id.
 	 *
-	 * @param id
-	 *            Um inteiro que representa o identificador de um item.
+	 * @param id Um inteiro que representa o identificador de um item.
 	 *
-	 *            Este metodo nao retorna nenhum valor.
+	 *           Este metodo nao retorna nenhum valor.
 	 */
 	public void deletaItem(int id) {
 		this.controllerItem.deletaItem(id);
@@ -144,8 +123,7 @@ public class ControllerMaster {
 	/**
 	 * Metodo que ordena os itens por ordem alfabetica.
 	 *
-	 * @param posicao
-	 *            A posicao em que o item esta posicionado ordenadamente.
+	 * @param posicao A posicao em que o item esta posicionado ordenadamente.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItem(int posicao) {
@@ -155,10 +133,8 @@ public class ControllerMaster {
 	/**
 	 * Metodo que lista em ordem alfabetica os itens de uma dada categoria.
 	 * 
-	 * @param posicao
-	 *            A posicao em que o item esta posicionado ordenadamente.
-	 * @param categoria
-	 *            catergoria que sera realizada a pesquisa.
+	 * @param posicao   A posicao em que o item esta posicionado ordenadamente.
+	 * @param categoria catergoria que sera realizada a pesquisa.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItemPorCategoria(String categoria, int posicao) {
@@ -168,8 +144,7 @@ public class ControllerMaster {
 	/**
 	 * Metodo que ordena os itens por preco.
 	 *
-	 * @param posicao
-	 *            A posicao em que o item esta posicionado ordenadamente.
+	 * @param posicao A posicao em que o item esta posicionado ordenadamente.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItemPorMenorPreco(int posicao) {
@@ -181,10 +156,8 @@ public class ControllerMaster {
 	 * listagem deve ocorrer em ordem alfabética considerando a representação em
 	 * string do item.
 	 * 
-	 * @param posicao
-	 *            A posicao em que o item esta posicionado ordenadamente.
-	 * @param strPesquisada
-	 *            parametro de pesquisa.
+	 * @param posicao       A posicao em que o item esta posicionado ordenadamente.
+	 * @param strPesquisada parametro de pesquisa.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItemPorPesquisa(String strPesquisada, int posicao) {
@@ -192,12 +165,15 @@ public class ControllerMaster {
 	}
 
 	// Caso 3
-
-	public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {
-		this.controllerLista.adicionaCompraALista(descritorLista, quantidade, itemId);
+	public String adicionaListaDeCompras(String descritorLista) {
+		return this.controllerLista.adicionaListaDeCompras(descritorLista);
 	}
 
-	public void finalizarListaDeCompras(String descritorLista, String localDaCompra, double valorFinalDaCompra) {
+	public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {
+		this.controllerLista.adicionaCompraALista(descritorLista, quantidade, this.pegaItem(itemId));
+	}
+
+	public void finalizarListaDeCompras(String descritorLista, String localDaCompra, int valorFinalDaCompra) {
 		this.controllerLista.finalizarListaDeCompras(descritorLista, localDaCompra, valorFinalDaCompra);
 	}
 
@@ -216,7 +192,7 @@ public class ControllerMaster {
 	public void deletaCompraDeLista(String descritorLista, int itemId) {
 		this.controllerLista.deletaCompraDeLista(descritorLista, itemId);
 	}
-	
+
 	// Caso 4
 
 	public String getItemListaPorData(String data, int posicaoLista) {
@@ -225,6 +201,15 @@ public class ControllerMaster {
 
 	public String getItemListaPorItem(int id, int posicaoLista) {
 		return this.controllerLista.getItemListaPorItem(id, posicaoLista);
+	}
+
+	// Metodo Extra
+	public Item pegaItem(int id) {
+		try {
+			return this.controllerItem.pegaItem(id);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Erro na compra de item: item nao existe no sistema.");
+		}
 	}
 
 }
