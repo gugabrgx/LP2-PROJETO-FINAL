@@ -65,7 +65,7 @@ public class ControllerItem {
 			double preco) {
 		Item item = new ItemPorQuantidadeFixa(nome, categoria, qnt, unidadeDeMedida, localDeCompra, preco, this.id);
 		if (this.itens.containsValue(item))
-			throw new IllegalArgumentException("Erro no cadastro de item: item ja cadastrado.");
+			throw new IllegalArgumentException("Erro no cadastro de item: item ja cadastrado no sistema.");
 		itens.put(this.id, item);
 		return this.id++;
 	}
@@ -84,7 +84,7 @@ public class ControllerItem {
 	public int adicionaItemPorQuilo(String nome, String categoria, double kg, String localDeCompra, double preco) {
 		Item item = new ItemPorQuilo(nome, categoria, kg, localDeCompra, preco, this.id);
 		if (this.itens.containsValue(item))
-			throw new IllegalArgumentException("Erro no cadastro de item: item ja cadastrado.");
+			throw new IllegalArgumentException("Erro no cadastro de item: item ja cadastrado no sistema.");
 		itens.put(this.id, item);
 		return this.id++;
 	}
@@ -104,7 +104,7 @@ public class ControllerItem {
 	public int adicionaItemPorUnidade(String nome, String categoria, int qnt, String localDeCompra, double preco) {
 		Item item = new ItemPorUnidade(nome, categoria, qnt, localDeCompra, preco, this.id);
 		if (this.itens.containsValue(item))
-			throw new IllegalArgumentException("Erro no cadastro de item: item ja cadastrado.");
+			throw new IllegalArgumentException("Erro no cadastro de item: item ja cadastrado no sistema.");
 		itens.put(this.id, item);
 		return this.id++;
 	}

@@ -14,10 +14,33 @@ public class Compras {
 	private Item item;
 
 	public Compras(int qnt, Item item) {
+		if (qnt <= 0) throw new IllegalArgumentException("Erro na compra de item: quantidade invalida.");
 		this.item = item;
 		this.quantidade = qnt;
 	}
 
+	public void atualizaCompra(String operacao, int quantidade) {
+		if (quantidade <= 0) throw new IllegalArgumentException("Erro na atualizacao de compra: quantidade invalida para atualizacao.");
+		switch (operacao.trim().toLowerCase()) {
+			case "adiciona":
+				this.quantidade += quantidade;
+				break;
+			case "diminui":
+				this.quantidade -= quantidade;
+				break;
+			default:
+				throw new IllegalArgumentException("Erro na atualizacao de compra: operacao invalida para atualizacao.");
+		}
+	}
+	
+	public int getQuantidade() {
+		return this.quantidade;
+	}
+	
+	public Item getItem() {
+		return this.item;
+	}
+	
 	public Categoria getItemCategoria() {
 		return item.getCategoria();
 	}
