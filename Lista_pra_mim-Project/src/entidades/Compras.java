@@ -1,5 +1,7 @@
 package entidades;
 
+import Enum.Categoria;
+
 /**
  * Laboratório de Programação 2 - 2018.1
  *
@@ -16,9 +18,17 @@ public class Compras {
 		this.quantidade = qnt;
 	}
 
+	public Categoria getItemCategoria() {
+		return item.getCategoria();
+	}
+	
+	public String getItemDescricao() {
+		return item.getDescricao();
+	}
+
 	@Override
 	public String toString() {
-		return String.format("%d %s", this.quantidade, this.item);
+		return String.format("%d %s", this.quantidade, this.item.getDescricao());
 	}
 
 }

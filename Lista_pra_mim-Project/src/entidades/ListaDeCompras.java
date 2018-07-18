@@ -1,8 +1,14 @@
 package entidades;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashSet;
+
+import Comparators.ComparaCompras;
+import Comparators.ComparaNome;
 
 /**
  * Laboratório de Programação 2 - 2018.1
@@ -20,6 +26,7 @@ public class ListaDeCompras {
 	private String hora;
 	private String localDaCompra;
 	private int precoTotal;
+	private Comparator<Compras> comparaCompras;
 
 	public ListaDeCompras(String descritorLista) {
 		this.descritorLista = descritorLista;
@@ -27,6 +34,8 @@ public class ListaDeCompras {
 		this.hora = new SimpleDateFormat("HH:mm:ss").format(horario);
 		this.aberto = true;
 		this.compras = new HashSet<>();
+		this.comparaCompras = new ComparaCompras();
+
 	}
 
 	public void adicionaCompraALista(int quantidade, Item item) {
@@ -42,16 +51,6 @@ public class ListaDeCompras {
 		this.aberto = false;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public boolean getAberto() {
 		return this.aberto;
 	}
@@ -74,6 +73,19 @@ public class ListaDeCompras {
 
 	public int getPrecoTotal() {
 		return this.precoTotal;
+	}
+
+	public String getItemLista(int posicaoItem) {
+		if (posicaoItem < 0)
+			throw new ArrayIndexOutOfBoundsException("Erro no cadastro de preco: id de item invalido.");
+		ArrayList<Compras> comprasOrdenados = new ArrayList<>(this.compras);
+
+		if (comprasOrdenados.size() <= posicaoItem) {
+			return "";
+		}
+
+		Collections.sort(comprasOrdenados, comparaCompras);
+		return comprasOrdenados.get(posicaoItem).toString();
 	}
 
 	@Override

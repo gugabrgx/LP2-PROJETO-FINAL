@@ -96,6 +96,6 @@ public class ItemPorUnidade extends Item {
 	 */
 	@Override
 	public String getDescricao() {
-		return String.format(" %s", super.toString());
+		return String.format("%s", super.toString());
 	}
 }

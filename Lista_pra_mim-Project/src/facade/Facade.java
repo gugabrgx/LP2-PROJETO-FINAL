@@ -21,11 +21,11 @@ public class Facade {
 	private ControllerMaster controller;
 
 	public static void main(String[] args) {
-		args = new String[] { "facade.Facade", 
-				"acceptance_tests/use_case1.txt", "acceptance_tests/use_case1_exception.txt",
-				"acceptance_tests/use_case2.txt", "acceptance_tests/use_case2_exception.txt",
-				"acceptance_tests/use_case3.txt", "acceptance_tests/use_case3_exception.txt"
-,				"acceptance_tests/use_case4.txt", "acceptance_tests/use_case4_exception.txt" };
+		args = new String[] { "facade.Facade", "acceptance_tests/use_case1.txt",
+				"acceptance_tests/use_case1_exception.txt", "acceptance_tests/use_case2.txt",
+				"acceptance_tests/use_case2_exception.txt", "acceptance_tests/use_case3.txt",
+				"acceptance_tests/use_case3_exception.txt", "acceptance_tests/use_case4.txt",
+				"acceptance_tests/use_case4_exception.txt" };
 
 		EasyAccept.main(args);
 	}
@@ -41,20 +41,14 @@ public class Facade {
 	 * Metodo que cria e adiciona um novo ItemPorQuantidade a uma lista que contem
 	 * todos os itens.
 	 *
-	 * @param nome
-	 *            Uma String que representa o nome do produto.
-	 * @param categoria
-	 *            Uma String que representa a categoria do item.
-	 * @param qnt
-	 *            Um inteiro que representa a quantidade de produtos que se
-	 *            encontram na embalagem do item.
-	 * @param unidadeDeMedida
-	 *            Uma String que representa a unidade de medida do produto (gramas,
-	 *            litros, etc.).
-	 * @param localDeCompra
-	 *            Uma String que representa onde o item foi comprado.
-	 * @param preco
-	 *            Um double que representa o valor do produto.
+	 * @param nome            Uma String que representa o nome do produto.
+	 * @param categoria       Uma String que representa a categoria do item.
+	 * @param qnt             Um inteiro que representa a quantidade de produtos que
+	 *                        se encontram na embalagem do item.
+	 * @param unidadeDeMedida Uma String que representa a unidade de medida do
+	 *                        produto (gramas, litros, etc.).
+	 * @param localDeCompra   Uma String que representa onde o item foi comprado.
+	 * @param preco           Um double que representa o valor do produto.
 	 * @return Um inteiro que representa o identificador do produto.
 	 */
 	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
@@ -66,16 +60,11 @@ public class Facade {
 	 * Metodo que cria e adiciona um novo ItemPorQuilo a uma lista que contem todos
 	 * os itens.
 	 *
-	 * @param nome
-	 *            Uma String que representa o nome do produto.
-	 * @param categoria
-	 *            Uma String que representa a categoria do item.
-	 * @param kg
-	 *            Um double que representa o peso do item.
-	 * @param localDeCompra
-	 *            Uma String que representa onde o item foi comprado.
-	 * @param preco
-	 *            Um double que representa o valor do produto.
+	 * @param nome          Uma String que representa o nome do produto.
+	 * @param categoria     Uma String que representa a categoria do item.
+	 * @param kg            Um double que representa o peso do item.
+	 * @param localDeCompra Uma String que representa onde o item foi comprado.
+	 * @param preco         Um double que representa o valor do produto.
 	 * @return Um inteiro que representa o identificador do produto.
 	 */
 	public int adicionaItemPorQuilo(String nome, String categoria, double kg, String localDeCompra, double preco) {
@@ -86,17 +75,12 @@ public class Facade {
 	 * Metodo que cria e adiciona um novo ItemPorUnidade a uma lista que contem
 	 * todos os itens.
 	 *
-	 * @param nome
-	 *            Uma String que representa o nome do produto.
-	 * @param categoria
-	 *            Uma String que representa a categoria do item.
-	 * @param qnt
-	 *            Um inteiro que representa a quantidade de produtos que se
-	 *            encontram na embalagem do item.
-	 * @param localDeCompra
-	 *            Uma String que representa onde o item foi comprado.
-	 * @param preco
-	 *            Um double que representa o valor do produto.
+	 * @param nome          Uma String que representa o nome do produto.
+	 * @param categoria     Uma String que representa a categoria do item.
+	 * @param qnt           Um inteiro que representa a quantidade de produtos que
+	 *                      se encontram na embalagem do item.
+	 * @param localDeCompra Uma String que representa onde o item foi comprado.
+	 * @param preco         Um double que representa o valor do produto.
 	 * @return Um inteiro que representa o identificador do produto.
 	 */
 	public int adicionaItemPorUnidade(String nome, String categoria, int qnt, String localDeCompra, double preco) {
@@ -106,8 +90,7 @@ public class Facade {
 	/**
 	 * Metodo que retorna uma String contendo a exibicao de um item.
 	 *
-	 * @param id
-	 *            Um inteiro que representa o identificador de um item.
+	 * @param id Um inteiro que representa o identificador de um item.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String exibeItem(int id) {
@@ -118,14 +101,11 @@ public class Facade {
 	 * Metodo que atualiza o atributo de um item passando um novo valor para o
 	 * atributo.
 	 *
-	 * @param id
-	 *            Um inteiro que representa o identificador unico de um item.
-	 * @param atributo
-	 *            Uma String que representa o atributo a ser modificado.
-	 * @param novoValor
-	 *            Uma String que representa o novo valor para o item.
+	 * @param id        Um inteiro que representa o identificador unico de um item.
+	 * @param atributo  Uma String que representa o atributo a ser modificado.
+	 * @param novoValor Uma String que representa o novo valor para o item.
 	 *
-	 *            Este metodo nao retorna nenhum valor.
+	 *                  Este metodo nao retorna nenhum valor.
 	 */
 	public void atualizaItem(int id, String atributo, String novoValor) {
 		this.controller.atualizaItem(id, atributo, novoValor);
@@ -134,14 +114,12 @@ public class Facade {
 	/**
 	 * Metodo que adiciona um preco a um item.
 	 *
-	 * @param id
-	 *            Um inteiro que representa o identificador de um item.
-	 * @param localDeCompra
-	 *            Uma String que representa o local de compra do item.
-	 * @param preco
-	 *            Um double que representa o valor do preco que será adicionado.
+	 * @param id            Um inteiro que representa o identificador de um item.
+	 * @param localDeCompra Uma String que representa o local de compra do item.
+	 * @param preco         Um double que representa o valor do preco que será
+	 *                      adicionado.
 	 *
-	 *            Este método não retorna nenhum valor.
+	 *                      Este método não retorna nenhum valor.
 	 */
 	public void adicionaPrecoItem(int id, String localDeCompra, double preco) {
 		this.controller.adicionaPrecoItem(id, localDeCompra, preco);
@@ -150,10 +128,9 @@ public class Facade {
 	/**
 	 * Metodo que remove um item a partir de seu id.
 	 *
-	 * @param id
-	 *            Um inteiro que representa o identificador de um item.
+	 * @param id Um inteiro que representa o identificador de um item.
 	 *
-	 *            Este metodo nao retorna nenhum valor.
+	 *           Este metodo nao retorna nenhum valor.
 	 */
 	public void deletaItem(int id) {
 		this.controller.deletaItem(id);
@@ -162,8 +139,7 @@ public class Facade {
 	/**
 	 * Metodo que ordena os itens por ordem alfabetica.
 	 *
-	 * @param posicao
-	 *            A posicao em que o item esta posicionado ordenadamente.
+	 * @param posicao A posicao em que o item esta posicionado ordenadamente.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItem(int posicao) {
@@ -173,10 +149,8 @@ public class Facade {
 	/**
 	 * Metodo que lista em ordem alfabetica os itens de uma dada categoria.
 	 * 
-	 * @param posicao
-	 *            A posicao em que o item esta posicionado ordenadamente.
-	 * @param categoria
-	 *            catergoria que sera realizada a pesquisa.
+	 * @param posicao   A posicao em que o item esta posicionado ordenadamente.
+	 * @param categoria catergoria que sera realizada a pesquisa.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItemPorCategoria(String categoria, int posicao) {
@@ -186,8 +160,7 @@ public class Facade {
 	/**
 	 * Metodo que ordena os itens por preco.
 	 *
-	 * @param posicao
-	 *            A posicao em que o item esta posicionado ordenadamente.
+	 * @param posicao A posicao em que o item esta posicionado ordenadamente.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItemPorMenorPreco(int posicao) {
@@ -199,10 +172,8 @@ public class Facade {
 	 * listagem deve ocorrer em ordem alfabética considerando a representação em
 	 * string do item.
 	 * 
-	 * @param posicao
-	 *            A posicao em que o item esta posicionado ordenadamente.
-	 * @param strPesquisada
-	 *            parametro de pesquisa.
+	 * @param posicao       A posicao em que o item esta posicionado ordenadamente.
+	 * @param strPesquisada parametro de pesquisa.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItemPorPesquisa(String strPesquisada, int posicao) {
