@@ -292,9 +292,9 @@ public class ControllerItem {
 
 	public Item pegaItem(int id) {
 		if (id < 0)
-			throw new ArrayIndexOutOfBoundsException("Erro na pesquisa de item: id de item invalido.");
+			throw new ArrayIndexOutOfBoundsException("item id invalido.");
 		if (!itens.containsKey(id))
-			throw new IllegalArgumentException("Erro na pesquisa de item: item nao cadastrado.");
+			throw new IllegalArgumentException("item nao existe no sistema.");
 		return this.itens.get(id);
 	}
 
