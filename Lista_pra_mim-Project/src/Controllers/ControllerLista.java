@@ -36,13 +36,8 @@ public class ControllerLista {
 	}
 
 	public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {
-		Item item;
-		try {
-			item = this.pegaItem(itemId);
-		} catch (Exception e) {
-			throw new IllegalArgumentException("Erro na compra de item: " + e.getMessage());
-		}
-		this.listasDeCompras.get(descritorLista).adicionaCompraALista(quantidade, item);
+		this.listasDeCompras.get(descritorLista).adicionaCompraALista(quantidade,
+				this.pegaItem(itemId, "Erro na compra de item: "));
 	}
 
 	public void finalizarListaDeCompras(String descritorLista, String localDaCompra, int valorFinalDaCompra) {
@@ -79,20 +74,16 @@ public class ControllerLista {
 		if (descritorLista.trim().equals("")) {
 			throw new IllegalArgumentException("Erro na pesquisa de compra: descritor nao pode ser vazio ou nulo.");
 		}
-		Item item;
-		try {
-			item = this.pegaItem(itemId);
-		} catch (Exception e) {
-			throw new IllegalArgumentException("Erro na pesquisa de compra: " + e.getMessage());
-		}
-		return this.listasDeCompras.get(descritorLista).pesquisaCompraEmLista(item);
+		return this.listasDeCompras.get(descritorLista)
+				.pesquisaCompraEmLista(this.pegaItem(itemId, "Erro na pesquisa de compra: "));
 	}
 
 	public void atualizaCompraDeLista(String descritorLista, int itemId, int quantidade, String operacao) {
 		if (!(operacao.equals("adiciona")) && !(operacao.equals("diminui"))) {
 			throw new IllegalArgumentException("Erro na atualizacao de compra: operacao invalida para atualizacao.");
 		}
-		this.listasDeCompras.get(descritorLista).atualizaCompraDeLista(operacao, this.pegaItem(itemId), quantidade);
+		this.listasDeCompras.get(descritorLista).atualizaCompraDeLista(operacao,
+				this.pegaItem(itemId, "Erro na exclusao de compra: "), quantidade);
 
 	}
 
@@ -116,13 +107,8 @@ public class ControllerLista {
 		if (descritorLista.trim().equals("")) {
 			throw new IllegalArgumentException("Erro na exclusao de compra: descritor nao pode ser vazio ou nulo.");
 		}
-		Item item;
-		try {
-			item = this.pegaItem(itemId);
-		} catch (Exception e) {
-			throw new IllegalArgumentException("Erro na exclusao de compra: " + e.getMessage());
-		}
-		this.listasDeCompras.get(descritorLista).deletaCompraDeLista(item);
+		this.listasDeCompras.get(descritorLista)
+				.deletaCompraDeLista(this.pegaItem(itemId, "Erro na exclusao de compra: "));
 
 	}
 
@@ -140,7 +126,7 @@ public class ControllerLista {
 		return null;
 	}
 
-	public Item pegaItem(int id) {
-		return this.controllerItem.pegaItem(id);
+	private Item pegaItem(int id, String msg) {
+		return this.controllerItem.pegaItem(id, msg);
 	}
 }

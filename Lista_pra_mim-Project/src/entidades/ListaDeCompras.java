@@ -121,6 +121,7 @@ public class ListaDeCompras {
 				break;
 			}
 		}
+
 	}
 
 	public boolean getAberto() {
