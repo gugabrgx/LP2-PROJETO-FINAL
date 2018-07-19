@@ -19,7 +19,7 @@ import Comparators.ComparaNome;
 public class ListaDeCompras {
 
 	private Date horario = new Date();
-	private HashSet<Compras> compras;
+	private HashSet<Compra> compras;
 	private boolean aberto;
 	private String descritorLista;
 	private String data;
@@ -27,7 +27,7 @@ public class ListaDeCompras {
 	private String localDaCompra;
 	private int precoTotal;
 	private int maiorId;
-	private Comparator<Compras> comparaCompras;
+	private Comparator<Compra> comparaCompras;
 
 	public ListaDeCompras(String descritorLista) {
 		if (descritorLista == null)
@@ -47,7 +47,7 @@ public class ListaDeCompras {
 	public void adicionaCompraALista(int quantidade, Item item) {
 		if (aberto == false)
 			throw new IllegalArgumentException("Erro na compra de item: lista ja finalizada.");
-		Compras compra = new Compras(quantidade, item);
+		Compra compra = new Compra(quantidade, item);
 		compras.add(compra);
 		if (item.getId() > maiorId)
 			maiorId = item.getId();
@@ -71,7 +71,7 @@ public class ListaDeCompras {
 	}
 
 	public String pesquisaCompraEmLista(Item item) {
-		for (Compras compra : compras) {
+		for (Compra compra : compras) {
 			if (compra.getItem() == item) {
 				return compra.toString();
 			}
@@ -82,7 +82,7 @@ public class ListaDeCompras {
 	public void atualizaCompraDeLista(String operacao, Item item, int quantidade) {
 		if (aberto == false)
 			throw new IllegalArgumentException("Erro na atualizacao de compra: lista ja finalizada");
-		for (Compras compra : compras) {
+		for (Compra compra : compras) {
 			if (compra.getItem() == item) {
 				compra.atualizaCompra(operacao, quantidade);
 				if (compra.getQuantidade() <= 0)
@@ -97,7 +97,7 @@ public class ListaDeCompras {
 			throw new IllegalArgumentException("Erro na exclusao de compra: lista ja finalizada");
 		if (item.getId() > maiorId)
 			throw new IllegalArgumentException("Erro na exclusao de compra: item nao existe no sistema.");
-		for (Compras compra : compras) {
+		for (Compra compra : compras) {
 			if (compra.getItem() == item) {
 				compras.remove(compra);
 			}
@@ -132,7 +132,7 @@ public class ListaDeCompras {
 	public String getItemLista(int posicaoItem) {
 		if (posicaoItem < 0)
 			throw new ArrayIndexOutOfBoundsException("Erro no cadastro de preco: id de item invalido.");
-		ArrayList<Compras> comprasOrdenados = new ArrayList<>(this.compras);
+		ArrayList<Compra> comprasOrdenados = new ArrayList<>(this.compras);
 
 		if (comprasOrdenados.size() <= posicaoItem) {
 			return "";

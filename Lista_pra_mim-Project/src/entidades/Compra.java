@@ -8,12 +8,12 @@ import Enum.Categoria;
  * @author Gustavo Luiz Bispo dos Santos - 117210400
  * @lab Lab0
  */
-public class Compras {
+public class Compra {
 
 	private int quantidade;
 	private Item item;
 
-	public Compras(int qnt, Item item) {
+	public Compra(int qnt, Item item) {
 		if (qnt <= 0) throw new IllegalArgumentException("Erro na compra de item: quantidade invalida.");
 		this.item = item;
 		this.quantidade = qnt;
