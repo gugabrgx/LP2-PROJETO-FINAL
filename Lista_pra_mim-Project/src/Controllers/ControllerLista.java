@@ -1,12 +1,7 @@
 package Controllers;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 
-import Comparators.ComparaCompras;
-import Comparators.ComparaNome;
 import entidades.Item;
 import entidades.ListaDeCompras;
 
@@ -19,30 +14,48 @@ import entidades.ListaDeCompras;
 public class ControllerLista {
 
 	private HashMap<String, ListaDeCompras> listasDeCompras;
+	private ControllerItem controllerItem;
 
-	public ControllerLista() {
+	public ControllerLista(ControllerItem controllerItem) {
 		this.listasDeCompras = new HashMap<>();
+		this.controllerItem = controllerItem;
 	}
 
 	public String adicionaListaDeCompras(String descritorLista) {
-		if (descritorLista == null || descritorLista.trim().equals("")) {
+		if (descritorLista == null) {
+			throw new NullPointerException(
+					"Erro na criacao de lista de compras: descritor nao pode ser vazio ou nulo.");
+		}
+
+		if (descritorLista.trim().equals("")) {
 			throw new IllegalArgumentException(
 					"Erro na criacao de lista de compras: descritor nao pode ser vazio ou nulo.");
 		}
-		listasDeCompras.put(descritorLista, new ListaDeCompras(descritorLista));
+		this.listasDeCompras.put(descritorLista, new ListaDeCompras(descritorLista));
 		return descritorLista;
 	}
 
-	public void adicionaCompraALista(String descritorLista, int quantidade, Item item) {
-		listasDeCompras.get(descritorLista).adicionaCompraALista(quantidade, item);
+	public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {
+		this.listasDeCompras.get(descritorLista).adicionaCompraALista(quantidade,
+				this.pegaItem(itemId, "Erro na compra de item: "));
 	}
 
 	public void finalizarListaDeCompras(String descritorLista, String localDaCompra, int valorFinalDaCompra) {
-		if (descritorLista == null || descritorLista.trim().equals("")) {
+		if (descritorLista == null) {
+			throw new NullPointerException(
+					"Erro na finalizacao de lista de compras: descritor nao pode ser vazio ou nulo.");
+		}
+
+		if (descritorLista.trim().equals("")) {
 			throw new IllegalArgumentException(
 					"Erro na finalizacao de lista de compras: descritor nao pode ser vazio ou nulo.");
 		}
-		if (localDaCompra == null || localDaCompra.trim().equals("")) {
+		if (localDaCompra == null) {
+			throw new NullPointerException(
+					"Erro na finalizacao de lista de compras: local nao pode ser vazio ou nulo.");
+		}
+
+		if (localDaCompra.trim().equals("")) {
 			throw new IllegalArgumentException(
 					"Erro na finalizacao de lista de compras: local nao pode ser vazio ou nulo.");
 		}
@@ -54,20 +67,32 @@ public class ControllerLista {
 	}
 
 	public String pesquisaCompraEmLista(String descritorLista, int itemId) {
-		if (descritorLista == null || descritorLista.trim().equals("")) {
+		if (descritorLista == null) {
+			throw new NullPointerException("Erro na pesquisa de compra: descritor nao pode ser vazio ou nulo.");
+		}
+
+		if (descritorLista.trim().equals("")) {
 			throw new IllegalArgumentException("Erro na pesquisa de compra: descritor nao pode ser vazio ou nulo.");
 		}
-		// TODO Auto-generated method stub
-		return null;
+		return this.listasDeCompras.get(descritorLista)
+				.pesquisaCompraEmLista(this.pegaItem(itemId, "Erro na pesquisa de compra: "));
 	}
 
-	public void atualizaCompraDeLista(String descritorLista, int itemId, int quantidade) {
-		// TODO Auto-generated method stub
+	public void atualizaCompraDeLista(String descritorLista, int itemId, int quantidade, String operacao) {
+		if (!(operacao.equals("adiciona")) && !(operacao.equals("diminui"))) {
+			throw new IllegalArgumentException("Erro na atualizacao de compra: operacao invalida para atualizacao.");
+		}
+		this.listasDeCompras.get(descritorLista).atualizaCompraDeLista(operacao,
+				this.pegaItem(itemId, "Erro na exclusao de compra: "), quantidade);
 
 	}
 
 	public String getItemLista(String descritorLista, int posicaoItem) {
-		if (descritorLista == null || descritorLista.trim().equals("")) {
+		if (descritorLista == null) {
+			throw new NullPointerException("Erro na pesquisa de compra: descritor nao pode ser vazio ou nulo.");
+		}
+
+		if (descritorLista.trim().equals("")) {
 			throw new IllegalArgumentException("Erro na pesquisa de compra: descritor nao pode ser vazio ou nulo.");
 		}
 		return this.listasDeCompras.get(descritorLista).getItemLista(posicaoItem);
@@ -75,11 +100,20 @@ public class ControllerLista {
 	}
 
 	public void deletaCompraDeLista(String descritorLista, int itemId) {
-		if (descritorLista == null || descritorLista.trim().equals("")) {
+		if (descritorLista == null) {
+			throw new NullPointerException("Erro na exclusao de compra: descritor nao pode ser vazio ou nulo.");
+		}
+
+		if (descritorLista.trim().equals("")) {
 			throw new IllegalArgumentException("Erro na exclusao de compra: descritor nao pode ser vazio ou nulo.");
 		}
-		// TODO Auto-generated method stub
+		this.listasDeCompras.get(descritorLista)
+				.deletaCompraDeLista(this.pegaItem(itemId, "Erro na exclusao de compra: "));
 
+	}
+
+	public String pesquisaListaDeCompras(String descritorLista) {
+		return this.listasDeCompras.get(descritorLista).getDescritorLista();
 	}
 
 	public String getItemListaPorData(String data, int posicaoLista) {
@@ -92,4 +126,7 @@ public class ControllerLista {
 		return null;
 	}
 
+	private Item pegaItem(int id, String msg) {
+		return this.controllerItem.pegaItem(id, msg);
+	}
 }

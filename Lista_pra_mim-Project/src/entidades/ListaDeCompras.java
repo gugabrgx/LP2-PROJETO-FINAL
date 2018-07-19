@@ -82,14 +82,23 @@ public class ListaDeCompras {
 	public void atualizaCompraDeLista(String operacao, Item item, int quantidade) {
 		if (aberto == false)
 			throw new IllegalArgumentException("Erro na atualizacao de compra: lista ja finalizada");
+		boolean teste = true;
 		for (Compras compra : compras) {
-			if (compra.getItem() == item) {
+			if (compra.getItem().equals(item)) {
+				teste = false;
+				break;
+			}
+		}
+		if (teste)
+			throw new IllegalArgumentException("Erro na atualizacao de compra: compra nao encontrada na lista.");
+		for (Compras compra : compras) {
+			if (compra.getItem().equals(item)) {
 				compra.atualizaCompra(operacao, quantidade);
 				if (compra.getQuantidade() <= 0)
 					compras.remove(compra);
+				break;
 			}
 		}
-		throw new IllegalArgumentException("Erro na atualizacao de compra: compra nao encontrada na lista.");
 	}
 
 	public void deletaCompraDeLista(Item item) {
@@ -97,12 +106,22 @@ public class ListaDeCompras {
 			throw new IllegalArgumentException("Erro na exclusao de compra: lista ja finalizada");
 		if (item.getId() > maiorId)
 			throw new IllegalArgumentException("Erro na exclusao de compra: item nao existe no sistema.");
+		boolean teste = true;
+		for (Compras compra : compras) {
+			if (compra.getItem().equals(item)) {
+				teste = false;
+				break;
+			}
+		}
+		if (teste)
+			throw new IllegalArgumentException("Erro na exclusao de compra: compra nao encontrada na lista.");
 		for (Compras compra : compras) {
 			if (compra.getItem() == item) {
 				compras.remove(compra);
+				break;
 			}
 		}
-		throw new IllegalArgumentException("Erro na exclusao de compra: compra nao encontrada na lista.");
+
 	}
 
 	public boolean getAberto() {
