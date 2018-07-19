@@ -18,7 +18,7 @@ public class ControllerMaster {
 	 */
 	public ControllerMaster() {
 		this.controllerItem = new ControllerItem();
-		this.controllerLista = new ControllerLista();
+		this.controllerLista = new ControllerLista(controllerItem);
 	}
 
 	/**

@@ -96,7 +96,7 @@ public class ItemPorQuilo extends Item {
 	 */
 	@Override
 	public String getDescricao() {
-		return String.format("%s", super.toString());
+		return super.toString();
 	}
 
 }
