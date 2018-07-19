@@ -120,7 +120,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="entidades.Compra" project="Lista_pra_mim-Project"
+  <class id="14" language="java" name="entidades.Compras" project="Lista_pra_mim-Project" 
     file="/Lista_pra_mim-Project/src/entidades/Compras.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1710" y="328"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
