@@ -61,13 +61,8 @@ public class ControllerLista {
 	 *            O item a ser adicionado na lista.
 	 */
 	public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {
-		Item item;
-		try {
-			item = this.pegaItem(itemId);
-		} catch (Exception e) {
-			throw new IllegalArgumentException("Erro na compra de item: " + e.getMessage());
-		}
-		this.listasDeCompras.get(descritorLista).adicionaCompraALista(quantidade, item);
+		this.listasDeCompras.get(descritorLista).adicionaCompraALista(quantidade,
+				this.pegaItem(itemId, "Erro na compra de item: "));
 	}
 
 	/**
@@ -123,13 +118,7 @@ public class ControllerLista {
 		if (descritorLista.trim().equals("")) {
 			throw new IllegalArgumentException("Erro na pesquisa de compra: descritor nao pode ser vazio ou nulo.");
 		}
-		Item item;
-		try {
-			item = this.pegaItem(itemId);
-		} catch (Exception e) {
-			throw new IllegalArgumentException("Erro na pesquisa de compra: " + e.getMessage());
-		}
-		return this.listasDeCompras.get(descritorLista).pesquisaCompraEmLista(item);
+		return this.listasDeCompras.get(descritorLista).pesquisaCompraEmLista(this.pegaItem(itemId, "Erro na pesquisa de compra: "));
 	}
 
 	/**
@@ -148,7 +137,8 @@ public class ControllerLista {
 		if (!(operacao.equals("adiciona")) && !(operacao.equals("diminui"))) {
 			throw new IllegalArgumentException("Erro na atualizacao de compra: operacao invalida para atualizacao.");
 		}
-		this.listasDeCompras.get(descritorLista).atualizaCompraDeLista(operacao, this.pegaItem(itemId), quantidade);
+		this.listasDeCompras.get(descritorLista).atualizaCompraDeLista(operacao,
+				this.pegaItem(itemId, "Erro na exclusao de compra: "), quantidade);
 	}
 
 	/**
@@ -188,13 +178,8 @@ public class ControllerLista {
 		if (descritorLista.trim().equals("")) {
 			throw new IllegalArgumentException("Erro na exclusao de compra: descritor nao pode ser vazio ou nulo.");
 		}
-		Item item;
-		try {
-			item = this.pegaItem(itemId);
-		} catch (Exception e) {
-			throw new IllegalArgumentException("Erro na exclusao de compra: " + e.getMessage());
-		}
-		this.listasDeCompras.get(descritorLista).deletaCompraDeLista(item);
+		this.listasDeCompras.get(descritorLista)
+				.deletaCompraDeLista(this.pegaItem(itemId, "Erro na exclusao de compra: "));
 
 	}
 
@@ -210,8 +195,8 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Este metodo recupera uma lista de compras a partir de sua data, e sua
-	 * posicao.
+	 * Este metodo rec>>>>>>> c96cfdbf139ca3e5a71824d6ad0391add230cde9upera uma
+	 * lista de compras a partir de sua data, e sua posicao.
 	 * 
 	 * @param data
 	 *            A data da lista.
@@ -244,9 +229,11 @@ public class ControllerLista {
 	 * 
 	 * @param id
 	 *            O id do item.
+	 * @param msg
+	 *            A mensagem
 	 * @return O objeto item.
 	 */
-	public Item pegaItem(int id) {
-		return this.controllerItem.pegaItem(id);
+	private Item pegaItem(int id, String msg) {
+		return this.controllerItem.pegaItem(id, msg);
 	}
 }
