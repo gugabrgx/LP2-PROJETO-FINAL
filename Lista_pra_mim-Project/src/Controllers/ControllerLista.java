@@ -22,7 +22,7 @@ public class ControllerLista {
 	private ControllerItem controllerItem;
 
 	/**
-	 * Constroi um controller de lista, e inicializa o Mapa.
+	 * Constroi um controller de lista, e inicializa o Mapa, e o controller de item.
 	 */
 	public ControllerLista(ControllerItem controllerItem) {
 		this.listasDeCompras = new HashMap<>();
@@ -57,7 +57,7 @@ public class ControllerLista {
 	 *            O descritor da lista.
 	 * @param quantidade
 	 *            A quantidade do item.
-	 * @param item
+	 * @param itemID
 	 *            O item a ser adicionado na lista.
 	 */
 	public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {
@@ -141,6 +141,8 @@ public class ControllerLista {
 	 *            O ID do item.
 	 * @param quantidade
 	 *            A quantidade nova do item.
+	 * @param operacao
+	 *            A operacao de diminuir ou aumentar a quantidade do item.
 	 */
 	public void atualizaCompraDeLista(String descritorLista, int itemId, int quantidade, String operacao) {
 		if (!(operacao.equals("adiciona")) && !(operacao.equals("diminui"))) {
@@ -197,18 +199,26 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Este metodo recupera uma lista de compras a partir de sua data.
+	 * Este metodo recupera uma lista a partir de sua desccricao.
 	 * 
-	 * @param data
-	 *            A data da lista.
-	 * @param posicaoLista
-	 *            A posicao da lista.
-	 * @return em String o nome da lista de compras.
+	 * @param descritorLista
+	 *            O descritor da lista.
+	 * @return em String a representacao de uma lista.
 	 */
 	public String pesquisaListaDeCompras(String descritorLista) {
 		return this.listasDeCompras.get(descritorLista).getDescritorLista();
 	}
 
+	/**
+	 * Este metodo recupera uma lista de compras a partir de sua data, e sua
+	 * posicao.
+	 * 
+	 * @param data
+	 *            A data da lista.
+	 * @param posicaoLista
+	 *            A posicao da Lista
+	 * @return em String o nome da lista de compras.
+	 */
 	public String getItemListaPorData(String data, int posicaoLista) {
 		// TODO Auto-generated method stub
 		return null;
@@ -229,6 +239,13 @@ public class ControllerLista {
 		return null;
 	}
 
+	/**
+	 * Este metodo recupera um item.
+	 * 
+	 * @param id
+	 *            O id do item.
+	 * @return O objeto item.
+	 */
 	public Item pegaItem(int id) {
 		return this.controllerItem.pegaItem(id);
 	}
