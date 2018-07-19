@@ -193,12 +193,17 @@ public class Facade {
 		this.controller.finalizarListaDeCompras(descritorLista, localDaCompra, valorFinalDaCompra);
 	}
 
+	public String pesquisaListaDeCompras(String descritorLista) {
+		return this.controller.pesquisaListaDeCompras(descritorLista);
+
+	}
+
 	public String pesquisaCompraEmLista(String descritorLista, int itemId) {
 		return this.controller.pesquisaCompraEmLista(descritorLista, itemId);
 	}
 
-	public void atualizaCompraDeLista(String descritorLista, int itemId, int quantidade) {
-		this.controller.atualizaCompraDeLista(descritorLista, itemId, quantidade);
+	public void atualizaCompraDeLista(String descritorLista, int itemId, String Operacao, int quantidade) {
+		this.controller.atualizaCompraDeLista(descritorLista, itemId, quantidade, Operacao);
 	}
 
 	public String getItemLista(String descritorLista, int posicaoItem) {

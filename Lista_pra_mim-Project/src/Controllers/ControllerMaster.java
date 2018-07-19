@@ -170,7 +170,13 @@ public class ControllerMaster {
 	}
 
 	public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {
-		this.controllerLista.adicionaCompraALista(descritorLista, quantidade, this.pegaItem(itemId));
+		Item item;
+		try {
+			item = this.pegaItem(itemId);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Erro na compra de item: " + e.getMessage());
+		}
+		this.controllerLista.adicionaCompraALista(descritorLista, quantidade, item);
 	}
 
 	public void finalizarListaDeCompras(String descritorLista, String localDaCompra, int valorFinalDaCompra) {
@@ -178,11 +184,20 @@ public class ControllerMaster {
 	}
 
 	public String pesquisaCompraEmLista(String descritorLista, int itemId) {
-		return this.controllerLista.pesquisaCompraEmLista(descritorLista, itemId);
+		Item item;
+		try {
+			item = this.pegaItem(itemId);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Erro na pesquisa de compra: " + e.getMessage());
+		}
+		return this.controllerLista.pesquisaCompraEmLista(descritorLista, item);
 	}
 
-	public void atualizaCompraDeLista(String descritorLista, int itemId, int quantidade) {
-		this.controllerLista.atualizaCompraDeLista(descritorLista, itemId, quantidade);
+	public void atualizaCompraDeLista(String descritorLista, int itemId, int quantidade, String operacao) {
+		if (!(operacao.equals("adiciona")) && !(operacao.equals("diminui"))) {
+			throw new IllegalArgumentException("Erro na atualizacao de compra: operacao invalida para atualizacao.");
+		}
+		this.controllerLista.atualizaCompraDeLista(descritorLista, this.pegaItem(itemId), quantidade, operacao);
 	}
 
 	public String getItemLista(String descritorLista, int posicaoItem) {
@@ -190,9 +205,18 @@ public class ControllerMaster {
 	}
 
 	public void deletaCompraDeLista(String descritorLista, int itemId) {
-		this.controllerLista.deletaCompraDeLista(descritorLista, itemId);
+		Item item;
+		try {
+			item = this.pegaItem(itemId);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Erro na exclusao de compra: " + e.getMessage());
+		}
+		this.controllerLista.deletaCompraDeLista(descritorLista, item);
 	}
 
+	public String pesquisaListaDeCompras(String descritorLista) {
+		return this.controllerLista.pesquisaListaDeCompras(descritorLista);
+	}
 	// Caso 4
 
 	public String getItemListaPorData(String data, int posicaoLista) {
@@ -205,11 +229,7 @@ public class ControllerMaster {
 
 	// Metodo Extra
 	public Item pegaItem(int id) {
-		try {
-			return this.controllerItem.pegaItem(id);
-		} catch (Exception e) {
-			throw new IllegalArgumentException("Erro na compra de item: item nao existe no sistema.");
-		}
+		return this.controllerItem.pegaItem(id);
 	}
 
 }
