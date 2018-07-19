@@ -4,6 +4,9 @@ import Controllers.ControllerItem;
 import Controllers.ControllerLista;
 import easyaccept.EasyAccept;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Laboratório de Programação 2 - Lista pra mim© Project
  * 
@@ -224,6 +227,14 @@ public class Facade {
 
 	public String getItemListaPorItem(int id, int posicaoLista) {
 		return this.controllerLista.getItemListaPorItem(id, posicaoLista);
+	}
+
+	public String pesquisaListasDeComprasPorData(String data) {
+		return this.controllerLista.pesquisaListasDeComprasPorData(data);
+	}
+
+	public String dataAtual() {
+		return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 	}
 
 }

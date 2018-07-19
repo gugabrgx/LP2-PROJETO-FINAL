@@ -45,16 +45,15 @@ public class ListaDeCompras {
 	}
 
 	public void adicionaCompraALista(int quantidade, Item item) {
-		if (aberto == false)
+		if (!aberto)
 			throw new IllegalArgumentException("Erro na compra de item: lista ja finalizada.");
 		Compras compra = new Compras(quantidade, item);
 		compras.add(compra);
-		if (item.getId() > maiorId)
-			maiorId = item.getId();
+		if (item.getId() > maiorId) maiorId = item.getId();
 	}
 
 	public void finalizarListaDeCompras(String localDaCompra, int valorFinalDaCompra) {
-		if (aberto == false)
+		if (!aberto)
 			throw new IllegalArgumentException("Erro na finalizacao de lista de compras: lista ja finalizada");
 		if (localDaCompra == null)
 			throw new NullPointerException(
@@ -80,7 +79,7 @@ public class ListaDeCompras {
 	}
 
 	public void atualizaCompraDeLista(String operacao, Item item, int quantidade) {
-		if (aberto == false)
+		if (!aberto)
 			throw new IllegalArgumentException("Erro na atualizacao de compra: lista ja finalizada");
 		boolean teste = true;
 		for (Compras compra : compras) {
@@ -102,7 +101,7 @@ public class ListaDeCompras {
 	}
 
 	public void deletaCompraDeLista(Item item) {
-		if (aberto == false)
+		if (!aberto)
 			throw new IllegalArgumentException("Erro na exclusao de compra: lista ja finalizada");
 		if (item.getId() > maiorId)
 			throw new IllegalArgumentException("Erro na exclusao de compra: item nao existe no sistema.");
@@ -162,7 +161,15 @@ public class ListaDeCompras {
 
 	@Override
 	public String toString() {
-		return String.format("%s %s", this.data, this.descritorLista);
+		return String.format("%s - %s", this.data, this.descritorLista);
+	}
+
+	public boolean hasItem(int id) {
+		for (Compras compra:compras) {
+			if (compra.getItem().getId() == id) return true;
+		}
+
+		return false;
 	}
 
 }
