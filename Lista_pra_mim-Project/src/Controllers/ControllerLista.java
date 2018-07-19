@@ -1,12 +1,11 @@
 package Controllers;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
-import Comparators.ComparaHora;
+import Comparators.ComparaDescritor;
 import entidades.Item;
 import entidades.ListaDeCompras;
 
@@ -124,6 +123,7 @@ public class ControllerLista {
         if (descritorLista.trim().equals("")) {
             throw new IllegalArgumentException("Erro na exclusao de compra: descritor nao pode ser vazio ou nulo.");
         }
+
         Item item;
         try {
             item = this.pegaItem(itemId);
@@ -154,33 +154,32 @@ public class ControllerLista {
             throw new IllegalArgumentException("Erro na pesquisa de compra: data nao pode ser vazia ou nula.");
         }
 
-        if (!(data.charAt(2) == data.charAt(5) && data.charAt(2) == '/')) {
+        if (data.length() < 10 || !(data.charAt(2) == data.charAt(5) && data.charAt(2) == '/')) {
             throw new IllegalArgumentException("Erro na pesquisa de compra: data em formato invalido, tente dd/MM/yyyy");
         }
 
         List<ListaDeCompras> listasDoDia = new ArrayList<>();
-        this.comparador = new ComparaHora();
+        this.comparador = new ComparaDescritor();
 
         for (ListaDeCompras listaDeCompra : this.listasDeCompras.values()) {
             if (data.equals(listaDeCompra.getData())) listasDoDia.add(listaDeCompra);
         }
 
-        Collections.sort(listasDoDia, this.comparador);
+        listasDoDia.sort(this.comparador);
 
         return listasDoDia;
     }
 
     public String pesquisaListasDeComprasPorItem(int id) {
         StringBuilder saida = new StringBuilder();
-        List<ListaDeCompras> listasComItem = new ArrayList<>();
-
-        this.comparador = new ComparaHora();
 
         for (ListaDeCompras lista : this.listasDeCompras.values()) {
-            if (lista.hasItem(id)) saida.append(lista.getDescritorLista());
+            if (lista.hasItem(id)) saida.append(lista.getDescritorLista()).append(System.lineSeparator());
         }
 
-        return saida.toString();
+        if ("".equals(saida.toString())) throw new NullPointerException("Erro na pesquisa de compra: compra nao encontrada na lista.");
+
+        return saida.toString().trim();
     }
 
     public String pesquisaListasDeComprasPorData(String data) {
@@ -204,9 +203,13 @@ public class ControllerLista {
     public String getItemListaPorItem(int id, int posicaoLista) {
         List<ListaDeCompras> listasComItem = new ArrayList<>();
 
+        this.comparador = new ComparaDescritor();
+
         for (ListaDeCompras lista : this.listasDeCompras.values()) {
             if (lista.hasItem(id)) listasComItem.add(lista);
         }
+
+        listasComItem.sort(this.comparador);
 
         return listasComItem.get(posicaoLista).toString();
     }

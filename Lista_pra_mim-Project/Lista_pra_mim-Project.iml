@@ -34,6 +34,5 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="easyaccept" level="project" />
   </component>
 </module>

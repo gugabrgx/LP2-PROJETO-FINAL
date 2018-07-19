@@ -233,6 +233,10 @@ public class Facade {
 		return this.controllerLista.pesquisaListasDeComprasPorData(data);
 	}
 
+	public String pesquisaListasDeComprasPorItem(int id) {
+		return this.controllerLista.pesquisaListasDeComprasPorItem(id);
+	}
+
 	public String dataAtual() {
 		return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 	}

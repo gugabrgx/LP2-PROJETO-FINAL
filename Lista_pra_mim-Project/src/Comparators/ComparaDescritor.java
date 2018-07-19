@@ -5,7 +5,7 @@ import entidades.ListaDeCompras;
 
 import java.util.Comparator;
 
-public class ComparaHora implements Comparator<ListaDeCompras> {
+public class ComparaDescritor implements Comparator<ListaDeCompras> {
 
     /**
      * Comparara duas Strings, estas representam as horas em que as listas foram criadas.
@@ -19,6 +19,6 @@ public class ComparaHora implements Comparator<ListaDeCompras> {
      */
     @Override
     public int compare(ListaDeCompras listaDeCompras1, ListaDeCompras listaDeCompras2) {
-        return listaDeCompras1.getHora().compareTo(listaDeCompras2.getHora());
+        return listaDeCompras1.getDescritorLista().toLowerCase().compareTo(listaDeCompras2.getDescritorLista().toLowerCase());
     }
 }
