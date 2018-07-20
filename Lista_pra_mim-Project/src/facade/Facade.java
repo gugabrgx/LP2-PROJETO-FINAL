@@ -5,9 +5,9 @@ import Controllers.ControllerLista;
 import easyaccept.EasyAccept;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  * 
- * Representação de uma Facade. A facade delega os métodos de um Sistema.
+ * Representacao de uma Facade. A facade delega os metodos de um Sistema.
  * 
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400

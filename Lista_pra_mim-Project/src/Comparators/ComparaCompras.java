@@ -5,7 +5,7 @@ import java.util.Comparator;
 import entidades.Compras;
 
 /**
- * Laboratório de Programação 2 - Lab 2
+ * Laboratorio de Programacao 2 - Lab 2
  * 
  * 
  * @author Rafael Dantas Santos de Azevedo - 117210382

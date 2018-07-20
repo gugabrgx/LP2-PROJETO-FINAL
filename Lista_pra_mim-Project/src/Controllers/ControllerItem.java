@@ -317,7 +317,7 @@ public class ControllerItem {
 		return String.format("%d. %s", itensOrdenados.get(posicao).getId(), itensOrdenados.get(posicao).toString());
 	}
 
-	// Método Extra
+	// Metodo Extra
 
 	public Item pegaItem(int id, String msg) {
 		if (id < 0)

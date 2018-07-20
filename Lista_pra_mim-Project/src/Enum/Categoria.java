@@ -1,7 +1,7 @@
 package Enum;
 
 /**
- * Laboratório de Programação 2 - Lab 2
+ * Laboratorio de Programacaoo 2 - Lab 2
  *
  *
  * @author Rafael Dantas Santos de Azevedo - 117210382
