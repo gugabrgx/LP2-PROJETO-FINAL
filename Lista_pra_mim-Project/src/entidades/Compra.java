@@ -8,12 +8,12 @@ import Enum.Categoria;
  * @author Gustavo Luiz Bispo dos Santos - 117210400
  * @lab Lab0
  */
-public class Compras {
+public class Compra {
 
 	private int quantidade;
 	private Item item;
 
-	public Compras(int qnt, Item item) {
+	public Compra(int qnt, Item item) {
 		if (qnt <= 0)
 			throw new IllegalArgumentException("Erro na compra de item: quantidade invalida.");
 		this.item = item;
@@ -30,6 +30,8 @@ public class Compras {
 		case "diminui":
 			this.quantidade -= quantidade;
 			break;
+		default:
+			throw new IllegalArgumentException("Erro na atualizacao de compra: operacao invalida para atualizacao.");
 		}
 	}
 
@@ -65,7 +67,7 @@ public class Compras {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Compras other = (Compras) obj;
+		Compra other = (Compra) obj;
 		if (item == null) {
 			if (other.item != null)
 				return false;
