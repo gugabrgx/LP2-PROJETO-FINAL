@@ -5,13 +5,16 @@ import java.util.Comparator;
 import entidades.Compra;
 
 /**
- * Laboratorio de Programacao 2 - Lab 2
+ * Laboratório de Programação 2 - Lista pra mim© Project
  * 
+ * Classe de comparação compras por nome categoria e por nome. Implementa o
+ * Comparator.
  * 
- * @author Rafael Dantas Santos de Azevedo - 117210382
  * @author Eduardo Henrique Pontes Silva - 117210360
+ * @author Gustavo Santos - 117210400
+ * @author Joao Pedro de Barros - 117210327
+ * @author Rafael Dantas Santos de Azevedo - 117210382
  */
-
 public class ComparaCompras implements Comparator<Compra> {
 
 	/**

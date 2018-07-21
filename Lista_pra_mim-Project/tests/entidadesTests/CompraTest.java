@@ -13,8 +13,15 @@ import entidades.ItemPorQuilo;
 import entidades.ItemPorUnidade;
 
 /**
+ * 
+ * Laboratório de Programação 2 - Lista pra mim© Project
  *
- * @author Gustavo Luiz Bispo dos Santos - 117210400
+ * Classe que testa os metodos da classe Compra.
+ *
+ * @author Eduardo Henrique Pontes Silva - 117210360
+ * @author Gustavo Santos - 117210400
+ * @author Joao Pedro de Barros - 117210327
+ * @author Rafael Azevedo - 117210382
  */
 public class CompraTest {
 
@@ -24,7 +31,7 @@ public class CompraTest {
 	private Item itemPQF, itemPQ, itemPU;
 	// Instanciacao de Categoria.
 	private Categoria categoria;
-	
+
 	/**
 	 * Metodo que inicializa itens.
 	 * 
@@ -32,10 +39,12 @@ public class CompraTest {
 	 */
 	@Before
 	public void inicializa() {
-		itemPQF = new ItemPorQuantidadeFixa("Agua Sanitaria Drogon", "limpeza", 1, "l", "Supermercado Excepcional", 2.19, 1);
-		itemPQ = new ItemPorQuilo("Peito de peru Saara", "alimento industrializado", 1.0, "Mercadinho Bem Barato", 34.49, 2);
+		itemPQF = new ItemPorQuantidadeFixa("Agua Sanitaria Drogon", "limpeza", 1, "l", "Supermercado Excepcional",
+				2.19, 1);
+		itemPQ = new ItemPorQuilo("Peito de peru Saara", "alimento industrializado", 1.0, "Mercadinho Bem Barato",
+				34.49, 2);
 		itemPU = new ItemPorUnidade("Creme dental Oral-C", "higiene pessoal", 3, "Mercadinho Bem Barato", 3.79, 3);
-	}	
+	}
 
 	/**
 	 * Metodo que testa o construtor de uma compra valida.
@@ -48,7 +57,7 @@ public class CompraTest {
 		compra = new Compra(1, itemPQF);
 		assertTrue(compra != null);
 	}
-	
+
 	/**
 	 * Metodo que testa o construtor de uma compra valida.
 	 * 
@@ -60,7 +69,7 @@ public class CompraTest {
 		compra = new Compra(10, itemPQ);
 		assertTrue(compra != null);
 	}
-	
+
 	/**
 	 * Metodo que testa o construtor de uma compra valida.
 	 * 
@@ -72,23 +81,23 @@ public class CompraTest {
 		compra = new Compra(100, itemPU);
 		assertTrue(compra != null);
 	}
-	
+
 	/**
 	 * Metodo que testa o construtor de uma compra invalida.
 	 * 
 	 * Esperado IllegalArgumentException
 	 */
-	@Test (expected = IllegalArgumentException.class) 
+	@Test(expected = IllegalArgumentException.class)
 	public void testCompraInvalido1() {
 		compra = new Compra(0, itemPU);
 	}
-	
+
 	/**
 	 * Metodo que testa o construtor de uma compra invalida.
 	 * 
 	 * Esperado IllegalArgumentException
 	 */
-	@Test (expected = IllegalArgumentException.class) 
+	@Test(expected = IllegalArgumentException.class)
 	public void testCompraInvalido2() {
 		compra = new Compra(-1, itemPU);
 	}
@@ -118,40 +127,40 @@ public class CompraTest {
 		compra.atualizaCompra("diminui", 1);
 		assertTrue(compra.getQuantidade() == 1);
 	}
-	
+
 	/**
 	 * Metodo que testa o metodo atualizaCompra com parametros validos.
 	 * 
 	 * Esperado IllegalArgumentException
 	 */
-	@Test (expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void testAtualizaCompraInvalido1() {
 		compra = new Compra(2, itemPQF);
 		compra.atualizaCompra("multiplica", 1);
 	}
-	
+
 	/**
 	 * Metodo que testa o metodo atualizaCompra com parametros validos.
 	 * 
 	 * Esperado IllegalArgumentException
 	 */
-	@Test (expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void testAtualizaCompraInvalido2() {
 		compra = new Compra(2, itemPQF);
 		compra.atualizaCompra("adiciona", 0);
 	}
-	
+
 	/**
 	 * Metodo que testa o metodo atualizaCompra com parametros validos.
 	 * 
 	 * Esperado IllegalArgumentException
 	 */
-	@Test (expected = IllegalArgumentException.class)
+	@Test(expected = IllegalArgumentException.class)
 	public void testAtualizaCompraInvalido3() {
 		compra = new Compra(2, itemPQF);
 		compra.atualizaCompra("adiciona", -1);
 	}
-	
+
 	/**
 	 * Metodo que retorna a quantidade de itens de uma compra.
 	 * 
@@ -206,7 +215,7 @@ public class CompraTest {
 		compra = new Compra(1, itemPQ);
 		assertEquals("Peito de peru Saara, alimento industrializado", compra.getItemDescricao());
 	}
-	
+
 	/**
 	 * Metodo que retorna a descricao de um item de uma compra.
 	 * 
@@ -227,8 +236,8 @@ public class CompraTest {
 	public void testEqualsObject1() {
 		compra = new Compra(1, itemPQF);
 		outraCompra = new Compra(1, itemPQF);
-		
-		assertTrue(compra.equals(outraCompra) == true);
+
+		assertEquals(compra.toString(), outraCompra.toString());
 	}
 
 	/**
@@ -240,10 +249,10 @@ public class CompraTest {
 	public void testEqualsObject2() {
 		compra = new Compra(1, itemPQF);
 		outraCompra = new Compra(1, itemPU);
-		
-		assertTrue(compra.equals(outraCompra) != true);
+
+		assertTrue(!compra.toString().equals(outraCompra.toString()));
 	}
-	
+
 	/**
 	 * Metodo que testa o metodo toString de uma compra.
 	 * 
@@ -265,7 +274,7 @@ public class CompraTest {
 		compra = new Compra(1, itemPQF);
 		assertEquals("1 Agua Sanitaria Drogon, limpeza, 1 l", compra.toString());
 	}
-	
+
 	/**
 	 * Metodo que testa o metodo toString de uma compra.
 	 * 
