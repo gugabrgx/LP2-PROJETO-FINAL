@@ -7,162 +7,261 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashSet;
 
-import Comparators.ComparaCompras;
+import comparators.ComparaCompras;
 
 /**
- * Laboratório de Programação 2 - 2018.1
+ * Laboratorio de Programacao 2 - 2018.1
  *
+ * @author Rafael Dantas Santos de Azevedo - 117210382
  * @author Gustavo Luiz Bispo dos Santos - 117210400
  * @author Joao Pedro de Barros - 117210327
  */
 public class ListaDeCompras {
 
-    private Date horario = new Date();
-    private HashSet<Compra> compras;
-    private boolean aberto;
-    private String descritorLista;
-    private String data;
-    private String hora;
-    private String localDaCompra;
-    private int precoTotal;
-    private int maiorId;
-    private Comparator<Compra> comparaCompras;
+	// Este atributo representa o horario.
+	private Date horario = new Date();
+	// Este atributo representa um HashSet de compras.
+	private HashSet<Compra> compras;
+	// Este atributo representa um boolean pra verificar se uma lista esta aberta ou
+	// nao.
+	private boolean aberto;
+	// Este atributo representa o descritor da lista.
+	private String descritorLista;
+	// Este atributo representa a date de uma lista.
+	private String data;
+	// Este atributo representa a hora da lista.
+	private String hora;
+	// Este atributo representa o local de compra de uma lista.
+	private String localDaCompra;
+	// Este atributo representa o preco total de uma lista.
+	private int precoTotal;
+	// Este atributo representa o maior id deitem que uma lista possui.
+	private int maiorId;
+	// Este atributo inicializa o comparator de compras.
+	private Comparator<Compra> comparaCompras;
 
-    public ListaDeCompras(String descritorLista) {
-        if (descritorLista == null)
-            throw new NullPointerException(
-                    "Erro na criacao de lista de compras: descritor nao pode ser vazio ou nulo.");
-        if (descritorLista.trim().isEmpty())
-            throw new IllegalArgumentException(
-                    "Erro na criacao de lista de compras: descritor nao pode ser vazio ou nulo.");
-        this.descritorLista = descritorLista;
-        this.data = new SimpleDateFormat("dd/MM/yyyy").format(horario);
-        this.hora = new SimpleDateFormat("HH:mm:ss").format(horario);
-        this.aberto = true;
-        this.compras = new HashSet<>();
-        this.comparaCompras = new ComparaCompras();
-    }
+	/**
+	 * Constroi o objeto lista de compras.
+	 * 
+	 * @param descritorLista O descritor da lista.
+	 */
+	public ListaDeCompras(String descritorLista) {
+		if (descritorLista == null)
+			throw new NullPointerException(
+					"Erro na criacao de lista de compras: descritor nao pode ser vazio ou nulo.");
+		if (descritorLista.trim().isEmpty())
+			throw new IllegalArgumentException(
+					"Erro na criacao de lista de compras: descritor nao pode ser vazio ou nulo.");
+		this.descritorLista = descritorLista;
+		this.data = new SimpleDateFormat("dd/MM/yyyy").format(horario);
+		this.hora = new SimpleDateFormat("HH:mm:ss").format(horario);
+		this.aberto = true;
+		this.compras = new HashSet<>();
+		this.comparaCompras = new ComparaCompras();
+	}
 
-    public void adicionaCompraALista(int quantidade, Item item) {
-        if (!aberto)
-            throw new IllegalArgumentException("Erro na compra de item: lista ja finalizada.");
-        Compra compra = new Compra(quantidade, item);
-        compras.add(compra);
-        if (item.getId() > maiorId)
-            maiorId = item.getId();
-    }
+	/**
+	 * Este metodo adiciona uma compra na lista.
+	 * 
+	 * @param quantidade A quantida do item.
+	 * @param item       O item a ser adicionado.
+	 */
+	public void adicionaCompraALista(int quantidade, Item item) {
+		if (!aberto)
+			throw new IllegalArgumentException("Erro na compra de item: lista ja finalizada.");
+		Compra compra = new Compra(quantidade, item);
+		compras.add(compra);
+		if (item.getId() > maiorId)
+			maiorId = item.getId();
+	}
 
-    public void finalizarListaDeCompras(String localDaCompra, int valorFinalDaCompra) {
-        if (!aberto)
-            throw new IllegalArgumentException("Erro na finalizacao de lista de compras: lista ja finalizada");
-        if (localDaCompra == null)
-            throw new NullPointerException(
-                    "Erro na finalizacao de lista de compras: local nao pode ser vazio ou nulo.");
-        if (localDaCompra.trim().isEmpty())
-            throw new IllegalArgumentException(
-                    "Erro na finalizacao de lista de compras: local nao pode ser vazio ou nulo.");
-        if (valorFinalDaCompra <= 0)
-            throw new IllegalArgumentException(
-                    "Erro na finalizacao de lista de compras: valor final da lista invalido.");
-        this.localDaCompra = localDaCompra;
-        this.precoTotal = valorFinalDaCompra;
-        this.aberto = false;
-    }
+	/**
+	 * Este metodo finaliza uma lista de compras.
+	 * 
+	 * @param localDaCompra      O local da compra.
+	 * @param valorFinalDaCompra O valor final de uma compra.
+	 */
+	public void finalizarListaDeCompras(String localDaCompra, int valorFinalDaCompra) {
+		if (!aberto)
+			throw new IllegalArgumentException("Erro na finalizacao de lista de compras: lista ja finalizada");
+		if (localDaCompra == null)
+			throw new NullPointerException(
+					"Erro na finalizacao de lista de compras: local nao pode ser vazio ou nulo.");
+		if (localDaCompra.trim().isEmpty())
+			throw new IllegalArgumentException(
+					"Erro na finalizacao de lista de compras: local nao pode ser vazio ou nulo.");
+		if (valorFinalDaCompra <= 0)
+			throw new IllegalArgumentException(
+					"Erro na finalizacao de lista de compras: valor final da lista invalido.");
+		this.localDaCompra = localDaCompra;
+		this.precoTotal = valorFinalDaCompra;
+		this.aberto = false;
+	}
 
-    public String pesquisaCompraEmLista(Item item) {
-        for (Compra compra : compras) {
-            if (compra.getItem() == item) {
-                return compra.toString();
-            }
-        }
-        throw new IllegalArgumentException("Erro na pesquisa de compra: compra nao encontrada na lista.");
-    }
+	/**
+	 * Este metodo pesquisa uma compra na lista.
+	 * 
+	 * @param item O item a ser pesquisado.
+	 * @return em String a representacao de uma compra.
+	 */
+	public String pesquisaCompraEmLista(Item item) {
+		for (Compra compra : compras) {
+			if (compra.getItem() == item) {
+				return compra.toString();
+			}
+		}
+		throw new IllegalArgumentException("Erro na pesquisa de compra: compra nao encontrada na lista.");
+	}
 
-    public void atualizaCompraDeLista(String operacao, Item item, int quantidade) {
-        if (!aberto)
-            throw new IllegalArgumentException("Erro na atualizacao de compra: lista ja finalizada");
-        if (!hasItem(item.getId()))
-            throw new IllegalArgumentException("Erro na atualizacao de compra: compra nao encontrada na lista.");
-        for (Compra compra : compras) {
-            if (compra.getItem().equals(item)) {
-                compra.atualizaCompra(operacao, quantidade);
-                if (compra.getQuantidade() <= 0)
-                    compras.remove(compra);
-                break;
-            }
-        }
-    }
+	/**
+	 * Este metodo atualiza a quantidade de um item, emm uma determinada lista.
+	 * 
+	 * @param itemI      O item.
+	 * @param quantidade A quantidade nova do item.
+	 * @param operacao   A operacao de diminuir ou aumentar a quantidade do item.
+	 */
+	public void atualizaCompraDeLista(String operacao, Item item, int quantidade) {
+		if (!aberto)
+			throw new IllegalArgumentException("Erro na atualizacao de compra: lista ja finalizada");
+		if (!hasItem(item.getId()))
+			throw new IllegalArgumentException("Erro na atualizacao de compra: compra nao encontrada na lista.");
+		for (Compra compra : compras) {
+			if (compra.getItem().equals(item)) {
+				compra.atualizaCompra(operacao, quantidade);
+				if (compra.getQuantidade() <= 0)
+					compras.remove(compra);
+				break;
+			}
+		}
+	}
 
-    public void deletaCompraDeLista(Item item) {
-        if (!aberto)
-            throw new IllegalArgumentException("Erro na exclusao de compra: lista ja finalizada");
-        if (item.getId() > maiorId)
-            throw new IllegalArgumentException("Erro na exclusao de compra: item nao existe no sistema.");
-        if (!hasItem(item.getId()))
-            throw new IllegalArgumentException("Erro na exclusao de compra: compra nao encontrada na lista.");
-        for (Compra compra : compras) {
-            if (compra.getItem() == item) {
-                compras.remove(compra);
-                break;
-            }
-        }
+	/**
+	 * Este metodo deleta uma compra de uma lista, pelo id do item. .
+	 * 
+	 * @param item O item.
+	 */
+	public void deletaCompraDeLista(Item item) {
+		if (!aberto)
+			throw new IllegalArgumentException("Erro na exclusao de compra: lista ja finalizada");
+		if (item.getId() > maiorId)
+			throw new IllegalArgumentException("Erro na exclusao de compra: item nao existe no sistema.");
+		if (!hasItem(item.getId()))
+			throw new IllegalArgumentException("Erro na exclusao de compra: compra nao encontrada na lista.");
+		for (Compra compra : compras) {
+			if (compra.getItem() == item) {
+				compras.remove(compra);
+				break;
+			}
+		}
 
-    }
+	}
 
-    public boolean getAberto() {
-        return this.aberto;
-    }
+	/**
+	 * Metodo acessorio que verifica se a lista esta aberta.
+	 * 
+	 * @return O boolean aberto.
+	 */
+	public boolean getAberto() {
+		return this.aberto;
+	}
 
-    public String getDescritorLista() {
-        return this.descritorLista;
-    }
+	/**
+	 * Metod que retorna o descritor da lista.
+	 * 
+	 * @return O descritor da lista.
+	 */
+	public String getDescritorLista() {
+		return this.descritorLista;
+	}
 
-    public String getData() {
-        return this.data;
-    }
+	/**
+	 * Metodo que retorna a data da lista.
+	 * 
+	 * @return A data.
+	 */
+	public String getData() {
+		return this.data;
+	}
 
-    public String getHora() {
-        return this.hora;
-    }
+	/**
+	 * Metodo que retorna a hora da lista.
+	 * 
+	 * @return A hora.
+	 */
+	public String getHora() {
+		return this.hora;
+	}
 
-    public String getLocalDeCompra() {
-    	if (aberto) 
-    		throw new IllegalArgumentException("Erro na consulta de local de compra: lista ainda esta aberta");
-        return this.localDaCompra;
-    }
+	/**
+	 * Metodo que retorna o local de compra da lista.
+	 * 
+	 * @return o local de compra.
+	 */
+	public String getLocalDeCompra() {
+		if (aberto)
+			throw new IllegalArgumentException("Erro na consulta de local de compra: lista ainda esta aberta");
+		return this.localDaCompra;
+	}
 
-    public int getPrecoTotal() {
-    	if (aberto) 
-    		throw new IllegalArgumentException("Erro na consulta de preco total: lista ainda esta aberta");
-        return this.precoTotal;
-    }
+	/**
+	 * Metodo que retorna o preco total de uma lista.
+	 * 
+	 * @return O preco total.
+	 */
+	public int getPrecoTotal() {
+		if (aberto)
+			throw new IllegalArgumentException("Erro na consulta de preco total: lista ainda esta aberta");
+		return this.precoTotal;
+	}
 
-    public int getMaiorId() {
-    	return this.maiorId;
-    }
-    
-    public String getItemLista(int posicaoItem) {
-        if (posicaoItem < 0)
-            throw new ArrayIndexOutOfBoundsException("Erro no cadastro de preco: id de item invalido.");
-        ArrayList<Compra> comprasOrdenadas = new ArrayList<>(this.compras);
+	/**
+	 * Metodo que retorna o maior id
+	 * 
+	 * @return O maior ID
+	 */
+	public int getMaiorId() {
+		return this.maiorId;
+	}
 
-        if (comprasOrdenadas.size() <= posicaoItem) {
-            return "";
-        }
+	/**
+	 * Metodo que recupera um item.
+	 * 
+	 * @param posicaoItem A posicao do item.
+	 * @return em String um item.
+	 */
+	public String getItemLista(int posicaoItem) {
+		if (posicaoItem < 0)
+			throw new ArrayIndexOutOfBoundsException("Erro no cadastro de preco: id de item invalido.");
+		ArrayList<Compra> comprasOrdenadas = new ArrayList<>(this.compras);
 
-        Collections.sort(comprasOrdenadas, comparaCompras);
-        return comprasOrdenadas.get(posicaoItem).toString();
-    }
+		if (comprasOrdenadas.size() <= posicaoItem) {
+			return "";
+		}
 
-    @Override
-    public String toString() {
-        return String.format("%s - %s", this.data, this.descritorLista);
-    }
+		Collections.sort(comprasOrdenadas, comparaCompras);
+		return comprasOrdenadas.get(posicaoItem).toString();
+	}
 
-    public boolean hasItem(int id) {
-        for (Compra compra : compras) {
-            if (compra.getItem().getId() == id) return true;
-        }
-        return false;
-    }
+	/**
+	 * Metodo que retorna a representacao de uma lista de compras.
+	 */
+	@Override
+	public String toString() {
+		return String.format("%s - %s", this.data, this.descritorLista);
+	}
+
+	/**
+	 * Metodo que verifica se uma lista tem um item.
+	 * 
+	 * @param id O id do item.
+	 * @return Um boolean, true se tiver o item e false se nao tiver o item.
+	 */
+	public boolean hasItem(int id) {
+		for (Compra compra : compras) {
+			if (compra.getItem().getId() == id)
+				return true;
+		}
+		return false;
+	}
+
 }

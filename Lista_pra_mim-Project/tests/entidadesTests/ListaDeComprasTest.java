@@ -1,4 +1,4 @@
-package entidades;
+package entidadesTests;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,11 @@ import java.util.Date;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import entidades.Item;
+import entidades.ItemPorQuilo;
+import entidades.ItemPorUnidade;
+import entidades.ListaDeCompras;
 
 /**
  *

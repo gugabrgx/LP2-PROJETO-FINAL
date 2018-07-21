@@ -1,11 +1,11 @@
-package Controllers;
+package controllersTests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import Controllers.ControllerItem;
+import controllers.ControllerItem;
 
 /**
  * 

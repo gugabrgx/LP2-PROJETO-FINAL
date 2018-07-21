@@ -1,4 +1,4 @@
-package entidades;
+package entidadesTests;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Enum.Categoria;
+import entidades.Compra;
+import entidades.Item;
+import entidades.ItemPorQuantidadeFixa;
+import entidades.ItemPorQuilo;
+import entidades.ItemPorUnidade;
 
 /**
  *

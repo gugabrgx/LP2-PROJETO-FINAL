@@ -1,7 +1,10 @@
-package entidades;
+package entidadesTests;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import entidades.Item;
+import entidades.ItemPorQuantidadeFixa;
 
 import static org.junit.Assert.*;
 

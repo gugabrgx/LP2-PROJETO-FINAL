@@ -1,4 +1,4 @@
-package Comparators;
+package comparators;
 
 import entidades.Item;
 import entidades.ListaDeCompras;
