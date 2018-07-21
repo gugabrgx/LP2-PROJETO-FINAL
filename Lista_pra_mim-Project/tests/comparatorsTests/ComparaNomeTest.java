@@ -1,10 +1,11 @@
-package Comparators;
+package comparatorsTests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import comparators.ComparaNome;
 import entidades.Item;
 import entidades.ItemPorQuantidadeFixa;
 import entidades.ItemPorQuilo;

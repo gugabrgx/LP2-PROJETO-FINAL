@@ -1,11 +1,11 @@
-package Controllers;
+package controllersTests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import Controllers.ControllerItem;
+import controllers.ControllerItem;
 
 /**
  * 
@@ -552,6 +552,39 @@ public class ControllerItemTest {
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
 	public void testGetItemPorPesquisaInvalido1() {
 		this.controller.getItemPorPesquisa("dental", -1);
+	}
+
+	/**
+	 * Metodo que testa o metodo pegaItem.
+	 * 
+	 * deve retornar um item.
+	 */
+	@Test
+	public void testePegaItemValido() {
+		assertEquals("Agua Sanitaria Drogon, limpeza, 1 l, Preco: <Supermercado Excepcional, R$ 2,19;>",
+				this.controller.pegaItem(1, "Nao vai dar erro").toString());
+	}
+
+	/**
+	 * Metodo que testa o metodo pegaItem.
+	 * 
+	 * Esperado ArrayIndexOutOfBoundsException
+	 */
+	@Test(expected = ArrayIndexOutOfBoundsException.class)
+	public void testePegaItemInvalido() {
+		assertEquals("Agua Sanitaria Drogon, limpeza, 1 l, Preco: <Supermercado Excepcional, R$ 2,19;>",
+				this.controller.pegaItem(-1, "Deu ruim").toString());
+	}
+
+	/**
+	 * Metodo que testa o metodo pegaItem.
+	 * 
+	 * Esperado IllegalArgumentException
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testePegaItemInvalido2() {
+		assertEquals("Agua Sanitaria Drogon, limpeza, 1 l, Preco: <Supermercado Excepcional, R$ 2,19;>",
+				this.controller.pegaItem(2, "Deu ruim").toString());
 	}
 
 }

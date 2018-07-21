@@ -1,4 +1,4 @@
-package entidades;
+package entidadesTests;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,11 @@ import org.junit.Before;
 import org.junit.Test;
 
 import Enum.Categoria;
+import entidades.Compra;
+import entidades.Item;
+import entidades.ItemPorQuantidadeFixa;
+import entidades.ItemPorQuilo;
+import entidades.ItemPorUnidade;
 
 /**
  *
@@ -223,7 +228,7 @@ public class CompraTest {
 		compra = new Compra(1, itemPQF);
 		outraCompra = new Compra(1, itemPQF);
 
-		assertEquals(compra, outraCompra);
+		assertEquals(compra.toString(), outraCompra.toString());
 	}
 
 	/**
@@ -236,7 +241,7 @@ public class CompraTest {
 		compra = new Compra(1, itemPQF);
 		outraCompra = new Compra(1, itemPU);
 		
-		assertTrue(!compra.equals(outraCompra));
+		assertTrue(!compra.toString().equals(outraCompra.toString()));
 	}
 	
 	/**

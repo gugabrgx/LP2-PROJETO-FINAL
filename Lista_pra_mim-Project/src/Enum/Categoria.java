@@ -3,15 +3,21 @@ package Enum;
 /**
  * Laboratório de Programação 2 - Lista pra mim© Project
  *
+ * Enum que representa as categorias dos itens de um supermercado. Os item podem
+ * ser categorizados como de higiene pessoal, limpeza, alimentos
+ * industrializados e alimentos naoindustrilaizados.
+ *
+ * @author Rafael Dantas Santos de Azevedo - 117210382
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Luiz Bispo dos Santos - 117210400
  * @author Joao Pedro de Barros - 117210327
- * @author Rafael Azevedo - 117210382
+ * @author Rafael Dantas Santos de Azevedo - 117210382
  */
 
 public enum Categoria {
 
 	// Declaracao de cada enum com sua descricao.
+
 	HIGIENEPESSOAL("higiene pessoal"), LIMPEZA("limpeza"), ALIMENTOSINDUSTRIALIZADOS("alimento industrializado"),
 	ALIMENTOSNAOINDUSTRIALIZADOS("alimento nao industrializado");
 
@@ -21,8 +27,7 @@ public enum Categoria {
 	/**
 	 * Constroi o objeto Categoria.
 	 *
-	 * @param descricao
-	 *            A descricao de cada enunm.
+	 * @param descricao A descricao de cada enunm.
 	 */
 	Categoria(String descricao) {
 		this.descricao = descricao;
