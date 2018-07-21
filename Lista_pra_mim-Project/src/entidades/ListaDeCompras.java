@@ -126,13 +126,21 @@ public class ListaDeCompras {
     }
 
     public String getLocalDeCompra() {
+    	if (aberto) 
+    		throw new IllegalArgumentException("Erro na consulta de local de compra: lista ainda esta aberta");
         return this.localDaCompra;
     }
 
     public int getPrecoTotal() {
+    	if (aberto) 
+    		throw new IllegalArgumentException("Erro na consulta de preco total: lista ainda esta aberta");
         return this.precoTotal;
     }
 
+    public int getMaiorId() {
+    	return this.maiorId;
+    }
+    
     public String getItemLista(int posicaoItem) {
         if (posicaoItem < 0)
             throw new ArrayIndexOutOfBoundsException("Erro no cadastro de preco: id de item invalido.");
