@@ -222,8 +222,8 @@ public class CompraTest {
 	public void testEqualsObject1() {
 		compra = new Compra(1, itemPQF);
 		outraCompra = new Compra(1, itemPQF);
-		
-		assertTrue(compra.equals(outraCompra) == true);
+
+		assertEquals(compra, outraCompra);
 	}
 
 	/**
@@ -236,7 +236,7 @@ public class CompraTest {
 		compra = new Compra(1, itemPQF);
 		outraCompra = new Compra(1, itemPU);
 		
-		assertTrue(compra.equals(outraCompra) != true);
+		assertTrue(!compra.equals(outraCompra));
 	}
 	
 	/**

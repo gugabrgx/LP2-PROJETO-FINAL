@@ -200,7 +200,7 @@ public class ItemPorQuiloTest {
      */
     @Test
     public void testGetCategoria() {
-        assertEquals("alimento industrializado", this.item.getCategoria());
+        assertEquals("ALIMENTOSINDUSTRIALIZADOS", this.item.getCategoria());
     }
     
     /**

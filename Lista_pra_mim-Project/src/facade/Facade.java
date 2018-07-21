@@ -186,57 +186,167 @@ public class Facade {
 		return this.controllerItem.getItemPorPesquisa(strPesquisada, posicao);
 	}
 
-	// Caso 3
+	/**
+	 * Cria uma nova lista de compras.
+	 *
+	 * @param descritorLista
+	 *            O descritor da lista.
+	 * @return em String o descritor da lista.
+	 */
 	public String adicionaListaDeCompras(String descritorLista) {
 		return this.controllerLista.adicionaListaDeCompras(descritorLista);
 	}
 
+	/**
+	 * Este metodo adiciona um item com sua quantidade, em uma determinada lista.
+	 *
+	 * @param descritorLista
+	 *            O descritor da lista.
+	 * @param quantidade
+	 *            A quantidade do item.
+	 * @param itemId
+	 *            O item a ser adicionado na lista.
+	 */
 	public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {
 		this.controllerLista.adicionaCompraALista(descritorLista, quantidade, itemId);
 	}
 
+	/**
+	 * Este metodo finaliza uma lista de compras.
+	 *
+	 * @param descritorLista
+	 *            O descritor da lista.
+	 * @param localDaCompra
+	 *            O local de compra da lista.
+	 * @param valorFinalDaCompra
+	 *            O valor final da compra.
+	 */
 	public void finalizarListaDeCompras(String descritorLista, String localDaCompra, int valorFinalDaCompra) {
 		this.controllerLista.finalizarListaDeCompras(descritorLista, localDaCompra, valorFinalDaCompra);
 	}
 
+	/**
+	 * Este metodo recupera uma lista a partir de sua desccricao.
+	 *
+	 * @param descritorLista
+	 *            O descritor da lista.
+	 * @return em String a representacao de uma lista.
+	 */
 	public String pesquisaListaDeCompras(String descritorLista) {
 		return this.controllerLista.pesquisaListaDeCompras(descritorLista);
 
 	}
 
+	/**
+	 * Este metodo pesquisa uma item em uma lista.
+	 *
+	 * @param descritorLista
+	 *            O descritor da lista.
+	 * @param itemId
+	 *            o ID do item.
+	 * @return em String o item pesquisado na lista.
+	 */
 	public String pesquisaCompraEmLista(String descritorLista, int itemId) {
 		return this.controllerLista.pesquisaCompraEmLista(descritorLista, itemId);
 	}
 
-	public void atualizaCompraDeLista(String descritorLista, int itemId, String Operacao, int quantidade) {
-		this.controllerLista.atualizaCompraDeLista(descritorLista, itemId, quantidade, Operacao);
+	/**
+	 * Este metodo atualiza a quantidade de um item, emm uma determinada lista.
+	 *
+	 * @param descritorLista
+	 *            O descritor da lista.
+	 * @param itemId
+	 *            O ID do item.
+	 * @param quantidade
+	 *            A quantidade nova do item.
+	 * @param operacao
+	 *            A operacao de diminuir ou aumentar a quantidade do item.
+	 */
+	public void atualizaCompraDeLista(String descritorLista, int itemId, String operacao, int quantidade) {
+		this.controllerLista.atualizaCompraDeLista(descritorLista, itemId, quantidade, operacao);
 	}
 
+	/**
+	 * Este metodo recupra um item de uma lsita, a partir de sua posicao.
+	 *
+	 * @param descritorLista
+	 *            O descritor da lista.
+	 * @param posicaoItem
+	 *            A posicao do Item.
+	 * @return em String a representacao de um item.
+	 */
 	public String getItemLista(String descritorLista, int posicaoItem) {
 		return this.controllerLista.getItemLista(descritorLista, posicaoItem);
 	}
 
+	/**
+	 * Este metodo deleta uma compra de uma lista, pelo id do item.
+	 *
+	 * @param descritorLista
+	 *            O descritor da lista.
+	 * @param itemId
+	 *            O ID do item.
+	 */
 	public void deletaCompraDeLista(String descritorLista, int itemId) {
 		this.controllerLista.deletaCompraDeLista(descritorLista, itemId);
 	}
 
-	// caso 4.
+	/**
+	 * Este metodo recupera uma lista de compras a partir de sua data, e sua
+	 * posicao.
+	 *
+	 * @param data
+	 *            A data da lista.
+	 * @param posicaoLista
+	 *            A posicao da Lista
+	 * @return em String o nome da lista de compras.
+	 */
 	public String getItemListaPorData(String data, int posicaoLista) {
 		return this.controllerLista.getItemListaPorData(data, posicaoLista);
 	}
 
+	/**
+	 * Recupera lista de compra a partir do id de um item, e tambem a partir da
+	 * posicao.
+	 *
+	 * @param id
+	 *            O id do item.
+	 * @param posicaoLista
+	 *            A posicao da lista.
+	 * @return em String a representacao de umal ista de compras.
+	 */
 	public String getItemListaPorItem(int id, int posicaoLista) {
 		return this.controllerLista.getItemListaPorItem(id, posicaoLista);
 	}
 
+	/**
+	 * Metodo que retorna listas de compra pela data passa como parametro.
+	 *
+	 * @param data
+	 *            A data.
+	 * @return em String a representacao contendo a(s) lista(s) com a data passada
+	 *         como parametro.
+	 */
 	public String pesquisaListasDeComprasPorData(String data) {
 		return this.controllerLista.pesquisaListasDeComprasPorData(data);
 	}
 
+	/**
+	 * Metodo que retorna as listas que contem determinado item.
+	 *
+	 * @param id
+	 *            O id do item.
+	 * @return A representacao de varias listas que contem o item.
+	 */
 	public String pesquisaListasDeComprasPorItem(int id) {
 		return this.controllerLista.pesquisaListasDeComprasPorItem(id);
 	}
 
+	/**
+	 * Metodo que retorna a data atual.
+	 *
+	 * @return String que representa a data atual.
+	 */
 	public String dataAtual() {
 		return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 	}

@@ -5,6 +5,17 @@ import entidades.ListaDeCompras;
 
 import java.util.Comparator;
 
+/**
+ * Laboratório de Programação 2 - Lista pra mim© Project
+ *
+ * Classe de comparação de de compras a partir dos suas descricoes.
+ * Implementa o Comparator.
+ *
+ * @author Eduardo Henrique Pontes Silva - 117210360
+ * @author Gustavo Santos - 117210400
+ * @author Joao Pedro de Barros - 117210327
+ * @author Rafael Azevedo - 117210382
+ */
 public class ComparaDescritor implements Comparator<ListaDeCompras> {
 
     /**
