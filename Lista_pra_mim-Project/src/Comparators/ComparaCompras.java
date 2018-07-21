@@ -2,7 +2,7 @@ package Comparators;
 
 import java.util.Comparator;
 
-import entidades.Compras;
+import entidades.Compra;
 
 /**
  * Laboratorio de Programacao 2 - Lab 2
@@ -12,13 +12,13 @@ import entidades.Compras;
  * @author Eduardo Henrique Pontes Silva - 117210360
  */
 
-public class ComparaCompras implements Comparator<Compras> {
+public class ComparaCompras implements Comparator<Compra> {
 
 	/**
 	 * Metodo que compara a descricao das compras, e depois a categoria do item.
 	 */
 	@Override
-	public int compare(Compras c1, Compras c2) {
+	public int compare(Compra c1, Compra c2) {
 		if (c1.getItemCategoria().equals(c2.getItemCategoria())) {
 			return c1.getItemDescricao().compareTo(c2.getItemDescricao());
 

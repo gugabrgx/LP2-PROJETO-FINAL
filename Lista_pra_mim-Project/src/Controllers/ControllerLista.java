@@ -1,12 +1,13 @@
 package Controllers;
 
-import java.util.HashMap;
+import java.util.*;
 
+import Comparators.ComparaDescritor;
 import entidades.Item;
 import entidades.ListaDeCompras;
 
 /**
- * Laboratório de Programação 2 - Lab 1 Classe que representa o Controller.
+ * Laboratorio de Programacao 2 - Lab 1 Classe que representa o Controller.
  * Nesta classe e possivel realizar operacoes como: adicionar itens na lista de
  * compras, exibir listas, atualizar listas, etc.
  * 
@@ -14,12 +15,16 @@ import entidades.ListaDeCompras;
  * @author Rafael Azevedo - 117210382
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Luiz Bispo dos Santos - 117210400
+ * @author Joao Pedro de Barros - 117210327
  */
 public class ControllerLista {
 
 	// Um Mapa que mapeia uma String descritor da lista para uma lista de compras.
-	private HashMap<String, ListaDeCompras> listasDeCompras;
+	private Map<String, ListaDeCompras> listasDeCompras;
+	// Este atributo reprsenta o controller de item.
 	private ControllerItem controllerItem;
+	// Este atributo representa um comparador de compras
+	private Comparator<ListaDeCompras> comparador;
 
 	/**
 	 * Constroi um controller de lista, e inicializa o Mapa, e o controller de item.
@@ -118,7 +123,8 @@ public class ControllerLista {
 		if (descritorLista.trim().equals("")) {
 			throw new IllegalArgumentException("Erro na pesquisa de compra: descritor nao pode ser vazio ou nulo.");
 		}
-		return this.listasDeCompras.get(descritorLista).pesquisaCompraEmLista(this.pegaItem(itemId, "Erro na pesquisa de compra: "));
+		return this.listasDeCompras.get(descritorLista)
+				.pesquisaCompraEmLista(this.pegaItem(itemId, "Erro na pesquisa de compra: "));
 	}
 
 	/**
@@ -139,6 +145,7 @@ public class ControllerLista {
 		}
 		this.listasDeCompras.get(descritorLista).atualizaCompraDeLista(operacao,
 				this.pegaItem(itemId, "Erro na exclusao de compra: "), quantidade);
+
 	}
 
 	/**
@@ -191,12 +198,92 @@ public class ControllerLista {
 	 * @return em String a representacao de uma lista.
 	 */
 	public String pesquisaListaDeCompras(String descritorLista) {
-		return this.listasDeCompras.get(descritorLista).getDescritorLista();
+		if (descritorLista == null)
+			throw new NullPointerException("Erro na pesquisa de compra: descritor nao pode ser vazio ou nulo.");
+		if ("".equals(descritorLista.trim()))
+			throw new IllegalArgumentException("Erro na pesquisa de compra: descritor nao pode ser vazio ou nulo.");
+
+		if (!this.listasDeCompras.containsKey(descritorLista.toLowerCase()))
+			throw new IllegalArgumentException("Erro na pesquisa de compra: lista de compras nao existe.");
+
+		return this.listasDeCompras.get(descritorLista.toLowerCase()).getDescritorLista();
 	}
 
 	/**
-	 * Este metodo rec>>>>>>> c96cfdbf139ca3e5a71824d6ad0391add230cde9upera uma
-	 * lista de compras a partir de sua data, e sua posicao.
+	 * Metodo que retorna as listas a partir do dia.
+	 * 
+	 * @param data
+	 *            A data da lista.
+	 * @return As listas de compra do dia.
+	 */
+	private List<ListaDeCompras> getListasDoDia(String data) {
+		if (data == null)
+			throw new NullPointerException("Erro na pesquisa de compra: data nao pode ser vazia ou nula.");
+
+		if ("".equals(data.trim())) {
+			throw new IllegalArgumentException("Erro na pesquisa de compra: data nao pode ser vazia ou nula.");
+		}
+
+		if (data.length() < 10 || !(data.charAt(2) == data.charAt(5) && data.charAt(2) == '/')) {
+			throw new IllegalArgumentException(
+					"Erro na pesquisa de compra: data em formato invalido, tente dd/MM/yyyy");
+		}
+
+		List<ListaDeCompras> listasDoDia = new ArrayList<>();
+		this.comparador = new ComparaDescritor();
+
+		for (ListaDeCompras listaDeCompra : this.listasDeCompras.values()) {
+			if (data.equals(listaDeCompra.getData()))
+				listasDoDia.add(listaDeCompra);
+		}
+
+		listasDoDia.sort(this.comparador);
+
+		return listasDoDia;
+	}
+
+	/**
+	 * Metodo que retorna listas de compra pela data passa como parametro.
+	 * 
+	 * @param data
+	 *            A data.
+	 * @return em String a representacao contendo a(s) lista(s) com a data passada
+	 *         como parametro.
+	 */
+	public String pesquisaListasDeComprasPorData(String data) {
+		StringBuilder saida = new StringBuilder();
+
+		for (ListaDeCompras lista : this.getListasDoDia(data)) {
+			saida.append(lista.getDescritorLista()).append(System.lineSeparator());
+		}
+
+		return saida.toString().trim();
+	}
+
+	/**
+	 * Metodo que retorna as listas que contem determinado item.
+	 * 
+	 * @param id
+	 *            O id do item.
+	 * @return A representacao de varias listas que contem o item.
+	 */
+	public String pesquisaListasDeComprasPorItem(int id) {
+		StringBuilder saida = new StringBuilder();
+
+		for (ListaDeCompras lista : this.listasDeCompras.values()) {
+			if (lista.hasItem(id))
+				saida.append(lista.getDescritorLista()).append(System.lineSeparator());
+		}
+
+		if ("".equals(saida.toString()))
+			throw new NullPointerException("Erro na pesquisa de compra: compra nao encontrada na lista.");
+
+		return saida.toString().trim();
+	}
+
+	/**
+	 * Este metodo recupera uma lista de compras a partir de sua data, e sua
+	 * posicao.
 	 * 
 	 * @param data
 	 *            A data da lista.
@@ -205,8 +292,11 @@ public class ControllerLista {
 	 * @return em String o nome da lista de compras.
 	 */
 	public String getItemListaPorData(String data, int posicaoLista) {
-		// TODO Auto-generated method stub
-		return null;
+		if (posicaoLista < 0)
+			throw new ArrayIndexOutOfBoundsException("Erro na pesquisa de compra: posicao nao pode ser menor que zero");
+
+		return this.getListasDoDia(data).get(posicaoLista).getDescritorLista();
+
 	}
 
 	/**
@@ -220,8 +310,17 @@ public class ControllerLista {
 	 * @return em String a representacao de umal ista de compras.
 	 */
 	public String getItemListaPorItem(int id, int posicaoLista) {
-		// TODO Auto-generated method stub
-		return null;
+		List<ListaDeCompras> listasComItem = new ArrayList<>();
+
+		this.comparador = new ComparaDescritor();
+
+		for (ListaDeCompras lista : this.listasDeCompras.values()) {
+			if (lista.hasItem(id))
+				listasComItem.add(lista);
+		}
+		listasComItem.sort(this.comparador);
+
+		return listasComItem.get(posicaoLista).toString();
 	}
 
 	/**
@@ -234,6 +333,7 @@ public class ControllerLista {
 	 * @return O objeto item.
 	 */
 	private Item pegaItem(int id, String msg) {
-		return this.controllerItem.pegaItem(id, msg);
+        return this.controllerItem.pegaItem(id, msg);
 	}
-}
+ }
+

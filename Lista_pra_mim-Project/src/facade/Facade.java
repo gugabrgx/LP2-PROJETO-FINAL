@@ -4,6 +4,9 @@ import Controllers.ControllerItem;
 import Controllers.ControllerLista;
 import easyaccept.EasyAccept;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Laboratorio de Programacao 2 - Lista pra mim© Project
  * 
@@ -343,6 +346,38 @@ public class Facade {
 	 */
 	public String getItemListaPorItem(int id, int posicaoLista) {
 		return this.controllerLista.getItemListaPorItem(id, posicaoLista);
+	}
+
+	/**
+	 * Metodo que retorna listas de compra pela data passa como parametro.
+	 * 
+	 * @param data
+	 *            A data.
+	 * @return em String a representacao contendo a(s) lista(s) com a data passada
+	 *         como parametro.
+	 */
+	public String pesquisaListasDeComprasPorData(String data) {
+		return this.controllerLista.pesquisaListasDeComprasPorData(data);
+	}
+
+	/**
+	 * Metodo que retorna as listas que contem determinado item.
+	 * 
+	 * @param id
+	 *            O id do item.
+	 * @return A representacao de varias listas que contem o item.
+	 */
+	public String pesquisaListasDeComprasPorItem(int id) {
+		return this.controllerLista.pesquisaListasDeComprasPorItem(id);
+	}
+
+	/**
+	 * MEtodo que retorna a data atual.
+	 * 
+	 * @return em String a representacao da data atual.
+	 */
+	public String dataAtual() {
+		return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 	}
 
 }

@@ -3,13 +3,13 @@ package entidades;
 import Enum.Categoria;
 
 /**
- * Laboratório de Programação 2 - 2018.1
+ * Laboratorio de Programacao 2 - 2018.1
  *
  * @author Rafael Dantas Santos de Azevedo - 117210382
  * @author Gustavo Luiz Bispo dos Santos - 117210400
  * @lab Lab0
  */
-public class Compras {
+public class Compra {
 
 	// Este atributo representa a quantidade de um item.
 	private int quantidade;
@@ -24,7 +24,7 @@ public class Compras {
 	 * @param item
 	 *            O item a ser comprado.
 	 */
-	public Compras(int qnt, Item item) {
+	public Compra(int qnt, Item item) {
 		if (qnt <= 0)
 			throw new IllegalArgumentException("Erro na compra de item: quantidade invalida.");
 		this.item = item;
@@ -87,34 +87,9 @@ public class Compras {
 	public String getItemDescricao() {
 		return item.getDescricao();
 	}
-	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((item == null) ? 0 : item.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Compras other = (Compras) obj;
-		if (item == null) {
-			if (other.item != null)
-				return false;
-		} else if (!item.equals(other.item))
-			return false;
-		return true;
-	}
 
 	/**
-	 * Metodo que retorna a representacao em String de um item.
+	 * Metodo que retorna a representacao em String de uma compra.
 	 */
 	@Override
 	public String toString() {
