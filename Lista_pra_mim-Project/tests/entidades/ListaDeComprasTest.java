@@ -2,6 +2,9 @@ package entidades;
 
 import static org.junit.Assert.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -333,9 +336,7 @@ public class ListaDeComprasTest {
 	@Test (expected = IllegalArgumentException.class)
 	public void testDeletaCompraDeListaInvalido1() {
 		lista.adicionaCompraALista(1, itemPQ);
-		assertEquals("1 Peito de peru Saara, alimento industrializado", lista.getItemLista(0));
-		lista.deletaCompraDeLista(itemPQ);
-		assertEquals("", lista.getItemLista(0));
+		lista.deletaCompraDeLista(itemPU);
 	}
 	
 	/**
@@ -346,70 +347,198 @@ public class ListaDeComprasTest {
 	 */
 	@Test (expected = IllegalArgumentException.class)
 	public void testDeletaCompraDeListaInvalido2() {
-		lista.adicionaCompraALista(1, itemPQ);
-		lista.deletaCompraDeLista(itemPU);
+		lista.adicionaCompraALista(1, itemPU);
+		lista.deletaCompraDeLista(itemPQ);
 	}
 	
+	/**
+	 * Metodo que testa o metodo deletaCompraDeLista com parametros validos
+	 * quando a lista esta fechada.
+	 * 
+	 * Esperado IllegalArgumentException 
+	 */
+	@Test (expected = IllegalArgumentException.class)
+	public void testDeletaCompraDeListaInvalido3() {
+		lista.adicionaCompraALista(1, itemPQ);
+		lista.finalizarListaDeCompras("Mercearia Dona Zefa", 150);
+		lista.deletaCompraDeLista(itemPQ);
+	}
 	
-	// TERMINAR OS TESTES
-	// TERMINAR OS TESTES
-	// TERMINAR OS TESTES
-	// TERMINAR OS TESTES
-	// TERMINAR OS TESTES
-	// TERMINAR OS TESTES
-	// TERMINAR OS TESTES
-	// TERMINAR OS TESTES
-	// TERMINAR OS TESTES
-	// TERMINAR OS TESTES
-	// TERMINAR OS TESTES
-	
-	
-	
-	
-	
+	/**
+	 * Metodo que testa o metodo getAberto.
+	 * 
+	 * Nenhum erro esperado.
+	 */
 	@Test
 	public void testGetAberto() {
-		fail("Not yet implemented");
+		assertTrue(lista.getAberto() == true);
+		lista.finalizarListaDeCompras("Mercearia Dona Zefa", 150);
+		assertTrue(lista.getAberto() == false);
 	}
+	
+	/**
+	 * Metodo que testa o metodo getDescritorLista.
+	 * 
+	 * Nenhum erro esperado.
+	 */
 
 	@Test
 	public void testGetDescritorLista() {
-		fail("Not yet implemented");
+		assertEquals("Feira Semanal", lista.getDescritorLista());
 	}
+	
+	/**
+	 * Metodo que testa o metodo getData.
+	 * 
+	 * Nenhum erro esperado.
+	 */
 
 	@Test
 	public void testGetData() {
-		fail("Not yet implemented");
+		assertEquals(pegaData(), lista.getData());
 	}
+	
+	/**
+	 * Metodo que testa o metodo getHora.
+	 * 
+	 * Nenhum erro esperado.
+	 */
 
 	@Test
 	public void testGetHora() {
-		fail("Not yet implemented");
+		assertEquals(pegaHora(), lista.getHora());
+		
 	}
 
+	
+	/**
+	 * Metodo que testa o metodo getLocalDeCompra quando a lista esta fechada.
+	 * 
+	 * Nenhum erro esperado.
+	 */
 	@Test
-	public void testGetLocalDeCompra() {
-		fail("Not yet implemented");
+	public void testGetLocalDeCompraValido() {
+		assertTrue(lista.getAberto() == true);
+		lista.finalizarListaDeCompras("Mercearia Dona Zefa", 150);
+		assertTrue(lista.getAberto() == false);
+		assertEquals("Mercearia Dona Zefa", lista.getLocalDeCompra());
+	}
+	
+	/**
+	 * Metodo que testa o metodo getLocalDeCompra quando a lista esta aberta.
+	 * 
+	 * Esperado IllegalArgumentException
+	 */
+	@Test (expected = IllegalArgumentException.class)
+	public void testGetLocalDeCompraInvalido() {
+		assertTrue(lista.getAberto() == true);
+		lista.getLocalDeCompra();
 	}
 
+	
+	/**
+	 * Metodo que testa o metodo getPrecoTotal quando a lista esta fechada.
+	 * 
+	 * Nenhum erro esperado.
+	 */
 	@Test
-	public void testGetPrecoTotal() {
-		fail("Not yet implemented");
+	public void testGetPrecoTotalValido() {
+		assertTrue(lista.getAberto() == true);
+		lista.finalizarListaDeCompras("Mercearia Dona Zefa", 150);
+		assertTrue(lista.getAberto() == false);
+		assertTrue(lista.getPrecoTotal() == 150);
 	}
 
+	
+	/**
+	 * Metodo que testa o metodo getPrecoTotal quando a lista esta aberta.
+	 * 
+	 * Esperado IllegalArgumentException
+	 */
+	@Test (expected = IllegalArgumentException.class)
+	public void testGetPrecoTotalInvalido() {
+		assertTrue(lista.getAberto() == true);
+		lista.getPrecoTotal();
+	}
+	
+	/**
+	 * Metodo que testa o metodo getMaiorId.
+	 * 
+	 * Nenhum erro esperado.
+	 */
 	@Test
-	public void testGetItemLista() {
-		fail("Not yet implemented");
+	public void testGetMaiorId() {
+		assertTrue(lista.getMaiorId() == 0);
+		lista.adicionaCompraALista(1, itemPU);
+		assertTrue(lista.getMaiorId() == 3);
+		lista.adicionaCompraALista(1, itemPQ);
+		assertTrue(lista.getMaiorId() == 3);
+	}
+	
+	/**
+	 * Metodo que testa o metodo getItemLista com parametros validos.
+	 * 
+	 * Nenhum erro esperado.
+	 */
+	@Test
+	public void testGetItemListaValido() {
+		assertEquals("", lista.getItemLista(0));
+		lista.adicionaCompraALista(1, itemPQ);
+		assertEquals("1 Peito de peru Saara, alimento industrializado", lista.getItemLista(0));
+	}
+	
+	/**
+	 * Metodo que testa o metodo getItemLista com parametros invalidos.
+	 * 
+	 * Esperado ArrayIndexOutOfBoundsException
+	 */
+	@Test (expected = ArrayIndexOutOfBoundsException.class)
+	public void testGetItemListaInvalido() {
+		lista.getItemLista(-1);
 	}
 
+	
+	/**
+	 * Metodo que testa o metodo toString.
+	 * 
+	 * Nenhum erro esperado.
+	 */
 	@Test
 	public void testToString() {
-		fail("Not yet implemented");
+		assertEquals(pegaData() + " - Feira Semanal", lista.toString());
 	}
 
+	
+	/**
+	 * Metodo que testa o metodo hasItem.
+	 * 
+	 * Nenhum erro esperado.
+	 */
 	@Test
 	public void testHasItem() {
-		fail("Not yet implemented");
+		assertTrue(lista.hasItem(itemPQ.getId()) == false);
+		lista.adicionaCompraALista(1, itemPQ);
+		assertTrue(lista.hasItem(itemPQ.getId()) == true);
+	}
+	
+	/**
+	 * Metodo auxiliar que retorna a data do sistema em forma de String.
+	 * 
+	 * @return Uma String contendo a data do sistema.
+	 */
+	private String pegaData() {
+		String data = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+		return data;
+	}
+	
+	/**
+	 * Metodo auxiliar que retorna a hora do sistema em forma de String.
+	 * 
+	 * @return Uma Strign contendo a hora do sistema.
+	 */
+	private String pegaHora() {
+		String hora = new SimpleDateFormat("HH:mm:ss").format(new Date());
+		return hora;
 	}
 
 }

@@ -26,7 +26,11 @@ public class ControllerLista {
     }
 
     public String adicionaListaDeCompras(String descritorLista) {
-        if (descritorLista == null) {
+    	if (listasDeCompras.containsKey(descritorLista)) {
+        	throw new IllegalArgumentException("Erro na criacao de lista de compras: lista ja cadastrada no sistema.");
+        }
+    	
+    	if (descritorLista == null) {
             throw new NullPointerException(
                     "Erro na criacao de lista de compras: descritor nao pode ser vazio ou nulo.");
         }
@@ -35,12 +39,24 @@ public class ControllerLista {
             throw new IllegalArgumentException(
                     "Erro na criacao de lista de compras: descritor nao pode ser vazio ou nulo.");
         }
+        
+        
+        
         this.listasDeCompras.put(descritorLista, new ListaDeCompras(descritorLista));
         return descritorLista;
     }
 
     public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {
-        this.listasDeCompras.get(descritorLista).adicionaCompraALista(quantidade,
+    	if (descritorLista == null) {
+            throw new NullPointerException(
+                    "Erro na adicao de item na lista de compras: descritor nao pode ser vazio ou nulo.");
+        }
+
+        if (descritorLista.trim().equals("")) {
+            throw new IllegalArgumentException(
+                    "Erro na adicao de item na lista de compras: descritor nao pode ser vazio ou nulo.");
+        }
+    	this.listasDeCompras.get(descritorLista).adicionaCompraALista(quantidade,
                 this.pegaItem(itemId, "Erro na compra de item: "));
     }
 

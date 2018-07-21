@@ -1,4 +1,4 @@
-package ControllerTest;
+package Controllers;
 
 import static org.junit.Assert.*;
 
@@ -18,7 +18,7 @@ import Controllers.ControllerItem;
  * @author Joao Pedro de Barros - 117210327
  * @author Rafael Azevedo - 117210382
  */
-public class ControllerTest {
+public class ControllerItemTest {
 
 	// Instanciacao de objetos do tipo Controller.
 	private ControllerItem controller, outroController;

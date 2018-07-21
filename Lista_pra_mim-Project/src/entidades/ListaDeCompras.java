@@ -126,10 +126,14 @@ public class ListaDeCompras {
     }
 
     public String getLocalDeCompra() {
+    	if (aberto) 
+    		throw new IllegalArgumentException("Erro na consulta de local de compra: lista ainda esta aberta");
         return this.localDaCompra;
     }
 
     public int getPrecoTotal() {
+    	if (aberto) 
+    		throw new IllegalArgumentException("Erro na consulta de preco total: lista ainda esta aberta");
         return this.precoTotal;
     }
 
