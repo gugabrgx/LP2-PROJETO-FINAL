@@ -5,9 +5,10 @@ import Enum.Categoria;
 /**
  * Laboratorio de Programacao 2 - 2018.1
  *
- * @author Rafael Dantas Santos de Azevedo - 117210382
- * @author Gustavo Luiz Bispo dos Santos - 117210400
- * @lab Lab0
+ * @author Eduardo Henrique Pontes Silva - 117210360
+ * @author Gustavo Santos - 117210400
+ * @author Joao Pedro de Barros - 117210327
+ * @author Rafael Azevedo - 117210382
  */
 public class Compra {
 

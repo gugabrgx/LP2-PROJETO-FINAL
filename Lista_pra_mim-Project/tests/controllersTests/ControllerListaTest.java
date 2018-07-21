@@ -8,15 +8,17 @@ import org.junit.Test;
 import controllers.ControllerItem;
 import controllers.ControllerLista;
 import entidades.Item;
-import entidades.ItemPorQuilo;
-import entidades.ItemPorUnidade;
 import facade.Facade;
 
 /**
- * 
+ * Laboratório de Programação 2 - Lista pra mim© Project
  *
+ * Classe que testa os metodos da classe ControllerLista.
+ *
+ * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
- * 
+ * @author Joao Pedro de Barros - 117210327
+ * @author Rafael Azevedo - 117210382
  */
 public class ControllerListaTest {
 

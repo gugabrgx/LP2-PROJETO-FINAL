@@ -14,10 +14,16 @@ import entidades.ItemPorUnidade;
 import entidades.ListaDeCompras;
 
 /**
+ * 
+ * Laboratório de Programação 2 - Lista pra mim© Project
  *
- * @author Gustavo Luiz Bispo dos Santos - 117210400
+ * Classe que testa os metodos da classe ListaDeCompras.
+ *
+ * @author Eduardo Henrique Pontes Silva - 117210360
+ * @author Gustavo Santos - 117210400
+ * @author Joao Pedro de Barros - 117210327
+ * @author Rafael Azevedo - 117210382
  */
-
 public class ListaDeComprasTest {
 
 	// Instanciação de um Objeto ListaDeCompras.

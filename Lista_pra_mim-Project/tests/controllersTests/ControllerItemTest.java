@@ -11,7 +11,7 @@ import controllers.ControllerItem;
  * 
  * Laboratório de Programação 2 - Lista pra mim© Project
  *
- * Classe que testa os metodos da classe Controller.
+ * Classe que testa os metodos da classe ControllerItem.
  *
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400

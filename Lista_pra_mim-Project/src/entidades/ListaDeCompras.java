@@ -11,6 +11,7 @@ import comparators.ComparaCompras;
 /**
  * Laboratório de Programação 2 - Lista pra mim© Project
  *
+ * Reoresenta uma lista de compras que tem a capacidade armazenar compras.
  * 
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
@@ -117,7 +118,7 @@ public class ListaDeCompras {
 	/**
 	 * Este metodo atualiza a quantidade de um item, emm uma determinada lista.
 	 * 
-	 * @param itemI      O item.
+	 * @param item       O item.
 	 * @param quantidade A quantidade nova do item.
 	 * @param operacao   A operacao de diminuir ou aumentar a quantidade do item.
 	 */

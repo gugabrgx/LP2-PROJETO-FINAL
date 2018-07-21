@@ -11,11 +11,10 @@ import entidades.ListaDeCompras;
  * Nesta classe e possivel realizar operacoes como: adicionar itens na lista de
  * compras, exibir listas, atualizar listas, etc.
  * 
- * @author Joao Pedro de Barros - 117210327
- * @author Rafael Azevedo - 117210382
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Luiz Bispo dos Santos - 117210400
  * @author Joao Pedro de Barros - 117210327
+ * @author Rafael Azevedo - 117210382
  */
 public class ControllerLista {
 
@@ -36,7 +35,9 @@ public class ControllerLista {
 	private Comparator<ListaDeCompras> comparador;
 
 	/**
-	 * Constroi um controller de lista, e inicializa o Mapa, e o controller de item.
+	 * Constroi um controller de lista, e inicializa o Mapa.
+	 * 
+	 * @param controllerItem Controlador de item.
 	 */
 	public ControllerLista(ControllerItem controllerItem) {
 		this.listasDeCompras = new HashMap<>();

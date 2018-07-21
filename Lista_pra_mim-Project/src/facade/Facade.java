@@ -201,7 +201,7 @@ public class Facade {
 	 * 
 	 * @param descritorLista O descritor da lista.
 	 * @param quantidade     A quantidade do item.
-	 * @param itemID         O item a ser adicionado na lista.
+	 * @param itemId         O item a ser adicionado na lista.
 	 */
 	public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {
 		this.controllerLista.adicionaCompraALista(descritorLista, quantidade, itemId);
@@ -249,8 +249,8 @@ public class Facade {
 	 * @param operacao       A operacao de diminuir ou aumentar a quantidade do
 	 *                       item.
 	 */
-	public void atualizaCompraDeLista(String descritorLista, int itemId, String Operacao, int quantidade) {
-		this.controllerLista.atualizaCompraDeLista(descritorLista, itemId, quantidade, Operacao);
+	public void atualizaCompraDeLista(String descritorLista, int itemId, String operacao, int quantidade) {
+		this.controllerLista.atualizaCompraDeLista(descritorLista, itemId, quantidade, operacao);
 	}
 
 	/**
