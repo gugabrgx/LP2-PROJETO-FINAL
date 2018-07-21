@@ -139,7 +139,7 @@ public abstract class Item {
 	 *
 	 * @return Uma String contendo todos os precos de um item.
 	 */
-	protected String getListaPrecos() {
+	public String getListaPrecos() {
 		StringBuilder listaDePrecos = new StringBuilder("<");
 		for (String localDeCompra : precos.keySet()) {
 			listaDePrecos.append(String.format("%s, R$ %.2f;", localDeCompra, precos.get(localDeCompra)));
