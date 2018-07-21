@@ -1,4 +1,4 @@
-package Controllers;
+package controllers;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,8 +6,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-import Comparators.ComparaNome;
-import Comparators.ComparaPreco;
+import comparators.ComparaNome;
+import comparators.ComparaPreco;
 import entidades.Item;
 import entidades.ItemPorQuantidadeFixa;
 import entidades.ItemPorQuilo;

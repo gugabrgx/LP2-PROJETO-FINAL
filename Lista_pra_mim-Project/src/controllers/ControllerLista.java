@@ -1,8 +1,8 @@
-package Controllers;
+package controllers;
 
 import java.util.*;
 
-import Comparators.ComparaDescritor;
+import comparators.ComparaDescritor;
 import entidades.Item;
 import entidades.ListaDeCompras;
 
@@ -37,14 +37,16 @@ public class ControllerLista {
 	/**
 	 * Cria uma nova lista de compras.
 	 * 
-	 * @param descritorLista
-	 *            O descritor da lista.
+	 * @param descritorLista O descritor da lista.
 	 * @return em String o descritor da lista.
 	 */
 	public String adicionaListaDeCompras(String descritorLista) {
 		if (descritorLista == null) {
 			throw new NullPointerException(
 					"Erro na criacao de lista de compras: descritor nao pode ser vazio ou nulo.");
+		}
+		if (listasDeCompras.containsKey(descritorLista)) {
+			throw new IllegalArgumentException("Erro na criacao de lista de compras: lista ja cadastrada no sistema.");
 		}
 
 		if (descritorLista.trim().equals("")) {
@@ -58,14 +60,15 @@ public class ControllerLista {
 	/**
 	 * Este metodo adiciona um item com sua quantidade, em uma determinada lista.
 	 * 
-	 * @param descritorLista
-	 *            O descritor da lista.
-	 * @param quantidade
-	 *            A quantidade do item.
-	 * @param itemID
-	 *            O item a ser adicionado na lista.
+	 * @param descritorLista O descritor da lista.
+	 * @param quantidade     A quantidade do item.
+	 * @param itemID         O item a ser adicionado na lista.
 	 */
 	public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {
+		if (descritorLista.trim().equals("")) {
+			throw new IllegalArgumentException(
+					"Erro na criacao de lista de compras: descritor nao pode ser vazio ou nulo.");
+		}
 		this.listasDeCompras.get(descritorLista).adicionaCompraALista(quantidade,
 				this.pegaItem(itemId, "Erro na compra de item: "));
 	}
@@ -73,12 +76,9 @@ public class ControllerLista {
 	/**
 	 * Este metodo finaliza uma lista de compras.
 	 * 
-	 * @param descritorLista
-	 *            O descritor da lista.
-	 * @param localDaCompra
-	 *            O local de compra da lista.
-	 * @param valorFinalDaCompra
-	 *            O valor final da compra.
+	 * @param descritorLista     O descritor da lista.
+	 * @param localDaCompra      O local de compra da lista.
+	 * @param valorFinalDaCompra O valor final da compra.
 	 */
 	public void finalizarListaDeCompras(String descritorLista, String localDaCompra, int valorFinalDaCompra) {
 		if (descritorLista == null) {
@@ -109,10 +109,8 @@ public class ControllerLista {
 	/**
 	 * Este metodo pesquisa uma item em uma lista.
 	 * 
-	 * @param descritorLista
-	 *            O descritor da lista.
-	 * @param itemId
-	 *            o ID do item.
+	 * @param descritorLista O descritor da lista.
+	 * @param itemId         o ID do item.
 	 * @return em String o item pesquisado na lista.
 	 */
 	public String pesquisaCompraEmLista(String descritorLista, int itemId) {
@@ -130,14 +128,11 @@ public class ControllerLista {
 	/**
 	 * Este metodo atualiza a quantidade de um item, emm uma determinada lista.
 	 * 
-	 * @param descritorLista
-	 *            O descritor da lista.
-	 * @param itemId
-	 *            O ID do item.
-	 * @param quantidade
-	 *            A quantidade nova do item.
-	 * @param operacao
-	 *            A operacao de diminuir ou aumentar a quantidade do item.
+	 * @param descritorLista O descritor da lista.
+	 * @param itemId         O ID do item.
+	 * @param quantidade     A quantidade nova do item.
+	 * @param operacao       A operacao de diminuir ou aumentar a quantidade do
+	 *                       item.
 	 */
 	public void atualizaCompraDeLista(String descritorLista, int itemId, int quantidade, String operacao) {
 		if (!(operacao.equals("adiciona")) && !(operacao.equals("diminui"))) {
@@ -151,10 +146,8 @@ public class ControllerLista {
 	/**
 	 * Este metodo recupra um item de uma lsita, a partir de sua posicao.
 	 * 
-	 * @param descritorLista
-	 *            O descritor da lista.
-	 * @param posicaoItem
-	 *            A posicao do Item.
+	 * @param descritorLista O descritor da lista.
+	 * @param posicaoItem    A posicao do Item.
 	 * @return em String a representacao de um item.
 	 */
 	public String getItemLista(String descritorLista, int posicaoItem) {
@@ -172,10 +165,8 @@ public class ControllerLista {
 	/**
 	 * Este metodo deleta uma compra de uma lista, pelo id do item.
 	 * 
-	 * @param descritorLista
-	 *            O descritor da lista.
-	 * @param itemId
-	 *            O ID do item.
+	 * @param descritorLista O descritor da lista.
+	 * @param itemId         O ID do item.
 	 */
 	public void deletaCompraDeLista(String descritorLista, int itemId) {
 		if (descritorLista == null) {
@@ -193,8 +184,7 @@ public class ControllerLista {
 	/**
 	 * Este metodo recupera uma lista a partir de sua desccricao.
 	 * 
-	 * @param descritorLista
-	 *            O descritor da lista.
+	 * @param descritorLista O descritor da lista.
 	 * @return em String a representacao de uma lista.
 	 */
 	public String pesquisaListaDeCompras(String descritorLista) {
@@ -212,8 +202,7 @@ public class ControllerLista {
 	/**
 	 * Metodo que retorna as listas a partir do dia.
 	 * 
-	 * @param data
-	 *            A data da lista.
+	 * @param data A data da lista.
 	 * @return As listas de compra do dia.
 	 */
 	private List<ListaDeCompras> getListasDoDia(String data) {
@@ -245,8 +234,7 @@ public class ControllerLista {
 	/**
 	 * Metodo que retorna listas de compra pela data passa como parametro.
 	 * 
-	 * @param data
-	 *            A data.
+	 * @param data A data.
 	 * @return em String a representacao contendo a(s) lista(s) com a data passada
 	 *         como parametro.
 	 */
@@ -263,8 +251,7 @@ public class ControllerLista {
 	/**
 	 * Metodo que retorna as listas que contem determinado item.
 	 * 
-	 * @param id
-	 *            O id do item.
+	 * @param id O id do item.
 	 * @return A representacao de varias listas que contem o item.
 	 */
 	public String pesquisaListasDeComprasPorItem(int id) {
@@ -285,10 +272,8 @@ public class ControllerLista {
 	 * Este metodo recupera uma lista de compras a partir de sua data, e sua
 	 * posicao.
 	 * 
-	 * @param data
-	 *            A data da lista.
-	 * @param posicaoLista
-	 *            A posicao da Lista
+	 * @param data         A data da lista.
+	 * @param posicaoLista A posicao da Lista
 	 * @return em String o nome da lista de compras.
 	 */
 	public String getItemListaPorData(String data, int posicaoLista) {
@@ -303,10 +288,8 @@ public class ControllerLista {
 	 * Recupera lista de compra a partir do id de um item, e tambem a partir da
 	 * posicao.
 	 * 
-	 * @param id
-	 *            O id do item.
-	 * @param posicaoLista
-	 *            A posicao da lista.
+	 * @param id           O id do item.
+	 * @param posicaoLista A posicao da lista.
 	 * @return em String a representacao de umal ista de compras.
 	 */
 	public String getItemListaPorItem(int id, int posicaoLista) {
@@ -326,14 +309,11 @@ public class ControllerLista {
 	/**
 	 * Este metodo recupera um item.
 	 * 
-	 * @param id
-	 *            O id do item.
-	 * @param msg
-	 *            A mensagem
+	 * @param id  O id do item.
+	 * @param msg A mensagem
 	 * @return O objeto item.
 	 */
 	private Item pegaItem(int id, String msg) {
-        return this.controllerItem.pegaItem(id, msg);
+		return this.controllerItem.pegaItem(id, msg);
 	}
- }
-
+}

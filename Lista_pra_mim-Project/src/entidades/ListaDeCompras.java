@@ -7,7 +7,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashSet;
 
-import Comparators.ComparaCompras;
+import comparators.ComparaCompras;
 
 /**
  * Laboratorio de Programacao 2 - 2018.1
@@ -43,8 +43,7 @@ public class ListaDeCompras {
 	/**
 	 * Constroi o objeto lista de compras.
 	 * 
-	 * @param descritorLista
-	 *            O descritor da lista.
+	 * @param descritorLista O descritor da lista.
 	 */
 	public ListaDeCompras(String descritorLista) {
 		if (descritorLista == null)
@@ -64,10 +63,8 @@ public class ListaDeCompras {
 	/**
 	 * Este metodo adiciona uma compra na lista.
 	 * 
-	 * @param quantidade
-	 *            A quantida do item.
-	 * @param item
-	 *            O item a ser adicionado.
+	 * @param quantidade A quantida do item.
+	 * @param item       O item a ser adicionado.
 	 */
 	public void adicionaCompraALista(int quantidade, Item item) {
 		if (!aberto)
@@ -81,10 +78,8 @@ public class ListaDeCompras {
 	/**
 	 * Este metodo finaliza uma lista de compras.
 	 * 
-	 * @param localDaCompra
-	 *            O local da compra.
-	 * @param valorFinalDaCompra
-	 *            O valor final de uma compra.
+	 * @param localDaCompra      O local da compra.
+	 * @param valorFinalDaCompra O valor final de uma compra.
 	 */
 	public void finalizarListaDeCompras(String localDaCompra, int valorFinalDaCompra) {
 		if (!aberto)
@@ -106,8 +101,7 @@ public class ListaDeCompras {
 	/**
 	 * Este metodo pesquisa uma compra na lista.
 	 * 
-	 * @param item
-	 *            O item a ser pesquisado.
+	 * @param item O item a ser pesquisado.
 	 * @return em String a representacao de uma compra.
 	 */
 	public String pesquisaCompraEmLista(Item item) {
@@ -122,12 +116,9 @@ public class ListaDeCompras {
 	/**
 	 * Este metodo atualiza a quantidade de um item, emm uma determinada lista.
 	 * 
-	 * @param itemI
-	 *            O item.
-	 * @param quantidade
-	 *            A quantidade nova do item.
-	 * @param operacao
-	 *            A operacao de diminuir ou aumentar a quantidade do item.
+	 * @param itemI      O item.
+	 * @param quantidade A quantidade nova do item.
+	 * @param operacao   A operacao de diminuir ou aumentar a quantidade do item.
 	 */
 	public void atualizaCompraDeLista(String operacao, Item item, int quantidade) {
 		if (!aberto)
@@ -147,8 +138,7 @@ public class ListaDeCompras {
 	/**
 	 * Este metodo deleta uma compra de uma lista, pelo id do item. .
 	 * 
-	 * @param item
-	 *            O item.
+	 * @param item O item.
 	 */
 	public void deletaCompraDeLista(Item item) {
 		if (!aberto)
@@ -208,6 +198,8 @@ public class ListaDeCompras {
 	 * @return o local de compra.
 	 */
 	public String getLocalDeCompra() {
+		if (aberto)
+			throw new IllegalArgumentException("Erro na consulta de local de compra: lista ainda esta aberta");
 		return this.localDaCompra;
 	}
 
@@ -217,6 +209,8 @@ public class ListaDeCompras {
 	 * @return O preco total.
 	 */
 	public int getPrecoTotal() {
+		if (aberto)
+			throw new IllegalArgumentException("Erro na consulta de preco total: lista ainda esta aberta");
 		return this.precoTotal;
 	}
 
@@ -232,8 +226,7 @@ public class ListaDeCompras {
 	/**
 	 * Metodo que recupera um item.
 	 * 
-	 * @param posicaoItem
-	 *            A posicao do item.
+	 * @param posicaoItem A posicao do item.
 	 * @return em String um item.
 	 */
 	public String getItemLista(int posicaoItem) {
@@ -260,8 +253,7 @@ public class ListaDeCompras {
 	/**
 	 * Metodo que verifica se uma lista tem um item.
 	 * 
-	 * @param id
-	 *            O id do item.
+	 * @param id O id do item.
 	 * @return Um boolean, true se tiver o item e false se nao tiver o item.
 	 */
 	public boolean hasItem(int id) {
