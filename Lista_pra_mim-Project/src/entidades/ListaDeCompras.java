@@ -6,15 +6,17 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashSet;
-
 import comparators.ComparaCompras;
 
 /**
- * Laboratorio de Programacao 2 - 2018.1
+ * Laboratório de Programação 2 - Lista pra mim© Project
  *
- * @author Rafael Dantas Santos de Azevedo - 117210382
- * @author Gustavo Luiz Bispo dos Santos - 117210400
+ * Reoresenta uma lista de compras que tem a capacidade armazenar compras.
+ * 
+ * @author Eduardo Henrique Pontes Silva - 117210360
+ * @author Gustavo Santos - 117210400
  * @author Joao Pedro de Barros - 117210327
+ * @author Rafael Azevedo - 117210382
  */
 public class ListaDeCompras {
 
@@ -42,7 +44,7 @@ public class ListaDeCompras {
 
 	/**
 	 * Constroi o objeto lista de compras.
-	 * 
+	 *
 	 * @param descritorLista O descritor da lista.
 	 */
 	public ListaDeCompras(String descritorLista) {
@@ -116,7 +118,7 @@ public class ListaDeCompras {
 	/**
 	 * Este metodo atualiza a quantidade de um item, emm uma determinada lista.
 	 * 
-	 * @param itemI      O item.
+	 * @param item       O item.
 	 * @param quantidade A quantidade nova do item.
 	 * @param operacao   A operacao de diminuir ou aumentar a quantidade do item.
 	 */
@@ -137,7 +139,7 @@ public class ListaDeCompras {
 
 	/**
 	 * Este metodo deleta uma compra de uma lista, pelo id do item. .
-	 * 
+	 *
 	 * @param item O item.
 	 */
 	public void deletaCompraDeLista(Item item) {
@@ -215,9 +217,9 @@ public class ListaDeCompras {
 	}
 
 	/**
-	 * Metodo que retorna o maior id
-	 * 
-	 * @return O maior ID
+	 * Metodo que retorna o maior id presente na lista.
+	 *
+	 * @return O maior Id presente na lista.
 	 */
 	public int getMaiorId() {
 		return this.maiorId;
@@ -233,17 +235,18 @@ public class ListaDeCompras {
 		if (posicaoItem < 0)
 			throw new ArrayIndexOutOfBoundsException("Erro no cadastro de preco: id de item invalido.");
 		ArrayList<Compra> comprasOrdenadas = new ArrayList<>(this.compras);
-
 		if (comprasOrdenadas.size() <= posicaoItem) {
 			return "";
 		}
-
 		Collections.sort(comprasOrdenadas, comparaCompras);
 		return comprasOrdenadas.get(posicaoItem).toString();
+
 	}
 
 	/**
-	 * Metodo que retorna a representacao de uma lista de compras.
+	 * Metodo que retorna a representacao textual de uma lista de compras.
+	 *
+	 * @return representacao textual da lista de compras.
 	 */
 	@Override
 	public String toString() {
@@ -251,10 +254,10 @@ public class ListaDeCompras {
 	}
 
 	/**
-	 * Metodo que verifica se uma lista tem um item.
-	 * 
+	 * Metodo que verifica se uma lista possui um item.
+	 *
 	 * @param id O id do item.
-	 * @return Um boolean, true se tiver o item e false se nao tiver o item.
+	 * @return Booleano que representa a presenca de um item na lista de compras.
 	 */
 	public boolean hasItem(int id) {
 		for (Compra compra : compras) {
@@ -263,5 +266,4 @@ public class ListaDeCompras {
 		}
 		return false;
 	}
-
 }

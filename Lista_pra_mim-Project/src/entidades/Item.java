@@ -67,6 +67,7 @@ public abstract class Item {
 			throw new IllegalArgumentException("Erro no cadastro de item: preco de item invalido.");
 
 		this.nome = nome;
+		//Categoria c = Categoria.valueOf(categoria);
 		for (Categoria c : Categoria.values()) {
 			if (c.getDescricao().equals(categoria)) {
 				this.categoria = c;
@@ -107,7 +108,6 @@ public abstract class Item {
 					break;
 				}
 			}
-
 		}
 	}
 

@@ -1,4 +1,4 @@
-package ComparatorsTests;
+package comparatorsTests;
 
 import static org.junit.Assert.*;
 

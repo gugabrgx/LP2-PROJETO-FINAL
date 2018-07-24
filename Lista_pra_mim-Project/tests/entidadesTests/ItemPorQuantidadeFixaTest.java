@@ -244,7 +244,7 @@ public class ItemPorQuantidadeFixaTest {
      */
     @Test
     public void testGetCategoria() {
-        assertEquals("alimento industrializado", this.item.getCategoria());
+        assertEquals("alimento industrializado", this.item.getCategoria().getDescricao());
     }
     
     /**
