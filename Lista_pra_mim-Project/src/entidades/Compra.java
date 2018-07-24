@@ -20,8 +20,10 @@ public class Compra {
 	/**
 	 * Constroi o objeto Compras.
 	 * 
-	 * @param qnt  A quantidade do item.
-	 * @param item O item a ser comprado.
+	 * @param qnt
+	 *            A quantidade do item.
+	 * @param item
+	 *            O item a ser comprado.
 	 */
 	public Compra(int qnt, Item item) {
 		if (qnt <= 0)
@@ -33,8 +35,10 @@ public class Compra {
 	/**
 	 * Este atributo atualiza a quantidade de compra de um item.
 	 * 
-	 * @param operacao   A operacao a ser feita, adiciona ou diminui.
-	 * @param quantidade A quantidade do item a ser acrescida ou diminuida.
+	 * @param operacao
+	 *            A operacao a ser feita, adiciona ou diminui.
+	 * @param quantidade
+	 *            A quantidade do item a ser acrescida ou diminuida.
 	 */
 	public void atualizaCompra(String operacao, int quantidade) {
 		if (quantidade <= 0)
@@ -85,6 +89,31 @@ public class Compra {
 	 */
 	public String getItemDescricao() {
 		return item.getDescricao();
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((item == null) ? 0 : item.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Compra other = (Compra) obj;
+		if (item == null) {
+			if (other.item != null)
+				return false;
+		} else if (!item.equals(other.item))
+			return false;
+		return true;
 	}
 
 	/**
