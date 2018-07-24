@@ -304,4 +304,8 @@ public class ControllerItem {
 		return this.itens.get(id);
 	}
 
+	public int getId() {
+		return id;
+	}
+
 }
