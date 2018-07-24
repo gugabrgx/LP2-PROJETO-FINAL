@@ -48,9 +48,9 @@ public class ComparaDescritorTest {
 	@Before
 	public void PreparaCenario() {
 		this.comparador = new ComparaDescritor();
-		this.lista1 = new ListaDeCompras("aaah");
-		this.lista2 = new ListaDeCompras("beeh");
-		this.lista3 = new ListaDeCompras("aah");
+		this.lista1 = new ListaDeCompras("aaah", 0);
+		this.lista2 = new ListaDeCompras("beeh", 1);
+		this.lista3 = new ListaDeCompras("aah", 2);
 	}
 
 	/**
