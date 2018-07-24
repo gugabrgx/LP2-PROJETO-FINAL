@@ -34,6 +34,8 @@ public class ControllerLista {
 	 */
 	private Comparator<ListaDeCompras> comparador;
 
+	private int idLista;
+	
 	/**
 	 * Constroi um controller de lista, e inicializa o Mapa.
 	 * 
@@ -42,6 +44,7 @@ public class ControllerLista {
 	public ControllerLista(ControllerItem controllerItem) {
 		this.listasDeCompras = new HashMap<>();
 		this.controllerItem = controllerItem;
+		this.idLista = 1;
 	}
 
 	/**
@@ -65,7 +68,7 @@ public class ControllerLista {
 			throw new IllegalArgumentException("Erro na criacao de lista de compras: lista ja cadastrada no sistema.");
 		}
 
-		this.listasDeCompras.put(descritorLista, new ListaDeCompras(descritorLista));
+		this.listasDeCompras.put(descritorLista, new ListaDeCompras(descritorLista, idLista++));
 		return descritorLista;
 	}
 
@@ -347,6 +350,19 @@ public class ControllerLista {
 			throw new IllegalArgumentException(erro + ": lista de compras nao existe.");
 		}
 	}
-	
-	
+
+	public String geraAutomaticaUltimaLista() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String geraAutomaticaItem(String descritorItem) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String geraAutomaticaItensMaisPresentes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
