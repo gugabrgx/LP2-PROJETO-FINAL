@@ -32,3 +32,4 @@ expect "" getItemPorPesquisa strPesquisada="agua" posicao=2
 expect "" getItemPorPesquisa strPesquisada="esponja" posicao=1
 expect "" getItemPorPesquisa strPesquisada="coljate" posicao=1
 expect "" getItemPorPesquisa strPesquisada="irineu" posicao=0
+
