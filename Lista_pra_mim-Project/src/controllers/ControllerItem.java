@@ -303,6 +303,10 @@ public class ControllerItem {
 			throw new IllegalArgumentException(msg + "item nao existe no sistema.");
 		return this.itens.get(id);
 	}
+	
+	public Item pegaItem(int id) {
+		return this.itens.get(id);
+	}
 
 	public int getId() {
 		return id;

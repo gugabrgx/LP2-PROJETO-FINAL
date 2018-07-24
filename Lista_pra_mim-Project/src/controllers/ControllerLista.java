@@ -1,5 +1,6 @@
 package controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import comparators.ComparaDescritor;
@@ -39,8 +40,7 @@ public class ControllerLista {
 	/**
 	 * Constroi um controller de lista, e inicializa o Mapa.
 	 * 
-	 * @param controllerItem
-	 *            Controlador de item.
+	 * @param controllerItem Controlador de item.
 	 */
 	public ControllerLista(ControllerItem controllerItem) {
 		this.listasDeCompras = new HashMap<>();
@@ -51,8 +51,7 @@ public class ControllerLista {
 	/**
 	 * Cria uma nova lista de compras.
 	 *
-	 * @param descritorLista
-	 *            O descritor da lista.
+	 * @param descritorLista O descritor da lista.
 	 * @return em String o descritor da lista.
 	 */
 	public String adicionaListaDeCompras(String descritorLista) {
@@ -77,12 +76,9 @@ public class ControllerLista {
 	/**
 	 * Este metodo adiciona um item com sua quantidade, em uma determinada lista.
 	 *
-	 * @param descritorLista
-	 *            O descritor da lista.
-	 * @param quantidade
-	 *            A quantidade do item.
-	 * @param itemId
-	 *            O item a ser adicionado na lista.
+	 * @param descritorLista O descritor da lista.
+	 * @param quantidade     A quantidade do item.
+	 * @param itemId         O item a ser adicionado na lista.
 	 */
 	public void adicionaCompraALista(String descritorLista, int quantidade, int itemId) {
 		this.verificaDescritor(descritorLista, "Erro na adicao de item na lista de compras");
@@ -94,12 +90,9 @@ public class ControllerLista {
 	/**
 	 * Este metodo finaliza uma lista de compras.
 	 *
-	 * @param descritorLista
-	 *            O descritor da lista.
-	 * @param localDaCompra
-	 *            O local de compra da lista.
-	 * @param valorFinalDaCompra
-	 *            O valor final da compra.
+	 * @param descritorLista     O descritor da lista.
+	 * @param localDaCompra      O local de compra da lista.
+	 * @param valorFinalDaCompra O valor final da compra.
 	 */
 	public void finalizarListaDeCompras(String descritorLista, String localDaCompra, int valorFinalDaCompra) {
 		this.verificaDescritor(descritorLista, "Erro na finalizacao de lista de compras");
@@ -125,10 +118,8 @@ public class ControllerLista {
 	/**
 	 * Este metodo pesquisa uma item em uma lista.
 	 *
-	 * @param descritorLista
-	 *            O descritor da lista.
-	 * @param itemId
-	 *            o ID do item.
+	 * @param descritorLista O descritor da lista.
+	 * @param itemId         o ID do item.
 	 * @return em String o item pesquisado na lista.
 	 */
 	public String pesquisaCompraEmLista(String descritorLista, int itemId) {
@@ -144,14 +135,11 @@ public class ControllerLista {
 	/**
 	 * Este metodo atualiza a quantidade de um item, emm uma determinada lista.
 	 *
-	 * @param descritorLista
-	 *            O descritor da lista.
-	 * @param itemId
-	 *            O ID do item.
-	 * @param quantidade
-	 *            A quantidade nova do item.
-	 * @param operacao
-	 *            A operacao de diminuir ou aumentar a quantidade do item.
+	 * @param descritorLista O descritor da lista.
+	 * @param itemId         O ID do item.
+	 * @param quantidade     A quantidade nova do item.
+	 * @param operacao       A operacao de diminuir ou aumentar a quantidade do
+	 *                       item.
 	 */
 	public void atualizaCompraDeLista(String descritorLista, int itemId, int quantidade, String operacao) {
 		this.verificaDescritor(descritorLista, "Erro na atualizacao de compra");
@@ -168,10 +156,8 @@ public class ControllerLista {
 	/**
 	 * Este metodo recupra um item de uma lista, a partir de sua posicao.
 	 *
-	 * @param descritorLista
-	 *            O descritor da lista.
-	 * @param posicaoItem
-	 *            A posicao do Item.
+	 * @param descritorLista O descritor da lista.
+	 * @param posicaoItem    A posicao do Item.
 	 * @return em String a representacao de um item.
 	 */
 	public String getItemLista(String descritorLista, int posicaoItem) {
@@ -183,10 +169,8 @@ public class ControllerLista {
 	/**
 	 * Este metodo deleta uma compra de uma lista, pelo id do item.
 	 *
-	 * @param descritorLista
-	 *            O descritor da lista.
-	 * @param itemId
-	 *            O ID do item.
+	 * @param descritorLista O descritor da lista.
+	 * @param itemId         O ID do item.
 	 */
 	public void deletaCompraDeLista(String descritorLista, int itemId) {
 		this.verificaDescritor(descritorLista, "Erro na exclusao de compra");
@@ -198,8 +182,7 @@ public class ControllerLista {
 	/**
 	 * Este metodo recupera uma lista a partir de sua descricao.
 	 *
-	 * @param descritorLista
-	 *            O descritor da lista.
+	 * @param descritorLista O descritor da lista.
 	 * @return em String a representacao de uma lista.
 	 */
 	public String pesquisaListaDeCompras(String descritorLista) {
@@ -212,8 +195,7 @@ public class ControllerLista {
 	 * Metodo que retorna uma lista com as listas criadas na data escolhida pelo
 	 * usuario.
 	 *
-	 * @param data
-	 *            A data da criaçao da lista.
+	 * @param data A data da criaçao da lista.
 	 * @return As listas de compras criadas no data.
 	 */
 	private List<ListaDeCompras> getListasDoDia(String data) {
@@ -245,8 +227,7 @@ public class ControllerLista {
 	/**
 	 * Metodo que retorna listas de compra pela data passa como parametro.
 	 *
-	 * @param data
-	 *            A data.
+	 * @param data A data.
 	 * @return em String a representacao contendo a(s) lista(s) com a data passada
 	 *         como parametro.
 	 */
@@ -264,10 +245,8 @@ public class ControllerLista {
 	 * Este metodo recupera uma lista de compras a partir de sua data, e sua
 	 * posicao.
 	 *
-	 * @param data
-	 *            A data da lista.
-	 * @param posicaoLista
-	 *            A posicao da Lista
+	 * @param data         A data da lista.
+	 * @param posicaoLista A posicao da Lista
 	 * @return em String o nome da lista de compras.
 	 */
 
@@ -283,8 +262,7 @@ public class ControllerLista {
 	 * Metodo que retorna uma lista com as listas que possuem o item escolhida pelo
 	 * usuario.
 	 *
-	 * @param id
-	 *            O id do item.
+	 * @param id O id do item.
 	 * @return As listas de compra que possuem o item.
 	 */
 	private List<ListaDeCompras> getListasPorItem(int id) {
@@ -308,8 +286,7 @@ public class ControllerLista {
 	/**
 	 * Metodo que retorna as listas que contem determinado item.
 	 *
-	 * @param id
-	 *            O id do item.
+	 * @param id O id do item.
 	 * @return A representacao textual de varias listas que contem o item.
 	 */
 
@@ -330,10 +307,8 @@ public class ControllerLista {
 	 * Recupera lista de compra a partir do id de um item, e tambem a partir da
 	 * posicao.
 	 *
-	 * @param id
-	 *            O id do item.
-	 * @param posicaoLista
-	 *            A posicao da lista.
+	 * @param id           O id do item.
+	 * @param posicaoLista A posicao da lista.
 	 * @return A representacao textual da lista de compras escolhida pelo usuario.
 	 */
 	public String getItemListaPorItem(int id, int posicaoLista) {
@@ -346,10 +321,8 @@ public class ControllerLista {
 	/**
 	 * Este metodo recupera um item.
 	 *
-	 * @param id
-	 *            O id do item.
-	 * @param msg
-	 *            Parte da mensagem de erro que sera lancada caso alguma excecao
+	 * @param id  O id do item.
+	 * @param msg Parte da mensagem de erro que sera lancada caso alguma excecao
 	 *            ocorra.
 	 * @return O objeto item.
 	 */
@@ -361,11 +334,9 @@ public class ControllerLista {
 	 * Metodo que verifica a validade e checa a existenciado do descritor de uma
 	 * lista repassado pelo usuario
 	 *
-	 * @param descritorLista
-	 *            O descritor de uma lista.
-	 * @param erro
-	 *            Parte da mensagem de erro que sera lancada caso alguma excecao
-	 *            ocorra.
+	 * @param descritorLista O descritor de uma lista.
+	 * @param erro           Parte da mensagem de erro que sera lancada caso alguma
+	 *                       excecao ocorra.
 	 */
 	private void verificaDescritor(String descritorLista, String erro) {
 		if (descritorLista == null) {
@@ -382,31 +353,80 @@ public class ControllerLista {
 	}
 
 	public String geraAutomaticaUltimaLista() {
-		// TODO Auto-generated method stub
-		return null;
+		int maiorId = 0;
+		String descritor = "";
+		String nomeLista = "Lista automatica 1 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+		for (ListaDeCompras list : listasDeCompras.values()) {
+			if (!list.getDescritorLista().equals(nomeLista)) {
+				if (list.getIdLista() > maiorId) {
+					maiorId = list.getIdLista();
+					descritor = list.getDescritorLista();
+				}
+			}
+		}
+		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista, idLista++));
+
+		for (int i = 0; i < controllerItem.getId(); i++) {
+			if (listasDeCompras.get(descritor).hasItem(i)) {
+				int quantidade = listasDeCompras.get(descritor).getQuantidadeCompra(controllerItem.pegaItem(i));
+				listasDeCompras.get(nomeLista).adicionaCompraALista(quantidade, controllerItem.pegaItem(i));
+			}
+		}
+		return nomeLista;
 	}
 
 	public String geraAutomaticaItem(String descritorItem) {
-		// TODO Auto-generated method stub
-		return null;
+		int maiorId = 0;
+		String descritor = "";
+		String nomeLista = "Lista automatica 2 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+		for (int i = 0; i < controllerItem.getId(); i++) {
+			if (controllerItem.pegaItem(i) != null) {
+				if (controllerItem.pegaItem(i).getNome().equals(descritorItem)) {
+					for (ListaDeCompras list : listasDeCompras.values()) {
+						if (!list.getDescritorLista().equals(nomeLista)) {
+							if (list.hasItem(i) && list.getIdLista() > maiorId) {
+								maiorId = list.getIdLista();
+								descritor = list.getDescritorLista();
+							}
+						}
+					}
+				}
+			}
+		}
+		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista, idLista++));
+
+		for (int i = 0; i < controllerItem.getId(); i++) {
+			if (listasDeCompras.get(descritor).hasItem(i)) {
+				int quantidade = listasDeCompras.get(descritor).getQuantidadeCompra(controllerItem.pegaItem(i));
+				listasDeCompras.get(nomeLista).adicionaCompraALista(quantidade, controllerItem.pegaItem(i));
+			}
+		}
+		return nomeLista;
 	}
 
 	public String geraAutomaticaItensMaisPresentes() {
 		int quantidade = 0;
 		int apareceu = 0;
-		String lista = adicionaListaDeCompras("Lista automática 3");
+		String nomeLista = "Lista automatica 3 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista, idLista++));
 		for (int i = 0; i < controllerItem.getId(); i++) {
 			for (ListaDeCompras list : listasDeCompras.values()) {
 				if (list.hasItem(i)) {
 					apareceu++;
-					quantidade += list.getQuantidadeCompra(controllerItem.pegaItem(i, ""));
+					quantidade += list.getQuantidadeCompra(controllerItem.pegaItem(i));
 				}
-			}if (apareceu >= (((double) listasDeCompras.values().size()) / 2) ) {
-				int quantidadeNovo = 
-				listasDeCompras.get(lista).adicionaCompraALista(quantidadeNovo, item);
+			}
+			if (apareceu >= listasDeCompras.values().size() / 2) {
+				int quantidadeNovo = (int) (Math.floor(((double) quantidade) / apareceu));
+				listasDeCompras.get(nomeLista).adicionaCompraALista(quantidadeNovo, controllerItem.pegaItem(i));
+				quantidade = 0;
+				apareceu = 0;
+			} else {
+				quantidade = 0;
+				apareceu = 0;
 			}
 		}
 
-		return null;
+		return nomeLista;
 	}
 }
