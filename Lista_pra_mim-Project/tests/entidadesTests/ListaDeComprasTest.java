@@ -38,7 +38,7 @@ public class ListaDeComprasTest {
 	 */
 	@Before
 	public void inicializa() {
-		lista = new ListaDeCompras("Feira Semanal");
+		lista = new ListaDeCompras("Feira Semanal", 0);
 		itemPU = new ItemPorUnidade("Creme dental Oral-C", "higiene pessoal", 3, "Mercadinho Bem Barato", 3.79, 3);
 		itemPQ = new ItemPorQuilo("Peito de peru Saara", "alimento industrializado", 1.0, "Mercadinho Bem Barato",
 				34.49, 2);
@@ -54,7 +54,7 @@ public class ListaDeComprasTest {
 	@Test
 	public void testListaDeComprasValido() {
 		assertTrue(outraLista == null);
-		outraLista = new ListaDeCompras("Feira Semanal");
+		outraLista = new ListaDeCompras("Feira Semanal", 1);
 		assertTrue(outraLista != null);
 	}
 
@@ -66,7 +66,7 @@ public class ListaDeComprasTest {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testListaDeComprasInvalido1() {
-		lista = new ListaDeCompras("");
+		lista = new ListaDeCompras("", 0);
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class ListaDeComprasTest {
 	 */
 	@Test(expected = NullPointerException.class)
 	public void testListaDeComprasInvalido2() {
-		lista = new ListaDeCompras(null);
+		lista = new ListaDeCompras(null, 0);
 	}
 
 	/**
@@ -541,7 +541,7 @@ public class ListaDeComprasTest {
 	/**
 	 * Metodo auxiliar que retorna a hora do sistema em forma de String.
 	 * 
-	 * @return Uma Strign contendo a hora do sistema.
+	 * @return Uma String contendo a hora do sistema.
 	 */
 	private String pegaHora() {
 		String hora = new SimpleDateFormat("HH:mm:ss").format(new Date());
