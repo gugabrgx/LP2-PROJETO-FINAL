@@ -1,5 +1,6 @@
 package entidades;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,7 +19,7 @@ import comparators.ComparaCompras;
  * @author Joao Pedro de Barros - 117210327
  * @author Rafael Azevedo - 117210382
  */
-public class ListaDeCompras {
+public class ListaDeCompras implements Serializable{
 
 	// Este atributo representa o horario.
 	private Date horario = new Date();
@@ -41,15 +42,15 @@ public class ListaDeCompras {
 	private int maiorIdItem;
 	// Este atributo inicializa o comparator de compras.
 	private Comparator<Compra> comparaCompras;
-
-	private int idLista;
+	// Milissegundos decorridos apos 01/01/1970
+	private double mili;
 
 	/**
 	 * Constroi o objeto lista de compras.
 	 *
 	 * @param descritorLista O descritor da lista.
 	 */
-	public ListaDeCompras(String descritorLista, int idLista) {
+	public ListaDeCompras(String descritorLista) {
 		if (descritorLista == null)
 			throw new NullPointerException(
 					"Erro na criacao de lista de compras: descritor nao pode ser vazio ou nulo.");
@@ -62,7 +63,8 @@ public class ListaDeCompras {
 		this.aberto = true;
 		this.compras = new HashSet<>();
 		this.comparaCompras = new ComparaCompras();
-		this.idLista = idLista;
+		this.mili = System.currentTimeMillis();
+
 
 	}
 
@@ -271,10 +273,6 @@ public class ListaDeCompras {
 		return false;
 	}
 
-	public int getIdLista() {
-		return this.idLista;
-	}
-
 	public int getQuantidadeCompra(Item item) {
 		for (Compra compra : compras) {
 			if (compra.getItem() == item) {
@@ -293,4 +291,8 @@ public class ListaDeCompras {
 		return resultado;
 	}
 
+
+	public double getMili() {
+		return this.mili;
+	}
 }

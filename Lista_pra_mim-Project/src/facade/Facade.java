@@ -2,6 +2,7 @@ package facade;
 
 import easyaccept.EasyAccept;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import controllers.ControllerItem;
@@ -342,4 +343,13 @@ public class Facade {
 		return this.controllerLista.geraAutomaticaItensMaisPresentes();
 	}
 
+	public void iniciaSistema() {
+		controllerItem.iniciaItens();
+		controllerLista.iniciaListas();
+	}
+
+	public void fechaSistema() throws IOException {
+		controllerItem.fechaItens();
+		controllerLista.fechaListas();
+	}
 }

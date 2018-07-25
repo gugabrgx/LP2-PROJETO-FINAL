@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import comparators.ComparaDescritor;
+import comparators.ComparaTempo;
 import entidades.Item;
 import entidades.ListaDeCompras;
 
@@ -11,7 +12,7 @@ import entidades.ListaDeCompras;
  * Laboratorio de Programacao 2 - Lab 1 Classe que representa o Controller.
  * Nesta classe e possivel realizar operacoes como: adicionar itens na lista de
  * compras, exibir listas, atualizar listas, etc.
- * 
+ *
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Luiz Bispo dos Santos - 117210400
  * @author Joao Pedro de Barros - 117210327
@@ -35,17 +36,14 @@ public class ControllerLista {
 	 */
 	private Comparator<ListaDeCompras> comparador;
 
-	private int idLista;
-
 	/**
 	 * Constroi um controller de lista, e inicializa o Mapa.
-	 * 
+	 *
 	 * @param controllerItem Controlador de item.
 	 */
 	public ControllerLista(ControllerItem controllerItem) {
 		this.listasDeCompras = new HashMap<>();
 		this.controllerItem = controllerItem;
-		this.idLista = 1;
 	}
 
 	/**
@@ -69,7 +67,7 @@ public class ControllerLista {
 			throw new IllegalArgumentException("Erro na criacao de lista de compras: lista ja cadastrada no sistema.");
 		}
 
-		this.listasDeCompras.put(descritorLista, new ListaDeCompras(descritorLista, idLista++));
+		this.listasDeCompras.put(descritorLista, new ListaDeCompras(descritorLista));
 		return descritorLista;
 	}
 
@@ -212,6 +210,7 @@ public class ControllerLista {
 		}
 
 		List<ListaDeCompras> listasDoDia = new ArrayList<>();
+
 		this.comparador = new ComparaDescritor();
 
 		for (ListaDeCompras listaDeCompra : this.listasDeCompras.values()) {
@@ -265,19 +264,20 @@ public class ControllerLista {
 	 * @param id O id do item.
 	 * @return As listas de compra que possuem o item.
 	 */
-	private List<ListaDeCompras> getListasPorItem(int id) {
+	private List<ListaDeCompras> getListasPorItem(int id, Comparator comparador) {
 		if (id < 1)
 			throw new IllegalArgumentException("Erro na pesquisa de compra: id nao pode ser menor que um");
 
 		List<ListaDeCompras> listasComItem = new ArrayList<>();
-		this.comparador = new ComparaDescritor();
 
 		for (ListaDeCompras listaDeCompra : this.listasDeCompras.values()) {
 			if (listaDeCompra.hasItem(id))
 				listasComItem.add(listaDeCompra);
 		}
 
-		listasComItem.sort(this.comparador);
+		if (listasComItem.isEmpty()) throw new IllegalArgumentException();
+
+		listasComItem.sort(comparador);
 
 		return listasComItem;
 
@@ -293,12 +293,13 @@ public class ControllerLista {
 	public String pesquisaListasDeComprasPorItem(int id) {
 		StringBuilder saida = new StringBuilder();
 
-		for (ListaDeCompras lista : this.getListasPorItem(id)) {
-			saida.append(lista.getDescritorLista()).append(System.lineSeparator());
-		}
-
-		if ("".equals(saida.toString()))
+		try {
+			for (ListaDeCompras lista : this.getListasPorItem(id, new ComparaDescritor())) {
+				saida.append(lista.getDescritorLista()).append(System.lineSeparator());
+			}
+		} catch (IllegalArgumentException e) {
 			throw new NullPointerException("Erro na pesquisa de compra: compra nao encontrada na lista.");
+		}
 
 		return saida.toString().trim();
 	}
@@ -315,7 +316,7 @@ public class ControllerLista {
 		if (posicaoLista < 0)
 			throw new ArrayIndexOutOfBoundsException("Erro na pesquisa de compra: posicao nao pode ser menor que zero");
 
-		return this.getListasPorItem(id).get(posicaoLista).toString();
+		return this.getListasPorItem(id, new ComparaDescritor()).get(posicaoLista).toString();
 	}
 
 	/**
@@ -353,52 +354,41 @@ public class ControllerLista {
 	}
 
 	public String geraAutomaticaUltimaLista() {
-		int maiorId = 0;
-		String descritor = "";
 		String nomeLista = "Lista automatica 1 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
-		for (ListaDeCompras list : listasDeCompras.values()) {
-			if (!list.getDescritorLista().equals(nomeLista)) {
-				if (list.getIdLista() > maiorId) {
-					maiorId = list.getIdLista();
-					descritor = list.getDescritorLista();
-				}
-			}
-		}
-		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista, idLista++));
+
+		List<ListaDeCompras> listasDeCompras = new ArrayList<>(this.listasDeCompras.values());
+		listasDeCompras.sort(new ComparaTempo());
+
+		ListaDeCompras ultimaLista = listasDeCompras.get(listasDeCompras.size() - 1);
+
+		this.listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista));
 
 		for (int i = 0; i < controllerItem.getId(); i++) {
-			if (listasDeCompras.get(descritor).hasItem(i)) {
-				int quantidade = listasDeCompras.get(descritor).getQuantidadeCompra(controllerItem.pegaItem(i));
-				listasDeCompras.get(nomeLista).adicionaCompraALista(quantidade, controllerItem.pegaItem(i));
+			if (ultimaLista.hasItem(i)) {
+				int quantidade = ultimaLista.getQuantidadeCompra(controllerItem.pegaItem(i));
+				this.listasDeCompras.get(nomeLista).adicionaCompraALista(quantidade, controllerItem.pegaItem(i));
 			}
 		}
 		return nomeLista;
 	}
 
 	public String geraAutomaticaItem(String descritorItem) {
-		int maiorId = 0;
-		String descritor = "";
+		ListaDeCompras ultimaLista;
 		String nomeLista = "Lista automatica 2 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
-		for (int i = 0; i < controllerItem.getId(); i++) {
-			if (controllerItem.pegaItem(i) != null) {
-				if (controllerItem.pegaItem(i).getNome().equals(descritorItem)) {
-					for (ListaDeCompras list : listasDeCompras.values()) {
-						if (!list.getDescritorLista().equals(nomeLista)) {
-							if (list.hasItem(i) && list.getIdLista() > maiorId) {
-								maiorId = list.getIdLista();
-								descritor = list.getDescritorLista();
-							}
-						}
-					}
-				}
-			}
+
+		try {
+			List<ListaDeCompras> listasComItem = this.getListasPorItem(this.controllerItem.getIdPorDescricao(descritorItem), new ComparaTempo());
+			ultimaLista = listasComItem.get(listasComItem.size() - 1);
+		} catch (IllegalArgumentException e) {
+			throw new IllegalArgumentException("Erro na geracao de lista automatica por item: nao ha compras cadastradas com o item desejado.");
 		}
-		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista, idLista++));
+
+		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista));
 
 		for (int i = 0; i < controllerItem.getId(); i++) {
-			if (listasDeCompras.get(descritor).hasItem(i)) {
-				int quantidade = listasDeCompras.get(descritor).getQuantidadeCompra(controllerItem.pegaItem(i));
-				listasDeCompras.get(nomeLista).adicionaCompraALista(quantidade, controllerItem.pegaItem(i));
+			if (ultimaLista.hasItem(i)) {
+				int quantidade = ultimaLista.getQuantidadeCompra(controllerItem.pegaItem(i));
+				this.listasDeCompras.get(nomeLista).adicionaCompraALista(quantidade, controllerItem.pegaItem(i));
 			}
 		}
 		return nomeLista;
@@ -408,7 +398,7 @@ public class ControllerLista {
 		int quantidade = 0;
 		int apareceu = 0;
 		String nomeLista = "Lista automatica 3 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
-		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista, idLista++));
+		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista));
 		for (int i = 0; i < controllerItem.getId(); i++) {
 			for (ListaDeCompras list : listasDeCompras.values()) {
 				if (list.hasItem(i)) {
@@ -428,5 +418,13 @@ public class ControllerLista {
 		}
 
 		return nomeLista;
+	}
+
+	public void iniciaListas() {
+		//TODO
+	}
+
+	public void fechaListas() {
+		//TODO
 	}
 }
