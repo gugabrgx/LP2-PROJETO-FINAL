@@ -65,6 +65,7 @@ public class ListaDeCompras implements Serializable{
 		this.comparaCompras = new ComparaCompras();
 		this.mili = System.currentTimeMillis();
 
+
 	}
 
 	/**
@@ -289,6 +290,7 @@ public class ListaDeCompras implements Serializable{
 		}
 		return resultado;
 	}
+
 
 	public double getMili() {
 		return this.mili;
