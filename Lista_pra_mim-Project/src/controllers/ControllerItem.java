@@ -36,9 +36,9 @@ public class ControllerItem {
 
 	/**
 	 * Metodo que inicializa um Controller.
-	 *
+	 * <p>
 	 * Este metodo nao utiliza parametros.
-	 *
+	 * <p>
 	 * Este metodo nao retorna nenhum valor.
 	 */
 	public ControllerItem() {
@@ -62,7 +62,7 @@ public class ControllerItem {
 	 * @return Um inteiro que representa o identificador do produto.
 	 */
 	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
-			double preco) {
+								  double preco) {
 		Item item = new ItemPorQuantidadeFixa(nome, categoria, qnt, unidadeDeMedida, localDeCompra, preco, this.id);
 		if (this.itens.containsValue(item))
 			throw new IllegalArgumentException("Erro no cadastro de item: item ja cadastrado no sistema.");
@@ -130,7 +130,7 @@ public class ControllerItem {
 	 * @param id        Um inteiro que representa o identificador unico de um item.
 	 * @param atributo  Uma String que representa o atributo a ser modificado.
 	 * @param novoValor Uma String que representa o novo valor para o item.
-	 *
+	 *                  <p>
 	 *                  Este metodo nao retorna nenhum valor.
 	 */
 	public void atualizaItem(int id, String atributo, String novoValor) {
@@ -162,7 +162,7 @@ public class ControllerItem {
 	 * @param localDeCompra Uma String que representa o local de compra do item.
 	 * @param preco         Um double que representa o valor do preco que será
 	 *                      adicionado.
-	 *
+	 *                      <p>
 	 *                      Este método não retorna nenhum valor.
 	 */
 	public void adicionaPrecoItem(int id, String localDeCompra, double preco) {
@@ -177,7 +177,7 @@ public class ControllerItem {
 	 * Metodo que remove um item a partir de seu id.
 	 *
 	 * @param id Um inteiro que representa o identificador de um item.
-	 *
+	 *           <p>
 	 *           Este metodo nao retorna nenhum valor.
 	 */
 	public void deletaItem(int id) {
@@ -210,7 +210,7 @@ public class ControllerItem {
 
 	/**
 	 * Metodo que ordena os itens por categoria.
-	 * 
+	 *
 	 * @param posicao   A posicao em que o item esta posicionado ordenadamente.
 	 * @param categoria catergoria que sera realizada a pesquisa.
 	 * @return Uma String que contem a exibicao de um item.
@@ -240,9 +240,8 @@ public class ControllerItem {
 	/**
 	 * Metodo que ordena os itens por preco. e retorna um item na posicao em que foi
 	 * ordenado.
-	 * 
-	 * @param posicao A posicao em que o item esta posicionado ordenadamente.
 	 *
+	 * @param posicao A posicao em que o item esta posicionado ordenadamente.
 	 * @return Uma String que contem a exibicao de um item.
 	 */
 	public String getItemPorMenorPreco(int posicao) {
@@ -263,7 +262,7 @@ public class ControllerItem {
 	 * Metodo que ordena os itens relacionados a uma dada string de pesquisa e a
 	 * listagem deve ocorrer em ordem alfabética considerando, a representação em
 	 * string do item. e retorna um item na posicao em que foi ordenado.
-	 * 
+	 *
 	 * @param posicao       A posicao em que o item esta posicionado ordenadamente.
 	 * @param strPesquisada parametro de pesquisa.
 	 * @return Uma String que contem a exibicao de um item.
@@ -291,7 +290,7 @@ public class ControllerItem {
 	/**
 	 * Metodo Auxiliar que retorna um item. Possibilita a ligacao entre os
 	 * controllers.
-	 * 
+	 *
 	 * @param id  Identificador unico do item.
 	 * @param msg mensagem a ser impressa caso de erro.
 	 * @return retorna um item.
@@ -304,4 +303,20 @@ public class ControllerItem {
 		return this.itens.get(id);
 	}
 
+	public Item pegaItem(int id) {
+		return this.itens.get(id);
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public int getIdPorDescricao(String nomeItem) {
+		for (Item item : itens.values()) {
+			if (item.getNome().toLowerCase().equals(nomeItem.toLowerCase())) {
+				return item.getId();
+			}
+		}
+		throw new IllegalArgumentException();
+	}
 }

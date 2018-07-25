@@ -38,16 +38,20 @@ public class ListaDeCompras {
 	// Este atributo representa o preco total de uma lista.
 	private int precoTotal;
 	// Este atributo representa o maior id deitem que uma lista possui.
-	private int maiorId;
+	private int maiorIdItem;
 	// Este atributo inicializa o comparator de compras.
 	private Comparator<Compra> comparaCompras;
+	// Milissegundos decorridos apos 01/01/1970
+	private double mili;
+
+	private int idLista;
 
 	/**
 	 * Constroi o objeto lista de compras.
 	 *
 	 * @param descritorLista O descritor da lista.
 	 */
-	public ListaDeCompras(String descritorLista) {
+	public ListaDeCompras(String descritorLista, int idLista) {
 		if (descritorLista == null)
 			throw new NullPointerException(
 					"Erro na criacao de lista de compras: descritor nao pode ser vazio ou nulo.");
@@ -60,6 +64,9 @@ public class ListaDeCompras {
 		this.aberto = true;
 		this.compras = new HashSet<>();
 		this.comparaCompras = new ComparaCompras();
+		this.idLista = idLista;
+		this.mili = System.currentTimeMillis();
+
 	}
 
 	/**
@@ -73,8 +80,8 @@ public class ListaDeCompras {
 			throw new IllegalArgumentException("Erro na compra de item: lista ja finalizada.");
 		Compra compra = new Compra(quantidade, item);
 		compras.add(compra);
-		if (item.getId() > maiorId)
-			maiorId = item.getId();
+		if (item.getId() > maiorIdItem)
+			maiorIdItem = item.getId();
 	}
 
 	/**
@@ -145,7 +152,7 @@ public class ListaDeCompras {
 	public void deletaCompraDeLista(Item item) {
 		if (!aberto)
 			throw new IllegalArgumentException("Erro na exclusao de compra: lista ja finalizada");
-		if (item.getId() > maiorId)
+		if (item.getId() > maiorIdItem)
 			throw new IllegalArgumentException("Erro na exclusao de compra: item nao existe no sistema.");
 		if (!hasItem(item.getId()))
 			throw new IllegalArgumentException("Erro na exclusao de compra: compra nao encontrada na lista.");
@@ -222,7 +229,7 @@ public class ListaDeCompras {
 	 * @return O maior Id presente na lista.
 	 */
 	public int getMaiorId() {
-		return this.maiorId;
+		return this.maiorIdItem;
 	}
 
 	/**
@@ -265,5 +272,31 @@ public class ListaDeCompras {
 				return true;
 		}
 		return false;
+	}
+
+	public int getIdLista() {
+		return this.idLista;
+	}
+
+	public int getQuantidadeCompra(Item item) {
+		for (Compra compra : compras) {
+			if (compra.getItem() == item) {
+				return compra.getQuantidade();
+			}
+		}
+		throw new IllegalArgumentException("Erro na pesquisa de compra: compra nao encontrada na lista.");
+	}
+
+	public String comprass() {
+		String resultado = "";
+
+		for (Compra compra : compras) {
+			resultado += compra.toString() + System.lineSeparator();
+		}
+		return resultado;
+	}
+
+	public double getMili() {
+		return this.mili;
 	}
 }

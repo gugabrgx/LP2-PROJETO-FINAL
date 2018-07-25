@@ -30,7 +30,8 @@ public class Facade {
 				"acceptance_tests/use_case1_exception.txt", "acceptance_tests/use_case2.txt",
 				"acceptance_tests/use_case2_exception.txt", "acceptance_tests/use_case3.txt",
 				"acceptance_tests/use_case3_exception.txt", "acceptance_tests/use_case4.txt",
-				"acceptance_tests/use_case4_exception.txt" };
+				"acceptance_tests/use_case4_exception.txt", "acceptance_tests/use_case5.txt",
+				"acceptance_tests/use_case7.txt" };
 
 		EasyAccept.main(args);
 	}
@@ -327,6 +328,18 @@ public class Facade {
 	 */
 	public String dataAtual() {
 		return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+	}
+
+	public String geraAutomaticaUltimaLista() {
+		return this.controllerLista.geraAutomaticaUltimaLista();
+	}
+
+	public String geraAutomaticaItem(String descritorItem) {
+		return this.controllerLista.geraAutomaticaItem(descritorItem);
+	}
+
+	public String geraAutomaticaItensMaisPresentes() {
+		return this.controllerLista.geraAutomaticaItensMaisPresentes();
 	}
 
 }
