@@ -326,22 +326,12 @@ public class ControllerItem {
 	}
 
     public void iniciaItens() {
+		//TODO
 		throw new RuntimeException("Sistema iniciado pela primeira vez. Arquivo criado.");
     }
 
 	public void fechaItens() {
-
-		try {
-			this.fos = new FileOutputStream(file);
-			this.oos = new ObjectOutputStream(fos);
-			this.oos.writeObject(this.getId());
-			this.oos.writeObject(this.itens);
-		}
-		catch (FileNotFoundException e) {
-			this.file = new File("itens.txt");
-			throw new NullPointerException("Sistema iniciado pela primeira vez. Arquivo criado.");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		//TODO
 	}
+
 }
