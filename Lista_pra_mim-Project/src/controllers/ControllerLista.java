@@ -36,8 +36,6 @@ public class ControllerLista {
 	 */
 	private Comparator<ListaDeCompras> comparador;
 
-	private int idLista;
-
 	/**
 	 * Constroi um controller de lista, e inicializa o Mapa.
 	 *
@@ -46,7 +44,6 @@ public class ControllerLista {
 	public ControllerLista(ControllerItem controllerItem) {
 		this.listasDeCompras = new HashMap<>();
 		this.controllerItem = controllerItem;
-		this.idLista = 1;
 	}
 
 	/**
@@ -70,7 +67,7 @@ public class ControllerLista {
 			throw new IllegalArgumentException("Erro na criacao de lista de compras: lista ja cadastrada no sistema.");
 		}
 
-		this.listasDeCompras.put(descritorLista, new ListaDeCompras(descritorLista, idLista++));
+		this.listasDeCompras.put(descritorLista, new ListaDeCompras(descritorLista));
 		return descritorLista;
 	}
 
@@ -364,7 +361,7 @@ public class ControllerLista {
 
 		ListaDeCompras ultimaLista = listasDeCompras.get(listasDeCompras.size() - 1);
 
-		this.listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista, idLista++));
+		this.listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista));
 
 		for (int i = 0; i < controllerItem.getId(); i++) {
 			if (ultimaLista.hasItem(i)) {
@@ -386,7 +383,7 @@ public class ControllerLista {
 			throw new IllegalArgumentException("Erro na geracao de lista automatica por item: nao ha compras cadastradas com o item desejado.");
 		}
 
-		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista, idLista++));
+		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista));
 
 		for (int i = 0; i < controllerItem.getId(); i++) {
 			if (ultimaLista.hasItem(i)) {
@@ -401,7 +398,7 @@ public class ControllerLista {
 		int quantidade = 0;
 		int apareceu = 0;
 		String nomeLista = "Lista automatica 3 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
-		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista, idLista++));
+		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista));
 		for (int i = 0; i < controllerItem.getId(); i++) {
 			for (ListaDeCompras list : listasDeCompras.values()) {
 				if (list.hasItem(i)) {

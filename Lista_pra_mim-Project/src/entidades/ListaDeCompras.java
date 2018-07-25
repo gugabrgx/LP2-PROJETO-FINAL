@@ -44,14 +44,12 @@ public class ListaDeCompras {
 	// Milissegundos decorridos apos 01/01/1970
 	private double mili;
 
-	private int idLista;
-
 	/**
 	 * Constroi o objeto lista de compras.
 	 *
 	 * @param descritorLista O descritor da lista.
 	 */
-	public ListaDeCompras(String descritorLista, int idLista) {
+	public ListaDeCompras(String descritorLista) {
 		if (descritorLista == null)
 			throw new NullPointerException(
 					"Erro na criacao de lista de compras: descritor nao pode ser vazio ou nulo.");
@@ -64,7 +62,6 @@ public class ListaDeCompras {
 		this.aberto = true;
 		this.compras = new HashSet<>();
 		this.comparaCompras = new ComparaCompras();
-		this.idLista = idLista;
 		this.mili = System.currentTimeMillis();
 
 	}
@@ -272,10 +269,6 @@ public class ListaDeCompras {
 				return true;
 		}
 		return false;
-	}
-
-	public int getIdLista() {
-		return this.idLista;
 	}
 
 	public int getQuantidadeCompra(Item item) {
