@@ -18,6 +18,11 @@ import java.util.Comparator;
 public class ComparaDescritor implements Comparator<ListaDeCompras>, Serializable {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1032921725889053313L;
+
+	/**
 	 * Comparara duas Strings, estas representam as horas em que as listas foram
 	 * criadas.
 	 *

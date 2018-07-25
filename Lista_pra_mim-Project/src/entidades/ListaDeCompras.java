@@ -21,6 +21,10 @@ import comparators.ComparaCompras;
  */
 public class ListaDeCompras implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 10023465208587932L;
 	// Este atributo representa o horario.
 	private Date horario = new Date();
 	// Este atributo representa um HashSet de compras.

@@ -264,7 +264,7 @@ public class ControllerLista {
 	 * @param id O id do item.
 	 * @return As listas de compra que possuem o item.
 	 */
-	private List<ListaDeCompras> getListasPorItem(int id, Comparator comparador) {
+	private List<ListaDeCompras> getListasPorItem(int id, Comparator<ListaDeCompras> comparador) {
 		if (id < 1)
 			throw new IllegalArgumentException("Erro na pesquisa de compra: id nao pode ser menor que um");
 
@@ -275,7 +275,8 @@ public class ControllerLista {
 				listasComItem.add(listaDeCompra);
 		}
 
-		if (listasComItem.isEmpty()) throw new IllegalArgumentException();
+		if (listasComItem.isEmpty())
+			throw new IllegalArgumentException();
 
 		listasComItem.sort(comparador);
 
@@ -377,10 +378,12 @@ public class ControllerLista {
 		String nomeLista = "Lista automatica 2 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 
 		try {
-			List<ListaDeCompras> listasComItem = this.getListasPorItem(this.controllerItem.getIdPorDescricao(descritorItem), new ComparaTempo());
+			List<ListaDeCompras> listasComItem = this
+					.getListasPorItem(this.controllerItem.getIdPorDescricao(descritorItem), new ComparaTempo());
 			ultimaLista = listasComItem.get(listasComItem.size() - 1);
 		} catch (IllegalArgumentException e) {
-			throw new IllegalArgumentException("Erro na geracao de lista automatica por item: nao ha compras cadastradas com o item desejado.");
+			throw new IllegalArgumentException(
+					"Erro na geracao de lista automatica por item: nao ha compras cadastradas com o item desejado.");
 		}
 
 		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista));
@@ -420,11 +423,9 @@ public class ControllerLista {
 		return nomeLista;
 	}
 
-	public void iniciaListas() {
-		//TODO
+	public String sugereMelhorEstabelecimento(String descritorLista, int posicaoEstabelecimento, int posicaoLista) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public void fechaListas() {
-		//TODO
-	}
 }

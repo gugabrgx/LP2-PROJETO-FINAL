@@ -20,6 +20,10 @@ import Enum.Categoria;
  */
 public abstract class Item implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6822963833439321284L;
 	// Uma String que representa o nome de um item.
 	private String nome;
 	// Uma String que representa a categoria de um item.

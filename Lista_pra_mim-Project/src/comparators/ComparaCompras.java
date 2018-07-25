@@ -19,6 +19,11 @@ import entidades.Compra;
 public class ComparaCompras implements Comparator<Compra>, Serializable {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8424546379406513872L;
+
+	/**
 	 * Metodo que compara a descricao das compras, e depois a categoria do item.
 	 */
 	@Override

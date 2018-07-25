@@ -1,6 +1,5 @@
 package controllers;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -35,10 +34,6 @@ public class ControllerItem {
 	// Comprardor de itens.
 	private Comparator<Item> comparador;
 
-	private File file;
-	private FileOutputStream fos;
-	private ObjectOutputStream oos;
-
 	/**
 	 * Metodo que inicializa um Controller.
 	 * <p>
@@ -67,7 +62,7 @@ public class ControllerItem {
 	 * @return Um inteiro que representa o identificador do produto.
 	 */
 	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
-								  double preco) {
+			double preco) {
 		Item item = new ItemPorQuantidadeFixa(nome, categoria, qnt, unidadeDeMedida, localDeCompra, preco, this.id);
 		if (this.itens.containsValue(item))
 			throw new IllegalArgumentException("Erro no cadastro de item: item ja cadastrado no sistema.");
@@ -307,14 +302,6 @@ public class ControllerItem {
 			throw new IllegalArgumentException(msg + "item nao existe no sistema.");
 		return this.itens.get(id);
 	}
-	
-	public Item pegaItem(int id) {
-		return this.itens.get(id);
-	}
-
-	public int getId() {
-		return id;
-	}
 
 	public Item pegaItem(int id) {
 		return this.itens.get(id);
@@ -331,15 +318,6 @@ public class ControllerItem {
 			}
 		}
 		throw new IllegalArgumentException();
-	}
-
-    public void iniciaItens() {
-		//TODO
-		throw new RuntimeException("Sistema iniciado pela primeira vez. Arquivo criado.");
-    }
-
-	public void fechaItens() {
-		//TODO
 	}
 
 }

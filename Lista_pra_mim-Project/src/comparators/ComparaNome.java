@@ -19,6 +19,11 @@ import entidades.Item;
 public class ComparaNome implements Comparator<Item>, Serializable {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3929933189456754487L;
+
+	/**
 	 * Comparara dois objetos do tipo Item, tomando como base a ordem lexicográfica
 	 * de suaa representacoes em String.
 	 * 

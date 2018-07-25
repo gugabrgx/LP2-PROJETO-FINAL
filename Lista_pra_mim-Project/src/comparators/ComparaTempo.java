@@ -3,7 +3,6 @@ package comparators;
 import java.io.Serializable;
 import java.util.Comparator;
 
-import entidades.Item;
 import entidades.ListaDeCompras;
 
 /**
@@ -20,6 +19,11 @@ import entidades.ListaDeCompras;
 public class ComparaTempo implements Comparator<ListaDeCompras>, Serializable{
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = -2952868760453122481L;
+
+	/**
      * Comparara dois objetos do tipo Item, tomando como base o menor preço dos
      * itens comparados.
      *
