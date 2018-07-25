@@ -1,5 +1,6 @@
 package comparators;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 import entidades.Item;
@@ -16,7 +17,7 @@ import entidades.ListaDeCompras;
  * @author Joao Pedro de Barros - 117210327
  * @author Rafael Dantas Santos de Azevedo - 117210382
  */
-public class ComparaTempo implements Comparator<ListaDeCompras> {
+public class ComparaTempo implements Comparator<ListaDeCompras>, Serializable{
 
     /**
      * Comparara dois objetos do tipo Item, tomando como base o menor preço dos

@@ -1,5 +1,6 @@
 package controllers;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -33,6 +34,10 @@ public class ControllerItem {
 	private Map<Integer, Item> itens;
 	// Comprardor de itens.
 	private Comparator<Item> comparador;
+
+	private File file;
+	private FileOutputStream fos;
+	private ObjectOutputStream oos;
 
 	/**
 	 * Metodo que inicializa um Controller.
@@ -318,5 +323,25 @@ public class ControllerItem {
 			}
 		}
 		throw new IllegalArgumentException();
+	}
+
+    public void iniciaItens() {
+		throw new RuntimeException("Sistema iniciado pela primeira vez. Arquivo criado.");
+    }
+
+	public void fechaItens() {
+
+		try {
+			this.fos = new FileOutputStream(file);
+			this.oos = new ObjectOutputStream(fos);
+			this.oos.writeObject(this.getId());
+			this.oos.writeObject(this.itens);
+		}
+		catch (FileNotFoundException e) {
+			this.file = new File("itens.txt");
+			throw new NullPointerException("Sistema iniciado pela primeira vez. Arquivo criado.");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

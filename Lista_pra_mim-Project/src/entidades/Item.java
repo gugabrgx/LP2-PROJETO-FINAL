@@ -1,5 +1,6 @@
 package entidades;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +18,7 @@ import Enum.Categoria;
  * @author Joao Pedro de Barros - 117210327
  * @author Rafael Azevedo - 117210382
  */
-public abstract class Item {
+public abstract class Item implements Serializable {
 
 	// Uma String que representa o nome de um item.
 	private String nome;

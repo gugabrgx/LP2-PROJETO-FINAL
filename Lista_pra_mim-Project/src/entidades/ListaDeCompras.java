@@ -1,5 +1,6 @@
 package entidades;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,7 +19,7 @@ import comparators.ComparaCompras;
  * @author Joao Pedro de Barros - 117210327
  * @author Rafael Azevedo - 117210382
  */
-public class ListaDeCompras {
+public class ListaDeCompras implements Serializable{
 
 	// Este atributo representa o horario.
 	private Date horario = new Date();

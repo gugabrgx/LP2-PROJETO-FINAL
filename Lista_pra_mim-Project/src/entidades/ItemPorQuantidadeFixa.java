@@ -1,5 +1,7 @@
 package entidades;
 
+import java.io.Serializable;
+
 /**
  * Laboratorio de Programacao 2 - Lista pra mim© Project
  *

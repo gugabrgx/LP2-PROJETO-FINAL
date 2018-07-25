@@ -1,5 +1,6 @@
 package comparators;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 import entidades.Item;
@@ -15,7 +16,7 @@ import entidades.Item;
  * @author Joao Pedro de Barros - 117210327
  * @author Rafael Dantas Santos de Azevedo - 117210382
  */
-public class ComparaNome implements Comparator<Item> {
+public class ComparaNome implements Comparator<Item>, Serializable {
 
 	/**
 	 * Comparara dois objetos do tipo Item, tomando como base a ordem lexicográfica

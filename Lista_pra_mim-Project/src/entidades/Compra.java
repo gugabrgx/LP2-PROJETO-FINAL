@@ -2,6 +2,8 @@ package entidades;
 
 import Enum.Categoria;
 
+import java.io.Serializable;
+
 /**
  * Laboratorio de Programacao 2 - 2018.1
  *
@@ -10,7 +12,7 @@ import Enum.Categoria;
  * @author Joao Pedro de Barros - 117210327
  * @author Rafael Azevedo - 117210382
  */
-public class Compra {
+public class Compra implements Serializable {
 
 	// Este atributo representa a quantidade de um item.
 	private int quantidade;

@@ -47,12 +47,12 @@ expect "2 Pasta dental DDS, higiene pessoal, 120 gramas" getItemLista descritorL
 expect "1 Sabonete de aveia Dorene, higiene pessoal, 80 gramas" getItemLista descritorLista="feira semana" posicaoItem=2
 expect "2 Sabao liquido Pomo, limpeza, 1 l" getItemLista descritorLista="feira semana" posicaoItem=3
 expect "1 Creme de ricota Rocota, alimento industrializado" getItemLista descritorLista="feira semana" posicaoItem=4
-expect "5 Iogurte Lactivia, alimento industrializado" getItemLista descritorLista="feira semana" posicaoItem=5
-expect "1 Queijo minas Dali, alimento industrializado" getItemLista descritorLista="feira semana" posicaoItem=6
-expect "2 Requeijao rerequeijon, alimento industrializado" getItemLista descritorLista="feira semana" posicaoItem=7
-expect "2 Batata doce, alimento nao industrializado" getItemLista descritorLista="feira semana" posicaoItem=8
-expect "2 Carne moida extra light, alimento nao industrializado" getItemLista descritorLista="feira semana" posicaoItem=9
-expect "1 Chuchu, alimento nao industrializado" getItemLista descritorLista="feira semana" posicaoItem=10
+#expect "5 Iogurte Lactivia, alimento industrializado" getItemLista descritorLista="feira semana" posicaoItem=5
+expect "1 Queijo minas Dali, alimento industrializado" getItemLista descritorLista="feira semana" posicaoItem=5
+expect "2 Requeijao rerequeijon, alimento industrializado" getItemLista descritorLista="feira semana" posicaoItem=6
+expect "2 Batata doce, alimento nao industrializado" getItemLista descritorLista="feira semana" posicaoItem=7
+expect "2 Carne moida extra light, alimento nao industrializado" getItemLista descritorLista="feira semana" posicaoItem=8
+expect "1 Chuchu, alimento nao industrializado" getItemLista descritorLista="feira semana" posicaoItem=9
 
 # Listas de compras #
 

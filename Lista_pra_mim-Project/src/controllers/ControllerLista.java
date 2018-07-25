@@ -1,5 +1,6 @@
 package controllers;
 
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -35,6 +36,12 @@ public class ControllerLista {
 	 * Atributo que representa um comparador de compras
 	 */
 	private Comparator<ListaDeCompras> comparador;
+
+	private File file;
+	private FileOutputStream fos;
+	private ObjectOutputStream oos;
+	private FileInputStream fis;
+	private ObjectInput ois;
 
 	/**
 	 * Constroi um controller de lista, e inicializa o Mapa.
@@ -418,5 +425,39 @@ public class ControllerLista {
 		}
 
 		return nomeLista;
+	}
+
+	public void iniciaListas() {
+		if (!this.file.exists()) {
+			this.file = new File("listas.txt");
+			try {
+				throw new FileNotFoundException("Sistema iniciado pela primeira vez. Arquivo criado.");
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+
+		try {
+			this.fis = new FileInputStream(file);
+			this.ois = new ObjectInputStream(fis);
+			this.listasDeCompras = (Map) ois.readObject();
+		}
+		catch (FileNotFoundException e) {
+			throw new NullPointerException("Arquivo nao encontrado");
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void fechaListas() {
+		this.file = new File("listas.txt");
+
+		try {
+			this.fos = new FileOutputStream(file);
+			this.oos = new ObjectOutputStream(fos);
+			this.oos.writeObject(this.listasDeCompras);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
