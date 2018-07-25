@@ -63,9 +63,7 @@ public class ListaDeCompras {
 		this.compras = new HashSet<>();
 		this.comparaCompras = new ComparaCompras();
 		this.idLista = idLista;
-		
 	}
-
 	/**
 	 * Este metodo adiciona uma compra na lista.
 	 * 
@@ -270,8 +268,27 @@ public class ListaDeCompras {
 		}
 		return false;
 	}
-	
+
+
 	public int getIdLista() {
 		return this.idLista;
+	}
+
+	public int getQuantidadeCompra(Item item) {
+		for (Compra compra : compras) {
+			if (compra.getItem() == item) {
+				return compra.getQuantidade();
+			}
+		}
+		throw new IllegalArgumentException("Erro na pesquisa de compra: compra nao encontrada na lista.");
+	}
+
+	public String comprass() {
+		String resultado = "";
+
+		for (Compra compra : compras) {
+			resultado += compra.toString() + System.lineSeparator();
+		}
+		return resultado;
 	}
 }
