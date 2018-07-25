@@ -1,5 +1,6 @@
 package controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import comparators.ComparaDescritor;
@@ -35,7 +36,7 @@ public class ControllerLista {
 	private Comparator<ListaDeCompras> comparador;
 
 	private int idLista;
-	
+
 	/**
 	 * Constroi um controller de lista, e inicializa o Mapa.
 	 * 
@@ -352,17 +353,80 @@ public class ControllerLista {
 	}
 
 	public String geraAutomaticaUltimaLista() {
-		// TODO Auto-generated method stub
-		return null;
+		int maiorId = 0;
+		String descritor = "";
+		String nomeLista = "Lista automatica 1 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+		for (ListaDeCompras list : listasDeCompras.values()) {
+			if (!list.getDescritorLista().equals(nomeLista)) {
+				if (list.getIdLista() > maiorId) {
+					maiorId = list.getIdLista();
+					descritor = list.getDescritorLista();
+				}
+			}
+		}
+		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista, idLista++));
+
+		for (int i = 0; i < controllerItem.getId(); i++) {
+			if (listasDeCompras.get(descritor).hasItem(i)) {
+				int quantidade = listasDeCompras.get(descritor).getQuantidadeCompra(controllerItem.pegaItem(i));
+				listasDeCompras.get(nomeLista).adicionaCompraALista(quantidade, controllerItem.pegaItem(i));
+			}
+		}
+		return nomeLista;
 	}
 
 	public String geraAutomaticaItem(String descritorItem) {
-		// TODO Auto-generated method stub
-		return null;
+		int maiorId = 0;
+		String descritor = "";
+		String nomeLista = "Lista automatica 2 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+		for (int i = 0; i < controllerItem.getId(); i++) {
+			if (controllerItem.pegaItem(i) != null) {
+				if (controllerItem.pegaItem(i).getNome().equals(descritorItem)) {
+					for (ListaDeCompras list : listasDeCompras.values()) {
+						if (!list.getDescritorLista().equals(nomeLista)) {
+							if (list.hasItem(i) && list.getIdLista() > maiorId) {
+								maiorId = list.getIdLista();
+								descritor = list.getDescritorLista();
+							}
+						}
+					}
+				}
+			}
+		}
+		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista, idLista++));
+
+		for (int i = 0; i < controllerItem.getId(); i++) {
+			if (listasDeCompras.get(descritor).hasItem(i)) {
+				int quantidade = listasDeCompras.get(descritor).getQuantidadeCompra(controllerItem.pegaItem(i));
+				listasDeCompras.get(nomeLista).adicionaCompraALista(quantidade, controllerItem.pegaItem(i));
+			}
+		}
+		return nomeLista;
 	}
 
 	public String geraAutomaticaItensMaisPresentes() {
-		// TODO Auto-generated method stub
-		return null;
+		int quantidade = 0;
+		int apareceu = 0;
+		String nomeLista = "Lista automatica 3 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista, idLista++));
+		for (int i = 0; i < controllerItem.getId(); i++) {
+			for (ListaDeCompras list : listasDeCompras.values()) {
+				if (list.hasItem(i)) {
+					apareceu++;
+					quantidade += list.getQuantidadeCompra(controllerItem.pegaItem(i));
+				}
+			}
+			if (apareceu >= listasDeCompras.values().size() / 2) {
+				int quantidadeNovo = (int) (Math.floor(((double) quantidade) / apareceu));
+				listasDeCompras.get(nomeLista).adicionaCompraALista(quantidadeNovo, controllerItem.pegaItem(i));
+				quantidade = 0;
+				apareceu = 0;
+			} else {
+				quantidade = 0;
+				apareceu = 0;
+			}
+		}
+
+		return nomeLista;
 	}
 }
