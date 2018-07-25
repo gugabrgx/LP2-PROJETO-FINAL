@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="615a1e68-6578-4f21-b7df-ad7b95f1d864" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/acceptance_tests/use_case7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/acceptance_tests/use_case7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ControllerItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControllerItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ControllerLista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControllerLista.java" afterDir="false" />
-    </list>
+    <list default="true" id="615a1e68-6578-4f21-b7df-ad7b95f1d864" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/Lista_pra_mim-Project/bin/" />
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +16,8 @@
       <file leaf-file-name="ControllerLista.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/ControllerLista.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="36" column="44" lean-forward="true" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
+            <state relative-caret-position="665">
+              <caret line="420" column="5" lean-forward="true" selection-start-line="420" selection-start-column="5" selection-end-line="420" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -48,8 +43,8 @@
       <file leaf-file-name="ControllerItem.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controllers/ControllerItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="710">
-              <caret line="328" column="14" selection-start-line="328" selection-start-column="14" selection-end-line="328" selection-end-column="14" />
+            <state relative-caret-position="402">
+              <caret line="333" column="10" selection-start-line="333" selection-start-column="10" selection-end-line="333" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -81,6 +76,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$/.." source="origin/joseTheDev" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -331,19 +339,27 @@
       <workItem from="1532008297827" duration="102000" />
       <workItem from="1532016853580" duration="97000" />
       <workItem from="1532529466394" duration="2694000" />
-      <workItem from="1532548035958" duration="353000" />
+      <workItem from="1532548035958" duration="602000" />
     </task>
+    <task id="LOCAL-00001" summary="Adicao de metodos de metodos do caso 7 na facade e simplificacaoa do&#10;codigo do caso 5">
+      <created>1532548541539</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1532548541539</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3246000" />
+    <option name="totallyTimeSpent" value="3495000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1920" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32978722" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32765958" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="6" />
@@ -351,13 +367,14 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3287234" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32978722" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3287234" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="4" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14739583" />
       <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="5" />
@@ -371,7 +388,6 @@
       <window_info anchor="right" id="Properties" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,6 +395,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adicao de metodos de metodos do caso 7 na facade e simplificacaoa do&#10;codigo do caso 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adicao de metodos de metodos do caso 7 na facade e simplificacaoa do&#10;codigo do caso 5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -547,13 +567,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/ControllerItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="710">
-          <caret line="328" column="14" selection-start-line="328" selection-start-column="14" selection-end-line="328" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/acceptance_tests/use_case7.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
@@ -575,10 +588,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/ControllerItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="333" column="10" selection-start-line="333" selection-start-column="10" selection-end-line="333" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/ControllerLista.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="36" column="44" lean-forward="true" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
+        <state relative-caret-position="665">
+          <caret line="420" column="5" lean-forward="true" selection-start-line="420" selection-start-column="5" selection-end-line="420" selection-end-column="5" />
         </state>
       </provider>
     </entry>
