@@ -1,7 +1,5 @@
 package entidades;
 
-import java.io.Serializable;
-
 /**
  * Laboratorio de Programacao 2 - Lista pra mim© Project
  *
@@ -16,6 +14,11 @@ import java.io.Serializable;
  * @author Rafael Azevedo - 117210382
  */
 public class ItemPorQuantidadeFixa extends Item {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6717167202877065938L;
 
 	/**
 	 * Unidade de medida do item.

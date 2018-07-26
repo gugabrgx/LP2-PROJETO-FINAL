@@ -14,6 +14,10 @@ import java.io.Serializable;
  */
 public class Compra implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3982841388862747657L;
 	// Este atributo representa a quantidade de um item.
 	private int quantidade;
 	// Este atributo representa um objeto Item.

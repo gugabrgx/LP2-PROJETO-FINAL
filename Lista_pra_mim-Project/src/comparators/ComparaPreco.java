@@ -19,6 +19,11 @@ import entidades.Item;
 public class ComparaPreco implements Comparator<Item>, Serializable {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1115694281358074785L;
+
+	/**
 	 * Comparara dois objetos do tipo Item, tomando como base o menor preço dos
 	 * itens comparados.
 	 * 

@@ -17,6 +17,10 @@ package entidades;
 public class ItemPorQuilo extends Item {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6248015407531971847L;
+	/**
 	 * Double que representa o peso do item;
 	 */
 	private double kg;
