@@ -354,6 +354,10 @@ public class ControllerLista {
 		}
 	}
 
+	/**
+	 * Metodo que gera uma lista automatica 1 a partir da ultima lista
+	 * @return
+	 */
 	public String geraAutomaticaUltimaLista() {
 		String nomeLista = "Lista automatica 1 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 
