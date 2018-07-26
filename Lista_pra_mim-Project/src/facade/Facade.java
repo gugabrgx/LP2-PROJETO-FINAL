@@ -2,6 +2,7 @@ package facade;
 
 import easyaccept.EasyAccept;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import controllers.ControllerItem;
@@ -34,6 +35,7 @@ public class Facade {
 				"acceptance_tests/use_case2_exception.txt", "acceptance_tests/use_case3.txt",
 				"acceptance_tests/use_case3_exception.txt", "acceptance_tests/use_case4.txt",
 				"acceptance_tests/use_case4_exception.txt", "acceptance_tests/use_case5.txt",
+				"acceptance_tests/use_case6.txt", "acceptance_tests/use_case6_exception.txt",
 				"acceptance_tests/use_case7.txt" };
 
 		EasyAccept.main(args);
@@ -377,7 +379,7 @@ public class Facade {
 	}
 
 	/**
-	 * MEtodo que retorna a data atual.
+	 * Metodo que retorna a data atual.
 	 * 
 	 * @return em String a representacao da data atual.
 	 */
@@ -397,4 +399,17 @@ public class Facade {
 		return this.controllerLista.geraAutomaticaItensMaisPresentes();
 	}
 
+	// Caso 6
+	public String sugereMelhorEstabelecimento(String descritorLista, int posicaoEstabelecimento, int posicaoLista) {
+		return this.controllerLista.sugereMelhorEstabelecimento(descritorLista, posicaoEstabelecimento, posicaoLista);
+
+	}
+
+	// Caso 7
+	public void iniciaSistema() {
+	}
+
+	public void fechaSistema() throws IOException {
+
+	}
 }

@@ -1,6 +1,8 @@
 package comparators;
 
 import entidades.ListaDeCompras;
+
+import java.io.Serializable;
 import java.util.Comparator;
 
 /**
@@ -13,7 +15,12 @@ import java.util.Comparator;
  * @author Joao Pedro de Barros - 117210327
  * @author Rafael Dantas Santos de Azevedo - 117210382
  */
-public class ComparaDescritor implements Comparator<ListaDeCompras> {
+public class ComparaDescritor implements Comparator<ListaDeCompras>, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1032921725889053313L;
 
 	/**
 	 * Comparara duas Strings, estas representam as horas em que as listas foram

@@ -16,6 +16,11 @@ package entidades;
 public class ItemPorQuantidadeFixa extends Item {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6717167202877065938L;
+
+	/**
 	 * Unidade de medida do item.
 	 */
 	private String unidadeDeMedida;

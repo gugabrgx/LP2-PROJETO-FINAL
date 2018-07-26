@@ -1,5 +1,6 @@
 package comparators;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 import entidades.Compra;
@@ -15,7 +16,12 @@ import entidades.Compra;
  * @author Joao Pedro de Barros - 117210327
  * @author Rafael Dantas Santos de Azevedo - 117210382
  */
-public class ComparaCompras implements Comparator<Compra> {
+public class ComparaCompras implements Comparator<Compra>, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8424546379406513872L;
 
 	/**
 	 * Metodo que compara a descricao das compras, e depois a categoria do item.

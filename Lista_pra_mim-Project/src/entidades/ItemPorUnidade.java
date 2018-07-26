@@ -16,6 +16,10 @@ package entidades;
 public class ItemPorUnidade extends Item {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1439042583672669777L;
+	/**
 	 * Quantidade de itens por compra.
 	 */
 	private int qnt;

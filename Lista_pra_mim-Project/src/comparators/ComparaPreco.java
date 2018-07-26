@@ -1,5 +1,6 @@
 package comparators;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
 import entidades.Item;
@@ -15,7 +16,12 @@ import entidades.Item;
  * @author Joao Pedro de Barros - 117210327
  * @author Rafael Dantas Santos de Azevedo - 117210382
  */
-public class ComparaPreco implements Comparator<Item> {
+public class ComparaPreco implements Comparator<Item>, Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1115694281358074785L;
 
 	/**
 	 * Comparara dois objetos do tipo Item, tomando como base o menor preço dos
