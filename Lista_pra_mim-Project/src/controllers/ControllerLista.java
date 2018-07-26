@@ -428,4 +428,14 @@ public class ControllerLista {
 		return null;
 	}
 
+	
+	
+	public Map<String, ListaDeCompras> getListasDeCompras() {
+		return listasDeCompras;
+	}
+
+	public void setListasDeCompras(Map<String, ListaDeCompras> listasDeCompras) {
+		this.listasDeCompras = listasDeCompras;
+	}
+	
 }

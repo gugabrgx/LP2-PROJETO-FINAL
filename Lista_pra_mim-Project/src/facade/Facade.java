@@ -1,6 +1,7 @@
 package facade;
 
 import easyaccept.EasyAccept;
+import entidades.Persistencia;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -25,25 +26,28 @@ public class Facade {
 	 */
 	private ControllerItem controllerItem;
 	private ControllerLista controllerLista;
+	private Persistencia persistencia;
 
-	public static void main(String[] args) {
-		args = new String[] { "facade.Facade", "acceptance_tests/use_case1.txt",
-				"acceptance_tests/use_case1_exception.txt", "acceptance_tests/use_case2.txt",
-				"acceptance_tests/use_case2_exception.txt", "acceptance_tests/use_case3.txt",
-				"acceptance_tests/use_case3_exception.txt", "acceptance_tests/use_case4.txt",
-				"acceptance_tests/use_case4_exception.txt", "acceptance_tests/use_case5.txt",
-				"acceptance_tests/use_case6.txt", "acceptance_tests/use_case6_exception.txt",
-				"acceptance_tests/use_case7.txt" };
-
-		EasyAccept.main(args);
-	}
-
+//	public static void main(String[] args) {
+//		args = new String[] { "facade.Facade", "acceptance_tests/use_case1.txt",
+//				"acceptance_tests/use_case1_exception.txt", "acceptance_tests/use_case2.txt",
+//				"acceptance_tests/use_case2_exception.txt", "acceptance_tests/use_case3.txt",
+//				"acceptance_tests/use_case3_exception.txt", "acceptance_tests/use_case4.txt",
+//				"acceptance_tests/use_case4_exception.txt", "acceptance_tests/use_case5.txt",
+//				"acceptance_tests/use_case6.txt", "acceptance_tests/use_case6_exception.txt",
+//				"acceptance_tests/use_case7.txt" };
+//
+//		EasyAccept.main(args);
+//	}
+	
 	/**
 	 * Constroi o objeto Facade, e inicializa o objeto Controller.
+	 * @throws IOException 
 	 */
 	public Facade() {
 		this.controllerItem = new ControllerItem();
 		this.controllerLista = new ControllerLista(controllerItem);
+		this.persistencia = new Persistencia(controllerItem, controllerLista);
 	}
 
 	/**
@@ -352,9 +356,18 @@ public class Facade {
 
 	// Caso 7
 	public void iniciaSistema() {
+		try {
+			this.persistencia.iniciaSistema();
+		} catch (IOException | ClassNotFoundException e ) {
+			e.printStackTrace();
+		}
 	}
 
-	public void fechaSistema() throws IOException {
-
+	public void fechaSistema() {
+		try {
+			this.persistencia.fechaSistema();
+		} catch (IOException e) {
+			throw new IllegalArgumentException(e.getMessage());
+		}
 	}
 }

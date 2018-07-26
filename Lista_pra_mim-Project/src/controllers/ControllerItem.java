@@ -311,6 +311,10 @@ public class ControllerItem {
 		return id;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public int getIdPorDescricao(String nomeItem) {
 		for (Item item : itens.values()) {
 			if (item.getNome().toLowerCase().equals(nomeItem.toLowerCase())) {
@@ -318,6 +322,15 @@ public class ControllerItem {
 			}
 		}
 		throw new IllegalArgumentException();
+	}
+	
+	
+	public Map<Integer, Item> getItens() {
+		return itens;
+	}
+
+	public void setItens(Map<Integer, Item> itens) {
+		this.itens = itens;
 	}
 
 }
