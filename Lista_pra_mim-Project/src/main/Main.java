@@ -13,11 +13,11 @@ import facade.Facade;
 public class Main {
 
 	
-	public static void main(String[] args) throws IOException {
-		Facade facade = new Facade();
-		facade.iniciaSistema();
-		facade.fechaSistema();
-		
-	}
+//	public static void main(String[] args) throws IOException {
+//		Facade facade = new Facade();
+//		facade.iniciaSistema();
+//		facade.fechaSistema();
+//		
+//	}
 	
 }

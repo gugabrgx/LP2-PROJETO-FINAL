@@ -28,17 +28,17 @@ public class Facade {
 	private ControllerLista controllerLista;
 	private Persistencia persistencia;
 
-//	public static void main(String[] args) {
-//		args = new String[] { "facade.Facade", "acceptance_tests/use_case1.txt",
-//				"acceptance_tests/use_case1_exception.txt", "acceptance_tests/use_case2.txt",
-//				"acceptance_tests/use_case2_exception.txt", "acceptance_tests/use_case3.txt",
-//				"acceptance_tests/use_case3_exception.txt", "acceptance_tests/use_case4.txt",
-//				"acceptance_tests/use_case4_exception.txt", "acceptance_tests/use_case5.txt",
-//				"acceptance_tests/use_case6.txt", "acceptance_tests/use_case6_exception.txt",
-//				"acceptance_tests/use_case7.txt" };
-//
-//		EasyAccept.main(args);
-//	}
+	public static void main(String[] args) {
+		args = new String[] { "facade.Facade", "acceptance_tests/use_case1.txt",
+				"acceptance_tests/use_case1_exception.txt", "acceptance_tests/use_case2.txt",
+				"acceptance_tests/use_case2_exception.txt", "acceptance_tests/use_case3.txt",
+				"acceptance_tests/use_case3_exception.txt", "acceptance_tests/use_case4.txt",
+				"acceptance_tests/use_case4_exception.txt", "acceptance_tests/use_case5.txt",
+				"acceptance_tests/use_case6.txt", "acceptance_tests/use_case6_exception.txt",
+				"acceptance_tests/use_case7.txt" };
+
+		EasyAccept.main(args);
+	}
 	
 	/**
 	 * Constroi o objeto Facade, e inicializa o objeto Controller.
@@ -354,20 +354,29 @@ public class Facade {
 
 	}
 
-	// Caso 7
-	public void iniciaSistema() {
-		try {
-			this.persistencia.iniciaSistema();
-		} catch (IOException | ClassNotFoundException e ) {
-			e.printStackTrace();
-		}
+	/**
+	 * Metodo que invoca o metodo iniciaSistema da classe Persistencia.
+	 * 
+	 * Este metodo nao utiliza parametros.
+	 * 
+	 * Este metodo nao retorna nenhum valor.
+	 * 
+	 * @throws IOException Este metodo pode lancar uma excecao.
+	 */
+	public void iniciaSistema() throws ClassNotFoundException, IOException {
+		this.persistencia.iniciaSistema();
 	}
-
-	public void fechaSistema() {
-		try {
-			this.persistencia.fechaSistema();
-		} catch (IOException e) {
-			throw new IllegalArgumentException(e.getMessage());
-		}
+	
+	/**
+	 * Metodo que invoca o metodo fechaSistema da classe Persistencia.
+	 * 
+	 * Este metodo nao utiliza parametros.
+	 * 
+	 * Este metodo nao retorna nenhum valor.
+	 * 
+	 * @throws IOException Este metodo pode lancar uma excecao.
+	 */
+	public void fechaSistema() throws IOException {
+		this.persistencia.fechaSistema();
 	}
 }

@@ -429,11 +429,24 @@ public class ControllerLista {
 	}
 
 	
-	
+	/**
+	 * Metodo getter que retorna um Map que mapeia listas de compras a Strings.
+	 * 
+	 * Este metodo nao utiliza parâmetros.
+	 * 
+	 * @return Um Map que mapeia listas de compras a Strings.
+	 */
 	public Map<String, ListaDeCompras> getListasDeCompras() {
 		return listasDeCompras;
 	}
 
+	/**
+	 * Metodo setter que define os valores de uma mapa.
+	 * 
+	 * @param listasDeCompras Um Map que mapeira listas de compras a Strings.
+	 * 
+	 * Este metodo nao retorna nenhum valor.
+	 */
 	public void setListasDeCompras(Map<String, ListaDeCompras> listasDeCompras) {
 		this.listasDeCompras = listasDeCompras;
 	}
