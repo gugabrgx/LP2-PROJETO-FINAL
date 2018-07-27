@@ -1,9 +1,11 @@
-package controllers;
+package controllersTests;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import controllers.ControllerItem;
 
 /**
  * Laboratório de Programação 2 - Lab 2
@@ -13,7 +15,7 @@ import org.junit.Test;
  * @author Eduardo Henrique Pontes Silva - 117210360
  */
 
-public class ControllerListaExeceptionTest {
+public class ControllerItemExeceptionTest {
 
 	// Instanciacao de objetos do tipo Controller.
 	private ControllerItem controller;

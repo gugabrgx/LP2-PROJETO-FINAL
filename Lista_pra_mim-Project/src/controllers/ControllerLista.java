@@ -291,7 +291,6 @@ public class ControllerLista {
 	 * @param id O id do item.
 	 * @return A representacao textual de varias listas que contem o item.
 	 */
-
 	public String pesquisaListasDeComprasPorItem(int id) {
 		StringBuilder saida = new StringBuilder();
 
@@ -300,7 +299,7 @@ public class ControllerLista {
 				saida.append(lista.getDescritorLista()).append(System.lineSeparator());
 			}
 		} catch (IllegalArgumentException e) {
-			throw new NullPointerException("Erro na pesquisa de compra: compra nao encontrada na lista.");
+			throw new IllegalArgumentException("Erro na pesquisa de compra: compra nao encontrada na lista.");
 		}
 
 		return saida.toString().trim();
