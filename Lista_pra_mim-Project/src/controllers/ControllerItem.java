@@ -31,7 +31,7 @@ public class ControllerItem {
 	private int id;
 	// Um Mapa que mapeia um Objeto Item para um inteiro.
 	private Map<Integer, Item> itens;
-	// Comprardor de itens.
+	// Comparador de itens.
 	private Comparator<Item> comparador;
 
 	/**
@@ -316,13 +316,25 @@ public class ControllerItem {
 	}
 
 	/**
-	 * Metodo auxiliar que retorna um numero que é o identificador unico do proximo
-	 * item ser cadastrado.
+	 * Metodo getter que retorna o valor do ID.
 	 * 
-	 * @return retorna o Id do proximo item a ser cadastrado.
+	 * Este metodo nao utiliza parametros.
+	 * 
+	 * @return Um inteiro que representa o ID de um Item.
 	 */
 	public int getId() {
 		return id;
+	}
+
+	/**
+	 * Metodo setter que define o valor do ID de um Item.
+	 * 
+	 * @param id Um inteiro que reprenta o ID de um Item.
+	 * 
+	 *           Este metodo nao retorna nenhum valor.
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	/**
@@ -338,6 +350,28 @@ public class ControllerItem {
 			}
 		}
 		throw new IllegalArgumentException();
+	}
+
+	/**
+	 * Metodo que retorna um Map que mapeia um Item a um Inteiro.
+	 * 
+	 * Este metodo nao utiliza parametros.
+	 * 
+	 * @return Um Map que mapeia um Item a um inteiro.
+	 */
+	public Map<Integer, Item> getItens() {
+		return itens;
+	}
+
+	/**
+	 * Metodo que define o valor de um Map.
+	 * 
+	 * @param itens Um Map que mapeia Itens a inteiros.
+	 * 
+	 *              Este metodo nao retorna nenhum valor.
+	 */
+	public void setItens(Map<Integer, Item> itens) {
+		this.itens = itens;
 	}
 
 }
