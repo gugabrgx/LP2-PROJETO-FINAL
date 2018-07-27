@@ -21,20 +21,21 @@ import controllers.ControllerLista;
  */
 public class Facade {
 
-	/**
-	 * Este atributo representa o objeto Controller.
-	 */
+	// Este atributo representa um Objeto ControllerItem.
 	private ControllerItem controllerItem;
+	// Este atributo representa um Objeto ControllerLista.
 	private ControllerLista controllerLista;
+	// Este atributo representa um Objeto Persistência.
 	private Persistencia persistencia;
 
 	public static void main(String[] args) {
-		args = new String[] { "facade.Facade", "acceptance_tests/use_case1.txt",
-				"acceptance_tests/use_case1_exception.txt", "acceptance_tests/use_case2.txt",
-				"acceptance_tests/use_case2_exception.txt", "acceptance_tests/use_case3.txt",
-				"acceptance_tests/use_case3_exception.txt", "acceptance_tests/use_case4.txt",
-				"acceptance_tests/use_case4_exception.txt", "acceptance_tests/use_case5.txt",
-				"acceptance_tests/use_case6.txt", "acceptance_tests/use_case6_exception.txt",
+		args = new String[] { "facade.Facade", 
+				"acceptance_tests/use_case1.txt", "acceptance_tests/use_case1_exception.txt", 
+				"acceptance_tests/use_case2.txt", "acceptance_tests/use_case2_exception.txt", 
+				"acceptance_tests/use_case3.txt", "acceptance_tests/use_case3_exception.txt", 
+				"acceptance_tests/use_case4.txt", "acceptance_tests/use_case4_exception.txt", 
+				"acceptance_tests/use_case5.txt", 
+				"acceptance_tests/use_case6.txt", "acceptance_tests/use_case6_exception.txt", 
 				"acceptance_tests/use_case7.txt" };
 
 		EasyAccept.main(args);
