@@ -24,6 +24,7 @@ public class Facade {
 	 * Este atributo representa o objeto Controller.
 	 */
 	private ControllerItem controllerItem;
+	// Controlador de lista.
 	private ControllerLista controllerLista;
 
 	public static void main(String[] args) {
@@ -332,14 +333,36 @@ public class Facade {
 		return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 	}
 
+	/**
+	 * Metodo que gera uma lista automatica 1, repetindo os itens da lista de
+	 * compras mais recentemente criada.
+	 * 
+	 * @return Retorna a representacao textual do descritor da lista automatica 1
+	 *         com a data da criacao.
+	 */
 	public String geraAutomaticaUltimaLista() {
 		return this.controllerLista.geraAutomaticaUltimaLista();
 	}
 
+	/**
+	 * Metodo que gera uma lista automatica 2. Esssa lista é criada repetindo os
+	 * itens da ultima lista que contem o item passado pelo usuario.
+	 * 
+	 * @param descritorItem Nome do item que quer que esteja na lista automatica.
+	 * @return Retorna a representacao textual do descritor da lista automatica 2
+	 *         com a data da criacao.
+	 */
 	public String geraAutomaticaItem(String descritorItem) {
 		return this.controllerLista.geraAutomaticaItem(descritorItem);
 	}
 
+	/**
+	 * Metodo que gera uma lista automatica 3 com os itens que mais aparecem nas
+	 * listas geradas, anteriormente.
+	 * 
+	 * @return Retorna a representacao textual do descritor da lista automatica 3
+	 *         com a data da criacao.
+	 */
 	public String geraAutomaticaItensMaisPresentes() {
 		return this.controllerLista.geraAutomaticaItensMaisPresentes();
 	}

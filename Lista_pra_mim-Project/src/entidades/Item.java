@@ -3,6 +3,7 @@ package entidades;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import Enum.Categoria;
 
@@ -37,7 +38,7 @@ public abstract class Item implements Serializable {
 	private int id;
 
 	/**
-	 * Testa os valors comuns entre os tipos de itens repassados pelo usuario e as
+	 * Testa os valores comuns entre os tipos de itens repassados pelo usuario e as
 	 * atribui a suas devidas variaveis.
 	 *
 	 * @param nome          String que representa o nome do item;
@@ -263,4 +264,12 @@ public abstract class Item implements Serializable {
 	 */
 	public abstract String getDescricao();
 
+	public Set<String> getEstabelecimentos() {
+		return precos.keySet();
+	}
+	
+	public Double getPreco(String estabelecimento) {
+		return this.precos.get(estabelecimento);
+	}
+	
 }

@@ -52,8 +52,7 @@ public class ListaDeCompras implements Serializable {
 	/**
 	 * Constroi o objeto lista de compras.
 	 *
-	 * @param descritorLista
-	 *            O descritor da lista.
+	 * @param descritorLista O descritor da lista.
 	 */
 	public ListaDeCompras(String descritorLista) {
 		if (descritorLista == null)
@@ -75,10 +74,8 @@ public class ListaDeCompras implements Serializable {
 	/**
 	 * Este metodo adiciona uma compra na lista.
 	 * 
-	 * @param quantidade
-	 *            A quantida do item.
-	 * @param item
-	 *            O item a ser adicionado.
+	 * @param quantidade A quantida do item.
+	 * @param item       O item a ser adicionado.
 	 */
 	public void adicionaCompraALista(int quantidade, Item item) {
 		if (!aberto)
@@ -92,10 +89,8 @@ public class ListaDeCompras implements Serializable {
 	/**
 	 * Este metodo finaliza uma lista de compras.
 	 * 
-	 * @param localDaCompra
-	 *            O local da compra.
-	 * @param valorFinalDaCompra
-	 *            O valor final de uma compra.
+	 * @param localDaCompra      O local da compra.
+	 * @param valorFinalDaCompra O valor final de uma compra.
 	 */
 	public void finalizarListaDeCompras(String localDaCompra, int valorFinalDaCompra) {
 		if (!aberto)
@@ -117,8 +112,7 @@ public class ListaDeCompras implements Serializable {
 	/**
 	 * Este metodo pesquisa uma compra na lista.
 	 * 
-	 * @param item
-	 *            O item a ser pesquisado.
+	 * @param item O item a ser pesquisado.
 	 * @return em String a representacao de uma compra.
 	 */
 	public String pesquisaCompraEmLista(Item item) {
@@ -133,12 +127,9 @@ public class ListaDeCompras implements Serializable {
 	/**
 	 * Este metodo atualiza a quantidade de um item, emm uma determinada lista.
 	 * 
-	 * @param item
-	 *            O item.
-	 * @param quantidade
-	 *            A quantidade nova do item.
-	 * @param operacao
-	 *            A operacao de diminuir ou aumentar a quantidade do item.
+	 * @param item       O item.
+	 * @param quantidade A quantidade nova do item.
+	 * @param operacao   A operacao de diminuir ou aumentar a quantidade do item.
 	 */
 	public void atualizaCompraDeLista(String operacao, Item item, int quantidade) {
 		if (!aberto)
@@ -158,8 +149,7 @@ public class ListaDeCompras implements Serializable {
 	/**
 	 * Este metodo deleta uma compra de uma lista, pelo id do item. .
 	 *
-	 * @param item
-	 *            O item.
+	 * @param item O item.
 	 */
 	public void deletaCompraDeLista(Item item) {
 		if (!aberto)
@@ -247,8 +237,7 @@ public class ListaDeCompras implements Serializable {
 	/**
 	 * Metodo que recupera um item.
 	 * 
-	 * @param posicaoItem
-	 *            A posicao do item.
+	 * @param posicaoItem A posicao do item.
 	 * @return em String um item.
 	 */
 	public String getItemLista(int posicaoItem) {
@@ -276,8 +265,7 @@ public class ListaDeCompras implements Serializable {
 	/**
 	 * Metodo que verifica se uma lista possui um item.
 	 *
-	 * @param id
-	 *            O id do item.
+	 * @param id O id do item.
 	 * @return Booleano que representa a presenca de um item na lista de compras.
 	 */
 	public boolean hasItem(int id) {
@@ -288,6 +276,13 @@ public class ListaDeCompras implements Serializable {
 		return false;
 	}
 
+	/**
+	 * Metodo auxiliar que retorna a quantidade a ser comprada(ou comprada) do item
+	 * que passado pelo sistema.
+	 * 
+	 * @param item Item que quer pegar a quantidade.
+	 * @return retorna a quantidade do item.
+	 */
 	public int getQuantidadeCompra(Item item) {
 		for (Compra compra : compras) {
 			if (compra.getItem() == item) {
@@ -297,8 +292,24 @@ public class ListaDeCompras implements Serializable {
 		throw new IllegalArgumentException("Erro na pesquisa de compra: compra nao encontrada na lista.");
 	}
 
+	/**
+	 * Metodo auxiliar que retorna a quantidade de milisegundos decorridos desde
+	 * 01/01/1970.
+	 * 
+	 * @return retorna a quantidade milisegundos existentes desde 01/01/1970.
+	 */
 	public double getMili() {
 		return this.mili;
+	}
+
+	public ArrayList<String> getLocais() {
+		ArrayList<String> locais = new ArrayList<>();
+		for (Compra compra : compras) {
+			for (String local : compra.getLocais())
+				if (!locais.contains(local))
+					locais.add(local);
+		}
+		return locais;
 	}
 
 }
