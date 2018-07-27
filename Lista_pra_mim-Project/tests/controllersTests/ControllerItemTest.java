@@ -59,19 +59,6 @@ public class ControllerItemTest {
 	}
 
 	/**
-	 * Metodo que testa o metodo adicionaItemPorQtd.
-	 * 
-	 * Esperado IllegalArgumentException
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testAdicionaItemPorQtdJaCadastrado() {
-		this.controller.adicionaItemPorQtd("Agua Sanitaria Drogon", "limpeza", 1, "l", "Supermercado Excepcional",
-				2.19);
-		this.controller.adicionaItemPorQtd("Agua Sanitaria Drogon", "limpeza", 2, "ml", "Supermercado Excepcional",
-				2.20);
-	}
-
-	/**
 	 * Metodo que testa o metodo adicionaItemPorQuilo.
 	 * 
 	 * Nenhum erro esperado.
@@ -84,19 +71,6 @@ public class ControllerItemTest {
 	}
 
 	/**
-	 * Metodo que testa o metodo adicionaItemPorQuilo.
-	 * 
-	 * Esperado IllegalArgumentException
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testAdicionaItemPorQuiloJaCadastrado() {
-		this.controller.adicionaItemPorQuilo("Peito de peru Saara", "alimento industrializado", 1.0,
-				"Mercadinho Bem Barato", 34.49);
-		this.controller.adicionaItemPorQuilo("Peito de peru Saara", "alimento industrializado", 2.0,
-				"Mercadinho Bem Barato", 34.49);
-	}
-
-	/**
 	 * Metodo que testa o metodo adicionaItemPorUnidade.
 	 * 
 	 * Nenhum erro esperado.
@@ -104,19 +78,6 @@ public class ControllerItemTest {
 	@Test
 	public void testAdicionaItemPorUnidadeValido() {
 		this.controller.adicionaItemPorUnidade("Creme dental Oral-C", "higiene pessoal", 3, "Mercadinho Bem Barato",
-				3.79);
-	}
-
-	/**
-	 * Metodo que testa o metodo adicionaItemPorUnidade.
-	 * 
-	 * Esperado IllegalArgumentException
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testAdicionaItemPorUnidadeJaCadastrado() {
-		this.controller.adicionaItemPorUnidade("Creme dental Oral-C", "higiene pessoal", 3, "Mercadinho Bem Barato",
-				3.79);
-		this.controller.adicionaItemPorUnidade("Creme dental Oral-C", "higiene pessoal", 8, "Mercadinho Bem Barato",
 				3.79);
 	}
 
@@ -132,36 +93,6 @@ public class ControllerItemTest {
 	}
 
 	/**
-	 * Metodo que testa o metodo exibeItem.
-	 * 
-	 * Esperado ArrayIndexOutOfBoundsException
-	 */
-	@Test(expected = ArrayIndexOutOfBoundsException.class)
-	public void testExibeItemInvalido1() {
-		controller.exibeItem(0);
-	}
-
-	/**
-	 * Metodo que testa o metodo exibeItem.
-	 * 
-	 * Esperado ArrayIndexOutOfBoundsException
-	 */
-	@Test(expected = ArrayIndexOutOfBoundsException.class)
-	public void testExibeItemInvalido2() {
-		controller.exibeItem(-1);
-	}
-
-	/**
-	 * Metodo que testa o metodo exibeItem.
-	 * 
-	 * Esperado NullPointerException
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testExibeItemInvalido3() {
-		controller.exibeItem(12);
-	}
-
-	/**
 	 * Metodo que testa o metodo atualizaItem.
 	 * 
 	 * Nenhum erro esperado.
@@ -174,76 +105,6 @@ public class ControllerItemTest {
 		assertEquals("1. Agua Sanitaria Viserion, limpeza, 1 l, Preco: <Supermercado Excepcional, R$ 2,19;>",
 				controller.exibeItem(1));
 
-	}
-
-	/**
-	 * Metodo que testa o metodo atualizaItem.
-	 * 
-	 * Esperado IllegalArgumentException
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testAtualizaItemInvalido1() {
-		controller.atualizaItem(1, "", "Agua Sanitaria Viserion");
-	}
-
-	/**
-	 * Metodo que testa o metodo atualizaItem.
-	 * 
-	 * Esperado NullPointerException
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testAtualizaItemInvalido2() {
-		controller.atualizaItem(1, null, "Agua Sanitaria Viserion");
-	}
-
-	/**
-	 * Metodo que testa o metodo atualizaItem.
-	 *
-	 * Esperado IllegalArgumentException
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testAtualizaItemInvalido3() {
-		controller.atualizaItem(1, "nome", "");
-	}
-
-	/**
-	 * Metodo que testa o metodo atualizaItem.
-	 *
-	 * Esperado NullPointerException
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testAtualizaItemInvalido4() {
-		controller.atualizaItem(1, "nome", null);
-	}
-
-	/**
-	 * Metodo que testa o metodo atualizaItem.
-	 *
-	 * Esperado ArrayIndexOutOfBoundsException
-	 */
-	@Test(expected = ArrayIndexOutOfBoundsException.class)
-	public void testAtualizaItemInvalido5() {
-		controller.atualizaItem(0, "nome", "Agua Sanitaria Viserion");
-	}
-
-	/**
-	 * Metodo que testa o metodo atualizaItem.
-	 *
-	 * Esperado ArrayIndexOutOfBoundsException
-	 */
-	@Test(expected = ArrayIndexOutOfBoundsException.class)
-	public void testAtualizaItemInvalido6() {
-		controller.atualizaItem(-1, "nome", "Agua Sanitaria Viserion");
-	}
-
-	/**
-	 * Metodo que testa o metodo atualizaItem.
-	 *
-	 * Esperado NullPointerException
-	 */
-	@Test(expected = NullPointerException.class)
-	public void testAtualizaItemInvalido7() {
-		controller.atualizaItem(12, "nome", "Agua Sanitaria Viserion");
 	}
 
 	/**
@@ -395,17 +256,6 @@ public class ControllerItemTest {
 	}
 
 	/**
-	 * Metodo que testa o metodo getItem.
-	 * 
-	 * Esperado ArrayIndexOutOfBoundsException
-	 */
-	@Test(expected = ArrayIndexOutOfBoundsException.class)
-	public void testGetItemInvalido1() {
-		preparaTests();
-		this.controller.getItem(-1);
-	}
-
-	/**
 	 * Metodo que testa o metodo getItemPorCategoria.
 	 *
 	 * Nenhum erro esperado.
@@ -439,28 +289,6 @@ public class ControllerItemTest {
 	public void testGetItemPorCategoriaValidoVazio() {
 		preparaTests();
 		assertEquals("", this.controller.getItemPorCategoria("limpeza", 3));
-	}
-
-	/**
-	 * Metodo que testa o metodo getItemPorCategoria.
-	 * 
-	 * Esperado ArrayIndexOutOfBoundsException
-	 */
-	@Test(expected = ArrayIndexOutOfBoundsException.class)
-	public void testGetItemPorCategoriaInvalido1() {
-		preparaTests();
-		this.controller.getItemPorCategoria("limpeza", -1);
-	}
-
-	/**
-	 * Metodo que testa o metodo getItemPorCategoria.
-	 *
-	 * Esperado IllegalArgumentException
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testGetItemPorCategoriaInvalido2() {
-		preparaTests();
-		this.controller.getItemPorCategoria("lixo", 0);
 	}
 
 	/**
@@ -500,16 +328,6 @@ public class ControllerItemTest {
 	}
 
 	/**
-	 * Metodo que testa o metodo getItemPorMenorPreco.
-	 * 
-	 * Esperado ArrayIndexOutOfBoundsException
-	 */
-	@Test(expected = ArrayIndexOutOfBoundsException.class)
-	public void testGetItemPorMenorPrecoInvalido1() {
-		this.controller.getItemPorMenorPreco(-10);
-	}
-
-	/**
 	 * Metodo que testa o metodo getItemPorPesquisa.
 	 *
 	 * Nenhum erro esperado.
@@ -545,16 +363,6 @@ public class ControllerItemTest {
 	}
 
 	/**
-	 * Metodo que testa o metodo getItemPorPesquisa.
-	 * 
-	 * Esperado ArrayIndexOutOfBoundsException
-	 */
-	@Test(expected = ArrayIndexOutOfBoundsException.class)
-	public void testGetItemPorPesquisaInvalido1() {
-		this.controller.getItemPorPesquisa("dental", -1);
-	}
-
-	/**
 	 * Metodo que testa o metodo pegaItem.
 	 * 
 	 * deve retornar um item.
@@ -563,28 +371,6 @@ public class ControllerItemTest {
 	public void testePegaItemValido() {
 		assertEquals("Agua Sanitaria Drogon, limpeza, 1 l, Preco: <Supermercado Excepcional, R$ 2,19;>",
 				this.controller.pegaItem(1, "Nao vai dar erro").toString());
-	}
-
-	/**
-	 * Metodo que testa o metodo pegaItem.
-	 * 
-	 * Esperado ArrayIndexOutOfBoundsException
-	 */
-	@Test(expected = ArrayIndexOutOfBoundsException.class)
-	public void testePegaItemInvalido() {
-		assertEquals("Agua Sanitaria Drogon, limpeza, 1 l, Preco: <Supermercado Excepcional, R$ 2,19;>",
-				this.controller.pegaItem(-1, "Deu ruim").toString());
-	}
-
-	/**
-	 * Metodo que testa o metodo pegaItem.
-	 * 
-	 * Esperado IllegalArgumentException
-	 */
-	@Test(expected = IllegalArgumentException.class)
-	public void testePegaItemInvalido2() {
-		assertEquals("Agua Sanitaria Drogon, limpeza, 1 l, Preco: <Supermercado Excepcional, R$ 2,19;>",
-				this.controller.pegaItem(2, "Deu ruim").toString());
 	}
 
 }

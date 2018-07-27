@@ -73,13 +73,7 @@ public abstract class Item implements Serializable {
 			throw new IllegalArgumentException("Erro no cadastro de item: preco de item invalido.");
 
 		this.nome = nome;
-		//Categoria c = Categoria.valueOf(categoria);
-		for (Categoria c : Categoria.values()) {
-			if (c.getDescricao().equals(categoria)) {
-				this.categoria = c;
-				break;
-			}
-		}
+		this.categoria = Categoria.valueOf(categoria.toUpperCase().replace(" ", ""));
 		this.precos = new HashMap<>();
 		this.precos.put(localDeCompra, preco);
 		this.menorPreco = preco;
@@ -108,12 +102,7 @@ public abstract class Item implements Serializable {
 					|| novoValor.trim().toLowerCase().equals("limpeza"))) {
 				throw new IllegalArgumentException("Erro na atualizacao de item: categoria nao existe.");
 			}
-			for (Categoria c : Categoria.values()) {
-				if (c.getDescricao().equals(novoValor)) {
-					this.categoria = c;
-					break;
-				}
-			}
+			this.categoria = Categoria.valueOf(novoValor.toUpperCase().replace(" ", ""));
 		}
 	}
 
@@ -187,16 +176,24 @@ public abstract class Item implements Serializable {
 	}
 
 	/**
-	 * Metodo que retorna uma string contendo nome e categoria de um item.
+	 * Metodo que retorna o id do item.
 	 * 
 	 * Este metodo nao utiliza parametros.
 	 *
-	 * @return Uma String contendo nome e categoria de um item.
+	 * @return Um inteiro que representa o id do item.
 	 */
-	@Override
-	public String toString() {
-		return String.format("%s, %s", this.nome, this.categoria.getDescricao());
+	public int getId() {
+		return this.id;
 	}
+
+	/**
+	 * Metodo que retorna a descricao de um Item.
+	 * 
+	 * Este metodo nao utiliza parametros.
+	 * 
+	 * @return Uma String contendo nome e categoria do Item.
+	 */
+	public abstract String getDescricao();
 
 	/**
 	 * Metodo hashCode que gera um inteiro que representa o hashcode de um Item a
@@ -245,31 +242,23 @@ public abstract class Item implements Serializable {
 	}
 
 	/**
-	 * Metodo que retorna o id do item.
+	 * Metodo que retorna uma string contendo nome e categoria de um item.
 	 * 
 	 * Este metodo nao utiliza parametros.
 	 *
-	 * @return Um inteiro que representa o id do item.
+	 * @return Uma String contendo nome e categoria de um item.
 	 */
-	public int getId() {
-		return this.id;
+	@Override
+	public String toString() {
+		return String.format("%s, %s", this.nome, this.categoria.getDescricao());
 	}
-
-	/**
-	 * Metodo que retorna a descricao de um Item.
-	 * 
-	 * Este metodo nao utiliza parametros.
-	 * 
-	 * @return Uma String contendo nome e categoria do Item.
-	 */
-	public abstract String getDescricao();
 
 	public Set<String> getEstabelecimentos() {
 		return precos.keySet();
 	}
-	
+
 	public Double getPreco(String estabelecimento) {
 		return this.precos.get(estabelecimento);
 	}
-	
+
 }
