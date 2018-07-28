@@ -223,4 +223,91 @@ public class ControllerListaTest {
 		assertEquals(facade.dataAtual() + " - Feira Semanal", cLista.getItemListaPorItem(1, 1));
 	}
 
+	/**
+	 * Metodo que testa o metodo geraAutomaticaUltimaLista.
+	 */
+	@Test
+	public void testGeraAutomaticaUltimaLista() {
+		cLista.adicionaListaDeCompras("Lista Rosa");
+		cLista.adicionaCompraALista("Lista Rosa", 10, 1);
+		cLista.adicionaCompraALista("Lista Rosa", 13, 2);
+
+		assertEquals("Lista automatica 1 " + this.facade.dataAtual(), cLista.geraAutomaticaUltimaLista());
+		assertEquals("10 Creme dental Oral-C, higiene pessoal", cLista.getItemLista("Lista automatica 1 " + this.facade.dataAtual(), 0));
+		assertEquals("13 Peito de peru Saara, alimento industrializado", cLista.getItemLista("Lista automatica 1 " + this.facade.dataAtual(), 1));
+	}
+	
+	/**
+	 * Metodo que testa o metodo geraAutomaticaItem
+	 */
+	@Test
+	public void testGeraAutomaticaItem() {
+		cLista.adicionaListaDeCompras("Lista Rosa");
+		cLista.adicionaCompraALista("Lista Rosa", 10, 1);
+		cLista.adicionaCompraALista("Lista Rosa", 13, 2);
+
+		assertEquals("Lista automatica 2 " + facade.dataAtual(), cLista.geraAutomaticaItem("Creme dental Oral-C"));
+	    assertEquals("10 Creme dental Oral-C, higiene pessoal", cLista.getItemLista("Lista automatica 2 " + facade.dataAtual(), 0));
+		assertEquals("13 Peito de peru Saara, alimento industrializado", cLista.getItemLista("Lista automatica 2 " + facade.dataAtual(), 1));
+	}
+
+	/**
+	 * Metodo que testa o metodo geraAutomaticaItensMaisPresentes
+	 */
+	@Test
+	public void testGeraAutomaticaItensMaisPresentes() {
+		cItem.adicionaItemPorUnidade("Suco Hades", "alimento industrializado", 1, "Oxtra", 3.99);
+
+		cLista.adicionaCompraALista("Feira Semanal", 1, 2);
+		cLista.adicionaCompraALista("Feira Semanal", 1, 3);
+
+
+		cLista.adicionaListaDeCompras("Lista Rosa");
+		cLista.adicionaCompraALista("Lista Rosa", 10, 1);
+		cLista.adicionaCompraALista("Lista Rosa", 13, 2);
+
+		cLista.adicionaListaDeCompras("Lista Linda");
+		cLista.adicionaCompraALista("Lista Linda", 3, 2);
+		cLista.adicionaCompraALista("Lista Linda", 3, 3);
+
+		assertEquals("Lista automatica 3 " + this.facade.dataAtual(), cLista.geraAutomaticaItensMaisPresentes());
+		assertEquals("5 Peito de peru Saara, alimento industrializado", cLista.getItemLista("Lista automatica 3 " + facade.dataAtual(), 0));
+		assertEquals("2 Suco Hades, alimento industrializado", cLista.getItemLista("Lista automatica 3 " + facade.dataAtual(), 1));
+	}
+
+	/**
+	 * Metodo que testa o metodo sugereMelhorEstabelecimento com entradas validas
+	 */
+	@Test
+	public void testSugereMelhorEstabelecimento() {
+		cItem.adicionaItemPorUnidade("Suco Hades", "alimento industrializado", 1, "Oxtra", 3.99);
+		cItem.adicionaPrecoItem(3, "Shoppig Mill", 4.78);
+
+		cItem.adicionaPrecoItem(3, "Feira Supimpa", 2.88);
+
+		cItem.adicionaPrecoItem(1, "Aleluia Mall", 7.99);
+		cItem.adicionaPrecoItem(2, "Aleluia Mall", 2.99);
+
+		cLista.adicionaListaDeCompras("Lista Final");
+		cLista.adicionaCompraALista("Lista Final", 3, 2);
+		cLista.adicionaCompraALista("Lista Final", 1, 1);
+		cLista.adicionaCompraALista("Lista Final", 4, 3);
+
+		assertEquals("Feira Supimpa: R$ 11,52", cLista.sugereMelhorEstabelecimento("Lista Final", 0, 0));
+		assertEquals("- 4 Suco Hades, alimento industrializado", cLista.sugereMelhorEstabelecimento("Lista Final", 0,1));
+		assertEquals("", cLista.sugereMelhorEstabelecimento("Lista Final", 0,2));
+
+		assertEquals("Oxtra: R$ 15,96", cLista.sugereMelhorEstabelecimento("Lista Final", 1, 0));
+		assertEquals("- 4 Suco Hades, alimento industrializado", cLista.sugereMelhorEstabelecimento("Lista Final", 1,1));
+		assertEquals("", cLista.sugereMelhorEstabelecimento("Lista Final", 1,2));
+
+		assertEquals("Aleluia Mall: R$ 16,96", cLista.sugereMelhorEstabelecimento("Lista Final", 2, 0));
+		assertEquals("- 1 Creme dental Oral-C, higiene pessoal", cLista.sugereMelhorEstabelecimento("Lista Final", 2,1));
+		assertEquals("- 3 Peito de peru Saara, alimento industrializado", cLista.sugereMelhorEstabelecimento("Lista Final", 2,2));
+		assertEquals("", cLista.sugereMelhorEstabelecimento("Lista Final", 2,3));
+
+		assertEquals("Shoppig Mill: R$ 19,12", cLista.sugereMelhorEstabelecimento("Lista Final", 3, 0));
+		assertEquals("- 4 Suco Hades, alimento industrializado", cLista.sugereMelhorEstabelecimento("Lista Final", 3,1));
+		assertEquals("", cLista.sugereMelhorEstabelecimento("Lista Final", 3,2));
+	}
 }

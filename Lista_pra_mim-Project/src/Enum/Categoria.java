@@ -7,7 +7,6 @@ package Enum;
  * ser categorizados como de higiene pessoal, limpeza, alimentos
  * industrializados e alimentos naoindustrilaizados.
  *
- * @author Rafael Dantas Santos de Azevedo - 117210382
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Luiz Bispo dos Santos - 117210400
  * @author Joao Pedro de Barros - 117210327
