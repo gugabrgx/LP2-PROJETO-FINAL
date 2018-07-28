@@ -36,7 +36,7 @@ public class ComparaNomeTest {
 	 */
 	private Item item3;
 	/**
-	 * item criado para testes.
+	 * Comparador criado para testes.
 	 */
 	private ComparaNome comparador;
 	/**

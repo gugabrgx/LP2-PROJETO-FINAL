@@ -3,6 +3,7 @@ package entidades;
 import Enum.Categoria;
 
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Laboratorio de Programacao 2 - 2018.1
@@ -14,10 +15,11 @@ import java.io.Serializable;
  */
 public class Compra implements Serializable {
 
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 3982841388862747657L;
+	private static final long serialVersionUID = 827983782187231974L;
 	// Este atributo representa a quantidade de um item.
 	private int quantidade;
 	// Este atributo representa um objeto Item.
@@ -26,10 +28,8 @@ public class Compra implements Serializable {
 	/**
 	 * Constroi o objeto Compras.
 	 * 
-	 * @param qnt
-	 *            A quantidade do item.
-	 * @param item
-	 *            O item a ser comprado.
+	 * @param qnt  A quantidade do item.
+	 * @param item O item a ser comprado.
 	 */
 	public Compra(int qnt, Item item) {
 		if (qnt <= 0)
@@ -41,10 +41,8 @@ public class Compra implements Serializable {
 	/**
 	 * Este atributo atualiza a quantidade de compra de um item.
 	 * 
-	 * @param operacao
-	 *            A operacao a ser feita, adiciona ou diminui.
-	 * @param quantidade
-	 *            A quantidade do item a ser acrescida ou diminuida.
+	 * @param operacao   A operacao a ser feita, adiciona ou diminui.
+	 * @param quantidade A quantidade do item a ser acrescida ou diminuida.
 	 */
 	public void atualizaCompra(String operacao, int quantidade) {
 		if (quantidade <= 0)
@@ -97,6 +95,14 @@ public class Compra implements Serializable {
 		return item.getDescricao();
 	}
 
+	/**
+	 * Metodo hashCode que gera um inteiro que representa o hashcode de uma compra a
+	 * partir do item que esta na compra.
+	 * 
+	 * Este metodo nao utiliza parametros.
+	 *
+	 * @return Um inteiro que representa o hashcode de um Item.
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -105,6 +111,12 @@ public class Compra implements Serializable {
 		return result;
 	}
 
+	/**
+	 * Metodo equals que compara o objeto com outro a partir do item.
+	 *
+	 * @param obj Um objeto a ser comparado.
+	 * @return Um valor booleano que indica se os objetos sao iguais ou nao.
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -130,4 +142,13 @@ public class Compra implements Serializable {
 		return String.format("%d %s", this.quantidade, this.item.getDescricao());
 	}
 
+	/**
+	 * Metodo que Auxiliar que retona uma colecao com os locais onde pode se
+	 * realizar a compra do item em questão.
+	 * 
+	 * @return Retorna um colecao de estabelecimentos, onde vende-se o item.
+	 */
+	public Set<String> getEstabelecimentos() {
+		return item.getEstabelecimentos();
+	}
 }

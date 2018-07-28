@@ -34,7 +34,7 @@ public class ComparaDescritorTest {
 	 */
 	private ListaDeCompras lista3;
 	/**
-	 * Lista de Compras criado para testes.
+	 * Comparador criado para testes.
 	 */
 	private ComparaDescritor comparador;
 	/**

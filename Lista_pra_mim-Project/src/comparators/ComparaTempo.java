@@ -16,27 +16,25 @@ import entidades.ListaDeCompras;
  * @author Joao Pedro de Barros - 117210327
  * @author Rafael Dantas Santos de Azevedo - 117210382
  */
-public class ComparaTempo implements Comparator<ListaDeCompras>, Serializable{
+public class ComparaTempo implements Comparator<ListaDeCompras>, Serializable {
 
-    /**
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2952868760453122481L;
 
 	/**
-     * Comparara dois objetos do tipo Item, tomando como base o menor preço dos
-     * itens comparados.
-     *
-     * @param l1
-     *            o primeiro item.
-     * @param l2
-     *            o segundo item.
-     * @return um inteiro que indica a posição relativa dos itens de acordo com o
-     *         preco.
-     */
-    @Override
-    public int compare(ListaDeCompras l1, ListaDeCompras l2) {
-        return Double.compare(l1.getMili(), l2.getMili());
-    }
+	 * Comparara dois objetos do tipo Item, tomando como base o menor preço dos
+	 * itens comparados.
+	 *
+	 * @param l1 o primeiro item.
+	 * @param l2 o segundo item.
+	 * @return um inteiro que indica a posição relativa dos itens de acordo com o
+	 *         preco.
+	 */
+	@Override
+	public int compare(ListaDeCompras l1, ListaDeCompras l2) {
+		return Double.compare(l1.getMili() * 100.0, l2.getMili() * 100.0);
+	}
 
 }

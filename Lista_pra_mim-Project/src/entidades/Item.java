@@ -3,6 +3,7 @@ package entidades;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import Enum.Categoria;
 
@@ -20,10 +21,11 @@ import Enum.Categoria;
  */
 public abstract class Item implements Serializable {
 
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -6822963833439321284L;
+	private static final long serialVersionUID = -2293627013175851793L;
 	// Uma String que representa o nome de um item.
 	private String nome;
 	// Uma String que representa a categoria de um item.
@@ -37,7 +39,7 @@ public abstract class Item implements Serializable {
 	private int id;
 
 	/**
-	 * Testa os valors comuns entre os tipos de itens repassados pelo usuario e as
+	 * Testa os valores comuns entre os tipos de itens repassados pelo usuario e as
 	 * atribui a suas devidas variaveis.
 	 *
 	 * @param nome          String que representa o nome do item;
@@ -72,13 +74,7 @@ public abstract class Item implements Serializable {
 			throw new IllegalArgumentException("Erro no cadastro de item: preco de item invalido.");
 
 		this.nome = nome;
-		//Categoria c = Categoria.valueOf(categoria);
-		for (Categoria c : Categoria.values()) {
-			if (c.getDescricao().equals(categoria)) {
-				this.categoria = c;
-				break;
-			}
-		}
+		this.categoria = Categoria.valueOf(categoria.toUpperCase().replace(" ", ""));
 		this.precos = new HashMap<>();
 		this.precos.put(localDeCompra, preco);
 		this.menorPreco = preco;
@@ -107,12 +103,7 @@ public abstract class Item implements Serializable {
 					|| novoValor.trim().toLowerCase().equals("limpeza"))) {
 				throw new IllegalArgumentException("Erro na atualizacao de item: categoria nao existe.");
 			}
-			for (Categoria c : Categoria.values()) {
-				if (c.getDescricao().equals(novoValor)) {
-					this.categoria = c;
-					break;
-				}
-			}
+			this.categoria = Categoria.valueOf(novoValor.toUpperCase().replace(" ", ""));
 		}
 	}
 
@@ -186,16 +177,24 @@ public abstract class Item implements Serializable {
 	}
 
 	/**
-	 * Metodo que retorna uma string contendo nome e categoria de um item.
+	 * Metodo que retorna o id do item.
 	 * 
 	 * Este metodo nao utiliza parametros.
 	 *
-	 * @return Uma String contendo nome e categoria de um item.
+	 * @return Um inteiro que representa o id do item.
 	 */
-	@Override
-	public String toString() {
-		return String.format("%s, %s", this.nome, this.categoria.getDescricao());
+	public int getId() {
+		return this.id;
 	}
+
+	/**
+	 * Metodo que retorna a descricao de um Item.
+	 * 
+	 * Este metodo nao utiliza parametros.
+	 * 
+	 * @return Uma String contendo nome e categoria do Item.
+	 */
+	public abstract String getDescricao();
 
 	/**
 	 * Metodo hashCode que gera um inteiro que representa o hashcode de um Item a
@@ -244,23 +243,36 @@ public abstract class Item implements Serializable {
 	}
 
 	/**
-	 * Metodo que retorna o id do item.
+	 * Metodo que retorna uma string contendo nome e categoria de um item.
 	 * 
 	 * Este metodo nao utiliza parametros.
 	 *
-	 * @return Um inteiro que representa o id do item.
+	 * @return Uma String contendo nome e categoria de um item.
 	 */
-	public int getId() {
-		return this.id;
+	@Override
+	public String toString() {
+		return String.format("%s, %s", this.nome, this.categoria.getDescricao());
 	}
 
 	/**
-	 * Metodo que retorna a descricao de um Item.
+	 * Metodo auxiliar que retorna uma colecao com os estabelecimentos que contem o
+	 * Item.
 	 * 
-	 * Este metodo nao utiliza parametros.
-	 * 
-	 * @return Uma String contendo nome e categoria do Item.
+	 * @return retorna uma colecao de estabelicmentos.
 	 */
-	public abstract String getDescricao();
+	public Set<String> getEstabelecimentos() {
+		return precos.keySet();
+	}
+
+	/**
+	 * Metodo auxiliar que retorna o preco do item para o estabelicemnto passado
+	 * como parametro.
+	 * 
+	 * @param estabelecimento que se quer pesquisar o preco.
+	 * @return retorna o preco do estabelecimento.
+	 */
+	public Double getPreco(String estabelecimento) {
+		return this.precos.get(estabelecimento);
+	}
 
 }

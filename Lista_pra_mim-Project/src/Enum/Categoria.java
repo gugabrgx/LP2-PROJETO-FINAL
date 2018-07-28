@@ -18,8 +18,8 @@ public enum Categoria {
 
 	// Declaracao de cada enum com sua descricao.
 
-	HIGIENEPESSOAL("higiene pessoal"), LIMPEZA("limpeza"), ALIMENTOSINDUSTRIALIZADOS("alimento industrializado"),
-	ALIMENTOSNAOINDUSTRIALIZADOS("alimento nao industrializado");
+	HIGIENEPESSOAL("higiene pessoal"), LIMPEZA("limpeza"), ALIMENTOINDUSTRIALIZADO("alimento industrializado"),
+	ALIMENTONAOINDUSTRIALIZADO("alimento nao industrializado");
 
 	// Atributo que representa a descricao dos enuns.
 	private String descricao;

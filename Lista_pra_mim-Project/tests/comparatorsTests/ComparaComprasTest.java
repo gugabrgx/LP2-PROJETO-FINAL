@@ -37,7 +37,7 @@ public class ComparaComprasTest {
 	 */
 	private Compra compra3;
 	/**
-	 * item criado para testes.
+	 * Comparador criado para testes.
 	 */
 	private ComparaCompras comparador;
 	/**

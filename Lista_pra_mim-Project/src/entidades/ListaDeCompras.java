@@ -19,12 +19,12 @@ import comparators.ComparaCompras;
  * @author Joao Pedro de Barros - 117210327
  * @author Rafael Azevedo - 117210382
  */
-public class ListaDeCompras implements Serializable{
+public class ListaDeCompras implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 10023465208587932L;
+	private static final long serialVersionUID = -3683351079303281407L;
 	// Este atributo representa o horario.
 	private Date horario = new Date();
 	// Este atributo representa um HashSet de compras.
@@ -68,7 +68,6 @@ public class ListaDeCompras implements Serializable{
 		this.compras = new HashSet<>();
 		this.comparaCompras = new ComparaCompras();
 		this.mili = System.currentTimeMillis();
-
 
 	}
 
@@ -277,6 +276,13 @@ public class ListaDeCompras implements Serializable{
 		return false;
 	}
 
+	/**
+	 * Metodo auxiliar que retorna a quantidade a ser comprada(ou comprada) do item
+	 * que passado pelo sistema.
+	 * 
+	 * @param item Item que quer pegar a quantidade.
+	 * @return retorna a quantidade do item.
+	 */
 	public int getQuantidadeCompra(Item item) {
 		for (Compra compra : compras) {
 			if (compra.getItem() == item) {
@@ -286,17 +292,31 @@ public class ListaDeCompras implements Serializable{
 		throw new IllegalArgumentException("Erro na pesquisa de compra: compra nao encontrada na lista.");
 	}
 
-	public String comprass() {
-		String resultado = "";
-
-		for (Compra compra : compras) {
-			resultado += compra.toString() + System.lineSeparator();
-		}
-		return resultado;
-	}
-
-
+	/**
+	 * Metodo auxiliar que retorna a quantidade de milisegundos decorridos desde
+	 * 01/01/1970.
+	 * 
+	 * @return retorna a quantidade milisegundos existentes desde 01/01/1970.
+	 */
 	public double getMili() {
 		return this.mili;
 	}
+
+	/**
+	 * Metodo auxiliar que retorna uma lista com os estabelecimentos que contem os
+	 * itens da lista de compra.
+	 * 
+	 * @return Retorna uma lista com os estabelecimentos que pode-se fazer a
+	 *         compras.
+	 */
+	public ArrayList<String> getEstabelecimentos() {
+		ArrayList<String> locais = new ArrayList<>();
+		for (Compra compra : compras) {
+			for (String local : compra.getEstabelecimentos())
+				if (!locais.contains(local))
+					locais.add(local);
+		}
+		return locais;
+	}
+
 }

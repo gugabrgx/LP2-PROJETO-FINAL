@@ -22,8 +22,8 @@ public class CategoriaTest {
 
 	private Categoria higiene = Categoria.HIGIENEPESSOAL;
 	private Categoria limpeza = Categoria.LIMPEZA;
-	private Categoria industrialisados = Categoria.ALIMENTOSINDUSTRIALIZADOS;
-	private Categoria naoInsdustrializados = Categoria.ALIMENTOSNAOINDUSTRIALIZADOS;
+	private Categoria industrialisados = Categoria.ALIMENTOINDUSTRIALIZADO;
+	private Categoria naoInsdustrializados = Categoria.ALIMENTONAOINDUSTRIALIZADO;
 
 	/**
 	 * testa a recuperaco da valor da constante HIGIENEPESSOAL.

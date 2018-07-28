@@ -289,7 +289,19 @@ public class ControllerItem {
 
 	/**
 	 * Metodo Auxiliar que retorna um item. Possibilita a ligacao entre os
-	 * controllers.
+	 * controllers. Recebe como parametro apenas o id do item que quer retornar.
+	 * 
+	 * @param id Identificador unico do item.
+	 * @return retorna um item.
+	 */
+	public Item pegaItem(int id) {
+		return this.itens.get(id);
+	}
+
+	/**
+	 * Metodo Auxiliar que retorna um item. Possibilita a ligacao entre os
+	 * controllers. Recebe como parametro o Id e uma mesagem de erro caso o id seja
+	 * invalido.
 	 *
 	 * @param id  Identificador unico do item.
 	 * @param msg mensagem a ser impressa caso de erro.
@@ -300,10 +312,6 @@ public class ControllerItem {
 			throw new ArrayIndexOutOfBoundsException(msg + "item id invalido.");
 		if (!itens.containsKey(id))
 			throw new IllegalArgumentException(msg + "item nao existe no sistema.");
-		return this.itens.get(id);
-	}
-
-	public Item pegaItem(int id) {
 		return this.itens.get(id);
 	}
 
@@ -323,12 +331,18 @@ public class ControllerItem {
 	 * 
 	 * @param id Um inteiro que reprenta o ID de um Item.
 	 * 
-	 * Este metodo nao retorna nenhum valor.
+	 *           Este metodo nao retorna nenhum valor.
 	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
+	/**
+	 * Metodo auxiliar que retorna o Id a partir do nome do mesmo.
+	 * 
+	 * @param nomeItem Nome do item que se quer reccuperar o Id.
+	 * @return Retorna o Id do item.
+	 */
 	public int getIdPorDescricao(String nomeItem) {
 		for (Item item : itens.values()) {
 			if (item.getNome().toLowerCase().equals(nomeItem.toLowerCase())) {
@@ -337,7 +351,7 @@ public class ControllerItem {
 		}
 		throw new IllegalArgumentException();
 	}
-	
+
 	/**
 	 * Metodo que retorna um Map que mapeia um Item a um Inteiro.
 	 * 
@@ -354,7 +368,7 @@ public class ControllerItem {
 	 * 
 	 * @param itens Um Map que mapeia Itens a inteiros.
 	 * 
-	 * Este metodo nao retorna nenhum valor.
+	 *              Este metodo nao retorna nenhum valor.
 	 */
 	public void setItens(Map<Integer, Item> itens) {
 		this.itens = itens;

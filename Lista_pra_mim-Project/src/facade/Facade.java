@@ -23,27 +23,27 @@ public class Facade {
 
 	// Este atributo representa um Objeto ControllerItem.
 	private ControllerItem controllerItem;
+
 	// Este atributo representa um Objeto ControllerLista.
 	private ControllerLista controllerLista;
 	// Este atributo representa um Objeto Persistência.
 	private Persistencia persistencia;
 
 	public static void main(String[] args) {
-		args = new String[] { "facade.Facade", 
-				"acceptance_tests/use_case1.txt", "acceptance_tests/use_case1_exception.txt", 
-				"acceptance_tests/use_case2.txt", "acceptance_tests/use_case2_exception.txt", 
-				"acceptance_tests/use_case3.txt", "acceptance_tests/use_case3_exception.txt", 
-				"acceptance_tests/use_case4.txt", "acceptance_tests/use_case4_exception.txt", 
-				"acceptance_tests/use_case5.txt", 
-				"acceptance_tests/use_case6.txt", "acceptance_tests/use_case6_exception.txt", 
+		args = new String[] { "facade.Facade", "acceptance_tests/use_case1.txt",
+				"acceptance_tests/use_case1_exception.txt", "acceptance_tests/use_case2.txt",
+				"acceptance_tests/use_case2_exception.txt", "acceptance_tests/use_case3.txt",
+				"acceptance_tests/use_case3_exception.txt", "acceptance_tests/use_case4.txt",
+				"acceptance_tests/use_case4_exception.txt", "acceptance_tests/use_case5.txt",
+				"acceptance_tests/use_case6.txt", "acceptance_tests/use_case6_exception.txt",
 				"acceptance_tests/use_case7.txt" };
 
 		EasyAccept.main(args);
 	}
-	
+
 	/**
 	 * Constroi o objeto Facade, e inicializa o objeto Controller.
-	 * @throws IOException 
+	 * 
 	 */
 	public Facade() {
 		this.controllerItem = new ControllerItem();
@@ -337,19 +337,50 @@ public class Facade {
 		return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 	}
 
+	/**
+	 * Metodo que gera uma lista automatica 1, repetindo os itens da lista de
+	 * compras mais recentemente criada.
+	 * 
+	 * @return Retorna a representacao textual do descritor da lista automatica 1
+	 *         com a data da criacao.
+	 */
 	public String geraAutomaticaUltimaLista() {
 		return this.controllerLista.geraAutomaticaUltimaLista();
 	}
 
+	/**
+	 * Metodo que gera uma lista automatica 2. Esssa lista é criada repetindo os
+	 * itens da ultima lista que contem o item passado pelo usuario.
+	 * 
+	 * @param descritorItem Nome do item que quer que esteja na lista automatica.
+	 * @return Retorna a representacao textual do descritor da lista automatica 2
+	 *         com a data da criacao.
+	 */
 	public String geraAutomaticaItem(String descritorItem) {
 		return this.controllerLista.geraAutomaticaItem(descritorItem);
 	}
 
+	/**
+	 * Metodo que gera uma lista automatica 3 com os itens que mais aparecem nas
+	 * listas geradas, anteriormente.
+	 * 
+	 * @return Retorna a representacao textual do descritor da lista automatica 3
+	 *         com a data da criacao.
+	 */
 	public String geraAutomaticaItensMaisPresentes() {
 		return this.controllerLista.geraAutomaticaItensMaisPresentes();
 	}
 
-	// Caso 6
+	/**
+	 * Metodo que sugere os melhores estabelecimentos para se fazer as compras de
+	 * acordo com a lista passada, ordenados do menor para o maior, de acordo com o
+	 * valor medio das compras.
+	 * 
+	 * @param descritorLista         O descritor de uma lista.
+	 * @param posicaoEstabelecimento Posicao que se encontra o estabelecimento.
+	 * @param posicaoLista           Posicao que se quer pesquisar da lista
+	 * @return retorna um representacao textual.
+	 */
 	public String sugereMelhorEstabelecimento(String descritorLista, int posicaoEstabelecimento, int posicaoLista) {
 		return this.controllerLista.sugereMelhorEstabelecimento(descritorLista, posicaoEstabelecimento, posicaoLista);
 
@@ -362,12 +393,13 @@ public class Facade {
 	 * 
 	 * Este metodo nao retorna nenhum valor.
 	 * 
-	 * @throws IOException Este metodo pode lancar uma excecao.
+	 * @throws IOException            Este metodo pode lancar uma excecao.
+	 * @throws ClassNotFoundException Este metodo pode lancar uma excecao.
 	 */
 	public void iniciaSistema() throws ClassNotFoundException, IOException {
 		this.persistencia.iniciaSistema();
 	}
-	
+
 	/**
 	 * Metodo que invoca o metodo fechaSistema da classe Persistencia.
 	 * 
