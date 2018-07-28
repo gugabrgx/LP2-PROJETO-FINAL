@@ -24,7 +24,7 @@ public class ListaDeCompras implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 10023465208587932L;
+	private static final long serialVersionUID = -3683351079303281407L;
 	// Este atributo representa o horario.
 	private Date horario = new Date();
 	// Este atributo representa um HashSet de compras.
@@ -302,10 +302,17 @@ public class ListaDeCompras implements Serializable {
 		return this.mili;
 	}
 
-	public ArrayList<String> getLocais() {
+	/**
+	 * Metodo auxiliar que retorna uma lista com os estabelecimentos que contem os
+	 * itens da lista de compra.
+	 * 
+	 * @return Retorna uma lista com os estabelecimentos que pode-se fazer a
+	 *         compras.
+	 */
+	public ArrayList<String> getEstabelecimentos() {
 		ArrayList<String> locais = new ArrayList<>();
 		for (Compra compra : compras) {
-			for (String local : compra.getLocais())
+			for (String local : compra.getEstabelecimentos())
 				if (!locais.contains(local))
 					locais.add(local);
 		}

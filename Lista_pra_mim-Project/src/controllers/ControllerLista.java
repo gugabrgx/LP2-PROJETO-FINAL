@@ -333,6 +333,17 @@ public class ControllerLista {
 	}
 
 	/**
+	 * Este metodo recupera um item.
+	 *
+	 * @param id O id do item.
+	 * 
+	 * @return O objeto item.
+	 */
+	private Item pegaItem(int id) {
+		return this.controllerItem.pegaItem(id);
+	}
+
+	/**
 	 * Metodo que verifica a validade e checa a existenciado do descritor de uma
 	 * lista repassado pelo usuario
 	 *
@@ -373,8 +384,8 @@ public class ControllerLista {
 
 		for (int i = 0; i < controllerItem.getId(); i++) {
 			if (ultimaLista.hasItem(i)) {
-				int quantidade = ultimaLista.getQuantidadeCompra(controllerItem.pegaItem(i));
-				this.listasDeCompras.get(nomeLista).adicionaCompraALista(quantidade, controllerItem.pegaItem(i));
+				int quantidade = ultimaLista.getQuantidadeCompra(this.pegaItem(i));
+				this.listasDeCompras.get(nomeLista).adicionaCompraALista(quantidade, this.pegaItem(i));
 			}
 		}
 		return nomeLista;
@@ -405,8 +416,8 @@ public class ControllerLista {
 
 		for (int i = 0; i < controllerItem.getId(); i++) {
 			if (ultimaLista.hasItem(i)) {
-				int quantidade = ultimaLista.getQuantidadeCompra(controllerItem.pegaItem(i));
-				this.listasDeCompras.get(nomeLista).adicionaCompraALista(quantidade, controllerItem.pegaItem(i));
+				int quantidade = ultimaLista.getQuantidadeCompra(this.pegaItem(i));
+				this.listasDeCompras.get(nomeLista).adicionaCompraALista(quantidade, this.pegaItem(i));
 			}
 		}
 		return nomeLista;
@@ -428,12 +439,12 @@ public class ControllerLista {
 			for (ListaDeCompras list : listasDeCompras.values()) {
 				if (list.hasItem(i)) {
 					apareceu++;
-					quantidade += list.getQuantidadeCompra(controllerItem.pegaItem(i));
+					quantidade += list.getQuantidadeCompra(this.pegaItem(i));
 				}
 			}
 			if (apareceu >= listasDeCompras.values().size() / 2) {
 				int quantidadeNovo = (int) (Math.floor(((double) quantidade) / apareceu));
-				listasDeCompras.get(nomeLista).adicionaCompraALista(quantidadeNovo, controllerItem.pegaItem(i));
+				listasDeCompras.get(nomeLista).adicionaCompraALista(quantidadeNovo, this.pegaItem(i));
 				quantidade = 0;
 				apareceu = 0;
 			} else {
@@ -445,16 +456,23 @@ public class ControllerLista {
 		return nomeLista;
 	}
 
+	/**
+	 * Metodo que recebe uma lista e cria outra lista com listas de compras geradas
+	 * com os estabelicmentos que contem os itens das lista passada.
+	 * 
+	 * @param lista Lista base para formar a lista temporaria.
+	 * @return Retorna uma lista de estabelecimentos.
+	 */
 	private ArrayList<ListaDeCompras> listaTemp(ListaDeCompras lista) {
 		int contador = 0;
 		ArrayList<ListaDeCompras> listasTemp = new ArrayList<>();
 		double valor = 0;
-		for (String local : lista.getLocais()) {
+		for (String local : lista.getEstabelecimentos()) {
 			listasTemp.add(new ListaDeCompras(local));
 			for (int i = 0; i < lista.getMaiorId() + 2; i++) {
-				if (controllerItem.pegaItem(i) != null) {
+				if (this.pegaItem(i) != null) {
 					if (lista.hasItem(i)) {
-						Item item = this.controllerItem.pegaItem(i);
+						Item item = this.pegaItem(i);
 						try {
 							valor += (item.getPreco(local) * lista.getQuantidadeCompra(item));
 							listasTemp.get(contador).adicionaCompraALista(lista.getQuantidadeCompra(item), item);
@@ -471,6 +489,16 @@ public class ControllerLista {
 		return listasTemp;
 	}
 
+	/**
+	 * Metodo que sugere os melhores estabelecimentos para se fazer as compras de
+	 * acordo com a lista passada, ordenados do menor para o maior, de acordo com o
+	 * valor medio das compras.
+	 * 
+	 * @param descritorLista         O descritor de uma lista.
+	 * @param posicaoEstabelecimento Posicao que se encontra o estabelecimento.
+	 * @param posicaoLista           Posicao que se quer pesquisar da lista
+	 * @return retorna um representacao textual.
+	 */
 	public String sugereMelhorEstabelecimento(String descritorLista, int posicaoEstabelecimento, int posicaoLista) {
 		try {
 			ArrayList<ListaDeCompras> locaisDeCompra = listaTemp(listasDeCompras.get(descritorLista));

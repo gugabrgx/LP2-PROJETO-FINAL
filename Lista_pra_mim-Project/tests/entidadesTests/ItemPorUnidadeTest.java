@@ -218,4 +218,30 @@ public class ItemPorUnidadeTest {
 	public void testGetNome() {
 		assertEquals("Batata Roffles", this.item.getNome());
 	}
+
+	/**
+	 * Testa o método getDescricao.
+	 */
+	@Test
+	public void testGetDescricao() {
+		assertEquals("Batata Roffles, alimento industrializado", this.item.getDescricao());
+	}
+
+	/**
+	 * Testa o método getEstabelecimentos.
+	 */
+	@Test
+	public void testGetEstabelecimentos() {
+		item.adicionaPrecoItem("casa", 3.99);
+		assertEquals("[casa, Mercadinho]", this.item.getEstabelecimentos().toString());
+	}
+
+	/**
+	 * Testa o método getPreco.
+	 */
+	@Test
+	public void testGetPreco() {
+		item.adicionaPrecoItem("casa", 3.99);
+		assertEquals(3.99 + "", this.item.getPreco("casa") + "");
+	}
 }

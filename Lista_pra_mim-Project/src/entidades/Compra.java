@@ -15,10 +15,11 @@ import java.util.Set;
  */
 public class Compra implements Serializable {
 
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 3982841388862747657L;
+	private static final long serialVersionUID = 827983782187231974L;
 	// Este atributo representa a quantidade de um item.
 	private int quantidade;
 	// Este atributo representa um objeto Item.
@@ -141,7 +142,13 @@ public class Compra implements Serializable {
 		return String.format("%d %s", this.quantidade, this.item.getDescricao());
 	}
 
-	public Set<String> getLocais() {
+	/**
+	 * Metodo que Auxiliar que retona uma colecao com os locais onde pode se
+	 * realizar a compra do item em questão.
+	 * 
+	 * @return Retorna um colecao de estabelecimentos, onde vende-se o item.
+	 */
+	public Set<String> getEstabelecimentos() {
 		return item.getEstabelecimentos();
 	}
 }

@@ -44,7 +44,6 @@ public class Facade {
 	/**
 	 * Constroi o objeto Facade, e inicializa o objeto Controller.
 	 * 
-	 * @throws IOException
 	 */
 	public Facade() {
 		this.controllerItem = new ControllerItem();
@@ -372,7 +371,16 @@ public class Facade {
 		return this.controllerLista.geraAutomaticaItensMaisPresentes();
 	}
 
-	// Caso 6
+	/**
+	 * Metodo que sugere os melhores estabelecimentos para se fazer as compras de
+	 * acordo com a lista passada, ordenados do menor para o maior, de acordo com o
+	 * valor medio das compras.
+	 * 
+	 * @param descritorLista         O descritor de uma lista.
+	 * @param posicaoEstabelecimento Posicao que se encontra o estabelecimento.
+	 * @param posicaoLista           Posicao que se quer pesquisar da lista
+	 * @return retorna um representacao textual.
+	 */
 	public String sugereMelhorEstabelecimento(String descritorLista, int posicaoEstabelecimento, int posicaoLista) {
 		return this.controllerLista.sugereMelhorEstabelecimento(descritorLista, posicaoEstabelecimento, posicaoLista);
 
@@ -385,7 +393,8 @@ public class Facade {
 	 * 
 	 * Este metodo nao retorna nenhum valor.
 	 * 
-	 * @throws IOException Este metodo pode lancar uma excecao.
+	 * @throws IOException            Este metodo pode lancar uma excecao.
+	 * @throws ClassNotFoundException Este metodo pode lancar uma excecao.
 	 */
 	public void iniciaSistema() throws ClassNotFoundException, IOException {
 		this.persistencia.iniciaSistema();

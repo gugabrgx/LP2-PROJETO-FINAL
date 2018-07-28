@@ -548,4 +548,28 @@ public class ListaDeComprasTest {
 		return hora;
 	}
 
+	/**
+	 * Metodo que testa o metodo getQuantidadeCompra que retorna a quantidade da
+	 * compra para o item passadoa na lista.
+	 * 
+	 * Nenhum erro esperado.
+	 */
+	@Test
+	public void testgetQuantidadeCompra() {
+		this.lista.adicionaCompraALista(10, itemPQ);
+		assertEquals(10, this.lista.getQuantidadeCompra(itemPQ));
+	}
+
+	/**
+	 * Metodo que testa o metodo getQuantidadeCompra que retorna a quantidade da
+	 * compra para o item passado, quando passa um item que nao esta na lista.
+	 * 
+	 * IllegalArgumentException esperado.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testgetQuantidadeCompraInvalido() {
+		this.lista.adicionaCompraALista(10, itemPQ);
+		assertEquals(10, this.lista.getQuantidadeCompra(itemPU));
+	}
+
 }

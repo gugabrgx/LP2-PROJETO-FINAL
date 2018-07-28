@@ -21,10 +21,11 @@ import Enum.Categoria;
  */
 public abstract class Item implements Serializable {
 
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -6822963833439321284L;
+	private static final long serialVersionUID = -2293627013175851793L;
 	// Uma String que representa o nome de um item.
 	private String nome;
 	// Uma String que representa a categoria de um item.
@@ -253,10 +254,23 @@ public abstract class Item implements Serializable {
 		return String.format("%s, %s", this.nome, this.categoria.getDescricao());
 	}
 
+	/**
+	 * Metodo auxiliar que retorna uma colecao com os estabelecimentos que contem o
+	 * Item.
+	 * 
+	 * @return retorna uma colecao de estabelicmentos.
+	 */
 	public Set<String> getEstabelecimentos() {
 		return precos.keySet();
 	}
 
+	/**
+	 * Metodo auxiliar que retorna o preco do item para o estabelicemnto passado
+	 * como parametro.
+	 * 
+	 * @param estabelecimento que se quer pesquisar o preco.
+	 * @return retorna o preco do estabelecimento.
+	 */
 	public Double getPreco(String estabelecimento) {
 		return this.precos.get(estabelecimento);
 	}

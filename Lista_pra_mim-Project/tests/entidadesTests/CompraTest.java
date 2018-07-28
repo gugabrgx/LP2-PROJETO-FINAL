@@ -29,9 +29,6 @@ public class CompraTest {
 	private Compra compra, outraCompra;
 	// Instanciacao de itens.
 	private Item itemPQF, itemPQ, itemPU;
-	// Instanciacao de Categoria.
-	private Categoria categoria;
-
 	/**
 	 * Metodo que inicializa itens.
 	 * 
@@ -191,7 +188,7 @@ public class CompraTest {
 	@Test
 	public void testGetItemCategoria() {
 		compra = new Compra(1, itemPQF);
-		assertEquals(categoria.LIMPEZA, compra.getItemCategoria());
+		assertEquals(Categoria.LIMPEZA, compra.getItemCategoria());
 	}
 
 	/**
@@ -284,6 +281,16 @@ public class CompraTest {
 	public void testToString3() {
 		compra = new Compra(1, itemPU);
 		assertEquals("1 Creme dental Oral-C, higiene pessoal", compra.toString());
+	}
+
+	/**
+	 * Testa o método getEstabelecimentos.
+	 */
+	@Test
+	public void testGetEstabelecimentos() {
+		itemPU.adicionaPrecoItem("Feira - Prata", 10);
+		compra = new Compra(1, itemPU);
+		assertEquals("[Mercadinho Bem Barato, Feira - Prata]", this.compra.getEstabelecimentos().toString());
 	}
 
 }
