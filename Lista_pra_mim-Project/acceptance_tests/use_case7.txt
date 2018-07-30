@@ -2,11 +2,6 @@
 # Caso de Uso 7 #
 #################
 
-# Ps:caso o arquivo ja esteja criado, e exception abaixo nao ocorrera
-
-#expectError "Sistema iniciado pela primeira vez. Arquivo criado." iniciaSistema
-iniciaSistema
-
 ## Fecha sistema salvando todos os dados da aplicacao em um arquivo ##
 
 fechaSistema
