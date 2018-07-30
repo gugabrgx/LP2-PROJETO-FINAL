@@ -8,7 +8,7 @@ import entidades.ListaDeCompras;
 /**
  * Laboratório de Programação 2 - Lista pra mim© Project
  *
- * Classe de comparação de itens a partir dos seus preço. Implementa o
+ * Classe de comparação de listas a partir do momento de seua criacao. Implementa o
  * Comparator.
  *
  * @author Eduardo Henrique Pontes Silva - 117210360
@@ -24,17 +24,18 @@ public class ComparaTempo implements Comparator<ListaDeCompras>, Serializable {
 	private static final long serialVersionUID = -2952868760453122481L;
 
 	/**
-	 * Comparara dois objetos do tipo Item, tomando como base o menor preço dos
-	 * itens comparados.
+	 * Comparara dois objetos do tipo lista, tomando como base o momento em que
+	 * foi criado no sistema.
 	 *
-	 * @param l1 o primeiro item.
-	 * @param l2 o segundo item.
+	 * @param l1 a primeira lista.
+	 * @param l2 a segunda lista.
 	 * @return um inteiro que indica a posição relativa dos itens de acordo com o
-	 *         preco.
+	 *         momento de criacao.
 	 */
 	@Override
 	public int compare(ListaDeCompras l1, ListaDeCompras l2) {
-		return Double.compare(l1.getMili() * 100.0, l2.getMili() * 100.0);
+		return Long.compare(l1.getNano(), l2.getNano());
 	}
+
 
 }

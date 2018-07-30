@@ -8,13 +8,15 @@ import org.junit.Test;
 import controllers.ControllerItem;
 
 /**
- * Laboratório de Programação 2 - Lab 2
- * 
- * 
- * 
+ * Laboratório de Programação 2 - Lista pra mim© Project
+ *
+ * Classe que testa os metodos da classe ControllerItem e esperam excecoes.
+ *
  * @author Eduardo Henrique Pontes Silva - 117210360
+ * @author Gustavo Santos - 117210400
+ * @author Joao Pedro de Barros - 117210327
+ * @author Rafael Azevedo - 117210382
  */
-
 public class ControllerItemExeceptionTest {
 
 	// Instanciacao de objetos do tipo Controller.

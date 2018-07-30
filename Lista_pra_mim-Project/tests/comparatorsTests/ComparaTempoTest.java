@@ -77,7 +77,7 @@ public class ComparaTempoTest {
 	 */
 	@Test
 	public void testComparePrimeiro() {
-		assertEquals(99, this.comparador.compare(lista1, lista2) * 100);
+		assertEquals(-1, this.comparador.compare(lista1, lista2));
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class ComparaTempoTest {
 	 */
 	@Test
 	public void testCompareSegundo() {
-		assertTrue(this.comparador.compare(lista2, lista3) > 0.0);
+		assertEquals(-1, this.comparador.compare(lista2, lista3));
 	}
 
 	/**
@@ -94,7 +94,7 @@ public class ComparaTempoTest {
 	 */
 	@Test
 	public void testCompareIgual() {
-		assertTrue(this.comparador.compare(lista2, lista2) == 0);
+		assertEquals(0, this.comparador.compare(lista2, lista2));
 	}
 
 	/**
@@ -102,9 +102,9 @@ public class ComparaTempoTest {
 	 */
 	@Test
 	public void testConstrutor() {
-		assertTrue(comparador2 == null);
+		assertNull(comparador2);
 		comparador2 = new ComparaTempo();
-		assertFalse(comparador2 == null);
+		assertNotNull(comparador2);
 	}
 
 }

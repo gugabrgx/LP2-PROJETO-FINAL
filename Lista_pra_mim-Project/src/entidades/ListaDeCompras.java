@@ -46,8 +46,8 @@ public class ListaDeCompras implements Serializable {
 	private int maiorIdItem;
 	// Este atributo inicializa o comparator de compras.
 	private Comparator<Compra> comparaCompras;
-	// Milissegundos decorridos apos 01/01/1970
-	private double mili;
+	// Nanosegundos cedidos pela JVM
+	private long nano;
 
 	/**
 	 * Constroi o objeto lista de compras.
@@ -67,13 +67,12 @@ public class ListaDeCompras implements Serializable {
 		this.aberto = true;
 		this.compras = new HashSet<>();
 		this.comparaCompras = new ComparaCompras();
-		this.mili = System.currentTimeMillis();
-
+		this.nano = System.nanoTime();
 	}
 
 	/**
 	 * Este metodo adiciona uma compra na lista.
-	 * 
+	 *
 	 * @param quantidade A quantida do item.
 	 * @param item       O item a ser adicionado.
 	 */
@@ -88,7 +87,7 @@ public class ListaDeCompras implements Serializable {
 
 	/**
 	 * Este metodo finaliza uma lista de compras.
-	 * 
+	 *
 	 * @param localDaCompra      O local da compra.
 	 * @param valorFinalDaCompra O valor final de uma compra.
 	 */
@@ -111,7 +110,7 @@ public class ListaDeCompras implements Serializable {
 
 	/**
 	 * Este metodo pesquisa uma compra na lista.
-	 * 
+	 *
 	 * @param item O item a ser pesquisado.
 	 * @return em String a representacao de uma compra.
 	 */
@@ -126,7 +125,7 @@ public class ListaDeCompras implements Serializable {
 
 	/**
 	 * Este metodo atualiza a quantidade de um item, emm uma determinada lista.
-	 * 
+	 *
 	 * @param item       O item.
 	 * @param quantidade A quantidade nova do item.
 	 * @param operacao   A operacao de diminuir ou aumentar a quantidade do item.
@@ -169,7 +168,7 @@ public class ListaDeCompras implements Serializable {
 
 	/**
 	 * Metodo acessorio que verifica se a lista esta aberta.
-	 * 
+	 *
 	 * @return O boolean aberto.
 	 */
 	public boolean getAberto() {
@@ -178,7 +177,7 @@ public class ListaDeCompras implements Serializable {
 
 	/**
 	 * Metod que retorna o descritor da lista.
-	 * 
+	 *
 	 * @return O descritor da lista.
 	 */
 	public String getDescritorLista() {
@@ -187,7 +186,7 @@ public class ListaDeCompras implements Serializable {
 
 	/**
 	 * Metodo que retorna a data da lista.
-	 * 
+	 *
 	 * @return A data.
 	 */
 	public String getData() {
@@ -196,7 +195,7 @@ public class ListaDeCompras implements Serializable {
 
 	/**
 	 * Metodo que retorna a hora da lista.
-	 * 
+	 *
 	 * @return A hora.
 	 */
 	public String getHora() {
@@ -205,7 +204,7 @@ public class ListaDeCompras implements Serializable {
 
 	/**
 	 * Metodo que retorna o local de compra da lista.
-	 * 
+	 *
 	 * @return o local de compra.
 	 */
 	public String getLocalDeCompra() {
@@ -216,7 +215,7 @@ public class ListaDeCompras implements Serializable {
 
 	/**
 	 * Metodo que retorna o preco total de uma lista.
-	 * 
+	 *
 	 * @return O preco total.
 	 */
 	public int getPrecoTotal() {
@@ -236,7 +235,7 @@ public class ListaDeCompras implements Serializable {
 
 	/**
 	 * Metodo que recupera um item.
-	 * 
+	 *
 	 * @param posicaoItem A posicao do item.
 	 * @return em String um item.
 	 */
@@ -279,7 +278,7 @@ public class ListaDeCompras implements Serializable {
 	/**
 	 * Metodo auxiliar que retorna a quantidade a ser comprada(ou comprada) do item
 	 * que passado pelo sistema.
-	 * 
+	 *
 	 * @param item Item que quer pegar a quantidade.
 	 * @return retorna a quantidade do item.
 	 */
@@ -293,19 +292,18 @@ public class ListaDeCompras implements Serializable {
 	}
 
 	/**
-	 * Metodo auxiliar que retorna a quantidade de milisegundos decorridos desde
-	 * 01/01/1970.
-	 * 
-	 * @return retorna a quantidade milisegundos existentes desde 01/01/1970.
+	 * Metodo auxiliar que retorna a uma quantidade de nanosegundos criadas pela JVM.
+	 *
+	 * @return retorna a quantidade de nanosegundos criadas pela JVM.
 	 */
-	public double getMili() {
-		return this.mili;
+	public long getNano(){
+		return this.nano;
 	}
 
 	/**
 	 * Metodo auxiliar que retorna uma lista com os estabelecimentos que contem os
 	 * itens da lista de compra.
-	 * 
+	 *
 	 * @return Retorna uma lista com os estabelecimentos que pode-se fazer a
 	 *         compras.
 	 */

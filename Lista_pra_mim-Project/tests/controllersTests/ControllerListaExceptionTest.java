@@ -8,13 +8,15 @@ import controllers.ControllerLista;
 import facade.Facade;
 
 /**
- * Laboratório de Programação 2 - Lab 2
- * 
- * 
- * 
+ * Laboratório de Programação 2 - Lista pra mim© Project
+ *
+ * Classe que testa os metodos da classe ControllerLista e esperam excecoes.
+ *
  * @author Eduardo Henrique Pontes Silva - 117210360
+ * @author Gustavo Santos - 117210400
+ * @author Joao Pedro de Barros - 117210327
+ * @author Rafael Azevedo - 117210382
  */
-
 public class ControllerListaExceptionTest {
 
 	// Instanciação de um Objeto Facade.
@@ -467,4 +469,63 @@ public class ControllerListaExceptionTest {
 		cLista.getItemListaPorItem(0, 0);
 	}
 
+	/**
+	 * Metodo que testa o metodo geraAutamaticaItem com descritor de item nulo.
+	 *
+	 * Esperando NullPointerException.
+	 */
+	@Test(expected = NullPointerException.class)
+	public void testGeraAutomaticaItemInvalido1() {
+		cLista.geraAutomaticaItem(null);
+	}
+
+	/**
+	 * Metodo que testa o metodo geraAutomatioItem com descritor de item vazio;
+	 *
+	 * Esperando NullPointerException.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testGeraAutomaticaItemInvalido2() {
+		cLista.geraAutomaticaItem("");
+	}
+
+	/**
+	 * Metodo que testa o metodo sugereMelhorEstabelecimento com descritor de item nulo;
+	 *
+	 * Esperando NullPointerException.
+	 */
+	@Test(expected = NullPointerException.class)
+	public void testSugereMelhorEstabelecimentoInvalido1() {
+	    cLista.sugereMelhorEstabelecimento(null, 0, 0);
+	}
+
+	/**
+	 * Metodo que testa o metodo sugereMelhorEstabelecimento com descritor de item vazio;
+	 *
+	 * Esperando IllegalArgumentException.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testSugereMelhorEstabelecimentoInvalido2() {
+	    cLista.sugereMelhorEstabelecimento("", 0, 0);
+	}
+
+	/**
+	 * Metodo que testa o metodo sugereMelhorEstabelecimento com posicao de estabelecimento invalida;
+	 *
+	 * Esperando IllegalArgumentException.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testSugereMelhorEstabelecimentoInvalido3() {
+	    cLista.sugereMelhorEstabelecimento("Lista Feliz", -1, 0);
+	}
+
+	/**
+	 * Metodo que testa o metodo sugereMelhorEstabelecimento com posicao da lista invalida;
+	 *
+	 * Esperando IllegalArgumentException.
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testSugereMelhorEstabelecimentoInvalido4() {
+	    cLista.sugereMelhorEstabelecimento("Lista Feliz", 0, -1);
+	}
 }

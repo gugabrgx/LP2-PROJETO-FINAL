@@ -1,7 +1,6 @@
 package controllers;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
@@ -204,7 +203,7 @@ public class ControllerItem {
 			return "";
 		}
 
-		Collections.sort(itensOrdenados, this.comparador);
+		itensOrdenados.sort(this.comparador);
 		return String.format("%d. %s", itensOrdenados.get(posicao).getId(), itensOrdenados.get(posicao).toString());
 	}
 
@@ -233,7 +232,7 @@ public class ControllerItem {
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		Collections.sort(itensOrdenados, this.comparador);
+		itensOrdenados.sort(this.comparador);
 		return String.format("%d. %s", itensOrdenados.get(posicao).getId(), itensOrdenados.get(posicao).toString());
 	}
 
@@ -254,7 +253,7 @@ public class ControllerItem {
 			return "";
 		}
 
-		Collections.sort(itensOrdenados, this.comparador);
+		itensOrdenados.sort(this.comparador);
 		return String.format("%d. %s", itensOrdenados.get(posicao).getId(), itensOrdenados.get(posicao).toString());
 	}
 
@@ -283,7 +282,7 @@ public class ControllerItem {
 		if (itensOrdenados.size() <= posicao) {
 			return "";
 		}
-		Collections.sort(itensOrdenados, this.comparador);
+		itensOrdenados.sort(this.comparador);
 		return String.format("%d. %s", itensOrdenados.get(posicao).getId(), itensOrdenados.get(posicao).toString());
 	}
 

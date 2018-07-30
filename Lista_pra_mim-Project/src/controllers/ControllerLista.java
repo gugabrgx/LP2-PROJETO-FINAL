@@ -400,6 +400,11 @@ public class ControllerLista {
 	 *         com a data da criacao.
 	 */
 	public String geraAutomaticaItem(String descritorItem) {
+		if (descritorItem == null)
+			throw new NullPointerException("Erro ao gerar uma lista automatica por item: Descritor de item nao pode ser vazio ou nulo.");
+		if ("".equals(descritorItem))
+			throw new IllegalArgumentException("Erro ao gerar uma lista automatica por item: Descritor de item nao pode ser vazio ou nulo.");
+
 		ListaDeCompras ultimaLista;
 		String nomeLista = "Lista automatica 2 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 
@@ -476,8 +481,7 @@ public class ControllerLista {
 						try {
 							valor += (item.getPreco(local) * lista.getQuantidadeCompra(item));
 							listasTemp.get(contador).adicionaCompraALista(lista.getQuantidadeCompra(item), item);
-						} catch (Exception e) {
-							continue;
+						} catch (Exception ignored) {
 						}
 					}
 				}
@@ -500,17 +504,19 @@ public class ControllerLista {
 	 * @return retorna um representacao textual.
 	 */
 	public String sugereMelhorEstabelecimento(String descritorLista, int posicaoEstabelecimento, int posicaoLista) {
+		this.verificaDescritor(descritorLista, "Erro ao sugerir estabelecimento");
+
 		try {
 			ArrayList<ListaDeCompras> locaisDeCompra = listaTemp(listasDeCompras.get(descritorLista));
 			locaisDeCompra.sort(new ComparaPrecoTotal());
 			if (posicaoLista == 0) {
 				return String.format("%s: R$ %.2f", locaisDeCompra.get(posicaoEstabelecimento).getDescritorLista(),
-						(1.0 * (locaisDeCompra.get(posicaoEstabelecimento).getPrecoTotal())) / 1000);
+						((locaisDeCompra.get(posicaoEstabelecimento).getPrecoTotal()) / 1000.0));
 			}
 
 			String resultado = locaisDeCompra.get(posicaoEstabelecimento).getItemLista(posicaoLista - 1);
 
-			if (resultado == "") {
+			if (resultado.equals("")) {
 				return "";
 			}
 			return "- " + resultado;
