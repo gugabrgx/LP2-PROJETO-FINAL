@@ -7,7 +7,7 @@ import java.util.*;
 import comparators.ComparaCompras;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  *
  * Representa uma lista de compras que tem a capacidade armazenar compras.
  * 

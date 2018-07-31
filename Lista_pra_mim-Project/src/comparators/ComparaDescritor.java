@@ -6,9 +6,9 @@ import java.io.Serializable;
 import java.util.Comparator;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  * 
- * Classe de comparação de descritores de listas de compras.
+ * Classe de comparacao de descritores de listas de compras.
  * Implementa o Comparator.
  * 
  * @author Eduardo Henrique Pontes Silva - 117210360

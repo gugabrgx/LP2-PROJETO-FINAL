@@ -1,7 +1,6 @@
 package entidades;
 
 import Enum.Categoria;
-
 import java.io.Serializable;
 import java.util.Set;
 

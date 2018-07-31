@@ -10,7 +10,7 @@ import entidades.Item;
 import entidades.ListaDeCompras;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  *
  * Classe que representa o Controller.
  * Nesta classe e possivel realizar operacoes como: adicionar itens a uma lista de

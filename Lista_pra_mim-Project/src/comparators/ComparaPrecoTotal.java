@@ -5,9 +5,9 @@ import java.util.Comparator;
 import entidades.ListaDeCompras;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  *
- * Classe de comparação de listas a partir dos seus precos totais.
+ * Classe de comparacao de listas a partir dos seus precos totais.
  * Implementa o Comparator.
  *
  * @author Eduardo Henrique Pontes Silva - 117210360

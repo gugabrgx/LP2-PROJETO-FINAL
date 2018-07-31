@@ -6,9 +6,9 @@ import java.util.Comparator;
 import entidades.Item;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  * 
- * Classe de comparação de itens a partir dos seus descritores.
+ * Classe de comparacao de itens a partir dos seus descritores.
  * Implementa o Comparator.
  *
  * @author Eduardo Henrique Pontes Silva - 117210360
