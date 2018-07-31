@@ -97,7 +97,7 @@ public class ItemPorQuantidadeFixa extends Item {
 			if (novoValor == null)
 				throw new NullPointerException(
 						"Erro na atualizacao de item: unidade de medida nao pode ser vazia ou nula.");
-			if (novoValor.trim().length() == 0)
+			if ("".equals(novoValor.trim()))
 				throw new IllegalArgumentException(
 						"Erro na atualizacao de item: unidade de medida nao pode ser vazia ou nula.");
 			this.unidadeDeMedida = novoValor;
@@ -109,7 +109,7 @@ public class ItemPorQuantidadeFixa extends Item {
 	}
 
 	/**
-	 * Metodo que retorna uma string contendo nome e categoria de um item.
+	 * Metodo que retorna representacao textual de um item.
 	 *
 	 * @return Uma String contendo nome e categoria de um item.
 	 */

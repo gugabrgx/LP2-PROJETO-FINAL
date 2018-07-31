@@ -26,16 +26,16 @@ public abstract class Item implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -2293627013175851793L;
-	// Uma String que representa o nome de um item.
+	// Atributo String que representa o nome de um item.
 	private String nome;
-	// Uma String que representa a categoria de um item.
+	// Atributo String que representa a categoria de um item.
 	private Categoria categoria;
-	// Um Mapa que mapeia o valor do produto em ponto flutuante a um local de venda,
+	// Um mapa que mapeia o valor do produto em double a um local de venda,
 	// uma String.
 	private Map<String, Double> precos;
-	// Um double que representa o menor preco de um item.
+	// Atributo double que representa o menor preco de um item.
 	private double menorPreco;
-	// Um inteiro que representa o id do item.
+	// Atributo inteiro que representa o id do item.
 	private int id;
 
 	/**
@@ -46,8 +46,8 @@ public abstract class Item implements Serializable {
 	 * @param categoria     String que representa a categoria do item;
 	 * @param localDeCompra String que representa o local de compra do item;
 	 * @param preco         Double que representa o preco do item no local de compra
-	 *                      acima deifinido.
-	 * @param id            Identtficacao unica do item.
+	 *                      acima definido.
+	 * @param id            Identficacao do item na lista de itens.
 	 */
 	public Item(String nome, String categoria, String localDeCompra, double preco, int id) {
 		if (nome == null)
@@ -83,8 +83,7 @@ public abstract class Item implements Serializable {
 	}
 
 	/**
-	 * Metodo que atualiza os dados de um item de acordo com o solicitado pelo
-	 * usuario.
+	 * Metodo que atualiza os dados de um item de acordo com a necessidade do usuario.
 	 *
 	 * @param atributo  Uma String que representa o atributo que sera atualizado.
 	 * @param novoValor Uma String que representa o novo valor para o atributo.
@@ -108,7 +107,7 @@ public abstract class Item implements Serializable {
 	}
 
 	/**
-	 * Metodo que adiciona um preco ao Mapa de precos.
+	 * Metodo que adiciona um preco ao Mapa de precos do item.
 	 *
 	 * @param localDeCompra Uma String que representa o local de compra do produto.
 	 * @param preco         Um double que representa o valor de compra do produto.
@@ -131,6 +130,7 @@ public abstract class Item implements Serializable {
 
 	/**
 	 * Metodo que gera uma String contendo todos os precos de um determinado item.
+	 *
 	 * Este metodo nao utiliza parametros.
 	 *
 	 * @return Uma String contendo todos os precos de um item.
@@ -255,21 +255,21 @@ public abstract class Item implements Serializable {
 	}
 
 	/**
-	 * Metodo auxiliar que retorna uma colecao com os estabelecimentos que contem o
-	 * Item.
+	 * Metodo auxiliar que retorna uma colecao de estabelecimentos que contem o
+	 * item.
 	 * 
-	 * @return retorna uma colecao de estabelicmentos.
+	 * @return retorna uma colecao de estabelecimentos.
 	 */
 	public Set<String> getEstabelecimentos() {
 		return precos.keySet();
 	}
 
 	/**
-	 * Metodo auxiliar que retorna o preco do item para o estabelicemnto passado
+	 * Metodo auxiliar que retorna o preco do item para o estabelecimento passado
 	 * como parametro.
 	 * 
 	 * @param estabelecimento que se quer pesquisar o preco.
-	 * @return retorna o preco do estabelecimento.
+	 * @return retorna o preco do item no estabelecimento.
 	 */
 	public Double getPreco(String estabelecimento) {
 		return this.precos.get(estabelecimento);

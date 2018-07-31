@@ -8,8 +8,8 @@ import entidades.Item;
 /**
  * Laboratório de Programação 2 - Lista pra mim© Project
  * 
- * Classe de comparação de itens a partir dos seus nomes. Implementa o
- * Comparator.
+ * Classe de comparação de itens a partir dos seus descritores.
+ * Implementa o Comparator.
  *
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
@@ -24,8 +24,8 @@ public class ComparaNome implements Comparator<Item>, Serializable {
 	private static final long serialVersionUID = 3929933189456754487L;
 
 	/**
-	 * Comparara dois objetos do tipo Item, tomando como base a ordem lexicográfica
-	 * de suaa representacoes em String.
+	 * Compara dois objetos do tipo Item, tomando como base a ordem lexicografica
+	 * de suas representacoes textuais.
 	 * 
 	 * @param i1
 	 *            o primeiro item.

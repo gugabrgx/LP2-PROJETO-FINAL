@@ -8,7 +8,8 @@ import java.util.Comparator;
 /**
  * Laboratório de Programação 2 - Lista pra mim© Project
  * 
- * Classe de comparação de descritores de lista. Implementa o Comparator.
+ * Classe de comparação de descritores de listas de compras.
+ * Implementa o Comparator.
  * 
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
@@ -23,8 +24,7 @@ public class ComparaDescritor implements Comparator<ListaDeCompras>, Serializabl
 	private static final long serialVersionUID = -1032921725889053313L;
 
 	/**
-	 * Comparara duas Strings, estas representam as horas em que as listas foram
-	 * criadas.
+	 * Comparara dois objetos do tipo ListaDeCompras, tomando como base seus descritores.
 	 *
 	 * @param listaDeCompras1 a primeira lista de compras.
 	 * @param listaDeCompras2 a segunda lista de compras.

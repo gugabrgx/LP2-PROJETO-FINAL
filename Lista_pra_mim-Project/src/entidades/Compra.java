@@ -6,7 +6,11 @@ import java.io.Serializable;
 import java.util.Set;
 
 /**
- * Laboratorio de Programacao 2 - 2018.1
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
+ *
+ * Classe que representa a compra de um item. Nesta classe e possivel
+ * criar uma compra, atualizar os dados desta compra, recuperar a quantidade
+ * comprada do item, etc.
  *
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
@@ -14,7 +18,6 @@ import java.util.Set;
  * @author Rafael Azevedo - 117210382
  */
 public class Compra implements Serializable {
-
 	
 	/**
 	 * 

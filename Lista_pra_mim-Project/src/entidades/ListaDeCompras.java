@@ -2,17 +2,14 @@ package entidades;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashSet;
+import java.util.*;
+
 import comparators.ComparaCompras;
 
 /**
  * Laboratório de Programação 2 - Lista pra mim© Project
  *
- * Reoresenta uma lista de compras que tem a capacidade armazenar compras.
+ * Representa uma lista de compras que tem a capacidade armazenar compras.
  * 
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
@@ -25,28 +22,28 @@ public class ListaDeCompras implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -3683351079303281407L;
-	// Este atributo representa o horario.
+	// Atributo que representa o horario.
 	private Date horario = new Date();
-	// Este atributo representa um HashSet de compras.
-	private HashSet<Compra> compras;
-	// Este atributo representa um boolean pra verificar se uma lista esta aberta ou
+	// Atributo que representa um Set de compras.
+	private Set<Compra> compras;
+	// Atributo que representa um boolean pra verificar se uma lista esta aberta ou
 	// nao.
 	private boolean aberto;
-	// Este atributo representa o descritor da lista.
+	// Atributo que representa o descritor da lista.
 	private String descritorLista;
-	// Este atributo representa a date de uma lista.
+	// Atributo que representa a data de criacao da lista.
 	private String data;
-	// Este atributo representa a hora da lista.
+	// Atributo que representa a hora de criacao da lista.
 	private String hora;
-	// Este atributo representa o local de compra de uma lista.
+	// Atributo que representa o local de compra de uma lista.
 	private String localDaCompra;
-	// Este atributo representa o preco total de uma lista.
+	// Atributo que representa o preco total de uma lista.
 	private int precoTotal;
-	// Este atributo representa o maior id deitem que uma lista possui.
+	// Atributo que representa o maior id de item que uma lista possui.
 	private int maiorIdItem;
-	// Este atributo inicializa o comparator de compras.
+	// Atributo que inicializa o comparator de compras.
 	private Comparator<Compra> comparaCompras;
-	// Nanosegundos cedidos pela JVM
+	// Atributo que representa os nanosegundos cedidos pela JVM do momento da criacao da lista.
 	private long nano;
 
 	/**
@@ -64,14 +61,14 @@ public class ListaDeCompras implements Serializable {
 		this.descritorLista = descritorLista;
 		this.data = new SimpleDateFormat("dd/MM/yyyy").format(horario);
 		this.hora = new SimpleDateFormat("HH:mm:ss").format(horario);
-		this.aberto = true;
+		this.nano = System.nanoTime();
 		this.compras = new HashSet<>();
 		this.comparaCompras = new ComparaCompras();
-		this.nano = System.nanoTime();
+		this.aberto = true;
 	}
 
 	/**
-	 * Este metodo adiciona uma compra na lista.
+	 * Metodo que adiciona uma compra na lista.
 	 *
 	 * @param quantidade A quantida do item.
 	 * @param item       O item a ser adicionado.
@@ -86,7 +83,7 @@ public class ListaDeCompras implements Serializable {
 	}
 
 	/**
-	 * Este metodo finaliza uma lista de compras.
+	 * Metodo que finaliza uma lista de compras.
 	 *
 	 * @param localDaCompra      O local da compra.
 	 * @param valorFinalDaCompra O valor final de uma compra.
@@ -109,10 +106,10 @@ public class ListaDeCompras implements Serializable {
 	}
 
 	/**
-	 * Este metodo pesquisa uma compra na lista.
+	 * Metodo que pesquisa uma compra na lista.
 	 *
 	 * @param item O item a ser pesquisado.
-	 * @return em String a representacao de uma compra.
+	 * @return em String a representacao textual de uma compra.
 	 */
 	public String pesquisaCompraEmLista(Item item) {
 		for (Compra compra : compras) {
@@ -124,7 +121,7 @@ public class ListaDeCompras implements Serializable {
 	}
 
 	/**
-	 * Este metodo atualiza a quantidade de um item, emm uma determinada lista.
+	 * Metodo que atualiza a quantidade de um item presente na lista.
 	 *
 	 * @param item       O item.
 	 * @param quantidade A quantidade nova do item.
@@ -146,7 +143,7 @@ public class ListaDeCompras implements Serializable {
 	}
 
 	/**
-	 * Este metodo deleta uma compra de uma lista, pelo id do item. .
+	 * Metodo que deleta uma compra de uma lista, a partir de um item.
 	 *
 	 * @param item O item.
 	 */
@@ -176,7 +173,7 @@ public class ListaDeCompras implements Serializable {
 	}
 
 	/**
-	 * Metod que retorna o descritor da lista.
+	 * Metodo que retorna o descritor da lista.
 	 *
 	 * @return O descritor da lista.
 	 */
@@ -185,18 +182,18 @@ public class ListaDeCompras implements Serializable {
 	}
 
 	/**
-	 * Metodo que retorna a data da lista.
+	 * Metodo que retorna a data de criacao da lista.
 	 *
-	 * @return A data.
+	 * @return A data de criacao da lista.
 	 */
 	public String getData() {
 		return this.data;
 	}
 
 	/**
-	 * Metodo que retorna a hora da lista.
+	 * Metodo que retorna a hora de criacao da lista.
 	 *
-	 * @return A hora.
+	 * @return A hora de criacao da lista.
 	 */
 	public String getHora() {
 		return this.hora;
@@ -234,10 +231,10 @@ public class ListaDeCompras implements Serializable {
 	}
 
 	/**
-	 * Metodo que recupera um item.
+	 * Metodo que recupera a representacao textual de um item na lista de compras.
 	 *
-	 * @param posicaoItem A posicao do item.
-	 * @return em String um item.
+	 * @param posicaoItem A posicao do item na lista de compras..
+	 * @return A representacao textual de um item na lista de compras.
 	 */
 	public String getItemLista(int posicaoItem) {
 		if (posicaoItem < 0)
@@ -276,10 +273,10 @@ public class ListaDeCompras implements Serializable {
 	}
 
 	/**
-	 * Metodo auxiliar que retorna a quantidade a ser comprada(ou comprada) do item
-	 * que passado pelo sistema.
+	 * Metodo auxiliar que retorna a quantidade a ser comprada do item
+	 * passado pelo sistema.
 	 *
-	 * @param item Item que quer pegar a quantidade.
+	 * @param item Item a ser pega a quantidade.
 	 * @return retorna a quantidade do item.
 	 */
 	public int getQuantidadeCompra(Item item) {
