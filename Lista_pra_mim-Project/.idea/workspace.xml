@@ -3,17 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="615a1e68-6578-4f21-b7df-ad7b95f1d864" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enum/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enum/Categoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/comparators/ComparaCompras.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comparators/ComparaCompras.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/comparators/ComparaDescritor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comparators/ComparaDescritor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/comparators/ComparaNome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comparators/ComparaNome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/comparators/ComparaPreco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comparators/ComparaPreco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/comparators/ComparaPrecoTotal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comparators/ComparaPrecoTotal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/comparators/ComparaTempo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comparators/ComparaTempo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ControllerItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControllerItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/ControllerLista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/ControllerLista.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entidades/Compra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entidades/Compra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entidades/ListaDeCompras.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entidades/ListaDeCompras.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/system.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/system.log" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/Lista_pra_mim-Project/bin/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -27,6 +17,7 @@
     <session id="1319293221">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.53" value="1" />
           <entry key="project.open.time.9" value="1" />
           <entry key="project.opened" value="2" />
@@ -193,7 +184,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533070703220" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533071014617" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -406,7 +397,7 @@
       <workItem from="1532529466394" duration="2694000" />
       <workItem from="1532548035958" duration="602000" />
       <workItem from="1532789131788" duration="10171000" />
-      <workItem from="1533064062279" duration="6608000" />
+      <workItem from="1533064062279" duration="7304000" />
     </task>
     <task id="LOCAL-00001" summary="Adicao de metodos de metodos do caso 7 na facade e simplificacaoa do&#10;codigo do caso 5">
       <created>1532548541539</created>
@@ -451,12 +442,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20274000" />
+    <option name="totallyTimeSpent" value="20970000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1920" height="1050" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15048026" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15048026" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Nl-Palette" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -466,7 +457,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32826087" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32826087" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />

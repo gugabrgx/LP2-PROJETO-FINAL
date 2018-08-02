@@ -8,7 +8,7 @@ import org.junit.Test;
 import controllers.ControllerItem;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  *
  * Classe que testa os metodos da classe ControllerItem e esperam excecoes.
  *

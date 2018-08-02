@@ -9,7 +9,7 @@ import comparators.ComparaDescritor;
 import entidades.ListaDeCompras;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  * 
  * Rotina de testes da classe comparaDescritor.
  * 
@@ -22,28 +22,17 @@ import entidades.ListaDeCompras;
 public class ComparaDescritorTest {
 
 	/**
-	 * Lista de Compras criado para testes.
+	 * Listas de Compras criado para testes.
 	 */
-	private ListaDeCompras lista1;
-	/**
-	 * Lista de Compras criado para testes.
-	 */
-	private ListaDeCompras lista2;
-	/**
-	 * Lista de Compras criado para testes.
-	 */
-	private ListaDeCompras lista3;
-	/**
-	 * Comparador criado para testes.
-	 */
-	private ComparaDescritor comparador;
-	/**
-	 * Comparador criado para testes.
-	 */
-	private ComparaDescritor comparador2;
+	private ListaDeCompras lista1, lista2, lista3;
 
 	/**
-	 * Método que cria Lista de Compras para testes.
+	 * Comparadores criado para testes.
+	 */
+	private ComparaDescritor comparador, comparador2;
+
+	/**
+	 * Metodo que cria Lista de Compras para testes.
 	 */
 	@Before
 	public void PreparaCenario() {
@@ -54,7 +43,7 @@ public class ComparaDescritorTest {
 	}
 
 	/**
-	 * Método que testa Compare quando a lista1 vem primeiro que a lista2.
+	 * Metodo que testa Compare quando a lista1 vem primeiro que a lista2.
 	 */
 	@Test
 	public void testComparePrimeiro() {
@@ -62,7 +51,7 @@ public class ComparaDescritorTest {
 	}
 
 	/**
-	 * Método que testa Compare quando a lista2 vem depois que a lista3.
+	 * Metodo que testa Compare quando a lista2 vem depois que a lista3.
 	 */
 	@Test
 	public void testCompareSegundo() {
@@ -70,7 +59,7 @@ public class ComparaDescritorTest {
 	}
 
 	/**
-	 * Método que testa Compare quando as listas são iguais.
+	 * Metodo que testa Compare quando as listas são iguais.
 	 */
 	@Test
 	public void testCompareIgual() {
@@ -78,7 +67,7 @@ public class ComparaDescritorTest {
 	}
 
 	/**
-	 * Testa o construtor de um comparador de Descricoes de listas.
+	 * Metodo que testa o construtor de um comparador de Descricoes de listas.
 	 */
 	@Test
 	public void testConstrutor() {

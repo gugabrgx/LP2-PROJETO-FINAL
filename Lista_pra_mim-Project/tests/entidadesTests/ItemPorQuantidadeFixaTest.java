@@ -92,7 +92,7 @@ public class ItemPorQuantidadeFixaTest {
 	}
 
 	/**
-	 * Constroi um item com quantidade inválida, esperando a excecao.
+	 * Constroi um item com quantidade invalida, esperando a excecao.
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void quantidadeInvalida() {
@@ -110,7 +110,7 @@ public class ItemPorQuantidadeFixaTest {
 	}
 
 	/**
-	 * Testa o método atualizaItem.
+	 * Testa o metodo atualizaItem.
 	 */
 	@Test
 	public void atualizaNomeQuantidadeCategoria() {
@@ -130,7 +130,7 @@ public class ItemPorQuantidadeFixaTest {
 	}
 
 	/**
-	 * Testa o método atualizaItem com categoria invalida, esperando a excecao.
+	 * Testa o metodo atualizaItem com categoria invalida, esperando a excecao.
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void atualizaItemCategoriaInvalida() {
@@ -138,7 +138,7 @@ public class ItemPorQuantidadeFixaTest {
 	}
 
 	/**
-	 * Testa o método atualizaItem com quantidade invalida, esperando a excecao.
+	 * Testa o metodo atualizaItem com quantidade invalida, esperando a excecao.
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void atualizaItemQuantidadeInvalido() {
@@ -146,7 +146,7 @@ public class ItemPorQuantidadeFixaTest {
 	}
 
 	/**
-	 * Testa o método atualizaItem com quantidade menor que zero, esperando a
+	 * Testa o metodo atualizaItem com quantidade menor que zero, esperando a
 	 * excecao.
 	 */
 	@Test(expected = IllegalArgumentException.class)
@@ -216,7 +216,7 @@ public class ItemPorQuantidadeFixaTest {
 	}
 
 	/**
-	 * Testa o método toString.
+	 * Testa o metodo toString.
 	 */
 	@Test
 	public void testeToString() {
@@ -233,7 +233,7 @@ public class ItemPorQuantidadeFixaTest {
 	}
 
 	/**
-	 * Testa o método getId.
+	 * Testa o metodo getId.
 	 */
 	@Test
 	public void testGetId() {
@@ -241,7 +241,7 @@ public class ItemPorQuantidadeFixaTest {
 	}
 
 	/**
-	 * Testa o método getListaPreco.
+	 * Testa o metodo getListaPreco.
 	 */
 	@Test
 	public void testGetListaPrecos() {
@@ -249,7 +249,7 @@ public class ItemPorQuantidadeFixaTest {
 	}
 
 	/**
-	 * Testa o método getNome.
+	 * Testa o metodo getNome.
 	 */
 	@Test
 	public void testGetNome() {
@@ -257,7 +257,7 @@ public class ItemPorQuantidadeFixaTest {
 	}
 
 	/**
-	 * Testa o método getDescricao.
+	 * Testa o metodo getDescricao.
 	 */
 	@Test
 	public void testGetDescricao() {
@@ -265,7 +265,7 @@ public class ItemPorQuantidadeFixaTest {
 	}
 
 	/**
-	 * Testa o método getEstabelecimentos.
+	 * Testa o metodo getEstabelecimentos.
 	 */
 	@Test
 	public void testGetEstabelecimentos() {
@@ -274,7 +274,7 @@ public class ItemPorQuantidadeFixaTest {
 	}
 
 	/**
-	 * Testa o método getPreco.
+	 * Testa o metodo getPreco.
 	 */
 	@Test
 	public void testGetPreco() {

@@ -7,7 +7,7 @@ import org.junit.Test;
 import Enum.Categoria;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  *
  * Rotina de testes do Enum Categoria.
  *
@@ -26,7 +26,7 @@ public class CategoriaTest {
 	private Categoria naoInsdustrializados = Categoria.ALIMENTONAOINDUSTRIALIZADO;
 
 	/**
-	 * testa a recuperaco da valor da constante HIGIENEPESSOAL.
+	 * Testa a recuperaco do valor da constante HIGIENEPESSOAL.
 	 */
 	@Test
 	public void testGetDescricao() {
@@ -34,7 +34,7 @@ public class CategoriaTest {
 	}
 
 	/**
-	 * testa a recuperaco da valor da constante LIMPEZA.
+	 * Testa a recuperaco do valor da constante LIMPEZA.
 	 */
 	@Test
 	public void testGetDescricao2() {
@@ -42,6 +42,7 @@ public class CategoriaTest {
 	}
 
 	/**
+	 * Testa a recuperacao do valor da constante ALIMENTOINDUSTRIALIZADO.
 	 */
 	@Test
 	public void testGetDescricao3() {
@@ -49,7 +50,7 @@ public class CategoriaTest {
 	}
 
 	/**
-	 * testa a recuperaco da valor da constante ALIMENTOSNAOINDUSTRIALIZADOS.
+	 * Testa a recuperaco do valor da constante ALIMENTOSNAOINDUSTRIALIZADOS.
 	 */
 	@Test
 	public void testGetDescricao4() {

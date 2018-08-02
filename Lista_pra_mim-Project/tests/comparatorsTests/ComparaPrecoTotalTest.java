@@ -9,7 +9,7 @@ import comparators.ComparaPrecoTotal;
 import entidades.ListaDeCompras;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  * 
  * Rotina de testes da classe comparaPrecoTotal.
  * 
@@ -21,28 +21,17 @@ import entidades.ListaDeCompras;
 public class ComparaPrecoTotalTest {
 
 	/**
-	 * lista criado para testes.
+	 * listas criadas para testes.
 	 */
-	private ListaDeCompras lista1;
-	/**
-	 * lista criado para testes.
-	 */
-	private ListaDeCompras lista2;
-	/**
-	 * lista criado para testes.
-	 */
-	private ListaDeCompras lista3;
-	/**
-	 * Comparador criado para testes.
-	 */
-	private ComparaPrecoTotal comparador;
-	/**
-	 * Comparador criado para testes.
-	 */
-	private ComparaPrecoTotal comparador2;
+	private ListaDeCompras lista1, lista2, lista3;
 
 	/**
-	 * Método que cria itens para testes.
+	 * Comparadores criado para testes.
+	 */
+	private ComparaPrecoTotal comparador, comparador2;
+
+	/**
+	 * Metodo que cria itens para testes.
 	 */
 	@Before
 	public void PreparaCenario() {
@@ -57,7 +46,7 @@ public class ComparaPrecoTotalTest {
 	}
 
 	/**
-	 * Método que testa Compare quando o preco Total da primeira lista é menor que o
+	 * Metodo que testa ComparaPrecoTotal quando o preco Total da primeira lista é menor que o
 	 * da segunda lista.
 	 */
 	@Test
@@ -66,7 +55,7 @@ public class ComparaPrecoTotalTest {
 	}
 
 	/**
-	 * Método que testa Compare quando preco Total da segunda lista é menor que o da
+	 * Metodo que testa ComparePrecoTotal quando preco Total da segunda lista é menor que o da
 	 * segunda lista.
 	 */
 	@Test
@@ -75,7 +64,7 @@ public class ComparaPrecoTotalTest {
 	}
 
 	/**
-	 * Método que testa Compare quando o preco total das listas tem o mesmo preco.
+	 * Metodo que testa ComparePrecoTotal quando o preco total das listas tem o mesmo preco.
 	 */
 	@Test
 	public void testCompareIgual() {
@@ -83,7 +72,7 @@ public class ComparaPrecoTotalTest {
 	}
 
 	/**
-	 * Testa o construtor de um comparador por preco Total.
+	 * Metodo que testa o construtor de um comparador por preco Total.
 	 */
 	@Test
 	public void testConstrutor() {

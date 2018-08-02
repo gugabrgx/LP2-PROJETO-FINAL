@@ -12,7 +12,7 @@ import entidades.ItemPorQuilo;
 import entidades.ItemPorUnidade;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  * 
  * Rotina de testes da classe comparaNome.
  * 
@@ -24,28 +24,17 @@ import entidades.ItemPorUnidade;
 public class ComparaNomeTest {
 
 	/**
-	 * item criado para testes.
+	 * Itens criado para testes.
 	 */
-	private Item item;
-	/**
-	 * item criado para testes.
-	 */
-	private Item item2;
-	/**
-	 * item criado para testes.
-	 */
-	private Item item3;
-	/**
-	 * Comparador criado para testes.
-	 */
-	private ComparaNome comparador;
-	/**
-	 * Comparador criado para testes.
-	 */
-	private ComparaNome comparador2;
+	private Item item, item2, item3;
 
 	/**
-	 * Método que cria itens para testes.
+	 * Comparadores criado para testes.
+	 */
+	private ComparaNome comparador, comparador2;
+
+	/**
+	 * Metodo que cria itens para testes.
 	 */
 	@Before
 	public void PreparaCenario() {
@@ -57,7 +46,7 @@ public class ComparaNomeTest {
 	}
 
 	/**
-	 * Método que testa Compare quando o primeiro item vem primeiro que o segundo
+	 * Metodo que testa Compare quando o primeiro item vem primeiro que o segundo
 	 * item.
 	 */
 	@Test
@@ -66,7 +55,7 @@ public class ComparaNomeTest {
 	}
 
 	/**
-	 * Método que testa Compare quando o primeiro item vem depois que o terceiro
+	 * Metodo que testa Compare quando o primeiro item vem depois que o terceiro
 	 * item.
 	 */
 	@Test
@@ -75,7 +64,7 @@ public class ComparaNomeTest {
 	}
 
 	/**
-	 * Método que testa Compare quando os itens são iguais.
+	 * Metodo que testa Compare quando os itens são iguais.
 	 */
 	@Test
 	public void testCompareIgual() {
@@ -83,7 +72,7 @@ public class ComparaNomeTest {
 	}
 
 	/**
-	 * Testa o construtor de um comparador por Nome.
+	 * Metodo que testa o construtor de um comparador por Nome.
 	 */
 	@Test
 	public void testConstrutor() {

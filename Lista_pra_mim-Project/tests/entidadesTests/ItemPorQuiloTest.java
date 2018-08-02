@@ -10,7 +10,7 @@ import entidades.ItemPorQuilo;
 
 /**
  * 
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  *
  * Classe que testa os metodos da classe ItemPorQuilo.
  *

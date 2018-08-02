@@ -12,7 +12,7 @@ import entidades.ItemPorQuilo;
 import entidades.ItemPorUnidade;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  * 
  * Rotina de testes da classe comparaCompras.
  * 
@@ -25,33 +25,22 @@ import entidades.ItemPorUnidade;
 public class ComparaComprasTest {
 
 	/**
-	 * Compra criado para testes.
+	 * Compras criados para testes.
 	 */
-	private Compra compra;
-	/**
-	 * Compra criado para testes.
-	 */
-	private Compra compra2;
-	/**
-	 * Compra criado para testes.
-	 */
-	private Compra compra3;
-	/**
-	 * Comparador criado para testes.
-	 */
-	private ComparaCompras comparador;
-	/**
-	 * Comparador criado para testes.
-	 */
-	private ComparaCompras comparador2;
+	private Compra compra1, compra2, compra3;
 
 	/**
-	 * Método que cria itens para testes.
+	 * Comparadores criado para testes.
+	 */
+	private ComparaCompras comparador, comparador2;
+
+	/**
+	 * Metodo que cria itens para testes.
 	 */
 	@Before
 	public void PreparaCenario() {
 		this.comparador = new ComparaCompras();
-		this.compra = new Compra(2, new ItemPorQuantidadeFixa("Capsula Dois Coracoes", "alimento industrializado", 3,
+		this.compra1 = new Compra(2, new ItemPorQuantidadeFixa("Capsula Dois Coracoes", "alimento industrializado", 3,
 				"capsulas", "Mercadinho++", 2.99, 1));
 		this.compra2 = new Compra(2,
 				new ItemPorQuilo("Feijao Hulk", "alimento industrializado", 3.0, "Mercadinho#", 8.99, 1));
@@ -60,15 +49,15 @@ public class ComparaComprasTest {
 	}
 
 	/**
-	 * Método que testa Compare quando compra1 vem primeiro que a compra2.
+	 * Metodo que testa Compare quando compra1 vem primeiro que a compra2.
 	 */
 	@Test
 	public void testComparePrimeiro() {
-		assertTrue(this.comparador.compare(compra, compra2) < 0);
+		assertTrue(this.comparador.compare(compra1, compra2) < 0);
 	}
 
 	/**
-	 * Método que testa Compare quando compra2 vem primeiro que a compra3.
+	 * Metodo que testa Compare quando compra2 vem primeiro que a compra3.
 	 */
 	@Test
 	public void testCompareSegundo() {
@@ -76,7 +65,7 @@ public class ComparaComprasTest {
 	}
 
 	/**
-	 * Método que testa Compare quando as compras são iguais.
+	 * Metodo que testa Compare quando as compras são iguais.
 	 */
 	@Test
 	public void testCompareIgual() {
@@ -84,7 +73,7 @@ public class ComparaComprasTest {
 	}
 
 	/**
-	 * Testa o construtor de um comparador de compras.
+	 * Metodo que testa o construtor de um comparador de compras.
 	 */
 	@Test
 	public void testConstrutor() {
