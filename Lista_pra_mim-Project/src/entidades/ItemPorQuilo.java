@@ -4,7 +4,7 @@ package entidades;
  * Laboratorio de Programacaoo 2 - Lista pra mim© Project
  *
  * Classe que representa um Item comercializado por quilo. Este tipo de item
- * base possui nome, categoria, peso e precos. Nesta classe e possivel crir um
+ * base possui nome, categoria, peso e precos. Nesta classe e possivel criar um
  * item, adicionar um preco a um item, recuperar o nome do item, recuperar a
  * categoria de um item, etc.
  *
@@ -20,6 +20,7 @@ public class ItemPorQuilo extends Item {
 	 * 
 	 */
 	private static final long serialVersionUID = 6248015407531971847L;
+
 	/**
 	 * Double que representa o peso do item;
 	 */
@@ -51,8 +52,7 @@ public class ItemPorQuilo extends Item {
 	}
 
 	/**
-	 * Metodo que atualiza os dados de um item de acordo com o solicitado pelo
-	 * usuario.
+	 * Metodo que atualiza os dados de um item de acordo com a necessidade do usuario.
 	 *
 	 * @param atributo
 	 *            Uma String que representa o atributo que sera atualizado.
@@ -83,9 +83,9 @@ public class ItemPorQuilo extends Item {
 	}
 
 	/**
-	 * Metodo que retorna uma string contendo nome e categoria de um item.
+	 * Metodo que retorna representacao textual de um item.
 	 *
-	 * @return Uma String contendo nome e categoria de um item.
+	 * @return Uma String contendo nome, categoria, locais de compras e precos de um item.
 	 */
 	public String toString() {
 		return String.format("%s, Preco por quilo: %s", super.toString(), super.getListaPrecos());

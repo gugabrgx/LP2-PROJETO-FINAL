@@ -51,8 +51,7 @@ public class ItemPorUnidade extends Item {
 	}
 
 	/**
-	 * Metodo que atualiza os dados de um item de acordo com o solicitado pelo
-	 * usuario.
+	 * Metodo que atualiza os dados de um item de acordo com a necessidade do usuario.
 	 *
 	 * @param atributo
 	 *            Uma String que representa o atributo que sera atualizado.
@@ -83,9 +82,9 @@ public class ItemPorUnidade extends Item {
 	}
 
 	/**
-	 * Metodo que retorna uma string contendo nome e categoria de um item.
+	 * Metodo que retorna representacao textual de um item.
 	 *
-	 * @return Uma String contendo nome e categoria de um item.
+	 * @return Uma String contendo nome, categoria, locais de compras e precos de um item.
 	 */
 	public String toString() {
 		return String.format("%s, Preco: %s", super.toString(), super.getListaPrecos());

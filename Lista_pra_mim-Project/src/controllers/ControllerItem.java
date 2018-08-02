@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-
 import comparators.ComparaNome;
 import comparators.ComparaPreco;
 import entidades.Item;
@@ -13,10 +12,10 @@ import entidades.ItemPorQuilo;
 import entidades.ItemPorUnidade;
 
 /**
- * Laboratorio de Programacao 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project.
  *
- * Classe que representa o Controller. Nesta classe e possivel realizar
- * operacoes como: adicionar itens, exibir itens, atualizar itens, etc.
+ * Classe que representa o Controller.
+ * Nesta classe e possivel realizar operacoes como: adicionar itens, exibir itens, atualizar itens, etc.
  *
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
@@ -34,10 +33,10 @@ public class ControllerItem {
 	private Comparator<Item> comparador;
 
 	/**
-	 * Metodo que inicializa um Controller.
-	 * <p>
+	 * Metodo que inicializa o Controller de itens.
+	 *
 	 * Este metodo nao utiliza parametros.
-	 * <p>
+	 *
 	 * Este metodo nao retorna nenhum valor.
 	 */
 	public ControllerItem() {
@@ -48,16 +47,16 @@ public class ControllerItem {
 
 	/**
 	 * Metodo que cria e adiciona um novo ItemPorQuantidade a uma lista que contem
-	 * todos os itens.
+	 * todos os itens cadastrados.
 	 *
 	 * @param nome            Uma String que representa o nome do produto.
 	 * @param categoria       Uma String que representa a categoria do item.
 	 * @param qnt             Um inteiro que representa a quantidade de produtos que
-	 *                        se encontram na embalagem do item.
+	 *                        se encontram na embalagem de um item.
 	 * @param unidadeDeMedida Uma String que representa a unidade de medida do
 	 *                        produto (gramas, litros, etc.).
 	 * @param localDeCompra   Uma String que representa onde o item foi comprado.
-	 * @param preco           Um double que representa o valor do produto.
+	 * @param preco           Um double que representa o valor do item.
 	 * @return Um inteiro que representa o identificador do produto.
 	 */
 	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
@@ -129,7 +128,7 @@ public class ControllerItem {
 	 * @param id        Um inteiro que representa o identificador unico de um item.
 	 * @param atributo  Uma String que representa o atributo a ser modificado.
 	 * @param novoValor Uma String que representa o novo valor para o item.
-	 *                  <p>
+	 *
 	 *                  Este metodo nao retorna nenhum valor.
 	 */
 	public void atualizaItem(int id, String atributo, String novoValor) {
@@ -161,7 +160,7 @@ public class ControllerItem {
 	 * @param localDeCompra Uma String que representa o local de compra do item.
 	 * @param preco         Um double que representa o valor do preco que será
 	 *                      adicionado.
-	 *                      <p>
+	 *
 	 *                      Este método não retorna nenhum valor.
 	 */
 	public void adicionaPrecoItem(int id, String localDeCompra, double preco) {
@@ -176,7 +175,7 @@ public class ControllerItem {
 	 * Metodo que remove um item a partir de seu id.
 	 *
 	 * @param id Um inteiro que representa o identificador de um item.
-	 *           <p>
+	 *
 	 *           Este metodo nao retorna nenhum valor.
 	 */
 	public void deletaItem(int id) {
@@ -208,7 +207,8 @@ public class ControllerItem {
 	}
 
 	/**
-	 * Metodo que ordena os itens por categoria.
+	 * Metodo que ordena os itens pela categoria e retorna a exibicao de um item
+	 * a partir da sua posicao na lista ordenada de itens.
 	 *
 	 * @param posicao   A posicao em que o item esta posicionado ordenadamente.
 	 * @param categoria catergoria que sera realizada a pesquisa.
@@ -237,8 +237,8 @@ public class ControllerItem {
 	}
 
 	/**
-	 * Metodo que ordena os itens por preco. e retorna um item na posicao em que foi
-	 * ordenado.
+	 * Metodo que ordena os itens por preco, e retorna a exibicao de um item
+	 * a partir da sua posicao na lista ordenada de itens.
 	 *
 	 * @param posicao A posicao em que o item esta posicionado ordenadamente.
 	 * @return Uma String que contem a exibicao de um item.
@@ -260,7 +260,7 @@ public class ControllerItem {
 	/**
 	 * Metodo que ordena os itens relacionados a uma dada string de pesquisa e a
 	 * listagem deve ocorrer em ordem alfabética considerando, a representação em
-	 * string do item. e retorna um item na posicao em que foi ordenado.
+	 * string do item, e retorna um item na posicao em que foi ordenado.
 	 *
 	 * @param posicao       A posicao em que o item esta posicionado ordenadamente.
 	 * @param strPesquisada parametro de pesquisa.
@@ -288,7 +288,7 @@ public class ControllerItem {
 
 	/**
 	 * Metodo Auxiliar que retorna um item. Possibilita a ligacao entre os
-	 * controllers. Recebe como parametro apenas o id do item que quer retornar.
+	 * controllers. Recebe como parametro apenas o id do item a ser retornado.
 	 * 
 	 * @param id Identificador unico do item.
 	 * @return retorna um item.
@@ -315,18 +315,18 @@ public class ControllerItem {
 	}
 
 	/**
-	 * Metodo getter que retorna o valor do ID.
+	 * Metodo getter que retorna o valor do ID do ultimo item cadastrado.
 	 * 
 	 * Este metodo nao utiliza parametros.
 	 * 
 	 * @return Um inteiro que representa o ID de um Item.
 	 */
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	/**
-	 * Metodo setter que define o valor do ID de um Item.
+	 * Metodo setter que define o valor do ID do ultimo item cadastrado.
 	 * 
 	 * @param id Um inteiro que reprenta o ID de um Item.
 	 * 
@@ -337,9 +337,9 @@ public class ControllerItem {
 	}
 
 	/**
-	 * Metodo auxiliar que retorna o Id a partir do nome do mesmo.
+	 * Metodo auxiliar que retorna o Id a partir do nome do item.
 	 * 
-	 * @param nomeItem Nome do item que se quer reccuperar o Id.
+	 * @param nomeItem Nome do item a ter ID recuperado.
 	 * @return Retorna o Id do item.
 	 */
 	public int getIdPorDescricao(String nomeItem) {
@@ -352,18 +352,18 @@ public class ControllerItem {
 	}
 
 	/**
-	 * Metodo que retorna um Map que mapeia um Item a um Inteiro.
+	 * Metodo que retorna o mapa de itens cadastrados.
 	 * 
 	 * Este metodo nao utiliza parametros.
 	 * 
 	 * @return Um Map que mapeia um Item a um inteiro.
 	 */
 	public Map<Integer, Item> getItens() {
-		return itens;
+		return this.itens;
 	}
 
 	/**
-	 * Metodo que define o valor de um Map.
+	 * Metodo que define o valor do mapa de itens cadastrados.
 	 * 
 	 * @param itens Um Map que mapeia Itens a inteiros.
 	 * 

@@ -12,7 +12,7 @@ import controllers.ControllerLista;
 /**
  * Laboratorio de Programacao 2 - Lista pra mim© Project
  * 
- * Representacao de uma Facade. A facade delega os metodos de um Sistema.
+ * Representacao de uma Facade. Esta que delega os metodos para seus devidos destinos.
  * 
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
@@ -21,12 +21,11 @@ import controllers.ControllerLista;
  */
 public class Facade {
 
-	// Este atributo representa um Objeto ControllerItem.
+	// Atributo que representa um Objeto ControllerItem.
 	private ControllerItem controllerItem;
-
-	// Este atributo representa um Objeto ControllerLista.
+	// Atributo que representa um Objeto ControllerLista.
 	private ControllerLista controllerLista;
-	// Este atributo representa um Objeto Persistência.
+	// Atributo que representa um Objeto Persistência.
 	private Persistencia persistencia;
 
 	public static void main(String[] args) {
@@ -42,8 +41,7 @@ public class Facade {
 	}
 
 	/**
-	 * Constroi o objeto Facade, e inicializa o objeto Controller.
-	 * 
+	 * Constroi o objeto Facade, inicializa os objetos ControllerItem, ControllerLista e Persistencia.
 	 */
 	public Facade() {
 		this.controllerItem = new ControllerItem();
@@ -53,16 +51,16 @@ public class Facade {
 
 	/**
 	 * Metodo que cria e adiciona um novo ItemPorQuantidade a uma lista que contem
-	 * todos os itens.
+	 * todos os itens cadastrados.
 	 *
 	 * @param nome            Uma String que representa o nome do produto.
 	 * @param categoria       Uma String que representa a categoria do item.
 	 * @param qnt             Um inteiro que representa a quantidade de produtos que
-	 *                        se encontram na embalagem do item.
+	 *                        se encontram na embalagem de um item.
 	 * @param unidadeDeMedida Uma String que representa a unidade de medida do
 	 *                        produto (gramas, litros, etc.).
 	 * @param localDeCompra   Uma String que representa onde o item foi comprado.
-	 * @param preco           Um double que representa o valor do produto.
+	 * @param preco           Um double que representa o valor do item.
 	 * @return Um inteiro que representa o identificador do produto.
 	 */
 	public int adicionaItemPorQtd(String nome, String categoria, int qnt, String unidadeDeMedida, String localDeCompra,
@@ -151,7 +149,8 @@ public class Facade {
 	}
 
 	/**
-	 * Metodo que ordena os itens por ordem alfabetica.
+	 * Metodo que ordena os itens por ordem alfabetica, e retorna um item na posicao
+	 * em que foi ordenado.
 	 *
 	 * @param posicao A posicao em que o item esta posicionado ordenadamente.
 	 * @return Uma String que contem a exibicao de um item.
@@ -161,8 +160,9 @@ public class Facade {
 	}
 
 	/**
-	 * Metodo que lista em ordem alfabetica os itens de uma dada categoria.
-	 * 
+	 * Metodo que ordena os itens pela categoria e retorna a exibicao de um item
+	 * a partir da sua posicao na lista ordenada de itens.
+	 *
 	 * @param posicao   A posicao em que o item esta posicionado ordenadamente.
 	 * @param categoria catergoria que sera realizada a pesquisa.
 	 * @return Uma String que contem a exibicao de um item.
@@ -172,7 +172,8 @@ public class Facade {
 	}
 
 	/**
-	 * Metodo que ordena os itens por preco.
+	 * Metodo que ordena os itens por preco, e retorna a exibicao de um item
+	 * a partir da sua posicao na lista ordenada de itens.
 	 *
 	 * @param posicao A posicao em que o item esta posicionado ordenadamente.
 	 * @return Uma String que contem a exibicao de um item.
@@ -183,9 +184,9 @@ public class Facade {
 
 	/**
 	 * Metodo que ordena os itens relacionados a uma dada string de pesquisa e a
-	 * listagem deve ocorrer em ordem alfabética considerando a representação em
-	 * string do item.
-	 * 
+	 * listagem deve ocorrer em ordem alfabética considerando, a representação em
+	 * string do item, e retorna um item na posicao em que foi ordenado.
+	 *
 	 * @param posicao       A posicao em que o item esta posicionado ordenadamente.
 	 * @param strPesquisada parametro de pesquisa.
 	 * @return Uma String que contem a exibicao de um item.
@@ -196,17 +197,17 @@ public class Facade {
 
 	/**
 	 * Cria uma nova lista de compras.
-	 * 
+	 *
 	 * @param descritorLista O descritor da lista.
-	 * @return em String o descritor da lista.
+	 * @return A representacao textual do descritor da lista criada.
 	 */
 	public String adicionaListaDeCompras(String descritorLista) {
 		return this.controllerLista.adicionaListaDeCompras(descritorLista);
 	}
 
 	/**
-	 * Este metodo adiciona um item com sua quantidade, em uma determinada lista.
-	 * 
+	 * Metodo que adiciona um item com sua quantidade, em uma determinada lista.
+	 *
 	 * @param descritorLista O descritor da lista.
 	 * @param quantidade     A quantidade do item.
 	 * @param itemId         O item a ser adicionado na lista.
@@ -216,8 +217,8 @@ public class Facade {
 	}
 
 	/**
-	 * Este metodo finaliza uma lista de compras.
-	 * 
+	 * Metodo que finaliza uma lista de compras.
+	 *
 	 * @param descritorLista     O descritor da lista.
 	 * @param localDaCompra      O local de compra da lista.
 	 * @param valorFinalDaCompra O valor final da compra.
@@ -227,10 +228,10 @@ public class Facade {
 	}
 
 	/**
-	 * Este metodo recupera uma lista a partir de sua desccricao.
-	 * 
+	 * Metodo que recupera uma lista a partir de sua descricao.
+	 *
 	 * @param descritorLista O descritor da lista.
-	 * @return em String a representacao de uma lista.
+	 * @return A representacao Textual de uma lista.
 	 */
 	public String pesquisaListaDeCompras(String descritorLista) {
 		return this.controllerLista.pesquisaListaDeCompras(descritorLista);
@@ -238,19 +239,19 @@ public class Facade {
 	}
 
 	/**
-	 * Este metodo pesquisa uma item em uma lista.
-	 * 
+	 * Metodo que pesquisa uma item em uma lista.
+	 *
 	 * @param descritorLista O descritor da lista.
 	 * @param itemId         o ID do item.
-	 * @return em String o item pesquisado na lista.
+	 * @return A representacao textual do item pesquisado na lista.
 	 */
 	public String pesquisaCompraEmLista(String descritorLista, int itemId) {
 		return this.controllerLista.pesquisaCompraEmLista(descritorLista, itemId);
 	}
 
 	/**
-	 * Este metodo atualiza a quantidade de um item, emm uma determinada lista.
-	 * 
+	 * Metodo que atualiza a quantidade de um item, em uma determinada lista.
+	 *
 	 * @param descritorLista O descritor da lista.
 	 * @param itemId         O ID do item.
 	 * @param quantidade     A quantidade nova do item.
@@ -262,19 +263,19 @@ public class Facade {
 	}
 
 	/**
-	 * Este metodo recupra um item de uma lsita, a partir de sua posicao.
-	 * 
+	 * Metodo que recupera um item de uma lista, a partir de sua posicao.
+	 *
 	 * @param descritorLista O descritor da lista.
 	 * @param posicaoItem    A posicao do Item.
-	 * @return em String a representacao de um item.
+	 * @return A representacao textual de um item.
 	 */
 	public String getItemLista(String descritorLista, int posicaoItem) {
 		return this.controllerLista.getItemLista(descritorLista, posicaoItem);
 	}
 
 	/**
-	 * Este metodo deleta uma compra de uma lista, pelo id do item.
-	 * 
+	 * Metodo que deleta uma compra de uma lista a partir do id do item.
+	 *
 	 * @param descritorLista O descritor da lista.
 	 * @param itemId         O ID do item.
 	 */
@@ -283,35 +284,34 @@ public class Facade {
 	}
 
 	/**
-	 * Este metodo recupera uma lista de compras a partir de sua data, e sua
-	 * posicao.
-	 * 
-	 * @param data         A data da lista.
-	 * @param posicaoLista A posicao da Lista
-	 * @return em String o nome da lista de compras.
+	 * Metodo que recupera uma lista de compras a partir de sua data de cadastro, e sua
+	 * posicao na lista de listas criadas no mesmo dia.
+	 *
+	 * @param data         A data da de criacao da lista.
+	 * @param posicaoLista A posicao da lista.
+	 * @return A representacao textual da lista de compras escolhida.
 	 */
 	public String getItemListaPorData(String data, int posicaoLista) {
 		return this.controllerLista.getItemListaPorData(data, posicaoLista);
 	}
 
 	/**
-	 * Recupera lista de compra a partir do id de um item, e tambem a partir da
-	 * posicao.
-	 * 
+	 * Metodo que recupera uma lista de compras a partir do id do item escolhido, e sua
+	 * posicao na lista de listas que possuem o mesmo item.
+	 *
 	 * @param id           O id do item.
 	 * @param posicaoLista A posicao da lista.
-	 * @return em String a representacao de umal ista de compras.
+	 * @return A representacao textual da lista de compras escolhida pelo usuario.
 	 */
 	public String getItemListaPorItem(int id, int posicaoLista) {
 		return this.controllerLista.getItemListaPorItem(id, posicaoLista);
 	}
 
 	/**
-	 * Metodo que retorna listas de compra pela data passa como parametro.
-	 * 
-	 * 
-	 * @param data A data.
-	 * @return em String a representacao contendo a(s) lista(s) com a data passada
+	 * Metodo que retorna todas as listas de compras cadastradas na data passada como parametro.
+	 *
+	 * @param data A data da de criacao da lista.
+	 * @return A representacao textual contendo a(s) lista(s) com a data passada
 	 *         como parametro.
 	 */
 	public String pesquisaListasDeComprasPorData(String data) {
@@ -319,17 +319,17 @@ public class Facade {
 	}
 
 	/**
-	 * Metodo que retorna as listas que contem determinado item.
-	 * 
+	 * Metodo que retorna as listas que contem um determinado item.
+	 *
 	 * @param id O id do item.
-	 * @return A representacao de varias listas que contem o item.
+	 * @return A representacao textual de todas as listas de compras que contem o item.
 	 */
 	public String pesquisaListasDeComprasPorItem(int id) {
 		return this.controllerLista.pesquisaListasDeComprasPorItem(id);
 	}
 
 	/**
-	 * Metodo que retorna a data atual.
+	 * Metodo que retorna a data atual do sistema.
 	 * 
 	 * @return em String a representacao da data atual.
 	 */
@@ -337,10 +337,11 @@ public class Facade {
 		return new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 	}
 
+
 	/**
-	 * Metodo que gera uma lista automatica 1, repetindo os itens da lista de
+	 * Metodo que gera uma lista automatica do tipo 1, repetindo os itens da lista de
 	 * compras mais recentemente criada.
-	 * 
+	 *
 	 * @return Retorna a representacao textual do descritor da lista automatica 1
 	 *         com a data da criacao.
 	 */
@@ -349,9 +350,9 @@ public class Facade {
 	}
 
 	/**
-	 * Metodo que gera uma lista automatica 2. Esssa lista é criada repetindo os
+	 * Metodo que gera uma lista automatica do tipo 2. Essa lista e criada repetindo os
 	 * itens da ultima lista que contem o item passado pelo usuario.
-	 * 
+	 *
 	 * @param descritorItem Nome do item que quer que esteja na lista automatica.
 	 * @return Retorna a representacao textual do descritor da lista automatica 2
 	 *         com a data da criacao.
@@ -361,7 +362,7 @@ public class Facade {
 	}
 
 	/**
-	 * Metodo que gera uma lista automatica 3 com os itens que mais aparecem nas
+	 * Metodo que gera uma lista automatica do tipo 3 com os itens que mais aparecem nas
 	 * listas geradas, anteriormente.
 	 * 
 	 * @return Retorna a representacao textual do descritor da lista automatica 3
@@ -373,7 +374,7 @@ public class Facade {
 
 	/**
 	 * Metodo que sugere os melhores estabelecimentos para se fazer as compras de
-	 * acordo com a lista passada, ordenados do menor para o maior, de acordo com o
+	 * acordo com a lista passada, ordenados de forma crescente, de acordo com o
 	 * valor medio das compras.
 	 * 
 	 * @param descritorLista         O descritor de uma lista.

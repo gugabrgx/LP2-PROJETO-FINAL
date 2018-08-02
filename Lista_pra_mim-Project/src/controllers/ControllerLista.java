@@ -10,8 +10,10 @@ import entidades.Item;
 import entidades.ListaDeCompras;
 
 /**
- * Laboratorio de Programacao 2 - Lab 1 Classe que representa o Controller.
- * Nesta classe e possivel realizar operacoes como: adicionar itens na lista de
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
+ *
+ * Classe que representa o Controller.
+ * Nesta classe e possivel realizar operacoes como: adicionar itens a uma lista de
  * compras, exibir listas, atualizar listas, etc.
  *
  * @author Eduardo Henrique Pontes Silva - 117210360
@@ -27,13 +29,13 @@ public class ControllerLista {
 	private Map<String, ListaDeCompras> listasDeCompras;
 
 	/**
-	 * Atributo que representa o controller de item, e permite este controler
-	 * conhecer os itens cadastrados.
+	 * Atributo que representa o controller de item, e permite este controller
+	 * conhecer os itens cadastrados no sistema.
 	 */
 	private ControllerItem controllerItem;
 
 	/**
-	 * Atributo que representa um comparador de compras
+	 * Atributo que representa um comparador de compras.
 	 */
 	private Comparator<ListaDeCompras> comparador;
 
@@ -73,7 +75,7 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Este metodo adiciona um item com sua quantidade, em uma determinada lista.
+	 * Metodo que adiciona um item com sua quantidade, em uma determinada lista.
 	 *
 	 * @param descritorLista O descritor da lista.
 	 * @param quantidade     A quantidade do item.
@@ -87,7 +89,7 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Este metodo finaliza uma lista de compras.
+	 * Metodo que finaliza uma lista de compras.
 	 *
 	 * @param descritorLista     O descritor da lista.
 	 * @param localDaCompra      O local de compra da lista.
@@ -115,7 +117,7 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Este metodo pesquisa uma item em uma lista.
+	 * Metodo que pesquisa uma item em uma lista.
 	 *
 	 * @param descritorLista O descritor da lista.
 	 * @param itemId         o ID do item.
@@ -132,7 +134,7 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Este metodo atualiza a quantidade de um item, emm uma determinada lista.
+	 * Metodo que atualiza a quantidade de um item, em uma determinada lista.
 	 *
 	 * @param descritorLista O descritor da lista.
 	 * @param itemId         O ID do item.
@@ -153,11 +155,11 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Este metodo recupra um item de uma lista, a partir de sua posicao.
+	 * Metodo que recupera um item de uma lista, a partir de sua posicao.
 	 *
 	 * @param descritorLista O descritor da lista.
 	 * @param posicaoItem    A posicao do Item.
-	 * @return A representacao Textual de um item.
+	 * @return A representacao textual de um item.
 	 */
 	public String getItemLista(String descritorLista, int posicaoItem) {
 		this.verificaDescritor(descritorLista, "Erro na pesquisa de compra");
@@ -166,7 +168,7 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Este metodo deleta uma compra de uma lista, pelo id do item.
+	 * Metodo que deleta uma compra de uma lista a partir do id do item.
 	 *
 	 * @param descritorLista O descritor da lista.
 	 * @param itemId         O ID do item.
@@ -179,7 +181,7 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Este metodo recupera uma lista a partir de sua descricao.
+	 * Metodo que recupera uma lista a partir de sua descricao.
 	 *
 	 * @param descritorLista O descritor da lista.
 	 * @return A representacao Textual de uma lista.
@@ -191,8 +193,8 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Metodo que retorna uma lista com as listas criadas na data escolhida pelo
-	 * usuario.
+	 * Metodo que retorna uma lista com as listas de compras criadas na data escolhida pelo
+	 * usuario. Esta e ordenada lexicograficamente a partir de seus descritores.
 	 *
 	 * @param data A data da criaçao da lista.
 	 * @return As listas de compras criadas na data.
@@ -225,10 +227,10 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Metodo que retorna listas de compra pela data passa como parametro.
+	 * Metodo que retorna todas as listas de compras cadastradas na data passada como parametro.
 	 *
-	 * @param data A data.
-	 * @return A representacao Textual contendo a(s) lista(s) com a data passada
+	 * @param data A data da de criacao da lista.
+	 * @return A representacao textual contendo a(s) lista(s) com a data passada
 	 *         como parametro.
 	 */
 	public String pesquisaListasDeComprasPorData(String data) {
@@ -242,14 +244,13 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Este metodo recupera uma lista de compras a partir de sua data, e sua
-	 * posicao.
+	 * Metodo que recupera uma lista de compras a partir de sua data de cadastro, e sua
+	 * posicao na lista de listas criadas no mesmo dia.
 	 *
-	 * @param data         A data da lista.
-	 * @param posicaoLista A posicao da Lista
-	 * @return em String o nome da lista de compras.
+	 * @param data         A data da de criacao da lista.
+	 * @param posicaoLista A posicao da lista.
+	 * @return A representacao textual da lista de compras escolhida.
 	 */
-
 	public String getItemListaPorData(String data, int posicaoLista) {
 		if (posicaoLista < 0)
 			throw new ArrayIndexOutOfBoundsException("Erro na pesquisa de compra: posicao nao pode ser menor que zero");
@@ -259,10 +260,11 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Metodo que retorna uma lista com as listas que possuem o item escolhida pelo
+	 * Metodo que retorna uma lista com todas as listas que possuem o item escolhida pelo
 	 * usuario.
 	 *
 	 * @param id O id do item.
+	 * @param comparador Metodo de comparacao escolhido para a necessidade.
 	 * @return As listas de compra que possuem o item.
 	 */
 	private List<ListaDeCompras> getListasPorItem(int id, Comparator<ListaDeCompras> comparador) {
@@ -286,10 +288,10 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Metodo que retorna as listas que contem determinado item.
+	 * Metodo que retorna as listas que contem um determinado item.
 	 *
 	 * @param id O id do item.
-	 * @return A representacao textual de varias listas que contem o item.
+	 * @return A representacao textual de todas as listas de compras que contem o item.
 	 */
 	public String pesquisaListasDeComprasPorItem(int id) {
 		StringBuilder saida = new StringBuilder();
@@ -306,8 +308,8 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Recupera lista de compra a partir do id de um item, e tambem a partir da
-	 * posicao.
+	 * Metodo que recupera uma lista de compras a partir do id do item escolhido, e sua
+	 * posicao na lista de listas que possuem o mesmo item.
 	 *
 	 * @param id           O id do item.
 	 * @param posicaoLista A posicao da lista.
@@ -321,7 +323,7 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Este metodo recupera um item.
+	 * Metodo que recupera um item a partir de seu id.
 	 *
 	 * @param id  O id do item.
 	 * @param msg Parte da mensagem de erro que sera lancada caso alguma excecao
@@ -333,7 +335,7 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Este metodo recupera um item.
+	 * Metodo que recupera um item a partir de seu id.
 	 *
 	 * @param id O id do item.
 	 * 
@@ -366,7 +368,7 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Metodo que gera uma lista automatica 1, repetindo os itens da lista de
+	 * Metodo que gera uma lista automatica do tipo 1, repetindo os itens da lista de
 	 * compras mais recentemente criada.
 	 * 
 	 * @return Retorna a representacao textual do descritor da lista automatica 1
@@ -375,10 +377,7 @@ public class ControllerLista {
 	public String geraAutomaticaUltimaLista() {
 		String nomeLista = "Lista automatica 1 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 
-		List<ListaDeCompras> listasDeCompras = new ArrayList<>(this.listasDeCompras.values());
-		listasDeCompras.sort(new ComparaTempo());
-
-		ListaDeCompras ultimaLista = listasDeCompras.get(listasDeCompras.size() - 1);
+		ListaDeCompras ultimaLista = Collections.max(this.listasDeCompras.values(), new ComparaTempo());
 
 		this.listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista));
 
@@ -392,7 +391,7 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Metodo que gera uma lista automatica 2. Esssa lista é criada repetindo os
+	 * Metodo que gera uma lista automatica do tipo 2. Essa lista e criada repetindo os
 	 * itens da ultima lista que contem o item passado pelo usuario.
 	 * 
 	 * @param descritorItem Nome do item que quer que esteja na lista automatica.
@@ -409,9 +408,8 @@ public class ControllerLista {
 		String nomeLista = "Lista automatica 2 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 
 		try {
-			List<ListaDeCompras> listasComItem = this
-					.getListasPorItem(this.controllerItem.getIdPorDescricao(descritorItem), new ComparaTempo());
-			ultimaLista = listasComItem.get(listasComItem.size() - 1);
+			ultimaLista = Collections.max(this
+					.getListasPorItem(this.controllerItem.getIdPorDescricao(descritorItem), new ComparaTempo()), new ComparaTempo());
 		} catch (IllegalArgumentException e) {
 			throw new IllegalArgumentException(
 					"Erro na geracao de lista automatica por item: nao ha compras cadastradas com o item desejado.");
@@ -429,17 +427,19 @@ public class ControllerLista {
 	}
 
 	/**
-	 * Metodo que gera uma lista automatica 3 com os itens que mais aparecem nas
-	 * listas geradas, anteriormente.
+	 * Metodo que gera uma lista automatica do tipo 3 com os itens que mais aparecem nas
+	 * listas criadas anteriormente.
 	 * 
 	 * @return Retorna a representacao textual do descritor da lista automatica 3
 	 *         com a data da criacao.
 	 */
 	public String geraAutomaticaItensMaisPresentes() {
+		String nomeLista = "Lista automatica 3 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
 		int quantidade = 0;
 		int apareceu = 0;
-		String nomeLista = "Lista automatica 3 " + new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+
 		listasDeCompras.put(nomeLista, new ListaDeCompras(nomeLista));
+
 		for (int i = 0; i < controllerItem.getId(); i++) {
 			for (ListaDeCompras list : listasDeCompras.values()) {
 				if (list.hasItem(i)) {
@@ -447,6 +447,7 @@ public class ControllerLista {
 					quantidade += list.getQuantidadeCompra(this.pegaItem(i));
 				}
 			}
+
 			if (apareceu >= listasDeCompras.values().size() / 2) {
 				int quantidadeNovo = (int) (Math.floor(((double) quantidade) / apareceu));
 				listasDeCompras.get(nomeLista).adicionaCompraALista(quantidadeNovo, this.pegaItem(i));
@@ -463,15 +464,16 @@ public class ControllerLista {
 
 	/**
 	 * Metodo que recebe uma lista e cria outra lista com listas de compras geradas
-	 * com os estabelicmentos que contem os itens das lista passada.
+	 * com os estabelecimentos que contem os itens da lista repassada.
 	 * 
 	 * @param lista Lista base para formar a lista temporaria.
 	 * @return Retorna uma lista de estabelecimentos.
 	 */
 	private ArrayList<ListaDeCompras> listaTemp(ListaDeCompras lista) {
 		int contador = 0;
-		ArrayList<ListaDeCompras> listasTemp = new ArrayList<>();
 		double valor = 0;
+		ArrayList<ListaDeCompras> listasTemp = new ArrayList<>();
+
 		for (String local : lista.getEstabelecimentos()) {
 			listasTemp.add(new ListaDeCompras(local));
 			for (int i = 0; i < lista.getMaiorId() + 2; i++) {
@@ -495,12 +497,12 @@ public class ControllerLista {
 
 	/**
 	 * Metodo que sugere os melhores estabelecimentos para se fazer as compras de
-	 * acordo com a lista passada, ordenados do menor para o maior, de acordo com o
+	 * acordo com a lista passada, ordenados de forma crescente, de acordo com o
 	 * valor medio das compras.
 	 * 
 	 * @param descritorLista         O descritor de uma lista.
 	 * @param posicaoEstabelecimento Posicao que se encontra o estabelecimento.
-	 * @param posicaoLista           Posicao que se quer pesquisar da lista
+	 * @param posicaoLista           Posicao que se quer pesquisar na lista
 	 * @return retorna um representacao textual.
 	 */
 	public String sugereMelhorEstabelecimento(String descritorLista, int posicaoEstabelecimento, int posicaoLista) {
@@ -524,26 +526,25 @@ public class ControllerLista {
 			throw new IllegalArgumentException("Faltam dados para informar sobre preços em locais de compras.");
 
 		}
-
 	}
 
 	/**
 	 * Metodo getter que retorna um Map que mapeia listas de compras a Strings.
 	 * 
-	 * Este metodo nao utiliza parâmetros.
+	 * Este metodo nao utiliza parametros.
 	 * 
 	 * @return Um Map que mapeia listas de compras a Strings.
 	 */
 	public Map<String, ListaDeCompras> getListasDeCompras() {
-		return listasDeCompras;
+		return this.listasDeCompras;
 	}
 
 	/**
-	 * Metodo setter que define os valores de uma mapa.
+	 * Metodo setter que define os valores de um mapa.
 	 * 
 	 * @param listasDeCompras Um Map que mapeira listas de compras a Strings.
 	 * 
-	 *                        Este metodo nao retorna nenhum valor.
+	 * Este metodo nao retorna nenhum valor.
 	 */
 	public void setListasDeCompras(Map<String, ListaDeCompras> listasDeCompras) {
 		this.listasDeCompras = listasDeCompras;

@@ -6,10 +6,10 @@ import java.util.Comparator;
 import entidades.Compra;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  * 
- * Classe de comparação compras por nome categoria e por nome. Implementa o
- * Comparator.
+ * Classe de comparacao de compras por nome e categoria.
+ * Implementa o Comparator.
  * 
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400

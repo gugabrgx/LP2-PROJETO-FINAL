@@ -1,11 +1,11 @@
 package Enum;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  *
  * Enum que representa as categorias dos itens de um supermercado. Os item podem
  * ser categorizados como de higiene pessoal, limpeza, alimentos
- * industrializados e alimentos naoindustrilaizados.
+ * industrializados e alimentos nao industrilaizados.
  *
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Luiz Bispo dos Santos - 117210400

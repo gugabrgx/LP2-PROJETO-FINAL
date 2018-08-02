@@ -13,7 +13,7 @@ import entidades.ItemPorUnidade;
 import entidades.ListaDeCompras;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  * 
  * Rotina de testes da classe comparaTempo.
  * 
@@ -25,28 +25,17 @@ import entidades.ListaDeCompras;
 public class ComparaTempoTest {
 
 	/**
-	 * lista criado para testes.
+	 * Listas criadas para testes.
 	 */
-	private ListaDeCompras lista1;
-	/**
-	 * lista criado para testes.
-	 */
-	private ListaDeCompras lista2;
-	/**
-	 * lista criado para testes.
-	 */
-	private ListaDeCompras lista3;
-	/**
-	 * Comparador criado para testes.
-	 */
-	private ComparaTempo comparador;
-	/**
-	 * Comparador criado para testes.
-	 */
-	private ComparaTempo comparador2;
+	private ListaDeCompras lista1, lista2, lista3;
 
 	/**
-	 * Método que cria itens para testes.
+	 * Comparadores criado para testes.
+	 */
+	private ComparaTempo comparador, comparador2;
+
+	/**
+	 * Metodo que cria itens para testes.
 	 */
 	@Before
 	public void PreparaCenario() {
@@ -72,8 +61,7 @@ public class ComparaTempoTest {
 	}
 
 	/**
-	 * Método que testa Compare quando o preco Total da primeira lista é menor que o
-	 * da segunda lista.
+	 * Metodo que testa CompareTempo quando a primeira lista foi criada antes da segunda lista.
 	 */
 	@Test
 	public void testComparePrimeiro() {
@@ -81,8 +69,7 @@ public class ComparaTempoTest {
 	}
 
 	/**
-	 * Método que testa Compare quando preco Total da segunda lista é menor que o da
-	 * segunda lista.
+	 * Metodo que testa Compare quando a segunda lista foi criada antes da segunda lista.
 	 */
 	@Test
 	public void testCompareSegundo() {
@@ -90,7 +77,7 @@ public class ComparaTempoTest {
 	}
 
 	/**
-	 * Método que testa Compare quando o preco total das listas tem o mesmo preco.
+	 * Metodo que testa Compare quando o comparamos a mesma lista.
 	 */
 	@Test
 	public void testCompareIgual() {
@@ -98,7 +85,7 @@ public class ComparaTempoTest {
 	}
 
 	/**
-	 * Testa o construtor de um comparador por preco Total.
+	 * Metodo que testa o construtor de um comparador por tempo.
 	 */
 	@Test
 	public void testConstrutor() {

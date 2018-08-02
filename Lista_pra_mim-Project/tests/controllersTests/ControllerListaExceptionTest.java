@@ -8,7 +8,7 @@ import controllers.ControllerLista;
 import facade.Facade;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  *
  * Classe que testa os metodos da classe ControllerLista e esperam excecoes.
  *
@@ -169,7 +169,7 @@ public class ControllerListaExceptionTest {
 	/**
 	 * Metodo que testa o metodo FinalizarListaDeCompras com local de compra nulo.
 	 *
-	 * Esperando NullPointerException.
+	 * Esperando IllegalArgumentException.
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testFinalizarListaDeComprasInvalido5() {
@@ -299,7 +299,7 @@ public class ControllerListaExceptionTest {
 	/**
 	 * Metodo que testa o metodo deletaCompraDeLista com id invalido.
 	 *
-	 * Esperando IllegalArgumentException.
+	 * Esperando ArrayIndexOutOfBoundsException.
 	 */
 	@Test(expected = ArrayIndexOutOfBoundsException.class)
 	public void testDeletaCompraDeListaInvalido4() {
@@ -452,7 +452,7 @@ public class ControllerListaExceptionTest {
 	/**
 	 * Metodo que testa o metodo GetItemListaPorItem com produto nao cadastrado.
 	 *
-	 * Esperando IndexOutOfBoundsException.
+	 * Esperando IllegalArgumentException.
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testGetItemListaPorItemInvalido2() {
@@ -462,7 +462,7 @@ public class ControllerListaExceptionTest {
 	/**
 	 * Metodo que testa o metodo GetItemListaPorItem com produto nao cadastrado.
 	 *
-	 * Esperando IndexOutOfBoundsException.
+	 * Esperando IllegalArgumentException.
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testGetItemListaPorItemInvalido3() {
@@ -482,7 +482,7 @@ public class ControllerListaExceptionTest {
 	/**
 	 * Metodo que testa o metodo geraAutomatioItem com descritor de item vazio;
 	 *
-	 * Esperando NullPointerException.
+	 * Esperando IllegalArgumentException.
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testGeraAutomaticaItemInvalido2() {

@@ -12,7 +12,7 @@ import entidades.ItemPorQuilo;
 import entidades.ItemPorUnidade;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratóoio de Programacao 2 - Lista pra mim© Project
  * 
  * Rotina de testes da classe comparaPreco.
  * 
@@ -24,28 +24,16 @@ import entidades.ItemPorUnidade;
 public class ComparaPrecoTest {
 
 	/**
-	 * item criado para testes.
+	 * Itenscriado para testes.
 	 */
-	private Item item;
+	private Item item, item2, item3;
 	/**
-	 * item criado para testes.
+	 * Comparadores criado para testes.
 	 */
-	private Item item2;
-	/**
-	 * item criado para testes.
-	 */
-	private Item item3;
-	/**
-	 * Comparador criado para testes.
-	 */
-	private ComparaPreco comparador;
-	/**
-	 * Comparador criado para testes.
-	 */
-	private ComparaPreco comparador2;
+	private ComparaPreco comparador, comparador2;
 
 	/**
-	 * Método que cria itens para testes.
+	 * Metodo que cria itens para testes.
 	 */
 	@Before
 	public void PreparaCenario() {
@@ -57,7 +45,7 @@ public class ComparaPrecoTest {
 	}
 
 	/**
-	 * Método que testa Compare quando o preco do primeiro é menor que o do segundo
+	 * Metodo que testa ComparaPreco quando o preco do primeiro é menor que o do segundo
 	 * item.
 	 */
 	@Test
@@ -66,7 +54,7 @@ public class ComparaPrecoTest {
 	}
 
 	/**
-	 * Método que testa Compare quando o preco segundo é maior que do terceiro item.
+	 * Metodo que testa ComparaPreco quando o preco segundo é maior que do terceiro item.
 	 */
 	@Test
 	public void testCompareSegundo() {
@@ -74,7 +62,7 @@ public class ComparaPrecoTest {
 	}
 
 	/**
-	 * Método que testa Compare quando os itens tem o mesmo preco.
+	 * Metodo que testa ComparaPreco quando os itens tem o mesmo preco.
 	 */
 	@Test
 	public void testCompareIgual() {
@@ -82,7 +70,7 @@ public class ComparaPrecoTest {
 	}
 
 	/**
-	 * Testa o construtor de um comparador por preco.
+	 * Metodo que testa o construtor de um comparador por preco.
 	 */
 	@Test
 	public void testConstrutor() {

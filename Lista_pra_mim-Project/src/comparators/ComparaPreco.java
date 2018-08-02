@@ -6,10 +6,10 @@ import java.util.Comparator;
 import entidades.Item;
 
 /**
- * Laboratório de Programação 2 - Lista pra mim© Project
+ * Laboratorio de Programacao 2 - Lista pra mim© Project
  * 
- * Classe de comparação de itens a partir dos seus preço. Implementa o
- * Comparator.
+ * Classe de comparacao de itens a partir dos seus preço.
+ * Implementa o Comparator.
  * 
  * @author Eduardo Henrique Pontes Silva - 117210360
  * @author Gustavo Santos - 117210400
